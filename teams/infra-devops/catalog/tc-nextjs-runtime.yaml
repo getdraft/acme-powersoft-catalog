@@ -1,0 +1,25 @@
+schemaVersion: '1.0'
+uid: K8T2YQX5MD-NJ14
+type: technology_component
+name: Node.js 20 / Next.js 14 Runtime
+description: |
+  Containerized Next.js admin console runtime. The one product built on
+  a Node.js stack rather than .NET or Python.
+version: Node 20 / Next.js 14.2.3
+catalogStatus: complete
+lifecycleStatus: existing-only
+vendorLifecycle:
+  vendor: Node.js Foundation / Vercel
+  supportStatus: active
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+- technology-component
+- runtime
+- nodejs
+- nextjs
+businessContext:
+  pillar: business-pillar.platform
+  productFamily: Acme Admin Console
+capabilities: []
