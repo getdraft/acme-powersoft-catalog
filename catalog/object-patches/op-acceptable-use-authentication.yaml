@@ -1,0 +1,25 @@
+schemaVersion: '1.0'
+uid: 01KVNWGWYD-XW56
+type: object_patch
+name: Acme PowerSoft Acceptable Use -- Authentication
+aliases: []
+description: 'Company-local implementation lifecycle mapping for the Authentication capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.'
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: preferred
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+- configuration
+- acceptable-use
+- object-patch
+target: 01KQQ4Q026-MHJM
+patch:
+  owner:
+    team: core-platform
+    contact: core-platform@acmepowersoft.example.com
+  implementations:
+  - ref: M087QNW2D0-6G06
+    lifecycleStatus: preferred
+    notes: Azure AD B2C (Core Platform Engineering)

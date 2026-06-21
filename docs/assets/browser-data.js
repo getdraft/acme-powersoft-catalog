@@ -485,7 +485,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -501,7 +504,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "MH7JS0SPA4-YA23",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure API Management (Core Platform Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -536,12 +545,20 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-4WKE",
           "path": "domain"
+        },
+        {
+          "target": "MH7JS0SPA4-YA23",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[0].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-F6QT",
+          "path": "target"
         },
         {
           "source": "MH7JS0SPA4-YA23",
@@ -590,7 +607,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-3A6F\",\n  \"type\": \"capability\",\n  \"name\": \"API Gateway\",\n  \"description\": \"Inbound API traffic is routed, authenticated, rate-limited, and transformed at a managed entry point in front of backend services.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-4WKE\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-api-gateway.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-3A6F\",\n  \"type\": \"capability\",\n  \"name\": \"API Gateway\",\n  \"description\": \"Inbound API traffic is routed, authenticated, rate-limited, and transformed at a managed entry point in front of backend services.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-4WKE\",\n  \"implementations\": [\n    {\n      \"ref\": \"MH7JS0SPA4-YA23\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure API Management (Core Platform Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-api-gateway.yaml\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -773,7 +790,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -789,7 +809,28 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "12D3W1HAV5-AA70",
+          "lifecycleStatus": "existing-only",
+          "notes": ".NET 8 ASP.NET Core Runtime (core-platform)"
+        },
+        {
+          "ref": "D2K2AEW24S-0XJ8",
+          "lifecycleStatus": "existing-only",
+          "notes": "Python 3.12 / Apache Airflow Runtime (data-analytics)"
+        },
+        {
+          "ref": "K8T2YQX5MD-NJ14",
+          "lifecycleStatus": "existing-only",
+          "notes": "Node.js 20 / Next.js 14 Runtime (infra-devops)"
+        },
+        {
+          "ref": "ZYM7F5ZER1-468B",
+          "lifecycleStatus": "existing-only",
+          "notes": "PowerBuilder 2019 Runtime (tax-compliance)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -824,12 +865,48 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-ZTHF",
           "path": "domain"
+        },
+        {
+          "target": "12D3W1HAV5-AA70",
+          "path": "implementations[0].ref"
+        },
+        {
+          "target": "D2K2AEW24S-0XJ8",
+          "path": "implementations[1].ref"
+        },
+        {
+          "target": "K8T2YQX5MD-NJ14",
+          "path": "implementations[2].ref"
+        },
+        {
+          "target": "ZYM7F5ZER1-468B",
+          "path": "implementations[3].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[4].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-TGZ9",
+          "path": "target"
+        },
+        {
+          "source": "12D3W1HAV5-AA70",
+          "path": "capabilities[0]"
+        },
+        {
+          "source": "D2K2AEW24S-0XJ8",
+          "path": "capabilities[0]"
+        },
+        {
+          "source": "K8T2YQX5MD-NJ14",
+          "path": "capabilities[0]"
+        },
+        {
+          "source": "ZYM7F5ZER1-468B",
+          "path": "capabilities[0]"
         }
       ],
       "editorSchema": {
@@ -870,7 +947,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-RZV0\",\n  \"type\": \"capability\",\n  \"name\": \"Application Runtime\",\n  \"description\": \"First-party application code executes on a managed runtime that provides the process, web, or worker execution environment.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-application-runtime.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-RZV0\",\n  \"type\": \"capability\",\n  \"name\": \"Application Runtime\",\n  \"description\": \"First-party application code executes on a managed runtime that provides the process, web, or worker execution environment.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [\n    {\n      \"ref\": \"12D3W1HAV5-AA70\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \".NET 8 ASP.NET Core Runtime (core-platform)\"\n    },\n    {\n      \"ref\": \"D2K2AEW24S-0XJ8\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Python 3.12 / Apache Airflow Runtime (data-analytics)\"\n    },\n    {\n      \"ref\": \"K8T2YQX5MD-NJ14\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Node.js 20 / Next.js 14 Runtime (infra-devops)\"\n    },\n    {\n      \"ref\": \"ZYM7F5ZER1-468B\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"PowerBuilder 2019 Runtime (tax-compliance)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-application-runtime.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -1053,7 +1130,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -1069,7 +1149,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "M087QNW2D0-6G06",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure AD B2C (Core Platform Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -1104,6 +1190,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-71PY",
           "path": "domain"
+        },
+        {
+          "target": "M087QNW2D0-6G06",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -1130,6 +1220,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "01KQQ4Q027-THYN",
           "path": "requirements[2].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-XW56",
+          "path": "target"
         },
         {
           "source": "H1ZTZXV5F6-C1CZ",
@@ -1182,7 +1276,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-MHJM\",\n  \"type\": \"capability\",\n  \"name\": \"Authentication\",\n  \"description\": \"Identity and access authentication capability for users, services, administrators, or workloads.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-71PY\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-authentication.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-MHJM\",\n  \"type\": \"capability\",\n  \"name\": \"Authentication\",\n  \"description\": \"Identity and access authentication capability for users, services, administrators, or workloads.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-71PY\",\n  \"implementations\": [\n    {\n      \"ref\": \"M087QNW2D0-6G06\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure AD B2C (Core Platform Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-authentication.yaml\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -1225,7 +1319,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -1241,7 +1338,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "A4M2HB1G1D-22DT",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure Cache for Redis (Core Platform Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -1276,12 +1379,20 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-ZTHF",
           "path": "domain"
+        },
+        {
+          "target": "A4M2HB1G1D-22DT",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[6].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-QXMV",
+          "path": "target"
         },
         {
           "source": "A4M2HB1G1D-22DT",
@@ -1330,7 +1441,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-ECR4\",\n  \"type\": \"capability\",\n  \"name\": \"Caching\",\n  \"description\": \"Frequently accessed data is stored in a fast, ephemeral tier to reduce latency and load on the system of record.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-caching.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-ECR4\",\n  \"type\": \"capability\",\n  \"name\": \"Caching\",\n  \"description\": \"Frequently accessed data is stored in a fast, ephemeral tier to reduce latency and load on the system of record.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [\n    {\n      \"ref\": \"A4M2HB1G1D-22DT\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure Cache for Redis (Core Platform Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-caching.yaml\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -1720,14 +1831,6 @@ window.DRAFT_BROWSER_DATA = {
           "path": "requirements[1].relatedCapability"
         },
         {
-          "source": "PV9F22JQ2K-LSE9",
-          "path": "capabilities[0]"
-        },
-        {
-          "source": "4MNRK1XQZ7-PB10",
-          "path": "capabilities[0]"
-        },
-        {
           "source": "KFP31VBNDB-RART",
           "path": "capabilities[0]"
         },
@@ -1833,7 +1936,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -1849,7 +1955,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "WBCN4NVAYG-RFC8",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure Standard_D-series v5 VM (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -1884,6 +1996,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-ZTHF",
           "path": "domain"
+        },
+        {
+          "target": "WBCN4NVAYG-RFC8",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -1894,6 +2010,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "01KQQ4Q027-THYN",
           "path": "requirements[1].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-595B",
+          "path": "target"
         },
         {
           "source": "WBCN4NVAYG-RFC8",
@@ -1938,7 +2058,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-1HZP\",\n  \"type\": \"capability\",\n  \"name\": \"Compute Platform\",\n  \"description\": \"Compute substrate or virtualized platform used to run Hosts.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-compute-platform.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-1HZP\",\n  \"type\": \"capability\",\n  \"name\": \"Compute Platform\",\n  \"description\": \"Compute substrate or virtualized platform used to run Hosts.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [\n    {\n      \"ref\": \"WBCN4NVAYG-RFC8\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure Standard_D-series v5 VM (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-compute-platform.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -2261,7 +2381,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "data-analytics",
+        "contact": "data-analytics@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -2277,7 +2400,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "D2K2AEW24S-0XJ8",
+          "lifecycleStatus": "existing-only",
+          "notes": "Python 3.12 / Apache Airflow Runtime (data-analytics)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -2312,12 +2441,24 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KT0XNZEY-QY0Y",
           "path": "domain"
+        },
+        {
+          "target": "D2K2AEW24S-0XJ8",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[16].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-P66J",
+          "path": "target"
+        },
+        {
+          "source": "D2K2AEW24S-0XJ8",
+          "path": "capabilities[1]"
         }
       ],
       "editorSchema": {
@@ -2358,7 +2499,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0XNZEY-DENJ\",\n  \"type\": \"capability\",\n  \"name\": \"Data Integration\",\n  \"description\": \"Data is moved, transformed, and synchronized between systems through a managed integration or ETL platform.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KT0XNZEY-QY0Y\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-data-integration.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0XNZEY-DENJ\",\n  \"type\": \"capability\",\n  \"name\": \"Data Integration\",\n  \"description\": \"Data is moved, transformed, and synchronized between systems through a managed integration or ETL platform.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KT0XNZEY-QY0Y\",\n  \"implementations\": [\n    {\n      \"ref\": \"D2K2AEW24S-0XJ8\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Python 3.12 / Apache Airflow Runtime (data-analytics)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-data-integration.yaml\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -2401,7 +2542,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -2417,7 +2561,28 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "NWFNB1R5TX-N5AC",
+          "lifecycleStatus": "existing-only",
+          "notes": "PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server) (core-platform)"
+        },
+        {
+          "ref": "2EJA62M0B7-HQXM",
+          "lifecycleStatus": "existing-only",
+          "notes": "Oracle Database 19c (tax-compliance)"
+        },
+        {
+          "ref": "TRAS6KGSAC-RGNM",
+          "lifecycleStatus": "existing-only",
+          "notes": "SQL Server 2022 (Azure SQL Managed Instance) (tax-compliance)"
+        },
+        {
+          "ref": "6YWAMCXE87-H8JW",
+          "lifecycleStatus": "preferred",
+          "notes": "Snowflake (Data & Analytics Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -2452,12 +2617,44 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-QHKZ",
           "path": "domain"
+        },
+        {
+          "target": "NWFNB1R5TX-N5AC",
+          "path": "implementations[0].ref"
+        },
+        {
+          "target": "2EJA62M0B7-HQXM",
+          "path": "implementations[1].ref"
+        },
+        {
+          "target": "TRAS6KGSAC-RGNM",
+          "path": "implementations[2].ref"
+        },
+        {
+          "target": "6YWAMCXE87-H8JW",
+          "path": "implementations[3].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[8].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-WG50",
+          "path": "target"
+        },
+        {
+          "source": "NWFNB1R5TX-N5AC",
+          "path": "capabilities[0]"
+        },
+        {
+          "source": "2EJA62M0B7-HQXM",
+          "path": "capabilities[0]"
+        },
+        {
+          "source": "TRAS6KGSAC-RGNM",
+          "path": "capabilities[0]"
         },
         {
           "source": "6YWAMCXE87-H8JW",
@@ -2506,7 +2703,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-VD0Y\",\n  \"type\": \"capability\",\n  \"name\": \"Data Persistence\",\n  \"description\": \"Structured application data is durably stored, queried, and managed in a database or persistence platform.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-QHKZ\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-data-persistence.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-VD0Y\",\n  \"type\": \"capability\",\n  \"name\": \"Data Persistence\",\n  \"description\": \"Structured application data is durably stored, queried, and managed in a database or persistence platform.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-QHKZ\",\n  \"implementations\": [\n    {\n      \"ref\": \"NWFNB1R5TX-N5AC\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server) (core-platform)\"\n    },\n    {\n      \"ref\": \"2EJA62M0B7-HQXM\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Oracle Database 19c (tax-compliance)\"\n    },\n    {\n      \"ref\": \"TRAS6KGSAC-RGNM\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"SQL Server 2022 (Azure SQL Managed Instance) (tax-compliance)\"\n    },\n    {\n      \"ref\": \"6YWAMCXE87-H8JW\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Snowflake (Data & Analytics Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-data-persistence.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -3449,7 +3646,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -3465,7 +3665,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "792738MBB6-8XMK",
+          "lifecycleStatus": "preferred",
+          "notes": "Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -3500,6 +3706,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-C213",
           "path": "domain"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -3530,6 +3740,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "KZM0T9NY43-3H8K",
           "path": "requirements[1].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-6663",
+          "path": "target"
         },
         {
           "source": "H1ZTZXV5F6-C1CZ",
@@ -3594,7 +3808,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-98VD\",\n  \"type\": \"capability\",\n  \"name\": \"Health and Welfare Monitoring\",\n  \"description\": \"Runtime health, uptime, metrics, and operational welfare visibility.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-C213\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-health-welfare-monitoring.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-98VD\",\n  \"type\": \"capability\",\n  \"name\": \"Health and Welfare Monitoring\",\n  \"description\": \"Runtime health, uptime, metrics, and operational welfare visibility.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-C213\",\n  \"implementations\": [\n    {\n      \"ref\": \"792738MBB6-8XMK\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-health-welfare-monitoring.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -3637,7 +3851,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -3653,7 +3870,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "792738MBB6-8XMK",
+          "lifecycleStatus": "preferred",
+          "notes": "Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -3688,6 +3911,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-C213",
           "path": "domain"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -3714,6 +3941,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "P6M8FWV2D8-0RM8",
           "path": "requirements[0].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-ZKB7",
+          "path": "target"
         },
         {
           "source": "H1ZTZXV5F6-C1CZ",
@@ -3766,7 +3997,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-D04B\",\n  \"type\": \"capability\",\n  \"name\": \"Log Management\",\n  \"description\": \"Aggregation, retention, searchability, and forwarding of system or application logs.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-C213\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-log-management.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-D04B\",\n  \"type\": \"capability\",\n  \"name\": \"Log Management\",\n  \"description\": \"Aggregation, retention, searchability, and forwarding of system or application logs.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-C213\",\n  \"implementations\": [\n    {\n      \"ref\": \"792738MBB6-8XMK\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-log-management.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -3809,7 +4040,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -3825,7 +4059,18 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "01KVNWGWYF-DKXK",
+          "lifecycleStatus": "existing-only",
+          "notes": "Asset & Lease Events Topic (Dedicated Service Bus) (asset-lease)"
+        },
+        {
+          "ref": "VKSQHZCHTK-VJP1",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure Service Bus (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -3860,12 +4105,28 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-ZTHF",
           "path": "domain"
+        },
+        {
+          "target": "01KVNWGWYF-DKXK",
+          "path": "implementations[0].ref"
+        },
+        {
+          "target": "VKSQHZCHTK-VJP1",
+          "path": "implementations[1].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[7].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-YVFY",
+          "path": "target"
+        },
+        {
+          "source": "01KVNWGWYF-DKXK",
+          "path": "capabilities[0]"
         },
         {
           "source": "VKSQHZCHTK-VJP1",
@@ -3914,7 +4175,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-KT72\",\n  \"type\": \"capability\",\n  \"name\": \"Messaging\",\n  \"description\": \"Asynchronous messages and events are accepted, queued, and delivered between producers and consumers.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-messaging.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-KT72\",\n  \"type\": \"capability\",\n  \"name\": \"Messaging\",\n  \"description\": \"Asynchronous messages and events are accepted, queued, and delivered between producers and consumers.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [\n    {\n      \"ref\": \"01KVNWGWYF-DKXK\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Asset & Lease Events Topic (Dedicated Service Bus) (asset-lease)\"\n    },\n    {\n      \"ref\": \"VKSQHZCHTK-VJP1\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure Service Bus (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-messaging.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -4362,7 +4623,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "data-analytics",
+        "contact": "data-analytics@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -4378,7 +4642,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "5JMBH216ND-AJE9",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure Data Lake Storage Gen2 (Data & Analytics Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -4413,12 +4683,20 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-QHKZ",
           "path": "domain"
+        },
+        {
+          "target": "5JMBH216ND-AJE9",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[9].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-CMZ9",
+          "path": "target"
         },
         {
           "source": "5JMBH216ND-AJE9",
@@ -4467,7 +4745,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-E9TN\",\n  \"type\": \"capability\",\n  \"name\": \"Object Storage\",\n  \"description\": \"Unstructured objects and blobs are durably stored and retrieved through an object storage interface.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-QHKZ\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-object-storage.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-E9TN\",\n  \"type\": \"capability\",\n  \"name\": \"Object Storage\",\n  \"description\": \"Unstructured objects and blobs are durably stored and retrieved through an object storage interface.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-QHKZ\",\n  \"implementations\": [\n    {\n      \"ref\": \"5JMBH216ND-AJE9\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure Data Lake Storage Gen2 (Data & Analytics Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-object-storage.yaml\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -4510,7 +4788,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -4526,7 +4807,18 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "8DD32B2D0H-2PCZ",
+          "lifecycleStatus": "existing-only",
+          "notes": "Windows Server 2022 (tax-compliance)"
+        },
+        {
+          "ref": "C657R8CNHY-FDK6",
+          "lifecycleStatus": "preferred",
+          "notes": "Ubuntu 22.04 LTS (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -4561,12 +4853,28 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-ZTHF",
           "path": "domain"
+        },
+        {
+          "target": "8DD32B2D0H-2PCZ",
+          "path": "implementations[0].ref"
+        },
+        {
+          "target": "C657R8CNHY-FDK6",
+          "path": "implementations[1].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KQQ4Q027-THYN",
           "path": "requirements[0].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-SZ9A",
+          "path": "target"
+        },
+        {
+          "source": "8DD32B2D0H-2PCZ",
+          "path": "capabilities[0]"
         },
         {
           "source": "C657R8CNHY-FDK6",
@@ -4611,7 +4919,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-QM2X\",\n  \"type\": \"capability\",\n  \"name\": \"Operating System\",\n  \"description\": \"Supported operating system product used to define managed Hosts.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-operating-system.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-QM2X\",\n  \"type\": \"capability\",\n  \"name\": \"Operating System\",\n  \"description\": \"Supported operating system product used to define managed Hosts.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [\n    {\n      \"ref\": \"8DD32B2D0H-2PCZ\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Windows Server 2022 (tax-compliance)\"\n    },\n    {\n      \"ref\": \"C657R8CNHY-FDK6\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Ubuntu 22.04 LTS (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-operating-system.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -5102,7 +5410,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "regulatory",
+        "contact": "regulatory@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -5118,7 +5429,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "4MNRK1XQZ7-PB10",
+          "lifecycleStatus": "existing-only",
+          "notes": "Power BI Embedded Capacity (Rate Case Dashboard) (regulatory)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -5153,12 +5470,24 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KT0XNZEY-HGZZ",
           "path": "domain"
+        },
+        {
+          "target": "4MNRK1XQZ7-PB10",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[18].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-G9FG",
+          "path": "target"
+        },
+        {
+          "source": "4MNRK1XQZ7-PB10",
+          "path": "capabilities[0]"
         }
       ],
       "editorSchema": {
@@ -5199,7 +5528,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0XNZEY-70Y6\",\n  \"type\": \"capability\",\n  \"name\": \"Reporting\",\n  \"description\": \"Curated metrics and datasets are presented to consumers through managed reports and dashboards.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KT0XNZEY-HGZZ\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-reporting.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0XNZEY-70Y6\",\n  \"type\": \"capability\",\n  \"name\": \"Reporting\",\n  \"description\": \"Curated metrics and datasets are presented to consumers through managed reports and dashboards.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KT0XNZEY-HGZZ\",\n  \"implementations\": [\n    {\n      \"ref\": \"4MNRK1XQZ7-PB10\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Power BI Embedded Capacity (Rate Case Dashboard) (regulatory)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-reporting.yaml\",\n  \"owner\": {\n    \"team\": \"regulatory\",\n    \"contact\": \"regulatory@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -5242,7 +5571,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -5258,7 +5590,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "5Q5CZMHNTR-71A8",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure Key Vault (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -5293,6 +5631,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-GY67",
           "path": "domain"
+        },
+        {
+          "target": "5Q5CZMHNTR-71A8",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -5315,6 +5657,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "01KQQ4Q027-K5DR",
           "path": "requirements[3].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-7QHG",
+          "path": "target"
         },
         {
           "source": "5Q5CZMHNTR-71A8",
@@ -5363,7 +5709,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-DTJJ\",\n  \"type\": \"capability\",\n  \"name\": \"Secrets Management\",\n  \"description\": \"Secure storage, rotation, and access mediation for secrets and authenticators.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-GY67\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-secrets-management.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-DTJJ\",\n  \"type\": \"capability\",\n  \"name\": \"Secrets Management\",\n  \"description\": \"Secure storage, rotation, and access mediation for secrets and authenticators.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-GY67\",\n  \"implementations\": [\n    {\n      \"ref\": \"5Q5CZMHNTR-71A8\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure Key Vault (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-secrets-management.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -5406,7 +5752,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -5422,7 +5771,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "792738MBB6-8XMK",
+          "lifecycleStatus": "preferred",
+          "notes": "Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -5457,6 +5812,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-GY67",
           "path": "domain"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -5479,6 +5838,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "01KQQ4Q027-THYN",
           "path": "requirements[5].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-7QJ8",
+          "path": "target"
         },
         {
           "source": "H1ZTZXV5F6-C1CZ",
@@ -5531,7 +5894,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-JW52\",\n  \"type\": \"capability\",\n  \"name\": \"Security Monitoring\",\n  \"description\": \"Threat detection, intrusion detection, security event monitoring, and audit telemetry.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-GY67\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-security-monitoring.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-JW52\",\n  \"type\": \"capability\",\n  \"name\": \"Security Monitoring\",\n  \"description\": \"Threat detection, intrusion detection, security event monitoring, and audit telemetry.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-GY67\",\n  \"implementations\": [\n    {\n      \"ref\": \"792738MBB6-8XMK\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-security-monitoring.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -18458,8 +18821,2245 @@ window.DRAFT_BROWSER_DATA = {
       "inboundRelationships": []
     },
     {
-      "id": "PV9F22JQ2K-LSE9",
-      "uid": "PV9F22JQ2K-LSE9",
+      "id": "01KVNWGWYD-F6QT",
+      "uid": "01KVNWGWYD-F6QT",
+      "name": "Acme PowerSoft Acceptable Use -- API Gateway",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the API Gateway capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-api-gateway.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-3A6F",
+          "path": "target"
+        },
+        {
+          "target": "MH7JS0SPA4-YA23",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-F6QT\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- API Gateway\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the API Gateway capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-3A6F\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"core-platform\",\n      \"contact\": \"core-platform@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"MH7JS0SPA4-YA23\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure API Management (Core Platform Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-api-gateway.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYD-TGZ9",
+      "uid": "01KVNWGWYD-TGZ9",
+      "name": "Acme PowerSoft Acceptable Use -- Application Runtime",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Application Runtime capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-application-runtime.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-RZV0",
+          "path": "target"
+        },
+        {
+          "target": "12D3W1HAV5-AA70",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "target": "D2K2AEW24S-0XJ8",
+          "path": "patch.implementations[1].ref"
+        },
+        {
+          "target": "K8T2YQX5MD-NJ14",
+          "path": "patch.implementations[2].ref"
+        },
+        {
+          "target": "ZYM7F5ZER1-468B",
+          "path": "patch.implementations[3].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-TGZ9\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Application Runtime\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Application Runtime capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-RZV0\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"12D3W1HAV5-AA70\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \".NET 8 ASP.NET Core Runtime (core-platform)\"\n      },\n      {\n        \"ref\": \"D2K2AEW24S-0XJ8\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Python 3.12 / Apache Airflow Runtime (data-analytics)\"\n      },\n      {\n        \"ref\": \"K8T2YQX5MD-NJ14\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Node.js 20 / Next.js 14 Runtime (infra-devops)\"\n      },\n      {\n        \"ref\": \"ZYM7F5ZER1-468B\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"PowerBuilder 2019 Runtime (tax-compliance)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-application-runtime.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYD-XW56",
+      "uid": "01KVNWGWYD-XW56",
+      "name": "Acme PowerSoft Acceptable Use -- Authentication",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Authentication capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-authentication.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-MHJM",
+          "path": "target"
+        },
+        {
+          "target": "M087QNW2D0-6G06",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-XW56\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Authentication\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Authentication capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-MHJM\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"core-platform\",\n      \"contact\": \"core-platform@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"M087QNW2D0-6G06\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure AD B2C (Core Platform Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-authentication.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYD-QXMV",
+      "uid": "01KVNWGWYD-QXMV",
+      "name": "Acme PowerSoft Acceptable Use -- Caching",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Caching capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-caching.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-ECR4",
+          "path": "target"
+        },
+        {
+          "target": "A4M2HB1G1D-22DT",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-QXMV\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Caching\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Caching capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-ECR4\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"core-platform\",\n      \"contact\": \"core-platform@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"A4M2HB1G1D-22DT\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure Cache for Redis (Core Platform Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-caching.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYD-595B",
+      "uid": "01KVNWGWYD-595B",
+      "name": "Acme PowerSoft Acceptable Use -- Compute Platform",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Compute Platform capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-compute-platform.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-1HZP",
+          "path": "target"
+        },
+        {
+          "target": "WBCN4NVAYG-RFC8",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-595B\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Compute Platform\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Compute Platform capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-1HZP\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"WBCN4NVAYG-RFC8\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure Standard_D-series v5 VM (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-compute-platform.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYD-P66J",
+      "uid": "01KVNWGWYD-P66J",
+      "name": "Acme PowerSoft Acceptable Use -- Data Integration",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Data Integration capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "data-analytics",
+        "contact": "data-analytics@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-data-integration.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0XNZEY-DENJ",
+          "path": "target"
+        },
+        {
+          "target": "D2K2AEW24S-0XJ8",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-P66J\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Data Integration\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Data Integration capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0XNZEY-DENJ\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"data-analytics\",\n      \"contact\": \"data-analytics@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"D2K2AEW24S-0XJ8\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Python 3.12 / Apache Airflow Runtime (data-analytics)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-data-integration.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYD-WG50",
+      "uid": "01KVNWGWYD-WG50",
+      "name": "Acme PowerSoft Acceptable Use -- Data Persistence",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Data Persistence capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-data-persistence.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-VD0Y",
+          "path": "target"
+        },
+        {
+          "target": "NWFNB1R5TX-N5AC",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "target": "2EJA62M0B7-HQXM",
+          "path": "patch.implementations[1].ref"
+        },
+        {
+          "target": "TRAS6KGSAC-RGNM",
+          "path": "patch.implementations[2].ref"
+        },
+        {
+          "target": "6YWAMCXE87-H8JW",
+          "path": "patch.implementations[3].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-WG50\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Data Persistence\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Data Persistence capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-VD0Y\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"NWFNB1R5TX-N5AC\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server) (core-platform)\"\n      },\n      {\n        \"ref\": \"2EJA62M0B7-HQXM\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Oracle Database 19c (tax-compliance)\"\n      },\n      {\n        \"ref\": \"TRAS6KGSAC-RGNM\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"SQL Server 2022 (Azure SQL Managed Instance) (tax-compliance)\"\n      },\n      {\n        \"ref\": \"6YWAMCXE87-H8JW\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Snowflake (Data & Analytics Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-data-persistence.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYD-6663",
+      "uid": "01KVNWGWYD-6663",
+      "name": "Acme PowerSoft Acceptable Use -- Health and Welfare Monitoring",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Health and Welfare Monitoring capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-health-and-welfare-monitoring.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-98VD",
+          "path": "target"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-6663\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Health and Welfare Monitoring\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Health and Welfare Monitoring capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-98VD\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"792738MBB6-8XMK\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-health-and-welfare-monitoring.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYD-ZKB7",
+      "uid": "01KVNWGWYD-ZKB7",
+      "name": "Acme PowerSoft Acceptable Use -- Log Management",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Log Management capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-log-management.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-D04B",
+          "path": "target"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-ZKB7\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Log Management\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Log Management capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-D04B\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"792738MBB6-8XMK\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-log-management.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYE-YVFY",
+      "uid": "01KVNWGWYE-YVFY",
+      "name": "Acme PowerSoft Acceptable Use -- Messaging",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Messaging capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-messaging.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-KT72",
+          "path": "target"
+        },
+        {
+          "target": "01KVNWGWYF-DKXK",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "target": "VKSQHZCHTK-VJP1",
+          "path": "patch.implementations[1].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-YVFY\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Messaging\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Messaging capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-KT72\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"01KVNWGWYF-DKXK\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Asset & Lease Events Topic (Dedicated Service Bus) (asset-lease)\"\n      },\n      {\n        \"ref\": \"VKSQHZCHTK-VJP1\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure Service Bus (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-messaging.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYE-CMZ9",
+      "uid": "01KVNWGWYE-CMZ9",
+      "name": "Acme PowerSoft Acceptable Use -- Object Storage",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Object Storage capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "data-analytics",
+        "contact": "data-analytics@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-object-storage.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-E9TN",
+          "path": "target"
+        },
+        {
+          "target": "5JMBH216ND-AJE9",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-CMZ9\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Object Storage\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Object Storage capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-E9TN\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"data-analytics\",\n      \"contact\": \"data-analytics@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"5JMBH216ND-AJE9\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure Data Lake Storage Gen2 (Data & Analytics Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-object-storage.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYE-SZ9A",
+      "uid": "01KVNWGWYE-SZ9A",
+      "name": "Acme PowerSoft Acceptable Use -- Operating System",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Operating System capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-operating-system.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-QM2X",
+          "path": "target"
+        },
+        {
+          "target": "8DD32B2D0H-2PCZ",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "target": "C657R8CNHY-FDK6",
+          "path": "patch.implementations[1].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-SZ9A\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Operating System\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Operating System capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-QM2X\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"8DD32B2D0H-2PCZ\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Windows Server 2022 (tax-compliance)\"\n      },\n      {\n        \"ref\": \"C657R8CNHY-FDK6\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Ubuntu 22.04 LTS (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-operating-system.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYE-G9FG",
+      "uid": "01KVNWGWYE-G9FG",
+      "name": "Acme PowerSoft Acceptable Use -- Reporting",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Reporting capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "regulatory",
+        "contact": "regulatory@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-reporting.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0XNZEY-70Y6",
+          "path": "target"
+        },
+        {
+          "target": "4MNRK1XQZ7-PB10",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-G9FG\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Reporting\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Reporting capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"regulatory\",\n    \"contact\": \"regulatory@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0XNZEY-70Y6\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"regulatory\",\n      \"contact\": \"regulatory@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"4MNRK1XQZ7-PB10\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Power BI Embedded Capacity (Rate Case Dashboard) (regulatory)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-reporting.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYE-7QHG",
+      "uid": "01KVNWGWYE-7QHG",
+      "name": "Acme PowerSoft Acceptable Use -- Secrets Management",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Secrets Management capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-secrets-management.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-DTJJ",
+          "path": "target"
+        },
+        {
+          "target": "5Q5CZMHNTR-71A8",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-7QHG\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Secrets Management\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Secrets Management capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-DTJJ\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"5Q5CZMHNTR-71A8\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure Key Vault (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-secrets-management.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYE-7QJ8",
+      "uid": "01KVNWGWYE-7QJ8",
+      "name": "Acme PowerSoft Acceptable Use -- Security Monitoring",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Security Monitoring capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-security-monitoring.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-JW52",
+          "path": "target"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-7QJ8\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Security Monitoring\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Security Monitoring capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-JW52\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"792738MBB6-8XMK\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-security-monitoring.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    {
+      "id": "01KVNWGWYF-DKXK",
+      "uid": "01KVNWGWYF-DKXK",
       "name": "Asset & Lease Events Topic (Dedicated Service Bus)",
       "aliases": [],
       "type": "technology_component",
@@ -18486,7 +21086,7 @@ window.DRAFT_BROWSER_DATA = {
       "classification": "",
       "platformDependency": "",
       "capabilities": [
-        "01KT0XNZEY-Q2TF"
+        "01KT0V5MCV-KT72"
       ],
       "configurations": [],
       "networkPlacement": "",
@@ -18552,11 +21152,19 @@ window.DRAFT_BROWSER_DATA = {
       "hasRiskRef": false,
       "outboundRefs": [
         {
-          "target": "01KT0XNZEY-Q2TF",
+          "target": "01KT0V5MCV-KT72",
           "path": "capabilities[0]"
         }
       ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-KT72",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-YVFY",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "QWD953NT60-B477",
           "path": "serviceGroups[2].deployableObjects[0].ref"
@@ -18620,7 +21228,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"PV9F22JQ2K-LSE9\",\n  \"type\": \"technology_component\",\n  \"name\": \"Asset & Lease Events Topic (Dedicated Service Bus)\",\n  \"description\": \"Dedicated Azure Service Bus topic for lease lifecycle events\\n(created/modified/retired). Deliberately kept separate from Sofia's\\nshared messaging backbone per Priya's guidance -- single-team ownership,\\nno shared-schema coordination overhead, route to the shared backbone\\nlater only if a real cross-team consumer appears.\\n\",\n  \"version\": \"1.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"asset-lease\",\n    \"contact\": \"asset-lease@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"messaging\",\n    \"asset-lease\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.asset-management\",\n    \"productFamily\": \"Acme Asset & Lease Manager\"\n  },\n  \"capabilities\": [\n    \"01KT0XNZEY-Q2TF\"\n  ],\n  \"_source\": \"catalog/technology-components/asset-lease/tc-azure-service-bus-asset-lease.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYF-DKXK\",\n  \"type\": \"technology_component\",\n  \"name\": \"Asset & Lease Events Topic (Dedicated Service Bus)\",\n  \"description\": \"Dedicated Azure Service Bus topic for lease lifecycle events\\n(created/modified/retired). Deliberately kept separate from Sofia's\\nshared messaging backbone per Priya's guidance -- single-team ownership,\\nno shared-schema coordination overhead, route to the shared backbone\\nlater only if a real cross-team consumer appears.\\n\",\n  \"version\": \"1.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"asset-lease\",\n    \"contact\": \"asset-lease@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"messaging\",\n    \"asset-lease\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.asset-management\",\n    \"productFamily\": \"Acme Asset & Lease Manager\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-KT72\"\n  ],\n  \"_source\": \"catalog/technology-components/asset-lease/tc-azure-service-bus-asset-lease.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -18653,7 +21261,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-RZV0"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -18717,8 +21327,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-RZV0",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-RZV0",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-TGZ9",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "KFP31VBNDB-RART",
           "path": "primaryTechnologyComponent"
@@ -18794,7 +21417,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"12D3W1HAV5-AA70\",\n  \"type\": \"technology_component\",\n  \"name\": \".NET 8 ASP.NET Core Runtime\",\n  \"description\": \"Managed-runtime application stack used to build and host Acme PowerSoft's\\ncontainerized C#/.NET services. Compiled to a self-contained Linux\\ncontainer image, run on AKS. Shared across multiple product teams that\\nbuild on .NET rather than each team cataloging their own runtime stack.\\n\",\n  \"version\": \"8.0.x\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2026-11-10\"\n  },\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"dotnet\",\n    \"shared\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Shared Runtime Stacks\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/core-platform/tc-dotnet8-runtime.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"12D3W1HAV5-AA70\",\n  \"type\": \"technology_component\",\n  \"name\": \".NET 8 ASP.NET Core Runtime\",\n  \"description\": \"Managed-runtime application stack used to build and host Acme PowerSoft's\\ncontainerized C#/.NET services. Compiled to a self-contained Linux\\ncontainer image, run on AKS. Shared across multiple product teams that\\nbuild on .NET rather than each team cataloging their own runtime stack.\\n\",\n  \"version\": \"8.0.x\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2026-11-10\"\n  },\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"dotnet\",\n    \"shared\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Shared Runtime Stacks\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-RZV0\"\n  ],\n  \"_source\": \"catalog/technology-components/core-platform/tc-dotnet8-runtime.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -18827,7 +21450,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-VD0Y"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -18890,8 +21515,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-VD0Y",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-VD0Y",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-WG50",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "C14NBVQZN9-S0GV",
           "path": "primaryTechnologyComponent"
@@ -18955,7 +21593,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"NWFNB1R5TX-N5AC\",\n  \"type\": \"technology_component\",\n  \"name\": \"PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server)\",\n  \"description\": \"Managed PostgreSQL used as the system-of-record for the Vantage tenancy\\nand entitlement data model.\\n\",\n  \"version\": \"16\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft / PostgreSQL Global Development Group\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"postgresql\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Acme Vantage\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/core-platform/tc-postgresql16.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"NWFNB1R5TX-N5AC\",\n  \"type\": \"technology_component\",\n  \"name\": \"PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server)\",\n  \"description\": \"Managed PostgreSQL used as the system-of-record for the Vantage tenancy\\nand entitlement data model.\\n\",\n  \"version\": \"16\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft / PostgreSQL Global Development Group\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"postgresql\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Acme Vantage\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-VD0Y\"\n  ],\n  \"_source\": \"catalog/technology-components/core-platform/tc-postgresql16.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -18988,7 +21626,10 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-RZV0",
+        "01KT0XNZEY-DENJ"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -19052,8 +21693,33 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-RZV0",
+          "path": "capabilities[0]"
+        },
+        {
+          "target": "01KT0XNZEY-DENJ",
+          "path": "capabilities[1]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-RZV0",
+          "path": "implementations[1].ref"
+        },
+        {
+          "source": "01KT0XNZEY-DENJ",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-TGZ9",
+          "path": "patch.implementations[1].ref"
+        },
+        {
+          "source": "01KVNWGWYD-P66J",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "VEWWR9JZAC-P285",
           "path": "primaryTechnologyComponent"
@@ -19117,7 +21783,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"D2K2AEW24S-0XJ8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Python 3.12 / Apache Airflow Runtime\",\n  \"description\": \"Containerized Apache Airflow scheduler + worker image (apache/airflow\\nbase) running ELT DAGs and the churn-risk model training job. Shared\\nruntime stack for Data & Analytics workloads, distinct from the .NET\\nstack the rest of the company builds on.\\n\",\n  \"version\": \"3.12 / Airflow 2.9\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Python Software Foundation / Apache Software Foundation\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"python\",\n    \"airflow\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.data-analytics\",\n    \"productFamily\": \"Acme Insight Hub\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/data-analytics/tc-python312-runtime.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"D2K2AEW24S-0XJ8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Python 3.12 / Apache Airflow Runtime\",\n  \"description\": \"Containerized Apache Airflow scheduler + worker image (apache/airflow\\nbase) running ELT DAGs and the churn-risk model training job. Shared\\nruntime stack for Data & Analytics workloads, distinct from the .NET\\nstack the rest of the company builds on.\\n\",\n  \"version\": \"3.12 / Airflow 2.9\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Python Software Foundation / Apache Software Foundation\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"python\",\n    \"airflow\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.data-analytics\",\n    \"productFamily\": \"Acme Insight Hub\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-RZV0\",\n    \"01KT0XNZEY-DENJ\"\n  ],\n  \"_source\": \"catalog/technology-components/data-analytics/tc-python312-runtime.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -19150,7 +21816,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-RZV0"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -19214,8 +21882,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-RZV0",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-RZV0",
+          "path": "implementations[2].ref"
+        },
+        {
+          "source": "01KVNWGWYD-TGZ9",
+          "path": "patch.implementations[2].ref"
+        },
         {
           "source": "DDKF51GRXT-9VE9",
           "path": "primaryTechnologyComponent"
@@ -19279,7 +21960,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"K8T2YQX5MD-NJ14\",\n  \"type\": \"technology_component\",\n  \"name\": \"Node.js 20 / Next.js 14 Runtime\",\n  \"description\": \"Containerized Next.js admin console runtime. The one product built on\\na Node.js stack rather than .NET or Python.\\n\",\n  \"version\": \"Node 20 / Next.js 14.2.3\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Node.js Foundation / Vercel\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"nodejs\",\n    \"nextjs\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Acme Admin Console\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/infra-devops/tc-nextjs-runtime.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"K8T2YQX5MD-NJ14\",\n  \"type\": \"technology_component\",\n  \"name\": \"Node.js 20 / Next.js 14 Runtime\",\n  \"description\": \"Containerized Next.js admin console runtime. The one product built on\\na Node.js stack rather than .NET or Python.\\n\",\n  \"version\": \"Node 20 / Next.js 14.2.3\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Node.js Foundation / Vercel\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"nodejs\",\n    \"nextjs\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Acme Admin Console\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-RZV0\"\n  ],\n  \"_source\": \"catalog/technology-components/infra-devops/tc-nextjs-runtime.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -19313,7 +21994,7 @@ window.DRAFT_BROWSER_DATA = {
       "classification": "",
       "platformDependency": "",
       "capabilities": [
-        "01KT0XNZEY-Q2TF"
+        "01KT0XNZEY-70Y6"
       ],
       "configurations": [],
       "networkPlacement": "",
@@ -19379,11 +22060,19 @@ window.DRAFT_BROWSER_DATA = {
       "hasRiskRef": false,
       "outboundRefs": [
         {
-          "target": "01KT0XNZEY-Q2TF",
+          "target": "01KT0XNZEY-70Y6",
           "path": "capabilities[0]"
         }
       ],
       "referencedBy": [
+        {
+          "source": "01KT0XNZEY-70Y6",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-G9FG",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "NDHCZF14QX-4EVH",
           "path": "serviceGroups[2].deployableObjects[0].ref"
@@ -19447,7 +22136,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"4MNRK1XQZ7-PB10\",\n  \"type\": \"technology_component\",\n  \"name\": \"Power BI Embedded Capacity (Rate Case Dashboard)\",\n  \"description\": \"Azure Power BI Embedded capacity hosting the rate-case dashboard\\nconsumed by regulators and outside counsel. First Power BI Embedded\\nobject in this catalog -- no prior example to follow, modeled as a\\nTechnologyComponent rather than a RuntimeService since it's a managed\\nPaaS reporting capacity, not a process we deploy code into.\\n\",\n  \"version\": \"A2 SKU\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"regulatory\",\n    \"contact\": \"regulatory@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"reporting\",\n    \"powerbi\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme RegTrack\"\n  },\n  \"capabilities\": [\n    \"01KT0XNZEY-Q2TF\"\n  ],\n  \"_source\": \"catalog/technology-components/regulatory/tc-powerbi-embedded.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"4MNRK1XQZ7-PB10\",\n  \"type\": \"technology_component\",\n  \"name\": \"Power BI Embedded Capacity (Rate Case Dashboard)\",\n  \"description\": \"Azure Power BI Embedded capacity hosting the rate-case dashboard\\nconsumed by regulators and outside counsel. First Power BI Embedded\\nobject in this catalog -- no prior example to follow, modeled as a\\nTechnologyComponent rather than a RuntimeService since it's a managed\\nPaaS reporting capacity, not a process we deploy code into.\\n\",\n  \"version\": \"A2 SKU\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"regulatory\",\n    \"contact\": \"regulatory@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"reporting\",\n    \"powerbi\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme RegTrack\"\n  },\n  \"capabilities\": [\n    \"01KT0XNZEY-70Y6\"\n  ],\n  \"_source\": \"catalog/technology-components/regulatory/tc-powerbi-embedded.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -19480,7 +22169,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-VD0Y"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -19544,8 +22235,22 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
-      "referencedBy": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-VD0Y",
+          "path": "capabilities[0]"
+        }
+      ],
+      "referencedBy": [
+        {
+          "source": "01KT0V5MCV-VD0Y",
+          "path": "implementations[1].ref"
+        },
+        {
+          "source": "01KVNWGWYD-WG50",
+          "path": "patch.implementations[1].ref"
+        }
+      ],
       "editorSchema": {
         "requiredFields": [
           "schemaVersion",
@@ -19604,7 +22309,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"2EJA62M0B7-HQXM\",\n  \"type\": \"technology_component\",\n  \"name\": \"Oracle Database 19c\",\n  \"description\": \"On-premise Oracle instance backing the legacy Property Tax schema\\n(PROPERTY_TAX_PARCEL and related tables). DBA-managed, not provisioned\\nvia Terraform or any code in this catalog -- see ticket TAX-1142.\\n\",\n  \"version\": \"19c\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Oracle\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2027-04-30\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"legacy\",\n    \"on-premise\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-oracle19c.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"2EJA62M0B7-HQXM\",\n  \"type\": \"technology_component\",\n  \"name\": \"Oracle Database 19c\",\n  \"description\": \"On-premise Oracle instance backing the legacy Property Tax schema\\n(PROPERTY_TAX_PARCEL and related tables). DBA-managed, not provisioned\\nvia Terraform or any code in this catalog -- see ticket TAX-1142.\\n\",\n  \"version\": \"19c\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Oracle\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2027-04-30\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"legacy\",\n    \"on-premise\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-VD0Y\"\n  ],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-oracle19c.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -19637,7 +22342,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-RZV0"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -19700,8 +22407,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-RZV0",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-RZV0",
+          "path": "implementations[3].ref"
+        },
+        {
+          "source": "01KVNWGWYD-TGZ9",
+          "path": "patch.implementations[3].ref"
+        },
         {
           "source": "FQR8TJFC7G-4MWS",
           "path": "primaryTechnologyComponent"
@@ -19765,7 +22485,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"ZYM7F5ZER1-468B\",\n  \"type\": \"technology_component\",\n  \"name\": \"PowerBuilder 2019 Runtime\",\n  \"description\": \"Vendor 4GL runtime for the legacy Property Tax thick-client application.\\nNo containerization, no horizontal scaling model -- a single Windows\\nservice process on a single VM. Modeled here as a TechnologyComponent\\nrather than forced into the runtime_service HA/scalability vocabulary,\\nper the friction note on rs-property-tax-legacy.yaml.\\n\",\n  \"version\": \"2019 R3\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Appeon (formerly Sybase/SAP)\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2027-06-30\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"legacy\",\n    \"powerbuilder\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-powerbuilder2019.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"ZYM7F5ZER1-468B\",\n  \"type\": \"technology_component\",\n  \"name\": \"PowerBuilder 2019 Runtime\",\n  \"description\": \"Vendor 4GL runtime for the legacy Property Tax thick-client application.\\nNo containerization, no horizontal scaling model -- a single Windows\\nservice process on a single VM. Modeled here as a TechnologyComponent\\nrather than forced into the runtime_service HA/scalability vocabulary,\\nper the friction note on rs-property-tax-legacy.yaml.\\n\",\n  \"version\": \"2019 R3\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Appeon (formerly Sybase/SAP)\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2027-06-30\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"legacy\",\n    \"powerbuilder\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-RZV0\"\n  ],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-powerbuilder2019.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -19798,7 +22518,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-VD0Y"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -19862,8 +22584,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-VD0Y",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-VD0Y",
+          "path": "implementations[2].ref"
+        },
+        {
+          "source": "01KVNWGWYD-WG50",
+          "path": "patch.implementations[2].ref"
+        },
         {
           "source": "5Z1DGT5HBX-38TA",
           "path": "primaryTechnologyComponent"
@@ -19935,7 +22670,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"TRAS6KGSAC-RGNM\",\n  \"type\": \"technology_component\",\n  \"name\": \"SQL Server 2022 (Azure SQL Managed Instance)\",\n  \"description\": \"Managed SQL Server used by the modern Tax Fixed Assets depreciation\\nengine. Reusable across other product teams running SQL Server-based\\ndatabases on Azure SQL Managed Instance.\\n\",\n  \"version\": \"2022\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"sqlserver\",\n    \"shared\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-sqlserver2022.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"TRAS6KGSAC-RGNM\",\n  \"type\": \"technology_component\",\n  \"name\": \"SQL Server 2022 (Azure SQL Managed Instance)\",\n  \"description\": \"Managed SQL Server used by the modern Tax Fixed Assets depreciation\\nengine. Reusable across other product teams running SQL Server-based\\ndatabases on Azure SQL Managed Instance.\\n\",\n  \"version\": \"2022\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"sqlserver\",\n    \"shared\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-VD0Y\"\n  ],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-sqlserver2022.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -19968,7 +22703,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KQQ4Q026-QM2X"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -20031,8 +22768,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-QM2X",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KQQ4Q026-QM2X",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-SZ9A",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "8FRABMZWDP-NB72",
           "path": "operatingSystemComponent"
@@ -20096,7 +22846,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"8DD32B2D0H-2PCZ\",\n  \"type\": \"technology_component\",\n  \"name\": \"Windows Server 2022\",\n  \"description\": \"OS for the on-premise Atlanta data center VM running the legacy Property\\nTax PowerBuilder application. Not part of the Azure estate.\\n\",\n  \"version\": \"2022\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2031-10-14\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"operating-system\",\n    \"on-premise\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-windows-server2022.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"8DD32B2D0H-2PCZ\",\n  \"type\": \"technology_component\",\n  \"name\": \"Windows Server 2022\",\n  \"description\": \"OS for the on-premise Atlanta data center VM running the legacy Property\\nTax PowerBuilder application. Not part of the Azure estate.\\n\",\n  \"version\": \"2022\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2031-10-14\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"operating-system\",\n    \"on-premise\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-QM2X\"\n  ],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-windows-server2022.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -23044,7 +25794,7 @@ window.DRAFT_BROWSER_DATA = {
           "deploymentTarget": "azure-service-bus",
           "deployableObjects": [
             {
-              "ref": "PV9F22JQ2K-LSE9",
+              "ref": "01KVNWGWYF-DKXK",
               "networkZone": "messaging",
               "diagramTier": "utility",
               "intent": "standalone",
@@ -23099,7 +25849,7 @@ window.DRAFT_BROWSER_DATA = {
           "path": "serviceGroups[1].deployableObjects[0].ref"
         },
         {
-          "target": "PV9F22JQ2K-LSE9",
+          "target": "01KVNWGWYF-DKXK",
           "path": "serviceGroups[2].deployableObjects[0].ref"
         }
       ],
@@ -23161,7 +25911,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/software-deployment-pattern.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"QWD953NT60-B477\",\n  \"type\": \"software_deployment_pattern\",\n  \"name\": \"Acme Asset & Lease Manager Pattern\",\n  \"description\": \"Deployment pattern for the Asset & Lease Manager: containerized ASP.NET\\nCore API on the shared AKS baseline, Azure SQL Database for lease/ARO\\nrecords, dedicated Service Bus topic for lease lifecycle events.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"owner\": {\n    \"team\": \"asset-lease\",\n    \"contact\": \"asset-lease@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"software-deployment-pattern\",\n    \"asset-lease\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.asset-management\",\n    \"productFamily\": \"Acme Asset & Lease Manager\"\n  },\n  \"architectureNotes\": {\n    \"availabilityTarget\": \"99.5%\",\n    \"availabilityRequirement\": \"Active-active AKS pods, zone-redundant SQL Database.\",\n    \"dataClassification\": \"Confidential\",\n    \"failureDomain\": {\n      \"scope\": \"single-region\",\n      \"description\": \"Same single-region AKS concentration risk as Core Platform and Tax Fixed Assets.\"\n    },\n    \"patternDeviations\": \"none\",\n    \"deploymentTargets\": \"Shared AKS baseline, East US 2. Dedicated Azure SQL Database and Service Bus namespace.\",\n    \"interServiceConnections\": \"Calls the shared Vantage Entitlement API for licensing checks.\",\n    \"externalDependencies\": \"Azure AD B2C, Azure Key Vault, Datadog.\"\n  },\n  \"decisionRecords\": [],\n  \"networkZones\": [\n    {\n      \"id\": \"app\",\n      \"name\": \"Application\",\n      \"tier\": \"application\",\n      \"description\": \"AKS-hosted Asset & Lease Manager pods.\"\n    },\n    {\n      \"id\": \"data\",\n      \"name\": \"Data\",\n      \"tier\": \"data\",\n      \"description\": \"Azure SQL Database, private endpoint only.\"\n    },\n    {\n      \"id\": \"messaging\",\n      \"name\": \"Messaging\",\n      \"tier\": \"utility\",\n      \"description\": \"Dedicated Service Bus topic for lease lifecycle events.\"\n    }\n  ],\n  \"serviceGroups\": [\n    {\n      \"name\": \"Application\",\n      \"deploymentTarget\": \"H1ZTZXV5F6-C1CZ\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"KFP31VBNDB-RART\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"application\",\n          \"intent\": \"ha\",\n          \"notes\": \"2-4 replicas, HPA on CPU.\"\n        },\n        {\n          \"ref\": \"ZV0QNH8M3D-EYW8\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"application\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Identity & Access service.\"\n        },\n        {\n          \"ref\": \"37AJ772M7W-V27N\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Secrets Management service.\"\n        },\n        {\n          \"ref\": \"FH8VD6HQ69-ZMEG\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Observability service.\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Data\",\n      \"deploymentTarget\": \"azure-sql-database\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"5Z1DGT5HBX-38TA\",\n          \"networkZone\": \"data\",\n          \"diagramTier\": \"data\",\n          \"intent\": \"ha\",\n          \"notes\": \"Zone-redundant Azure SQL Database.\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Messaging\",\n      \"deploymentTarget\": \"azure-service-bus\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"PV9F22JQ2K-LSE9\",\n          \"networkZone\": \"messaging\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"standalone\",\n          \"notes\": \"Dedicated topic, single-team ownership, not shared.\"\n        }\n      ]\n    }\n  ],\n  \"_source\": \"catalog/engineering/software-deployment-patterns/asset-lease/sdp.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"QWD953NT60-B477\",\n  \"type\": \"software_deployment_pattern\",\n  \"name\": \"Acme Asset & Lease Manager Pattern\",\n  \"description\": \"Deployment pattern for the Asset & Lease Manager: containerized ASP.NET\\nCore API on the shared AKS baseline, Azure SQL Database for lease/ARO\\nrecords, dedicated Service Bus topic for lease lifecycle events.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"owner\": {\n    \"team\": \"asset-lease\",\n    \"contact\": \"asset-lease@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"software-deployment-pattern\",\n    \"asset-lease\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.asset-management\",\n    \"productFamily\": \"Acme Asset & Lease Manager\"\n  },\n  \"architectureNotes\": {\n    \"availabilityTarget\": \"99.5%\",\n    \"availabilityRequirement\": \"Active-active AKS pods, zone-redundant SQL Database.\",\n    \"dataClassification\": \"Confidential\",\n    \"failureDomain\": {\n      \"scope\": \"single-region\",\n      \"description\": \"Same single-region AKS concentration risk as Core Platform and Tax Fixed Assets.\"\n    },\n    \"patternDeviations\": \"none\",\n    \"deploymentTargets\": \"Shared AKS baseline, East US 2. Dedicated Azure SQL Database and Service Bus namespace.\",\n    \"interServiceConnections\": \"Calls the shared Vantage Entitlement API for licensing checks.\",\n    \"externalDependencies\": \"Azure AD B2C, Azure Key Vault, Datadog.\"\n  },\n  \"decisionRecords\": [],\n  \"networkZones\": [\n    {\n      \"id\": \"app\",\n      \"name\": \"Application\",\n      \"tier\": \"application\",\n      \"description\": \"AKS-hosted Asset & Lease Manager pods.\"\n    },\n    {\n      \"id\": \"data\",\n      \"name\": \"Data\",\n      \"tier\": \"data\",\n      \"description\": \"Azure SQL Database, private endpoint only.\"\n    },\n    {\n      \"id\": \"messaging\",\n      \"name\": \"Messaging\",\n      \"tier\": \"utility\",\n      \"description\": \"Dedicated Service Bus topic for lease lifecycle events.\"\n    }\n  ],\n  \"serviceGroups\": [\n    {\n      \"name\": \"Application\",\n      \"deploymentTarget\": \"H1ZTZXV5F6-C1CZ\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"KFP31VBNDB-RART\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"application\",\n          \"intent\": \"ha\",\n          \"notes\": \"2-4 replicas, HPA on CPU.\"\n        },\n        {\n          \"ref\": \"ZV0QNH8M3D-EYW8\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"application\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Identity & Access service.\"\n        },\n        {\n          \"ref\": \"37AJ772M7W-V27N\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Secrets Management service.\"\n        },\n        {\n          \"ref\": \"FH8VD6HQ69-ZMEG\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Observability service.\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Data\",\n      \"deploymentTarget\": \"azure-sql-database\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"5Z1DGT5HBX-38TA\",\n          \"networkZone\": \"data\",\n          \"diagramTier\": \"data\",\n          \"intent\": \"ha\",\n          \"notes\": \"Zone-redundant Azure SQL Database.\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Messaging\",\n      \"deploymentTarget\": \"azure-service-bus\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"01KVNWGWYF-DKXK\",\n          \"networkZone\": \"messaging\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"standalone\",\n          \"notes\": \"Dedicated topic, single-team ownership, not shared.\"\n        }\n      ]\n    }\n  ],\n  \"_source\": \"catalog/engineering/software-deployment-patterns/asset-lease/sdp.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -24480,7 +27230,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -24679,7 +27429,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/host.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"H1ZTZXV5F6-C1CZ\",\n  \"type\": \"host\",\n  \"name\": \"Shared AKS Node Pool Baseline\",\n  \"description\": \"The common AKS node pool configuration (OS image, VM size, ingress-nginx, cert-manager, Datadog DaemonSet) that Infra & DevOps publishes as a Terraform module and that every product team's own cluster is built from. This Host object models that baseline, not any one product's specific cluster instance.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"host\",\n    \"kubernetes\",\n    \"shared-service\"\n  ],\n  \"architecturalDecisions\": {\n    \"externalInteractionRationales\": {\n      \"Authentication Platform\": \"Node-level Azure AD-integrated RBAC; no local Kubernetes users exist.\",\n      \"Logging Service\": \"Container and node logs forwarded via the Datadog Agent DaemonSet rather than Azure Monitor directly, to keep one log pipeline of record.\",\n      \"Monitoring Service\": \"Datadog Kubernetes integration is the single source of node and pod health for every product cluster.\",\n      \"Security Monitoring Service\": \"Datadog Cloud Security Management scans node and container configuration against CIS Kubernetes Benchmark.\",\n      \"Patch Management Platform\": \"AKS node image auto-upgrade channel set to NodeImage, applying OS and kubelet patches on a weekly maintenance window.\"\n    },\n    \"internalComponentRationales\": {\n      \"Ubuntu 22.04 LTS\": \"Standard AKS-supported node OS image.\",\n      \"Azure Standard_D-series v5 VM\": \"General-purpose compute tier sized for typical product workloads; teams with different profiles (Data & Analytics' Spark workers) override the node pool VM size in their own infra/ but inherit this baseline module otherwise.\"\n    }\n  },\n  \"operatingSystemComponent\": \"C657R8CNHY-FDK6\",\n  \"computePlatformComponent\": \"WBCN4NVAYG-RFC8\",\n  \"internalComponents\": [\n    {\n      \"ref\": \"C657R8CNHY-FDK6\",\n      \"role\": \"os\"\n    },\n    {\n      \"ref\": \"WBCN4NVAYG-RFC8\",\n      \"role\": \"hardware\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Authentication Platform\",\n      \"notes\": \"Azure AD-integrated Kubernetes RBAC; no local cluster users.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-MHJM\"\n      ]\n    },\n    {\n      \"name\": \"Logging Service\",\n      \"notes\": \"Datadog Agent DaemonSet collects and forwards container and node logs.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-D04B\"\n      ]\n    },\n    {\n      \"name\": \"Monitoring Service\",\n      \"notes\": \"Datadog Kubernetes integration tracks node and pod health.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    },\n    {\n      \"name\": \"Security Monitoring Service\",\n      \"notes\": \"Datadog Cloud Security Management benchmarks node and container configuration.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-JW52\"\n      ]\n    },\n    {\n      \"name\": \"Patch Management Platform\",\n      \"notes\": \"AKS NodeImage auto-upgrade channel on a weekly maintenance window.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-BH6E\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-THYN\",\n    \"8SEDYZHP49-YJHQ\",\n    \"2EZZ268XWW-B5TP\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"VM-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"decisionRecord\",\n        \"key\": null\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/hosts/host-aks-shared-node-pool.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"H1ZTZXV5F6-C1CZ\",\n  \"type\": \"host\",\n  \"name\": \"Shared AKS Node Pool Baseline\",\n  \"description\": \"The common AKS node pool configuration (OS image, VM size, ingress-nginx, cert-manager, Datadog DaemonSet) that Infra & DevOps publishes as a Terraform module and that every product team's own cluster is built from. This Host object models that baseline, not any one product's specific cluster instance.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"host\",\n    \"kubernetes\",\n    \"shared-service\"\n  ],\n  \"architecturalDecisions\": {\n    \"externalInteractionRationales\": {\n      \"Authentication Platform\": \"Node-level Azure AD-integrated RBAC; no local Kubernetes users exist.\",\n      \"Logging Service\": \"Container and node logs forwarded via the Datadog Agent DaemonSet rather than Azure Monitor directly, to keep one log pipeline of record.\",\n      \"Monitoring Service\": \"Datadog Kubernetes integration is the single source of node and pod health for every product cluster.\",\n      \"Security Monitoring Service\": \"Datadog Cloud Security Management scans node and container configuration against CIS Kubernetes Benchmark.\",\n      \"Patch Management Platform\": \"AKS node image auto-upgrade channel set to NodeImage, applying OS and kubelet patches on a weekly maintenance window.\"\n    },\n    \"internalComponentRationales\": {\n      \"Ubuntu 22.04 LTS\": \"Standard AKS-supported node OS image.\",\n      \"Azure Standard_D-series v5 VM\": \"General-purpose compute tier sized for typical product workloads; teams with different profiles (Data & Analytics' Spark workers) override the node pool VM size in their own infra/ but inherit this baseline module otherwise.\"\n    }\n  },\n  \"operatingSystemComponent\": \"C657R8CNHY-FDK6\",\n  \"computePlatformComponent\": \"WBCN4NVAYG-RFC8\",\n  \"internalComponents\": [\n    {\n      \"ref\": \"C657R8CNHY-FDK6\",\n      \"role\": \"os\"\n    },\n    {\n      \"ref\": \"WBCN4NVAYG-RFC8\",\n      \"role\": \"hardware\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Authentication Platform\",\n      \"notes\": \"Azure AD-integrated Kubernetes RBAC; no local cluster users.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-MHJM\"\n      ]\n    },\n    {\n      \"name\": \"Logging Service\",\n      \"notes\": \"Datadog Agent DaemonSet collects and forwards container and node logs.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-D04B\"\n      ]\n    },\n    {\n      \"name\": \"Monitoring Service\",\n      \"notes\": \"Datadog Kubernetes integration tracks node and pod health.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    },\n    {\n      \"name\": \"Security Monitoring Service\",\n      \"notes\": \"Datadog Cloud Security Management benchmarks node and container configuration.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-JW52\"\n      ]\n    },\n    {\n      \"name\": \"Patch Management Platform\",\n      \"notes\": \"AKS NodeImage auto-upgrade channel on a weekly maintenance window.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-BH6E\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-THYN\",\n    \"8SEDYZHP49-YJHQ\",\n    \"2EZZ268XWW-B5TP\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"VM-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"decisionRecord\",\n        \"key\": null\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/hosts/host-aks-shared-node-pool.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -24734,7 +27484,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -24910,7 +27660,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/runtime-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"37MYJCZ1V9-439T\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Tenant Entitlement Cache (Azure Cache for Redis)\",\n  \"description\": \"Caching tier in front of the Acme Vantage entitlement database. Not part of the Admin agent's original shared-services list -- added during Core Platform's review of the draft catalog (see EXERCISE_REPORT.md Agent Disposition Log).\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"caching\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"A4M2HB1G1D-22DT\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Access key authentication scoped to the Vantage entitlement service's managed identity via Azure AD-based Redis authentication (no shared access keys distributed to other teams).\",\n    \"secretsManagement\": \"Connection string is not a static secret -- Azure AD token-based auth means no long-lived Redis password exists for this instance.\",\n    \"serviceLogging\": \"Cache hit/miss ratio and eviction events stream to Datadog via the Azure Cache for Redis diagnostic integration.\",\n    \"healthWelfareMonitoring\": \"Datadog Redis integration tracks memory pressure, hit ratio, and connected client count.\",\n    \"availabilityModel\": \"Premium tier with zone redundancy in East US 2; tracked against Microsoft's 99.9% Redis SLA.\",\n    \"scalabilityModel\": \"Vertical scaling reviewed quarterly against memory pressure metrics; clustering not yet enabled (entitlement dataset fits comfortably in a single shard today).\",\n    \"recoverabilityModel\": \"Cache is rebuildable from the Vantage Postgres system of record on cold start; no backup is taken because the cache holds no data that is not also durably stored elsewhere.\",\n    \"failureDomain\": \"A cache outage degrades entitlement-check latency (falls back to direct Postgres reads) but does not cause incorrect entitlement decisions or downtime.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"A4M2HB1G1D-22DT\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Hit ratio and memory pressure alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-caching.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"37MYJCZ1V9-439T\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Tenant Entitlement Cache (Azure Cache for Redis)\",\n  \"description\": \"Caching tier in front of the Acme Vantage entitlement database. Not part of the Admin agent's original shared-services list -- added during Core Platform's review of the draft catalog (see EXERCISE_REPORT.md Agent Disposition Log).\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"caching\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"A4M2HB1G1D-22DT\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Access key authentication scoped to the Vantage entitlement service's managed identity via Azure AD-based Redis authentication (no shared access keys distributed to other teams).\",\n    \"secretsManagement\": \"Connection string is not a static secret -- Azure AD token-based auth means no long-lived Redis password exists for this instance.\",\n    \"serviceLogging\": \"Cache hit/miss ratio and eviction events stream to Datadog via the Azure Cache for Redis diagnostic integration.\",\n    \"healthWelfareMonitoring\": \"Datadog Redis integration tracks memory pressure, hit ratio, and connected client count.\",\n    \"availabilityModel\": \"Premium tier with zone redundancy in East US 2; tracked against Microsoft's 99.9% Redis SLA.\",\n    \"scalabilityModel\": \"Vertical scaling reviewed quarterly against memory pressure metrics; clustering not yet enabled (entitlement dataset fits comfortably in a single shard today).\",\n    \"recoverabilityModel\": \"Cache is rebuildable from the Vantage Postgres system of record on cold start; no backup is taken because the cache holds no data that is not also durably stored elsewhere.\",\n    \"failureDomain\": \"A cache outage degrades entitlement-check latency (falls back to direct Postgres reads) but does not cause incorrect entitlement decisions or downtime.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"A4M2HB1G1D-22DT\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Hit ratio and memory pressure alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-caching.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -24973,7 +27723,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -25170,7 +27920,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/runtime-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"ZV0QNH8M3D-EYW8\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Identity & Access (Azure AD B2C)\",\n  \"aliases\": [],\n  \"description\": \"Shared tenant identity and authentication service consumed by every Acme PowerSoft product. Owned by Core Platform Engineering as part of the Acme Vantage platform substrate.\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"identity\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"M087QNW2D0-6G06\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Administrators authenticate to the Azure AD B2C admin portal via Acme corporate Azure AD with mandatory MFA (Conditional Access policy CA-12); no shared admin accounts exist.\",\n    \"secretsManagement\": \"Custom policy signing keys and client secrets are stored in the Core Platform Azure Key Vault and rotated every 90 days by an automated runbook.\",\n    \"serviceLogging\": \"Sign-in and audit logs stream to the Core Platform Log Analytics workspace via Azure AD B2C diagnostic settings, then forward to the company-wide Datadog log pipeline (see Observability shared service).\",\n    \"healthWelfareMonitoring\": \"Azure Monitor alerts on sign-in failure rate and custom policy execution latency; surfaced on the Core Platform Datadog dashboard.\",\n    \"availabilityModel\": \"Microsoft-operated multi-region active-active service; Acme PowerSoft has no failover responsibility, target availability tracked against Microsoft's 99.9% Azure AD B2C SLA.\",\n    \"scalabilityModel\": \"Fully elastic, vendor-managed; Core Platform monitors monthly active user (MAU) consumption against the licensed tier.\",\n    \"recoverabilityModel\": \"Vendor-managed; Core Platform's only recovery responsibility is custom policy and key restoration from the policies Git repository and Key Vault soft-delete/purge protection.\",\n    \"failureDomain\": \"An outage affects sign-in and token issuance for every Acme PowerSoft product simultaneously; cached tokens continue to authorize existing sessions until expiry.\",\n    \"externalInteractionRationales\": {\n      \"Service Monitoring\": \"Routed through the shared Observability runtime service rather than a bespoke dashboard, consistent with the Infra & DevOps observability baseline.\"\n    },\n    \"internalComponentRationales\": {\n      \"Azure AD B2C\": \"Sole internal component; this is a fully PaaS-delivered identity provider with no self-managed compute.\"\n    }\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"M087QNW2D0-6G06\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Sign-in success/failure rate and custom policy latency monitored via Azure Monitor diagnostic export into the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-identity-access.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"ZV0QNH8M3D-EYW8\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Identity & Access (Azure AD B2C)\",\n  \"aliases\": [],\n  \"description\": \"Shared tenant identity and authentication service consumed by every Acme PowerSoft product. Owned by Core Platform Engineering as part of the Acme Vantage platform substrate.\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"identity\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"M087QNW2D0-6G06\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Administrators authenticate to the Azure AD B2C admin portal via Acme corporate Azure AD with mandatory MFA (Conditional Access policy CA-12); no shared admin accounts exist.\",\n    \"secretsManagement\": \"Custom policy signing keys and client secrets are stored in the Core Platform Azure Key Vault and rotated every 90 days by an automated runbook.\",\n    \"serviceLogging\": \"Sign-in and audit logs stream to the Core Platform Log Analytics workspace via Azure AD B2C diagnostic settings, then forward to the company-wide Datadog log pipeline (see Observability shared service).\",\n    \"healthWelfareMonitoring\": \"Azure Monitor alerts on sign-in failure rate and custom policy execution latency; surfaced on the Core Platform Datadog dashboard.\",\n    \"availabilityModel\": \"Microsoft-operated multi-region active-active service; Acme PowerSoft has no failover responsibility, target availability tracked against Microsoft's 99.9% Azure AD B2C SLA.\",\n    \"scalabilityModel\": \"Fully elastic, vendor-managed; Core Platform monitors monthly active user (MAU) consumption against the licensed tier.\",\n    \"recoverabilityModel\": \"Vendor-managed; Core Platform's only recovery responsibility is custom policy and key restoration from the policies Git repository and Key Vault soft-delete/purge protection.\",\n    \"failureDomain\": \"An outage affects sign-in and token issuance for every Acme PowerSoft product simultaneously; cached tokens continue to authorize existing sessions until expiry.\",\n    \"externalInteractionRationales\": {\n      \"Service Monitoring\": \"Routed through the shared Observability runtime service rather than a bespoke dashboard, consistent with the Infra & DevOps observability baseline.\"\n    },\n    \"internalComponentRationales\": {\n      \"Azure AD B2C\": \"Sole internal component; this is a fully PaaS-delivered identity provider with no self-managed compute.\"\n    }\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"M087QNW2D0-6G06\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Sign-in success/failure rate and custom policy latency monitored via Azure Monitor diagnostic export into the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-identity-access.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -25233,7 +27983,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -25413,7 +28163,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/runtime-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"0XWT91WY2F-2RR4\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Messaging Backbone (Azure Service Bus)\",\n  \"description\": \"Cross-product asynchronous event backbone owned by Infra & DevOps on behalf of all product teams.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"messaging\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"VKSQHZCHTK-VJP1\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Producers and consumers authenticate via Azure AD workload identity (managed identity per AKS pod); no shared access signature keys are distributed to application code.\",\n    \"secretsManagement\": \"No long-lived secrets exist for this service; managed identity tokens are short-lived and issued by Azure AD.\",\n    \"serviceLogging\": \"Operational logs (throttling, dead-letter events) stream to Datadog via the Azure Service Bus diagnostic settings integration.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Service Bus integration tracks queue depth, dead-letter count, and active connection count per topic.\",\n    \"availabilityModel\": \"Premium tier with availability zone redundancy in East US 2; tracks Microsoft's 99.9% Service Bus Premium SLA.\",\n    \"scalabilityModel\": \"Messaging units scaled manually today based on quarterly throughput review; auto-scale evaluation tracked under DEVOPS-211.\",\n    \"recoverabilityModel\": \"Geo-disaster recovery paired namespace in Central US, manual failover initiated by Infra & DevOps on-call per RUNBOOK-SB-02.\",\n    \"failureDomain\": \"A regional outage affects all cross-product event delivery; producers buffer locally for up to 5 minutes before failing the originating request.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"VKSQHZCHTK-VJP1\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Queue depth and dead-letter alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"1JGV5Y25KN-73W7\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-messaging-backbone.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"0XWT91WY2F-2RR4\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Messaging Backbone (Azure Service Bus)\",\n  \"description\": \"Cross-product asynchronous event backbone owned by Infra & DevOps on behalf of all product teams.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"messaging\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"VKSQHZCHTK-VJP1\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Producers and consumers authenticate via Azure AD workload identity (managed identity per AKS pod); no shared access signature keys are distributed to application code.\",\n    \"secretsManagement\": \"No long-lived secrets exist for this service; managed identity tokens are short-lived and issued by Azure AD.\",\n    \"serviceLogging\": \"Operational logs (throttling, dead-letter events) stream to Datadog via the Azure Service Bus diagnostic settings integration.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Service Bus integration tracks queue depth, dead-letter count, and active connection count per topic.\",\n    \"availabilityModel\": \"Premium tier with availability zone redundancy in East US 2; tracks Microsoft's 99.9% Service Bus Premium SLA.\",\n    \"scalabilityModel\": \"Messaging units scaled manually today based on quarterly throughput review; auto-scale evaluation tracked under DEVOPS-211.\",\n    \"recoverabilityModel\": \"Geo-disaster recovery paired namespace in Central US, manual failover initiated by Infra & DevOps on-call per RUNBOOK-SB-02.\",\n    \"failureDomain\": \"A regional outage affects all cross-product event delivery; producers buffer locally for up to 5 minutes before failing the originating request.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"VKSQHZCHTK-VJP1\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Queue depth and dead-letter alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"1JGV5Y25KN-73W7\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-messaging-backbone.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -25476,7 +28226,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -25673,7 +28423,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/runtime-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"FH8VD6HQ69-ZMEG\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Observability Platform (Datadog)\",\n  \"description\": \"Company-wide metrics, logs, and APM trace aggregation. Every other shared service's \\\"Service Monitoring\\\" external interaction in this catalog resolves here.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"saas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"observability\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"792738MBB6-8XMK\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Datadog org access is federated through Azure AD SSO; per-user API keys are disabled org-wide in favor of scoped service account keys reviewed quarterly.\",\n    \"secretsManagement\": \"Datadog API and APP keys are stored in the Infra & DevOps Key Vault and injected into agent DaemonSets via CSI secrets store driver, never baked into images.\",\n    \"serviceLogging\": \"Datadog's own platform audit log (who changed which monitor/dashboard) is itself a paid add-on enabled for this account and exported to the AU-01 retention archive.\",\n    \"healthWelfareMonitoring\": \"Datadog monitors its own agent fleet health (agent-not-reporting monitor); paged to Infra & DevOps on-call if more than 5% of agents go dark for 15 minutes.\",\n    \"availabilityModel\": \"Vendor SaaS, multi-region; Acme PowerSoft has no infrastructure responsibility, tracked against Datadog's published status page SLA.\",\n    \"scalabilityModel\": \"Per-host/per-container pricing tier scaled automatically as AKS node pools scale; reviewed monthly against the Infra & DevOps cloud cost budget.\",\n    \"recoverabilityModel\": \"Dashboards and monitors are defined as code (this repo's dashboards/ directory, mirrored from each product repo) and can be reapplied via the Datadog Terraform provider if the SaaS account configuration were ever lost.\",\n    \"failureDomain\": \"An outage degrades visibility into every other shared service and product, but does not itself take production traffic down -- it is purely an observability dependency, not a request-path dependency.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"792738MBB6-8XMK\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"P6M8FWV2D8-0RM8\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    },\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-observability.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"FH8VD6HQ69-ZMEG\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Observability Platform (Datadog)\",\n  \"description\": \"Company-wide metrics, logs, and APM trace aggregation. Every other shared service's \\\"Service Monitoring\\\" external interaction in this catalog resolves here.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"saas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"observability\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"792738MBB6-8XMK\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Datadog org access is federated through Azure AD SSO; per-user API keys are disabled org-wide in favor of scoped service account keys reviewed quarterly.\",\n    \"secretsManagement\": \"Datadog API and APP keys are stored in the Infra & DevOps Key Vault and injected into agent DaemonSets via CSI secrets store driver, never baked into images.\",\n    \"serviceLogging\": \"Datadog's own platform audit log (who changed which monitor/dashboard) is itself a paid add-on enabled for this account and exported to the AU-01 retention archive.\",\n    \"healthWelfareMonitoring\": \"Datadog monitors its own agent fleet health (agent-not-reporting monitor); paged to Infra & DevOps on-call if more than 5% of agents go dark for 15 minutes.\",\n    \"availabilityModel\": \"Vendor SaaS, multi-region; Acme PowerSoft has no infrastructure responsibility, tracked against Datadog's published status page SLA.\",\n    \"scalabilityModel\": \"Per-host/per-container pricing tier scaled automatically as AKS node pools scale; reviewed monthly against the Infra & DevOps cloud cost budget.\",\n    \"recoverabilityModel\": \"Dashboards and monitors are defined as code (this repo's dashboards/ directory, mirrored from each product repo) and can be reapplied via the Datadog Terraform provider if the SaaS account configuration were ever lost.\",\n    \"failureDomain\": \"An outage degrades visibility into every other shared service and product, but does not itself take production traffic down -- it is purely an observability dependency, not a request-path dependency.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"792738MBB6-8XMK\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"P6M8FWV2D8-0RM8\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    },\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-observability.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -25736,7 +28486,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -25937,7 +28687,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/runtime-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"37AJ772M7W-V27N\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Secrets Management (Azure Key Vault)\",\n  \"description\": \"Centralized secrets, key, and certificate storage consumed by every product team's AKS workloads via CSI secrets store driver.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"secrets-management\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"5Q5CZMHNTR-71A8\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Access to each product's vault is scoped by Azure RBAC to that product's AKS workload identity and to the Infra & DevOps break-glass admin group; no application uses a vault access policy with broad permissions.\",\n    \"secretsManagement\": \"This is itself the company's secrets management service; vault master access is the one credential not stored in another vault, and is split-knowledge protected per RUNBOOK-SEC-01.\",\n    \"serviceLogging\": \"Vault access logs (every Get/Set/Delete on a secret) stream to Datadog via Key Vault diagnostic settings, satisfying AU-01 for secret access specifically.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Key Vault integration alerts on throttling and on any access from outside the expected AKS workload identity set.\",\n    \"availabilityModel\": \"Premium (HSM-backed) tier with zone redundancy in East US 2; tracked against Microsoft's 99.99% Key Vault SLA.\",\n    \"scalabilityModel\": \"Vendor-managed; no scaling action required by Acme PowerSoft.\",\n    \"recoverabilityModel\": \"Soft-delete and purge protection enabled on every vault (90-day retention); vault contents also captured in the quarterly DR-01 recovery test for each dependent product.\",\n    \"failureDomain\": \"An outage blocks new secret retrieval; already-cached secrets in running pods continue to function until pod restart, bounding blast radius to new deployments and pod restarts only.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"5Q5CZMHNTR-71A8\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Access anomaly alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-JW52\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-secrets-mgmt.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"37AJ772M7W-V27N\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Secrets Management (Azure Key Vault)\",\n  \"description\": \"Centralized secrets, key, and certificate storage consumed by every product team's AKS workloads via CSI secrets store driver.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"secrets-management\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"5Q5CZMHNTR-71A8\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Access to each product's vault is scoped by Azure RBAC to that product's AKS workload identity and to the Infra & DevOps break-glass admin group; no application uses a vault access policy with broad permissions.\",\n    \"secretsManagement\": \"This is itself the company's secrets management service; vault master access is the one credential not stored in another vault, and is split-knowledge protected per RUNBOOK-SEC-01.\",\n    \"serviceLogging\": \"Vault access logs (every Get/Set/Delete on a secret) stream to Datadog via Key Vault diagnostic settings, satisfying AU-01 for secret access specifically.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Key Vault integration alerts on throttling and on any access from outside the expected AKS workload identity set.\",\n    \"availabilityModel\": \"Premium (HSM-backed) tier with zone redundancy in East US 2; tracked against Microsoft's 99.99% Key Vault SLA.\",\n    \"scalabilityModel\": \"Vendor-managed; no scaling action required by Acme PowerSoft.\",\n    \"recoverabilityModel\": \"Soft-delete and purge protection enabled on every vault (90-day retention); vault contents also captured in the quarterly DR-01 recovery test for each dependent product.\",\n    \"failureDomain\": \"An outage blocks new secret retrieval; already-cached secrets in running pods continue to function until pod restart, bounding blast radius to new deployments and pod restarts only.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"5Q5CZMHNTR-71A8\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Access anomaly alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-JW52\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-secrets-mgmt.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -26015,7 +28765,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Data & Analytics Engineering",
+        "team": "data-analytics",
         "contact": "data-analytics@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -26203,7 +28953,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/data-store-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"Z3CAV76ED8-7XEV\",\n  \"type\": \"data_store_service\",\n  \"name\": \"Acme Insight Hub Data Warehouse (Snowflake)\",\n  \"description\": \"Consolidated cross-product analytics warehouse fed by per-product ELT pipelines and serving forecasting model training data and BI queries.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"saas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Data & Analytics Engineering\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"data-at-rest\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"6YWAMCXE87-H8JW\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Analysts and pipeline service accounts authenticate via Azure AD SSO federated into Snowflake (SCIM-provisioned roles); no native Snowflake passwords are issued.\",\n    \"secretsManagement\": \"Pipeline service account key pairs are stored in the Infra & DevOps Key Vault and rotated every 180 days by an Airflow-triggered rotation job.\",\n    \"serviceLogging\": \"Snowflake's ACCOUNT_USAGE query history and login history are exported nightly into a dedicated audit schema and forwarded to Datadog log management.\",\n    \"healthWelfareMonitoring\": \"Datadog Snowflake integration tracks warehouse credit consumption, query queueing, and failed-login spikes.\",\n    \"availabilityModel\": \"Snowflake's standard multi-cluster, multi-AZ architecture within the Azure East US 2 region; tracked against Snowflake's published Enterprise SLA.\",\n    \"scalabilityModel\": \"Multi-cluster warehouse auto-scaling enabled for the BI consumption warehouse; the ELT load warehouse scales vertically only, reviewed quarterly against the cost budget.\",\n    \"recoverabilityModel\": \"Snowflake Time Travel (7-day) plus a weekly Fail-safe-backed database clone exported to a separate Snowflake account in a different Azure region for catastrophic-loss recovery.\",\n    \"failureDomain\": \"A Snowflake outage stops new ELT loads and BI queries but does not affect any product's operational database -- this is purely an analytics-tier dependency, not a transactional one.\",\n    \"backup\": {\n      \"strategy\": \"Snowflake Time Travel (7 days) plus weekly cross-region database clone.\",\n      \"rto\": \"4 hours for cross-region clone restore\",\n      \"rpo\": \"24 hours (last successful nightly clone)\"\n    },\n    \"ha\": {\n      \"mechanism\": \"Snowflake-managed multi-cluster warehouse with automatic cluster failover within region.\"\n    },\n    \"encryption\": {\n      \"atRest\": \"AES-256, Snowflake-managed keys (Tri-Secret Secure not yet enabled -- tracked under DATA-088).\"\n    },\n    \"accessControl\": {\n      \"model\": \"Role-based access control (RBAC) mapped from Azure AD group membership via SCIM; least-privilege roles per product schema.\"\n    },\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"6YWAMCXE87-H8JW\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Backup Platform\",\n      \"notes\": \"Weekly cross-region database clone to a secondary Snowflake account, orchestrated by an Airflow DAG.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-7T2H\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-VBF0\",\n    \"1JGV5Y25KN-73W7\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"DR-02\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"ha\"\n      }\n    },\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/data-store-services/ds-data-warehouse.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"Z3CAV76ED8-7XEV\",\n  \"type\": \"data_store_service\",\n  \"name\": \"Acme Insight Hub Data Warehouse (Snowflake)\",\n  \"description\": \"Consolidated cross-product analytics warehouse fed by per-product ELT pipelines and serving forecasting model training data and BI queries.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"saas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"data-at-rest\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"6YWAMCXE87-H8JW\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Analysts and pipeline service accounts authenticate via Azure AD SSO federated into Snowflake (SCIM-provisioned roles); no native Snowflake passwords are issued.\",\n    \"secretsManagement\": \"Pipeline service account key pairs are stored in the Infra & DevOps Key Vault and rotated every 180 days by an Airflow-triggered rotation job.\",\n    \"serviceLogging\": \"Snowflake's ACCOUNT_USAGE query history and login history are exported nightly into a dedicated audit schema and forwarded to Datadog log management.\",\n    \"healthWelfareMonitoring\": \"Datadog Snowflake integration tracks warehouse credit consumption, query queueing, and failed-login spikes.\",\n    \"availabilityModel\": \"Snowflake's standard multi-cluster, multi-AZ architecture within the Azure East US 2 region; tracked against Snowflake's published Enterprise SLA.\",\n    \"scalabilityModel\": \"Multi-cluster warehouse auto-scaling enabled for the BI consumption warehouse; the ELT load warehouse scales vertically only, reviewed quarterly against the cost budget.\",\n    \"recoverabilityModel\": \"Snowflake Time Travel (7-day) plus a weekly Fail-safe-backed database clone exported to a separate Snowflake account in a different Azure region for catastrophic-loss recovery.\",\n    \"failureDomain\": \"A Snowflake outage stops new ELT loads and BI queries but does not affect any product's operational database -- this is purely an analytics-tier dependency, not a transactional one.\",\n    \"backup\": {\n      \"strategy\": \"Snowflake Time Travel (7 days) plus weekly cross-region database clone.\",\n      \"rto\": \"4 hours for cross-region clone restore\",\n      \"rpo\": \"24 hours (last successful nightly clone)\"\n    },\n    \"ha\": {\n      \"mechanism\": \"Snowflake-managed multi-cluster warehouse with automatic cluster failover within region.\"\n    },\n    \"encryption\": {\n      \"atRest\": \"AES-256, Snowflake-managed keys (Tri-Secret Secure not yet enabled -- tracked under DATA-088).\"\n    },\n    \"accessControl\": {\n      \"model\": \"Role-based access control (RBAC) mapped from Azure AD group membership via SCIM; least-privilege roles per product schema.\"\n    },\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"6YWAMCXE87-H8JW\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Backup Platform\",\n      \"notes\": \"Weekly cross-region database clone to a secondary Snowflake account, orchestrated by an Airflow DAG.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-7T2H\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-VBF0\",\n    \"1JGV5Y25KN-73W7\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"DR-02\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"ha\"\n      }\n    },\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/data-store-services/ds-data-warehouse.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -26266,7 +29016,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Data & Analytics Engineering",
+        "team": "data-analytics",
         "contact": "data-analytics@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -26446,7 +29196,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/data-store-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"SP7JGWQ9Z3-DR4F\",\n  \"type\": \"data_store_service\",\n  \"name\": \"Cross-Product Raw Landing Zone (ADLS Gen2)\",\n  \"description\": \"Shared object storage landing zone for raw data extracted from every product's operational database before it is transformed and loaded into the Snowflake warehouse. Modeled as a catalog-level shared service rather than left implicit inside the Insight Hub product repo.\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Data & Analytics Engineering\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"data-at-rest\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"5JMBH216ND-AJE9\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Airflow worker pods authenticate via Azure AD workload identity scoped to read/write on their own product's partition prefix only.\",\n    \"secretsManagement\": \"No static account keys are distributed; workload identity tokens are short-lived and Azure AD-issued.\",\n    \"serviceLogging\": \"Storage diagnostic logs (read/write/list operations) stream to Datadog log management.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Storage integration tracks ingress/egress volume and 4xx/5xx rates per container.\",\n    \"availabilityModel\": \"Zone-redundant storage (ZRS) in East US 2; tracked against Microsoft's published ADLS Gen2 SLA.\",\n    \"scalabilityModel\": \"Effectively unbounded object storage; no manual scaling action required.\",\n    \"recoverabilityModel\": \"Soft-delete enabled with a 14-day retention window; raw data is also re-derivable by re-running the source product's extraction job if a partition were lost, so this is treated as a cache of extraction, not a sole system of record.\",\n    \"failureDomain\": \"An outage blocks new raw-data landing and the nightly ELT load, but does not affect any product's operational database.\",\n    \"backup\": {\n      \"strategy\": \"Soft-delete (14-day) plus re-extraction from source-of-record on the rare case data is lost outright.\",\n      \"rto\": \"8 hours (re-run extraction DAGs for the affected partition)\",\n      \"rpo\": \"24 hours (one missed nightly load)\"\n    },\n    \"ha\": {\n      \"mechanism\": \"Zone-redundant storage (ZRS).\"\n    },\n    \"encryption\": {\n      \"atRest\": \"AES-256, Microsoft-managed keys.\"\n    },\n    \"accessControl\": {\n      \"model\": \"Azure AD workload identity, partition-prefix-scoped per product.\"\n    },\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"5JMBH216ND-AJE9\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-VBF0\",\n    \"1JGV5Y25KN-73W7\",\n    \"8SEDYZHP49-YJHQ\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/data-store-services/ds-landing-zone.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"SP7JGWQ9Z3-DR4F\",\n  \"type\": \"data_store_service\",\n  \"name\": \"Cross-Product Raw Landing Zone (ADLS Gen2)\",\n  \"description\": \"Shared object storage landing zone for raw data extracted from every product's operational database before it is transformed and loaded into the Snowflake warehouse. Modeled as a catalog-level shared service rather than left implicit inside the Insight Hub product repo.\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"data-at-rest\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"5JMBH216ND-AJE9\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Airflow worker pods authenticate via Azure AD workload identity scoped to read/write on their own product's partition prefix only.\",\n    \"secretsManagement\": \"No static account keys are distributed; workload identity tokens are short-lived and Azure AD-issued.\",\n    \"serviceLogging\": \"Storage diagnostic logs (read/write/list operations) stream to Datadog log management.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Storage integration tracks ingress/egress volume and 4xx/5xx rates per container.\",\n    \"availabilityModel\": \"Zone-redundant storage (ZRS) in East US 2; tracked against Microsoft's published ADLS Gen2 SLA.\",\n    \"scalabilityModel\": \"Effectively unbounded object storage; no manual scaling action required.\",\n    \"recoverabilityModel\": \"Soft-delete enabled with a 14-day retention window; raw data is also re-derivable by re-running the source product's extraction job if a partition were lost, so this is treated as a cache of extraction, not a sole system of record.\",\n    \"failureDomain\": \"An outage blocks new raw-data landing and the nightly ELT load, but does not affect any product's operational database.\",\n    \"backup\": {\n      \"strategy\": \"Soft-delete (14-day) plus re-extraction from source-of-record on the rare case data is lost outright.\",\n      \"rto\": \"8 hours (re-run extraction DAGs for the affected partition)\",\n      \"rpo\": \"24 hours (one missed nightly load)\"\n    },\n    \"ha\": {\n      \"mechanism\": \"Zone-redundant storage (ZRS).\"\n    },\n    \"encryption\": {\n      \"atRest\": \"AES-256, Microsoft-managed keys.\"\n    },\n    \"accessControl\": {\n      \"model\": \"Azure AD workload identity, partition-prefix-scoped per product.\"\n    },\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"5JMBH216ND-AJE9\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-VBF0\",\n    \"1JGV5Y25KN-73W7\",\n    \"8SEDYZHP49-YJHQ\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/data-store-services/ds-landing-zone.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -26494,7 +29244,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -26676,7 +29426,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/network-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"G5XV9MK4RH-RG0A\",\n  \"type\": \"network_service\",\n  \"name\": \"Platform API Gateway (Azure API Management)\",\n  \"description\": \"Single ingress point for every Acme PowerSoft product API. Enforces authentication (delegated to Identity & Access), per-tenant rate limiting, and request/response transformation so product teams do not each implement their own gateway layer.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"network-service\",\n    \"api-gateway\",\n    \"shared-service\"\n  ],\n  \"deliveryModel\": \"paas\",\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"MH7JS0SPA4-YA23\",\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure API Management\",\n  \"productVersion\": \"Premium v2\",\n  \"networkFunction\": \"API gateway -- inbound request routing, authentication enforcement, per-tenant rate limiting, and response transformation for every product API.\",\n  \"networkTopology\": \"Sits in the perimeter zone in front of each product's AKS ingress; all inbound product traffic from the public internet and from Acme's customer-facing web apps passes through this gateway before reaching any product runtime service.\",\n  \"protocols\": [\n    \"HTTPS\",\n    \"WebSocket (Insight Hub streaming endpoints only)\"\n  ],\n  \"architectureNotes\": {\n    \"placementContext\": \"Perimeter zone -- the only network service in the catalog with direct public internet exposure.\",\n    \"requirementContext\": \"Service Level Baseline (SLA-01/SLA-02) and Access Control Baseline (AC-01/AC-02) both apply because this is the shared ingress for every customer-facing product.\"\n  },\n  \"decisionRecords\": [],\n  \"internalComponents\": [\n    {\n      \"ref\": \"MH7JS0SPA4-YA23\",\n      \"role\": \"gateway\"\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KSWVZSZ5-B146\",\n    \"8SEDYZHP49-YJHQ\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"_source\": \"catalog/shared-services/network-services/rs-api-gateway.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"G5XV9MK4RH-RG0A\",\n  \"type\": \"network_service\",\n  \"name\": \"Platform API Gateway (Azure API Management)\",\n  \"description\": \"Single ingress point for every Acme PowerSoft product API. Enforces authentication (delegated to Identity & Access), per-tenant rate limiting, and request/response transformation so product teams do not each implement their own gateway layer.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"network-service\",\n    \"api-gateway\",\n    \"shared-service\"\n  ],\n  \"deliveryModel\": \"paas\",\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"MH7JS0SPA4-YA23\",\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure API Management\",\n  \"productVersion\": \"Premium v2\",\n  \"networkFunction\": \"API gateway -- inbound request routing, authentication enforcement, per-tenant rate limiting, and response transformation for every product API.\",\n  \"networkTopology\": \"Sits in the perimeter zone in front of each product's AKS ingress; all inbound product traffic from the public internet and from Acme's customer-facing web apps passes through this gateway before reaching any product runtime service.\",\n  \"protocols\": [\n    \"HTTPS\",\n    \"WebSocket (Insight Hub streaming endpoints only)\"\n  ],\n  \"architectureNotes\": {\n    \"placementContext\": \"Perimeter zone -- the only network service in the catalog with direct public internet exposure.\",\n    \"requirementContext\": \"Service Level Baseline (SLA-01/SLA-02) and Access Control Baseline (AC-01/AC-02) both apply because this is the shared ingress for every customer-facing product.\"\n  },\n  \"decisionRecords\": [],\n  \"internalComponents\": [\n    {\n      \"ref\": \"MH7JS0SPA4-YA23\",\n      \"role\": \"gateway\"\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KSWVZSZ5-B146\",\n    \"8SEDYZHP49-YJHQ\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"_source\": \"catalog/shared-services/network-services/rs-api-gateway.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -26731,7 +29481,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Data & Analytics Engineering",
+        "team": "data-analytics",
         "contact": "data-analytics@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -26792,6 +29542,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KT0V5MCV-E9TN",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-CMZ9",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "SP7JGWQ9Z3-DR4F",
           "path": "primaryTechnologyComponent"
         },
@@ -26858,7 +29616,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"5JMBH216ND-AJE9\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Data Lake Storage Gen2\",\n  \"description\": \"Shared raw-data landing zone, promoted to a catalog-level shared service by Data & Analytics during shared-service review -- previously modeled only inside the Insight Hub product repo's own infra/main.tf, which undersold that other future products could land data here too.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Data & Analytics Engineering\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"object-storage\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Data Lake Storage Gen2\",\n  \"productVersion\": \"n/a (Azure Storage account, hierarchical namespace enabled)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-E9TN\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"raw-landing-zone\",\n      \"name\": \"Cross-Product Raw Landing Zone\",\n      \"description\": \"ZRS-replicated storage account, hierarchical namespace enabled, partitioned by source product and ingestion date, feeding the nightly ELT loads into Snowflake.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-E9TN\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-adls-gen2.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"5JMBH216ND-AJE9\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Data Lake Storage Gen2\",\n  \"description\": \"Shared raw-data landing zone, promoted to a catalog-level shared service by Data & Analytics during shared-service review -- previously modeled only inside the Insight Hub product repo's own infra/main.tf, which undersold that other future products could land data here too.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"object-storage\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Data Lake Storage Gen2\",\n  \"productVersion\": \"n/a (Azure Storage account, hierarchical namespace enabled)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-E9TN\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"raw-landing-zone\",\n      \"name\": \"Cross-Product Raw Landing Zone\",\n      \"description\": \"ZRS-replicated storage account, hierarchical namespace enabled, partitioned by source product and ingestion date, feeding the nightly ELT loads into Snowflake.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-E9TN\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-adls-gen2.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -26915,7 +29673,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -26976,6 +29734,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KQQ4Q026-MHJM",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-XW56",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "ZV0QNH8M3D-EYW8",
           "path": "primaryTechnologyComponent"
         },
@@ -27042,7 +29808,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"M087QNW2D0-6G06\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure AD B2C\",\n  \"aliases\": [\n    \"Azure Active Directory B2C\"\n  ],\n  \"description\": \"Microsoft's customer identity and access management (CIAM) platform. Federates tenant identities for every Acme Vantage-hosted product and issues the OAuth2/OIDC tokens that the cross-product auth middleware validates on every request.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"identity\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Active Directory B2C\",\n  \"productVersion\": \"n/a (SaaS, vendor-managed release train)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service; Microsoft does not publish a deprecation date. Vendor lifecycle tracked via Microsoft's Azure service retirement notices.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-MHJM\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"tenant-federation\",\n      \"name\": \"Multi-Tenant Federation Policy\",\n      \"description\": \"Custom policy (Identity Experience Framework) issuing tenant-scoped JWTs consumed by Acme Vantage's entitlement middleware.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-MHJM\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-ad-b2c.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"M087QNW2D0-6G06\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure AD B2C\",\n  \"aliases\": [\n    \"Azure Active Directory B2C\"\n  ],\n  \"description\": \"Microsoft's customer identity and access management (CIAM) platform. Federates tenant identities for every Acme Vantage-hosted product and issues the OAuth2/OIDC tokens that the cross-product auth middleware validates on every request.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"identity\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Active Directory B2C\",\n  \"productVersion\": \"n/a (SaaS, vendor-managed release train)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service; Microsoft does not publish a deprecation date. Vendor lifecycle tracked via Microsoft's Azure service retirement notices.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-MHJM\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"tenant-federation\",\n      \"name\": \"Multi-Tenant Federation Policy\",\n      \"description\": \"Custom policy (Identity Experience Framework) issuing tenant-scoped JWTs consumed by Acme Vantage's entitlement middleware.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-MHJM\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-ad-b2c.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -27099,7 +29865,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -27160,6 +29926,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KT0V5MCV-3A6F",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-F6QT",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "G5XV9MK4RH-RG0A",
           "path": "primaryTechnologyComponent"
         },
@@ -27226,7 +30000,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"MH7JS0SPA4-YA23\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure API Management\",\n  \"aliases\": [\n    \"Azure APIM\"\n  ],\n  \"description\": \"Microsoft's managed API gateway. Fronts every Acme PowerSoft product API with shared routing, authentication enforcement, and rate limiting so individual product teams do not each build their own gateway layer.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"api-gateway\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure API Management\",\n  \"productVersion\": \"Premium v2\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-3A6F\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"product-routing-policies\",\n      \"name\": \"Per-Product Routing & Rate Limit Policies\",\n      \"description\": \"One API definition per product (Vantage, Tax Suite, Asset & Lease Manager, RegTrack, Insight Hub) with per-tenant rate limiting keyed on the Azure AD B2C tenant claim.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-3A6F\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-apim.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"MH7JS0SPA4-YA23\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure API Management\",\n  \"aliases\": [\n    \"Azure APIM\"\n  ],\n  \"description\": \"Microsoft's managed API gateway. Fronts every Acme PowerSoft product API with shared routing, authentication enforcement, and rate limiting so individual product teams do not each build their own gateway layer.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"api-gateway\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure API Management\",\n  \"productVersion\": \"Premium v2\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-3A6F\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"product-routing-policies\",\n      \"name\": \"Per-Product Routing & Rate Limit Policies\",\n      \"description\": \"One API definition per product (Vantage, Tax Suite, Asset & Lease Manager, RegTrack, Insight Hub) with per-tenant rate limiting keyed on the Azure AD B2C tenant claim.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-3A6F\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-apim.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -27281,7 +30055,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -27342,6 +30116,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KQQ4Q026-DTJJ",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-7QHG",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "37AJ772M7W-V27N",
           "path": "primaryTechnologyComponent"
         },
@@ -27408,7 +30190,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"5Q5CZMHNTR-71A8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Key Vault\",\n  \"description\": \"Centralized secrets, key, and certificate store. Every product team's database connection secrets, API keys, and TLS certificates are stored in a Key Vault instance rather than in source control or environment files.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"secrets-management\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Key Vault\",\n  \"productVersion\": \"Premium (HSM-backed)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-DTJJ\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"per-product-vault\",\n      \"name\": \"One Vault Per Product, RBAC-Scoped\",\n      \"description\": \"Each product team owns a dedicated Key Vault instance scoped by Azure RBAC to that team's AKS workload identities; no team can read another team's secrets.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-DTJJ\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-key-vault.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"5Q5CZMHNTR-71A8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Key Vault\",\n  \"description\": \"Centralized secrets, key, and certificate store. Every product team's database connection secrets, API keys, and TLS certificates are stored in a Key Vault instance rather than in source control or environment files.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"secrets-management\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Key Vault\",\n  \"productVersion\": \"Premium (HSM-backed)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-DTJJ\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"per-product-vault\",\n      \"name\": \"One Vault Per Product, RBAC-Scoped\",\n      \"description\": \"Each product team owns a dedicated Key Vault instance scoped by Azure RBAC to that team's AKS workload identities; no team can read another team's secrets.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-DTJJ\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-key-vault.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -27463,7 +30245,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -27524,6 +30306,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KT0V5MCV-ECR4",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-QXMV",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "37MYJCZ1V9-439T",
           "path": "primaryTechnologyComponent"
         },
@@ -27590,7 +30380,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"A4M2HB1G1D-22DT\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Cache for Redis\",\n  \"description\": \"Shared caching tier for tenant entitlement lookups and session state, proposed by Core Platform during shared-service review rather than requested by the Admin agent's original draft.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"caching\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Cache for Redis\",\n  \"productVersion\": \"Premium tier\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-ECR4\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"entitlement-cache\",\n      \"name\": \"Tenant Entitlement Cache\",\n      \"description\": \"5-minute TTL cache of resolved TenantEntitlement records in front of the Vantage Postgres database, cutting entitlement-check latency from ~40ms to ~2ms on cache hit.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-ECR4\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-redis.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"A4M2HB1G1D-22DT\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Cache for Redis\",\n  \"description\": \"Shared caching tier for tenant entitlement lookups and session state, proposed by Core Platform during shared-service review rather than requested by the Admin agent's original draft.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"caching\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Cache for Redis\",\n  \"productVersion\": \"Premium tier\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-ECR4\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"entitlement-cache\",\n      \"name\": \"Tenant Entitlement Cache\",\n      \"description\": \"5-minute TTL cache of resolved TenantEntitlement records in front of the Vantage Postgres database, cutting entitlement-check latency from ~40ms to ~2ms on cache hit.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-ECR4\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-redis.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -27645,7 +30435,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -27706,6 +30496,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KT0V5MCV-KT72",
+          "path": "implementations[1].ref"
+        },
+        {
+          "source": "01KVNWGWYE-YVFY",
+          "path": "patch.implementations[1].ref"
+        },
+        {
           "source": "0XWT91WY2F-2RR4",
           "path": "primaryTechnologyComponent"
         },
@@ -27772,7 +30570,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"VKSQHZCHTK-VJP1\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Service Bus\",\n  \"description\": \"Microsoft's managed message broker. Carries asynchronous, cross-product domain events -- lease lifecycle events, tenant entitlement changes, billing events consumed by Insight Hub -- between product teams without each team standing up its own broker.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"messaging\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Service Bus\",\n  \"productVersion\": \"Premium tier\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-KT72\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"cross-product-topics\",\n      \"name\": \"Cross-Product Domain Event Topics\",\n      \"description\": \"One topic per cross-product event family (lease-lifecycle-events, entitlement-changes, billing-events) with per-product subscriptions and dead-letter queues.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-KT72\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-service-bus.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"VKSQHZCHTK-VJP1\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Service Bus\",\n  \"description\": \"Microsoft's managed message broker. Carries asynchronous, cross-product domain events -- lease lifecycle events, tenant entitlement changes, billing events consumed by Insight Hub -- between product teams without each team standing up its own broker.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"messaging\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Service Bus\",\n  \"productVersion\": \"Premium tier\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-KT72\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"cross-product-topics\",\n      \"name\": \"Cross-Product Domain Event Topics\",\n      \"description\": \"One topic per cross-product event family (lease-lifecycle-events, entitlement-changes, billing-events) with per-product subscriptions and dead-letter queues.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-KT72\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-service-bus.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -27818,7 +30616,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -27873,6 +30671,14 @@ window.DRAFT_BROWSER_DATA = {
         }
       ],
       "referencedBy": [
+        {
+          "source": "01KQQ4Q026-1HZP",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-595B",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "H1ZTZXV5F6-C1CZ",
           "path": "computePlatformComponent"
@@ -27940,7 +30746,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"WBCN4NVAYG-RFC8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Standard_D-series v5 VM\",\n  \"description\": \"Compute platform underlying the shared AKS node pools -- general-purpose Azure virtual machines.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"compute-platform\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Virtual Machines (Dsv5 series)\",\n  \"productVersion\": \"Dsv5\",\n  \"classification\": \"compute-platform\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously available Azure VM series; no fixed retirement date published.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-1HZP\"\n  ],\n  \"configurations\": [],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-vm-compute.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"WBCN4NVAYG-RFC8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Standard_D-series v5 VM\",\n  \"description\": \"Compute platform underlying the shared AKS node pools -- general-purpose Azure virtual machines.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"compute-platform\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Virtual Machines (Dsv5 series)\",\n  \"productVersion\": \"Dsv5\",\n  \"classification\": \"compute-platform\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously available Azure VM series; no fixed retirement date published.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-1HZP\"\n  ],\n  \"configurations\": [],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-vm-compute.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -27998,7 +30804,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -28071,6 +30877,30 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KQQ4Q026-98VD",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KQQ4Q026-D04B",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KQQ4Q026-JW52",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-6663",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-ZKB7",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-7QJ8",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "FH8VD6HQ69-ZMEG",
           "path": "primaryTechnologyComponent"
         },
@@ -28137,7 +30967,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"792738MBB6-8XMK\",\n  \"type\": \"technology_component\",\n  \"name\": \"Datadog Agent & SaaS Platform\",\n  \"description\": \"Company-wide observability platform: infrastructure monitoring, APM traces, and centralized log aggregation across every AKS cluster and Azure resource group Acme PowerSoft operates.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"observability\",\n    \"saas\"\n  ],\n  \"vendor\": \"Datadog, Inc.\",\n  \"productName\": \"Datadog\",\n  \"productVersion\": \"Agent 7.55\",\n  \"classification\": \"agent\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"SaaS platform with a rolling agent release; Infra & DevOps tracks agent version drift via the fleet dashboard and targets agents no more than 2 minor versions behind current.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-D04B\",\n    \"01KQQ4Q026-JW52\",\n    \"01KQQ4Q026-98VD\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"aks-daemonset\",\n      \"name\": \"AKS DaemonSet Deployment\",\n      \"description\": \"Datadog Agent deployed as a DaemonSet on every AKS node pool across all six product clusters plus the shared platform cluster, scraping container, node, and control-plane metrics.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\",\n        \"01KQQ4Q026-D04B\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-datadog-agent.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"792738MBB6-8XMK\",\n  \"type\": \"technology_component\",\n  \"name\": \"Datadog Agent & SaaS Platform\",\n  \"description\": \"Company-wide observability platform: infrastructure monitoring, APM traces, and centralized log aggregation across every AKS cluster and Azure resource group Acme PowerSoft operates.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"observability\",\n    \"saas\"\n  ],\n  \"vendor\": \"Datadog, Inc.\",\n  \"productName\": \"Datadog\",\n  \"productVersion\": \"Agent 7.55\",\n  \"classification\": \"agent\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"SaaS platform with a rolling agent release; Infra & DevOps tracks agent version drift via the fleet dashboard and targets agents no more than 2 minor versions behind current.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-D04B\",\n    \"01KQQ4Q026-JW52\",\n    \"01KQQ4Q026-98VD\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"aks-daemonset\",\n      \"name\": \"AKS DaemonSet Deployment\",\n      \"description\": \"Datadog Agent deployed as a DaemonSet on every AKS node pool across all six product clusters plus the shared platform cluster, scraping container, node, and control-plane metrics.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\",\n        \"01KQQ4Q026-D04B\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-datadog-agent.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -28192,7 +31022,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Data & Analytics Engineering",
+        "team": "data-analytics",
         "contact": "data-analytics@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -28253,6 +31083,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KT0V5MCV-VD0Y",
+          "path": "implementations[3].ref"
+        },
+        {
+          "source": "01KVNWGWYD-WG50",
+          "path": "patch.implementations[3].ref"
+        },
+        {
           "source": "Z3CAV76ED8-7XEV",
           "path": "primaryTechnologyComponent"
         },
@@ -28319,7 +31157,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"6YWAMCXE87-H8JW\",\n  \"type\": \"technology_component\",\n  \"name\": \"Snowflake\",\n  \"description\": \"Cloud data warehouse hosting Acme Insight Hub's consolidated analytics schema. Primary destination for the ELT pipelines that pull billing, asset, tax, and regulatory data out of each product's operational database.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Data & Analytics Engineering\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"data-warehouse\",\n    \"saas\"\n  ],\n  \"vendor\": \"Snowflake Inc.\",\n  \"productName\": \"Snowflake\",\n  \"productVersion\": \"Enterprise edition, Azure region\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"SaaS platform with continuous release; no fixed end-of-life.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-VD0Y\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"insight-hub-warehouse\",\n      \"name\": \"ACME_INSIGHT_HUB_WH\",\n      \"description\": \"Medium warehouse, auto-suspend 300s, serving both the nightly ELT loads and ad hoc analyst queries against the consolidated schema.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-VD0Y\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-snowflake.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"6YWAMCXE87-H8JW\",\n  \"type\": \"technology_component\",\n  \"name\": \"Snowflake\",\n  \"description\": \"Cloud data warehouse hosting Acme Insight Hub's consolidated analytics schema. Primary destination for the ELT pipelines that pull billing, asset, tax, and regulatory data out of each product's operational database.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"data-warehouse\",\n    \"saas\"\n  ],\n  \"vendor\": \"Snowflake Inc.\",\n  \"productName\": \"Snowflake\",\n  \"productVersion\": \"Enterprise edition, Azure region\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"SaaS platform with continuous release; no fixed end-of-life.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-VD0Y\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"insight-hub-warehouse\",\n      \"name\": \"ACME_INSIGHT_HUB_WH\",\n      \"description\": \"Medium warehouse, auto-suspend 300s, serving both the nightly ELT loads and ad hoc analyst queries against the consolidated schema.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-VD0Y\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-snowflake.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -28365,7 +31203,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -28420,6 +31258,14 @@ window.DRAFT_BROWSER_DATA = {
         }
       ],
       "referencedBy": [
+        {
+          "source": "01KQQ4Q026-QM2X",
+          "path": "implementations[1].ref"
+        },
+        {
+          "source": "01KVNWGWYE-SZ9A",
+          "path": "patch.implementations[1].ref"
+        },
         {
           "source": "H1ZTZXV5F6-C1CZ",
           "path": "operatingSystemComponent"
@@ -28487,7 +31333,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"C657R8CNHY-FDK6\",\n  \"type\": \"technology_component\",\n  \"name\": \"Ubuntu 22.04 LTS\",\n  \"description\": \"Host operating system image for every AKS node pool across all six product clusters and the shared platform cluster.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"operating-system\"\n  ],\n  \"vendor\": \"Canonical\",\n  \"productName\": \"Ubuntu Server\",\n  \"productVersion\": \"22.04 LTS\",\n  \"classification\": \"operating-system\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"2027-04-21\",\n    \"extendedSupportEnd\": \"2032-04-21\",\n    \"notes\": \"Standard Ubuntu LTS support window; AKS-managed node image patching keeps the kernel current within the LTS line.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-QM2X\"\n  ],\n  \"configurations\": [],\n  \"_source\": \"catalog/shared-services/technology-components/tc-ubuntu-os.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"C657R8CNHY-FDK6\",\n  \"type\": \"technology_component\",\n  \"name\": \"Ubuntu 22.04 LTS\",\n  \"description\": \"Host operating system image for every AKS node pool across all six product clusters and the shared platform cluster.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"operating-system\"\n  ],\n  \"vendor\": \"Canonical\",\n  \"productName\": \"Ubuntu Server\",\n  \"productVersion\": \"22.04 LTS\",\n  \"classification\": \"operating-system\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"2027-04-21\",\n    \"extendedSupportEnd\": \"2032-04-21\",\n    \"notes\": \"Standard Ubuntu LTS support window; AKS-managed node image patching keeps the kernel current within the LTS line.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-QM2X\"\n  ],\n  \"configurations\": [],\n  \"_source\": \"catalog/shared-services/technology-components/tc-ubuntu-os.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -28979,7 +31825,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -28995,7 +31844,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "MH7JS0SPA4-YA23",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure API Management (Core Platform Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -29030,12 +31885,20 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-4WKE",
           "path": "domain"
+        },
+        {
+          "target": "MH7JS0SPA4-YA23",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[0].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-F6QT",
+          "path": "target"
         },
         {
           "source": "MH7JS0SPA4-YA23",
@@ -29084,7 +31947,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-3A6F\",\n  \"type\": \"capability\",\n  \"name\": \"API Gateway\",\n  \"description\": \"Inbound API traffic is routed, authenticated, rate-limited, and transformed at a managed entry point in front of backend services.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-4WKE\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-api-gateway.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-3A6F\",\n  \"type\": \"capability\",\n  \"name\": \"API Gateway\",\n  \"description\": \"Inbound API traffic is routed, authenticated, rate-limited, and transformed at a managed entry point in front of backend services.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-4WKE\",\n  \"implementations\": [\n    {\n      \"ref\": \"MH7JS0SPA4-YA23\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure API Management (Core Platform Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-api-gateway.yaml\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -29267,7 +32130,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -29283,7 +32149,28 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "12D3W1HAV5-AA70",
+          "lifecycleStatus": "existing-only",
+          "notes": ".NET 8 ASP.NET Core Runtime (core-platform)"
+        },
+        {
+          "ref": "D2K2AEW24S-0XJ8",
+          "lifecycleStatus": "existing-only",
+          "notes": "Python 3.12 / Apache Airflow Runtime (data-analytics)"
+        },
+        {
+          "ref": "K8T2YQX5MD-NJ14",
+          "lifecycleStatus": "existing-only",
+          "notes": "Node.js 20 / Next.js 14 Runtime (infra-devops)"
+        },
+        {
+          "ref": "ZYM7F5ZER1-468B",
+          "lifecycleStatus": "existing-only",
+          "notes": "PowerBuilder 2019 Runtime (tax-compliance)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -29318,12 +32205,48 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-ZTHF",
           "path": "domain"
+        },
+        {
+          "target": "12D3W1HAV5-AA70",
+          "path": "implementations[0].ref"
+        },
+        {
+          "target": "D2K2AEW24S-0XJ8",
+          "path": "implementations[1].ref"
+        },
+        {
+          "target": "K8T2YQX5MD-NJ14",
+          "path": "implementations[2].ref"
+        },
+        {
+          "target": "ZYM7F5ZER1-468B",
+          "path": "implementations[3].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[4].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-TGZ9",
+          "path": "target"
+        },
+        {
+          "source": "12D3W1HAV5-AA70",
+          "path": "capabilities[0]"
+        },
+        {
+          "source": "D2K2AEW24S-0XJ8",
+          "path": "capabilities[0]"
+        },
+        {
+          "source": "K8T2YQX5MD-NJ14",
+          "path": "capabilities[0]"
+        },
+        {
+          "source": "ZYM7F5ZER1-468B",
+          "path": "capabilities[0]"
         }
       ],
       "editorSchema": {
@@ -29364,7 +32287,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-RZV0\",\n  \"type\": \"capability\",\n  \"name\": \"Application Runtime\",\n  \"description\": \"First-party application code executes on a managed runtime that provides the process, web, or worker execution environment.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-application-runtime.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-RZV0\",\n  \"type\": \"capability\",\n  \"name\": \"Application Runtime\",\n  \"description\": \"First-party application code executes on a managed runtime that provides the process, web, or worker execution environment.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [\n    {\n      \"ref\": \"12D3W1HAV5-AA70\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \".NET 8 ASP.NET Core Runtime (core-platform)\"\n    },\n    {\n      \"ref\": \"D2K2AEW24S-0XJ8\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Python 3.12 / Apache Airflow Runtime (data-analytics)\"\n    },\n    {\n      \"ref\": \"K8T2YQX5MD-NJ14\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Node.js 20 / Next.js 14 Runtime (infra-devops)\"\n    },\n    {\n      \"ref\": \"ZYM7F5ZER1-468B\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"PowerBuilder 2019 Runtime (tax-compliance)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-application-runtime.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -29547,7 +32470,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -29563,7 +32489,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "M087QNW2D0-6G06",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure AD B2C (Core Platform Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -29598,6 +32530,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-71PY",
           "path": "domain"
+        },
+        {
+          "target": "M087QNW2D0-6G06",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -29624,6 +32560,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "01KQQ4Q027-THYN",
           "path": "requirements[2].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-XW56",
+          "path": "target"
         },
         {
           "source": "H1ZTZXV5F6-C1CZ",
@@ -29676,7 +32616,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-MHJM\",\n  \"type\": \"capability\",\n  \"name\": \"Authentication\",\n  \"description\": \"Identity and access authentication capability for users, services, administrators, or workloads.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-71PY\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-authentication.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-MHJM\",\n  \"type\": \"capability\",\n  \"name\": \"Authentication\",\n  \"description\": \"Identity and access authentication capability for users, services, administrators, or workloads.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-71PY\",\n  \"implementations\": [\n    {\n      \"ref\": \"M087QNW2D0-6G06\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure AD B2C (Core Platform Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-authentication.yaml\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -29719,7 +32659,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -29735,7 +32678,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "A4M2HB1G1D-22DT",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure Cache for Redis (Core Platform Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -29770,12 +32719,20 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-ZTHF",
           "path": "domain"
+        },
+        {
+          "target": "A4M2HB1G1D-22DT",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[6].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-QXMV",
+          "path": "target"
         },
         {
           "source": "A4M2HB1G1D-22DT",
@@ -29824,7 +32781,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-ECR4\",\n  \"type\": \"capability\",\n  \"name\": \"Caching\",\n  \"description\": \"Frequently accessed data is stored in a fast, ephemeral tier to reduce latency and load on the system of record.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-caching.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-ECR4\",\n  \"type\": \"capability\",\n  \"name\": \"Caching\",\n  \"description\": \"Frequently accessed data is stored in a fast, ephemeral tier to reduce latency and load on the system of record.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [\n    {\n      \"ref\": \"A4M2HB1G1D-22DT\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure Cache for Redis (Core Platform Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-caching.yaml\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -30214,14 +33171,6 @@ window.DRAFT_BROWSER_DATA = {
           "path": "requirements[1].relatedCapability"
         },
         {
-          "source": "PV9F22JQ2K-LSE9",
-          "path": "capabilities[0]"
-        },
-        {
-          "source": "4MNRK1XQZ7-PB10",
-          "path": "capabilities[0]"
-        },
-        {
           "source": "KFP31VBNDB-RART",
           "path": "capabilities[0]"
         },
@@ -30327,7 +33276,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -30343,7 +33295,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "WBCN4NVAYG-RFC8",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure Standard_D-series v5 VM (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -30378,6 +33336,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-ZTHF",
           "path": "domain"
+        },
+        {
+          "target": "WBCN4NVAYG-RFC8",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -30388,6 +33350,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "01KQQ4Q027-THYN",
           "path": "requirements[1].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-595B",
+          "path": "target"
         },
         {
           "source": "WBCN4NVAYG-RFC8",
@@ -30432,7 +33398,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-1HZP\",\n  \"type\": \"capability\",\n  \"name\": \"Compute Platform\",\n  \"description\": \"Compute substrate or virtualized platform used to run Hosts.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-compute-platform.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-1HZP\",\n  \"type\": \"capability\",\n  \"name\": \"Compute Platform\",\n  \"description\": \"Compute substrate or virtualized platform used to run Hosts.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [\n    {\n      \"ref\": \"WBCN4NVAYG-RFC8\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure Standard_D-series v5 VM (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-compute-platform.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -30755,7 +33721,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "data-analytics",
+        "contact": "data-analytics@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -30771,7 +33740,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "D2K2AEW24S-0XJ8",
+          "lifecycleStatus": "existing-only",
+          "notes": "Python 3.12 / Apache Airflow Runtime (data-analytics)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -30806,12 +33781,24 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KT0XNZEY-QY0Y",
           "path": "domain"
+        },
+        {
+          "target": "D2K2AEW24S-0XJ8",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[16].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-P66J",
+          "path": "target"
+        },
+        {
+          "source": "D2K2AEW24S-0XJ8",
+          "path": "capabilities[1]"
         }
       ],
       "editorSchema": {
@@ -30852,7 +33839,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0XNZEY-DENJ\",\n  \"type\": \"capability\",\n  \"name\": \"Data Integration\",\n  \"description\": \"Data is moved, transformed, and synchronized between systems through a managed integration or ETL platform.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KT0XNZEY-QY0Y\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-data-integration.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0XNZEY-DENJ\",\n  \"type\": \"capability\",\n  \"name\": \"Data Integration\",\n  \"description\": \"Data is moved, transformed, and synchronized between systems through a managed integration or ETL platform.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KT0XNZEY-QY0Y\",\n  \"implementations\": [\n    {\n      \"ref\": \"D2K2AEW24S-0XJ8\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Python 3.12 / Apache Airflow Runtime (data-analytics)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-data-integration.yaml\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -30895,7 +33882,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -30911,7 +33901,28 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "NWFNB1R5TX-N5AC",
+          "lifecycleStatus": "existing-only",
+          "notes": "PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server) (core-platform)"
+        },
+        {
+          "ref": "2EJA62M0B7-HQXM",
+          "lifecycleStatus": "existing-only",
+          "notes": "Oracle Database 19c (tax-compliance)"
+        },
+        {
+          "ref": "TRAS6KGSAC-RGNM",
+          "lifecycleStatus": "existing-only",
+          "notes": "SQL Server 2022 (Azure SQL Managed Instance) (tax-compliance)"
+        },
+        {
+          "ref": "6YWAMCXE87-H8JW",
+          "lifecycleStatus": "preferred",
+          "notes": "Snowflake (Data & Analytics Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -30946,12 +33957,44 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-QHKZ",
           "path": "domain"
+        },
+        {
+          "target": "NWFNB1R5TX-N5AC",
+          "path": "implementations[0].ref"
+        },
+        {
+          "target": "2EJA62M0B7-HQXM",
+          "path": "implementations[1].ref"
+        },
+        {
+          "target": "TRAS6KGSAC-RGNM",
+          "path": "implementations[2].ref"
+        },
+        {
+          "target": "6YWAMCXE87-H8JW",
+          "path": "implementations[3].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[8].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-WG50",
+          "path": "target"
+        },
+        {
+          "source": "NWFNB1R5TX-N5AC",
+          "path": "capabilities[0]"
+        },
+        {
+          "source": "2EJA62M0B7-HQXM",
+          "path": "capabilities[0]"
+        },
+        {
+          "source": "TRAS6KGSAC-RGNM",
+          "path": "capabilities[0]"
         },
         {
           "source": "6YWAMCXE87-H8JW",
@@ -31000,7 +34043,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-VD0Y\",\n  \"type\": \"capability\",\n  \"name\": \"Data Persistence\",\n  \"description\": \"Structured application data is durably stored, queried, and managed in a database or persistence platform.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-QHKZ\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-data-persistence.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-VD0Y\",\n  \"type\": \"capability\",\n  \"name\": \"Data Persistence\",\n  \"description\": \"Structured application data is durably stored, queried, and managed in a database or persistence platform.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-QHKZ\",\n  \"implementations\": [\n    {\n      \"ref\": \"NWFNB1R5TX-N5AC\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server) (core-platform)\"\n    },\n    {\n      \"ref\": \"2EJA62M0B7-HQXM\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Oracle Database 19c (tax-compliance)\"\n    },\n    {\n      \"ref\": \"TRAS6KGSAC-RGNM\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"SQL Server 2022 (Azure SQL Managed Instance) (tax-compliance)\"\n    },\n    {\n      \"ref\": \"6YWAMCXE87-H8JW\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Snowflake (Data & Analytics Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-data-persistence.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -31943,7 +34986,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -31959,7 +35005,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "792738MBB6-8XMK",
+          "lifecycleStatus": "preferred",
+          "notes": "Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -31994,6 +35046,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-C213",
           "path": "domain"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -32024,6 +35080,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "KZM0T9NY43-3H8K",
           "path": "requirements[1].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-6663",
+          "path": "target"
         },
         {
           "source": "H1ZTZXV5F6-C1CZ",
@@ -32088,7 +35148,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-98VD\",\n  \"type\": \"capability\",\n  \"name\": \"Health and Welfare Monitoring\",\n  \"description\": \"Runtime health, uptime, metrics, and operational welfare visibility.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-C213\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-health-welfare-monitoring.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-98VD\",\n  \"type\": \"capability\",\n  \"name\": \"Health and Welfare Monitoring\",\n  \"description\": \"Runtime health, uptime, metrics, and operational welfare visibility.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-C213\",\n  \"implementations\": [\n    {\n      \"ref\": \"792738MBB6-8XMK\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-health-welfare-monitoring.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -32131,7 +35191,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -32147,7 +35210,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "792738MBB6-8XMK",
+          "lifecycleStatus": "preferred",
+          "notes": "Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -32182,6 +35251,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-C213",
           "path": "domain"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -32208,6 +35281,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "P6M8FWV2D8-0RM8",
           "path": "requirements[0].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYD-ZKB7",
+          "path": "target"
         },
         {
           "source": "H1ZTZXV5F6-C1CZ",
@@ -32260,7 +35337,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-D04B\",\n  \"type\": \"capability\",\n  \"name\": \"Log Management\",\n  \"description\": \"Aggregation, retention, searchability, and forwarding of system or application logs.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-C213\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-log-management.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-D04B\",\n  \"type\": \"capability\",\n  \"name\": \"Log Management\",\n  \"description\": \"Aggregation, retention, searchability, and forwarding of system or application logs.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-C213\",\n  \"implementations\": [\n    {\n      \"ref\": \"792738MBB6-8XMK\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-log-management.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -32303,7 +35380,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -32319,7 +35399,18 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "01KVNWGWYF-DKXK",
+          "lifecycleStatus": "existing-only",
+          "notes": "Asset & Lease Events Topic (Dedicated Service Bus) (asset-lease)"
+        },
+        {
+          "ref": "VKSQHZCHTK-VJP1",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure Service Bus (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -32354,12 +35445,28 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-ZTHF",
           "path": "domain"
+        },
+        {
+          "target": "01KVNWGWYF-DKXK",
+          "path": "implementations[0].ref"
+        },
+        {
+          "target": "VKSQHZCHTK-VJP1",
+          "path": "implementations[1].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[7].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-YVFY",
+          "path": "target"
+        },
+        {
+          "source": "01KVNWGWYF-DKXK",
+          "path": "capabilities[0]"
         },
         {
           "source": "VKSQHZCHTK-VJP1",
@@ -32408,7 +35515,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-KT72\",\n  \"type\": \"capability\",\n  \"name\": \"Messaging\",\n  \"description\": \"Asynchronous messages and events are accepted, queued, and delivered between producers and consumers.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-messaging.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-KT72\",\n  \"type\": \"capability\",\n  \"name\": \"Messaging\",\n  \"description\": \"Asynchronous messages and events are accepted, queued, and delivered between producers and consumers.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [\n    {\n      \"ref\": \"01KVNWGWYF-DKXK\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Asset & Lease Events Topic (Dedicated Service Bus) (asset-lease)\"\n    },\n    {\n      \"ref\": \"VKSQHZCHTK-VJP1\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure Service Bus (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-messaging.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -32856,7 +35963,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "data-analytics",
+        "contact": "data-analytics@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -32872,7 +35982,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "5JMBH216ND-AJE9",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure Data Lake Storage Gen2 (Data & Analytics Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -32907,12 +36023,20 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-QHKZ",
           "path": "domain"
+        },
+        {
+          "target": "5JMBH216ND-AJE9",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[9].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-CMZ9",
+          "path": "target"
         },
         {
           "source": "5JMBH216ND-AJE9",
@@ -32961,7 +36085,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-E9TN\",\n  \"type\": \"capability\",\n  \"name\": \"Object Storage\",\n  \"description\": \"Unstructured objects and blobs are durably stored and retrieved through an object storage interface.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-QHKZ\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-object-storage.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0V5MCV-E9TN\",\n  \"type\": \"capability\",\n  \"name\": \"Object Storage\",\n  \"description\": \"Unstructured objects and blobs are durably stored and retrieved through an object storage interface.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-QHKZ\",\n  \"implementations\": [\n    {\n      \"ref\": \"5JMBH216ND-AJE9\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure Data Lake Storage Gen2 (Data & Analytics Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-object-storage.yaml\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -33004,7 +36128,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -33020,7 +36147,18 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "8DD32B2D0H-2PCZ",
+          "lifecycleStatus": "existing-only",
+          "notes": "Windows Server 2022 (tax-compliance)"
+        },
+        {
+          "ref": "C657R8CNHY-FDK6",
+          "lifecycleStatus": "preferred",
+          "notes": "Ubuntu 22.04 LTS (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -33055,12 +36193,28 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KQQ4Q027-ZTHF",
           "path": "domain"
+        },
+        {
+          "target": "8DD32B2D0H-2PCZ",
+          "path": "implementations[0].ref"
+        },
+        {
+          "target": "C657R8CNHY-FDK6",
+          "path": "implementations[1].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KQQ4Q027-THYN",
           "path": "requirements[0].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-SZ9A",
+          "path": "target"
+        },
+        {
+          "source": "8DD32B2D0H-2PCZ",
+          "path": "capabilities[0]"
         },
         {
           "source": "C657R8CNHY-FDK6",
@@ -33105,7 +36259,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-QM2X\",\n  \"type\": \"capability\",\n  \"name\": \"Operating System\",\n  \"description\": \"Supported operating system product used to define managed Hosts.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-operating-system.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-QM2X\",\n  \"type\": \"capability\",\n  \"name\": \"Operating System\",\n  \"description\": \"Supported operating system product used to define managed Hosts.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KQQ4Q027-ZTHF\",\n  \"implementations\": [\n    {\n      \"ref\": \"8DD32B2D0H-2PCZ\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Windows Server 2022 (tax-compliance)\"\n    },\n    {\n      \"ref\": \"C657R8CNHY-FDK6\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Ubuntu 22.04 LTS (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-operating-system.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -33596,7 +36750,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "regulatory",
+        "contact": "regulatory@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -33612,7 +36769,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "4MNRK1XQZ7-PB10",
+          "lifecycleStatus": "existing-only",
+          "notes": "Power BI Embedded Capacity (Rate Case Dashboard) (regulatory)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -33647,12 +36810,24 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KT0XNZEY-HGZZ",
           "path": "domain"
+        },
+        {
+          "target": "4MNRK1XQZ7-PB10",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
         {
           "source": "01KT0VM061-CRN7",
           "path": "requirements[18].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-G9FG",
+          "path": "target"
+        },
+        {
+          "source": "4MNRK1XQZ7-PB10",
+          "path": "capabilities[0]"
         }
       ],
       "editorSchema": {
@@ -33693,7 +36868,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0XNZEY-70Y6\",\n  \"type\": \"capability\",\n  \"name\": \"Reporting\",\n  \"description\": \"Curated metrics and datasets are presented to consumers through managed reports and dashboards.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KT0XNZEY-HGZZ\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-reporting.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KT0XNZEY-70Y6\",\n  \"type\": \"capability\",\n  \"name\": \"Reporting\",\n  \"description\": \"Curated metrics and datasets are presented to consumers through managed reports and dashboards.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KT0XNZEY-HGZZ\",\n  \"implementations\": [\n    {\n      \"ref\": \"4MNRK1XQZ7-PB10\",\n      \"lifecycleStatus\": \"existing-only\",\n      \"notes\": \"Power BI Embedded Capacity (Rate Case Dashboard) (regulatory)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-reporting.yaml\",\n  \"owner\": {\n    \"team\": \"regulatory\",\n    \"contact\": \"regulatory@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -33736,7 +36911,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -33752,7 +36930,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "5Q5CZMHNTR-71A8",
+          "lifecycleStatus": "preferred",
+          "notes": "Azure Key Vault (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -33787,6 +36971,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-GY67",
           "path": "domain"
+        },
+        {
+          "target": "5Q5CZMHNTR-71A8",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -33809,6 +36997,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "01KQQ4Q027-K5DR",
           "path": "requirements[3].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-7QHG",
+          "path": "target"
         },
         {
           "source": "5Q5CZMHNTR-71A8",
@@ -33857,7 +37049,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-DTJJ\",\n  \"type\": \"capability\",\n  \"name\": \"Secrets Management\",\n  \"description\": \"Secure storage, rotation, and access mediation for secrets and authenticators.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-GY67\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-secrets-management.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-DTJJ\",\n  \"type\": \"capability\",\n  \"name\": \"Secrets Management\",\n  \"description\": \"Secure storage, rotation, and access mediation for secrets and authenticators.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-GY67\",\n  \"implementations\": [\n    {\n      \"ref\": \"5Q5CZMHNTR-71A8\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Azure Key Vault (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-secrets-management.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -33900,7 +37092,10 @@ window.DRAFT_BROWSER_DATA = {
       "vendorSLA": "",
       "authenticationModel": "",
       "incidentNotificationProcess": "",
-      "owner": {},
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
       "definitionOwner": {
         "provider": "draft-framework",
         "team": "cloud-architecture",
@@ -33916,7 +37111,13 @@ window.DRAFT_BROWSER_DATA = {
       "internalComponents": [],
       "architectureNotes": {},
       "requirements": [],
-      "implementations": [],
+      "implementations": [
+        {
+          "ref": "792738MBB6-8XMK",
+          "lifecycleStatus": "preferred",
+          "notes": "Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)"
+        }
+      ],
       "appliesTo": {},
       "inherits": "",
       "scalingUnits": [],
@@ -33951,6 +37152,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "target": "01KSWVZSZ5-GY67",
           "path": "domain"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "implementations[0].ref"
         }
       ],
       "referencedBy": [
@@ -33973,6 +37178,10 @@ window.DRAFT_BROWSER_DATA = {
         {
           "source": "01KQQ4Q027-THYN",
           "path": "requirements[5].relatedCapability"
+        },
+        {
+          "source": "01KVNWGWYE-7QJ8",
+          "path": "target"
         },
         {
           "source": "H1ZTZXV5F6-C1CZ",
@@ -34025,7 +37234,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/capability.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-JW52\",\n  \"type\": \"capability\",\n  \"name\": \"Security Monitoring\",\n  \"description\": \"Threat detection, intrusion detection, security event monitoring, and audit telemetry.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-GY67\",\n  \"implementations\": [],\n  \"_source\": \"framework/configurations/capabilities/capability-security-monitoring.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KQQ4Q026-JW52\",\n  \"type\": \"capability\",\n  \"name\": \"Security Monitoring\",\n  \"description\": \"Threat detection, intrusion detection, security event monitoring, and audit telemetry.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"definitionOwner\": {\n    \"provider\": \"draft-framework\",\n    \"team\": \"cloud-architecture\",\n    \"contact\": \"cloud-architecture@example.com\"\n  },\n  \"domain\": \"01KSWVZSZ5-GY67\",\n  \"implementations\": [\n    {\n      \"ref\": \"792738MBB6-8XMK\",\n      \"lifecycleStatus\": \"preferred\",\n      \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n    }\n  ],\n  \"_source\": \"framework/configurations/capabilities/capability-security-monitoring.yaml\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  }\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -46951,9 +50160,2246 @@ window.DRAFT_BROWSER_DATA = {
       "outboundRelationships": [],
       "inboundRelationships": []
     },
-    "PV9F22JQ2K-LSE9": {
-      "id": "PV9F22JQ2K-LSE9",
-      "uid": "PV9F22JQ2K-LSE9",
+    "01KVNWGWYD-F6QT": {
+      "id": "01KVNWGWYD-F6QT",
+      "uid": "01KVNWGWYD-F6QT",
+      "name": "Acme PowerSoft Acceptable Use -- API Gateway",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the API Gateway capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-api-gateway.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-3A6F",
+          "path": "target"
+        },
+        {
+          "target": "MH7JS0SPA4-YA23",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-F6QT\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- API Gateway\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the API Gateway capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-3A6F\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"core-platform\",\n      \"contact\": \"core-platform@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"MH7JS0SPA4-YA23\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure API Management (Core Platform Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-api-gateway.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYD-TGZ9": {
+      "id": "01KVNWGWYD-TGZ9",
+      "uid": "01KVNWGWYD-TGZ9",
+      "name": "Acme PowerSoft Acceptable Use -- Application Runtime",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Application Runtime capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-application-runtime.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-RZV0",
+          "path": "target"
+        },
+        {
+          "target": "12D3W1HAV5-AA70",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "target": "D2K2AEW24S-0XJ8",
+          "path": "patch.implementations[1].ref"
+        },
+        {
+          "target": "K8T2YQX5MD-NJ14",
+          "path": "patch.implementations[2].ref"
+        },
+        {
+          "target": "ZYM7F5ZER1-468B",
+          "path": "patch.implementations[3].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-TGZ9\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Application Runtime\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Application Runtime capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-RZV0\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"12D3W1HAV5-AA70\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \".NET 8 ASP.NET Core Runtime (core-platform)\"\n      },\n      {\n        \"ref\": \"D2K2AEW24S-0XJ8\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Python 3.12 / Apache Airflow Runtime (data-analytics)\"\n      },\n      {\n        \"ref\": \"K8T2YQX5MD-NJ14\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Node.js 20 / Next.js 14 Runtime (infra-devops)\"\n      },\n      {\n        \"ref\": \"ZYM7F5ZER1-468B\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"PowerBuilder 2019 Runtime (tax-compliance)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-application-runtime.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYD-XW56": {
+      "id": "01KVNWGWYD-XW56",
+      "uid": "01KVNWGWYD-XW56",
+      "name": "Acme PowerSoft Acceptable Use -- Authentication",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Authentication capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-authentication.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-MHJM",
+          "path": "target"
+        },
+        {
+          "target": "M087QNW2D0-6G06",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-XW56\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Authentication\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Authentication capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-MHJM\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"core-platform\",\n      \"contact\": \"core-platform@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"M087QNW2D0-6G06\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure AD B2C (Core Platform Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-authentication.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYD-QXMV": {
+      "id": "01KVNWGWYD-QXMV",
+      "uid": "01KVNWGWYD-QXMV",
+      "name": "Acme PowerSoft Acceptable Use -- Caching",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Caching capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "core-platform",
+        "contact": "core-platform@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-caching.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-ECR4",
+          "path": "target"
+        },
+        {
+          "target": "A4M2HB1G1D-22DT",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-QXMV\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Caching\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Caching capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-ECR4\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"core-platform\",\n      \"contact\": \"core-platform@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"A4M2HB1G1D-22DT\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure Cache for Redis (Core Platform Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-caching.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYD-595B": {
+      "id": "01KVNWGWYD-595B",
+      "uid": "01KVNWGWYD-595B",
+      "name": "Acme PowerSoft Acceptable Use -- Compute Platform",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Compute Platform capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-compute-platform.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-1HZP",
+          "path": "target"
+        },
+        {
+          "target": "WBCN4NVAYG-RFC8",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-595B\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Compute Platform\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Compute Platform capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-1HZP\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"WBCN4NVAYG-RFC8\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure Standard_D-series v5 VM (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-compute-platform.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYD-P66J": {
+      "id": "01KVNWGWYD-P66J",
+      "uid": "01KVNWGWYD-P66J",
+      "name": "Acme PowerSoft Acceptable Use -- Data Integration",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Data Integration capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "data-analytics",
+        "contact": "data-analytics@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-data-integration.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0XNZEY-DENJ",
+          "path": "target"
+        },
+        {
+          "target": "D2K2AEW24S-0XJ8",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-P66J\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Data Integration\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Data Integration capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0XNZEY-DENJ\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"data-analytics\",\n      \"contact\": \"data-analytics@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"D2K2AEW24S-0XJ8\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Python 3.12 / Apache Airflow Runtime (data-analytics)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-data-integration.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYD-WG50": {
+      "id": "01KVNWGWYD-WG50",
+      "uid": "01KVNWGWYD-WG50",
+      "name": "Acme PowerSoft Acceptable Use -- Data Persistence",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Data Persistence capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-data-persistence.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-VD0Y",
+          "path": "target"
+        },
+        {
+          "target": "NWFNB1R5TX-N5AC",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "target": "2EJA62M0B7-HQXM",
+          "path": "patch.implementations[1].ref"
+        },
+        {
+          "target": "TRAS6KGSAC-RGNM",
+          "path": "patch.implementations[2].ref"
+        },
+        {
+          "target": "6YWAMCXE87-H8JW",
+          "path": "patch.implementations[3].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-WG50\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Data Persistence\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Data Persistence capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-VD0Y\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"NWFNB1R5TX-N5AC\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server) (core-platform)\"\n      },\n      {\n        \"ref\": \"2EJA62M0B7-HQXM\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Oracle Database 19c (tax-compliance)\"\n      },\n      {\n        \"ref\": \"TRAS6KGSAC-RGNM\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"SQL Server 2022 (Azure SQL Managed Instance) (tax-compliance)\"\n      },\n      {\n        \"ref\": \"6YWAMCXE87-H8JW\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Snowflake (Data & Analytics Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-data-persistence.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYD-6663": {
+      "id": "01KVNWGWYD-6663",
+      "uid": "01KVNWGWYD-6663",
+      "name": "Acme PowerSoft Acceptable Use -- Health and Welfare Monitoring",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Health and Welfare Monitoring capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-health-and-welfare-monitoring.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-98VD",
+          "path": "target"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-6663\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Health and Welfare Monitoring\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Health and Welfare Monitoring capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-98VD\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"792738MBB6-8XMK\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-health-and-welfare-monitoring.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYD-ZKB7": {
+      "id": "01KVNWGWYD-ZKB7",
+      "uid": "01KVNWGWYD-ZKB7",
+      "name": "Acme PowerSoft Acceptable Use -- Log Management",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Log Management capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-log-management.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-D04B",
+          "path": "target"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYD-ZKB7\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Log Management\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Log Management capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-D04B\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"792738MBB6-8XMK\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-log-management.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYE-YVFY": {
+      "id": "01KVNWGWYE-YVFY",
+      "uid": "01KVNWGWYE-YVFY",
+      "name": "Acme PowerSoft Acceptable Use -- Messaging",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Messaging capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-messaging.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-KT72",
+          "path": "target"
+        },
+        {
+          "target": "01KVNWGWYF-DKXK",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "target": "VKSQHZCHTK-VJP1",
+          "path": "patch.implementations[1].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-YVFY\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Messaging\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Messaging capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-KT72\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"01KVNWGWYF-DKXK\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Asset & Lease Events Topic (Dedicated Service Bus) (asset-lease)\"\n      },\n      {\n        \"ref\": \"VKSQHZCHTK-VJP1\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure Service Bus (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-messaging.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYE-CMZ9": {
+      "id": "01KVNWGWYE-CMZ9",
+      "uid": "01KVNWGWYE-CMZ9",
+      "name": "Acme PowerSoft Acceptable Use -- Object Storage",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Object Storage capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "data-analytics",
+        "contact": "data-analytics@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-object-storage.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-E9TN",
+          "path": "target"
+        },
+        {
+          "target": "5JMBH216ND-AJE9",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-CMZ9\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Object Storage\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Object Storage capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0V5MCV-E9TN\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"data-analytics\",\n      \"contact\": \"data-analytics@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"5JMBH216ND-AJE9\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure Data Lake Storage Gen2 (Data & Analytics Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-object-storage.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYE-SZ9A": {
+      "id": "01KVNWGWYE-SZ9A",
+      "uid": "01KVNWGWYE-SZ9A",
+      "name": "Acme PowerSoft Acceptable Use -- Operating System",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Operating System capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-operating-system.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-QM2X",
+          "path": "target"
+        },
+        {
+          "target": "8DD32B2D0H-2PCZ",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "target": "C657R8CNHY-FDK6",
+          "path": "patch.implementations[1].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-SZ9A\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Operating System\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Operating System capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-QM2X\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"8DD32B2D0H-2PCZ\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Windows Server 2022 (tax-compliance)\"\n      },\n      {\n        \"ref\": \"C657R8CNHY-FDK6\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Ubuntu 22.04 LTS (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-operating-system.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYE-G9FG": {
+      "id": "01KVNWGWYE-G9FG",
+      "uid": "01KVNWGWYE-G9FG",
+      "name": "Acme PowerSoft Acceptable Use -- Reporting",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Reporting capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "regulatory",
+        "contact": "regulatory@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-reporting.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KT0XNZEY-70Y6",
+          "path": "target"
+        },
+        {
+          "target": "4MNRK1XQZ7-PB10",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-G9FG\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Reporting\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Reporting capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"regulatory\",\n    \"contact\": \"regulatory@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KT0XNZEY-70Y6\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"regulatory\",\n      \"contact\": \"regulatory@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"4MNRK1XQZ7-PB10\",\n        \"lifecycleStatus\": \"existing-only\",\n        \"notes\": \"Power BI Embedded Capacity (Rate Case Dashboard) (regulatory)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-reporting.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYE-7QHG": {
+      "id": "01KVNWGWYE-7QHG",
+      "uid": "01KVNWGWYE-7QHG",
+      "name": "Acme PowerSoft Acceptable Use -- Secrets Management",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Secrets Management capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-secrets-management.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-DTJJ",
+          "path": "target"
+        },
+        {
+          "target": "5Q5CZMHNTR-71A8",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-7QHG\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Secrets Management\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Secrets Management capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-DTJJ\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"5Q5CZMHNTR-71A8\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Azure Key Vault (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-secrets-management.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYE-7QJ8": {
+      "id": "01KVNWGWYE-7QJ8",
+      "uid": "01KVNWGWYE-7QJ8",
+      "name": "Acme PowerSoft Acceptable Use -- Security Monitoring",
+      "aliases": [],
+      "type": "object_patch",
+      "typeLabel": "Object Patch",
+      "filterType": "object_patch",
+      "category": "",
+      "deliveryModel": "",
+      "domain": "",
+      "description": "Company-local implementation lifecycle mapping for the Security Monitoring capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.",
+      "version": "1.0.0",
+      "catalogStatus": "complete",
+      "lifecycleStatus": "preferred",
+      "status": "",
+      "businessContext": {},
+      "product": "",
+      "runsOn": "",
+      "subtype": "",
+      "vendor": "",
+      "productName": "",
+      "productVersion": "",
+      "classification": "",
+      "platformDependency": "",
+      "capabilities": [],
+      "configurations": [],
+      "networkPlacement": "",
+      "patchingOwner": "",
+      "complianceCerts": [],
+      "requirementGroups": [],
+      "requirementImplementations": [],
+      "dataLeavesInfrastructure": null,
+      "dataResidencyCommitment": "",
+      "dpaNotes": "",
+      "vendorSLA": "",
+      "authenticationModel": "",
+      "incidentNotificationProcess": "",
+      "owner": {
+        "team": "infra-devops",
+        "contact": "infra-devops@acmepowersoft.example.com"
+      },
+      "definitionOwner": {},
+      "provider": {},
+      "authority": {},
+      "shape": "round-rectangle",
+      "color": "#1f8a5b",
+      "source": "catalog/object-patches/op-acceptable-use-security-monitoring.yaml",
+      "tags": [
+        "configuration",
+        "acceptable-use",
+        "object-patch"
+      ],
+      "ardCategory": "",
+      "internalComponents": [],
+      "architectureNotes": {},
+      "requirements": [],
+      "implementations": [],
+      "appliesTo": {},
+      "inherits": "",
+      "scalingUnits": [],
+      "networkZones": [],
+      "sdpConnections": [],
+      "serviceGroups": [],
+      "tierVariants": [],
+      "tierId": "",
+      "purpose": "",
+      "availabilityExpectation": "",
+      "costPosture": "",
+      "complianceScope": [],
+      "parameterSurface": [],
+      "followsReferenceArchitecture": "",
+      "decisionRecords": [],
+      "affectedComponent": "",
+      "impact": "",
+      "mitigationPath": "",
+      "decisionRationale": "",
+      "relatedDecisionRecords": [],
+      "linkedObject": "",
+      "primaryObjectType": "",
+      "primaryObjectUid": "",
+      "generatedObjects": [],
+      "unresolvedQuestions": [],
+      "assumptions": [],
+      "nextSteps": [],
+      "defaultSelection": false,
+      "requirementCount": 0,
+      "hasRiskRef": false,
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-JW52",
+          "path": "target"
+        },
+        {
+          "target": "792738MBB6-8XMK",
+          "path": "patch.implementations[0].ref"
+        }
+      ],
+      "referencedBy": [],
+      "editorSchema": {
+        "requiredFields": [
+          "schemaVersion",
+          "uid",
+          "type",
+          "name",
+          "target",
+          "patch",
+          "catalogStatus",
+          "lifecycleStatus"
+        ],
+        "optionalFields": [
+          "aliases",
+          "description",
+          "version",
+          "owner",
+          "tags",
+          "notes"
+        ],
+        "fieldTypes": {
+          "aliases": "list",
+          "owner": "dict",
+          "tags": "list",
+          "patch": "dict"
+        },
+        "enumFields": {
+          "catalogStatus": [
+            "stub",
+            "incomplete",
+            "complete"
+          ],
+          "lifecycleStatus": [
+            "candidate",
+            "preferred",
+            "existing-only",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "enumListFields": {},
+        "collectionSchemas": {},
+        "schemaPath": "framework/schemas/object-patch.schema.yaml"
+      },
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYE-7QJ8\",\n  \"type\": \"object_patch\",\n  \"name\": \"Acme PowerSoft Acceptable Use -- Security Monitoring\",\n  \"aliases\": [],\n  \"description\": \"Company-local implementation lifecycle mapping for the Security Monitoring capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"preferred\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"configuration\",\n    \"acceptable-use\",\n    \"object-patch\"\n  ],\n  \"target\": \"01KQQ4Q026-JW52\",\n  \"patch\": {\n    \"owner\": {\n      \"team\": \"infra-devops\",\n      \"contact\": \"infra-devops@acmepowersoft.example.com\"\n    },\n    \"implementations\": [\n      {\n        \"ref\": \"792738MBB6-8XMK\",\n        \"lifecycleStatus\": \"preferred\",\n        \"notes\": \"Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)\"\n      }\n    ]\n  },\n  \"_source\": \"catalog/object-patches/op-acceptable-use-security-monitoring.yaml\"\n}",
+      "existsInCatalog": true,
+      "outboundRelationships": [],
+      "inboundRelationships": []
+    },
+    "01KVNWGWYF-DKXK": {
+      "id": "01KVNWGWYF-DKXK",
+      "uid": "01KVNWGWYF-DKXK",
       "name": "Asset & Lease Events Topic (Dedicated Service Bus)",
       "aliases": [],
       "type": "technology_component",
@@ -46980,7 +52426,7 @@ window.DRAFT_BROWSER_DATA = {
       "classification": "",
       "platformDependency": "",
       "capabilities": [
-        "01KT0XNZEY-Q2TF"
+        "01KT0V5MCV-KT72"
       ],
       "configurations": [],
       "networkPlacement": "",
@@ -47046,11 +52492,19 @@ window.DRAFT_BROWSER_DATA = {
       "hasRiskRef": false,
       "outboundRefs": [
         {
-          "target": "01KT0XNZEY-Q2TF",
+          "target": "01KT0V5MCV-KT72",
           "path": "capabilities[0]"
         }
       ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-KT72",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-YVFY",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "QWD953NT60-B477",
           "path": "serviceGroups[2].deployableObjects[0].ref"
@@ -47114,7 +52568,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"PV9F22JQ2K-LSE9\",\n  \"type\": \"technology_component\",\n  \"name\": \"Asset & Lease Events Topic (Dedicated Service Bus)\",\n  \"description\": \"Dedicated Azure Service Bus topic for lease lifecycle events\\n(created/modified/retired). Deliberately kept separate from Sofia's\\nshared messaging backbone per Priya's guidance -- single-team ownership,\\nno shared-schema coordination overhead, route to the shared backbone\\nlater only if a real cross-team consumer appears.\\n\",\n  \"version\": \"1.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"asset-lease\",\n    \"contact\": \"asset-lease@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"messaging\",\n    \"asset-lease\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.asset-management\",\n    \"productFamily\": \"Acme Asset & Lease Manager\"\n  },\n  \"capabilities\": [\n    \"01KT0XNZEY-Q2TF\"\n  ],\n  \"_source\": \"catalog/technology-components/asset-lease/tc-azure-service-bus-asset-lease.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"01KVNWGWYF-DKXK\",\n  \"type\": \"technology_component\",\n  \"name\": \"Asset & Lease Events Topic (Dedicated Service Bus)\",\n  \"description\": \"Dedicated Azure Service Bus topic for lease lifecycle events\\n(created/modified/retired). Deliberately kept separate from Sofia's\\nshared messaging backbone per Priya's guidance -- single-team ownership,\\nno shared-schema coordination overhead, route to the shared backbone\\nlater only if a real cross-team consumer appears.\\n\",\n  \"version\": \"1.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"asset-lease\",\n    \"contact\": \"asset-lease@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"messaging\",\n    \"asset-lease\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.asset-management\",\n    \"productFamily\": \"Acme Asset & Lease Manager\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-KT72\"\n  ],\n  \"_source\": \"catalog/technology-components/asset-lease/tc-azure-service-bus-asset-lease.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -47147,7 +52601,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-RZV0"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -47211,8 +52667,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-RZV0",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-RZV0",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-TGZ9",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "KFP31VBNDB-RART",
           "path": "primaryTechnologyComponent"
@@ -47288,7 +52757,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"12D3W1HAV5-AA70\",\n  \"type\": \"technology_component\",\n  \"name\": \".NET 8 ASP.NET Core Runtime\",\n  \"description\": \"Managed-runtime application stack used to build and host Acme PowerSoft's\\ncontainerized C#/.NET services. Compiled to a self-contained Linux\\ncontainer image, run on AKS. Shared across multiple product teams that\\nbuild on .NET rather than each team cataloging their own runtime stack.\\n\",\n  \"version\": \"8.0.x\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2026-11-10\"\n  },\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"dotnet\",\n    \"shared\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Shared Runtime Stacks\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/core-platform/tc-dotnet8-runtime.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"12D3W1HAV5-AA70\",\n  \"type\": \"technology_component\",\n  \"name\": \".NET 8 ASP.NET Core Runtime\",\n  \"description\": \"Managed-runtime application stack used to build and host Acme PowerSoft's\\ncontainerized C#/.NET services. Compiled to a self-contained Linux\\ncontainer image, run on AKS. Shared across multiple product teams that\\nbuild on .NET rather than each team cataloging their own runtime stack.\\n\",\n  \"version\": \"8.0.x\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2026-11-10\"\n  },\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"dotnet\",\n    \"shared\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Shared Runtime Stacks\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-RZV0\"\n  ],\n  \"_source\": \"catalog/technology-components/core-platform/tc-dotnet8-runtime.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -47321,7 +52790,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-VD0Y"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -47384,8 +52855,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-VD0Y",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-VD0Y",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-WG50",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "C14NBVQZN9-S0GV",
           "path": "primaryTechnologyComponent"
@@ -47449,7 +52933,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"NWFNB1R5TX-N5AC\",\n  \"type\": \"technology_component\",\n  \"name\": \"PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server)\",\n  \"description\": \"Managed PostgreSQL used as the system-of-record for the Vantage tenancy\\nand entitlement data model.\\n\",\n  \"version\": \"16\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft / PostgreSQL Global Development Group\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"postgresql\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Acme Vantage\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/core-platform/tc-postgresql16.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"NWFNB1R5TX-N5AC\",\n  \"type\": \"technology_component\",\n  \"name\": \"PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server)\",\n  \"description\": \"Managed PostgreSQL used as the system-of-record for the Vantage tenancy\\nand entitlement data model.\\n\",\n  \"version\": \"16\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft / PostgreSQL Global Development Group\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"postgresql\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Acme Vantage\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-VD0Y\"\n  ],\n  \"_source\": \"catalog/technology-components/core-platform/tc-postgresql16.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -47482,7 +52966,10 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-RZV0",
+        "01KT0XNZEY-DENJ"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -47546,8 +53033,33 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-RZV0",
+          "path": "capabilities[0]"
+        },
+        {
+          "target": "01KT0XNZEY-DENJ",
+          "path": "capabilities[1]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-RZV0",
+          "path": "implementations[1].ref"
+        },
+        {
+          "source": "01KT0XNZEY-DENJ",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-TGZ9",
+          "path": "patch.implementations[1].ref"
+        },
+        {
+          "source": "01KVNWGWYD-P66J",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "VEWWR9JZAC-P285",
           "path": "primaryTechnologyComponent"
@@ -47611,7 +53123,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"D2K2AEW24S-0XJ8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Python 3.12 / Apache Airflow Runtime\",\n  \"description\": \"Containerized Apache Airflow scheduler + worker image (apache/airflow\\nbase) running ELT DAGs and the churn-risk model training job. Shared\\nruntime stack for Data & Analytics workloads, distinct from the .NET\\nstack the rest of the company builds on.\\n\",\n  \"version\": \"3.12 / Airflow 2.9\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Python Software Foundation / Apache Software Foundation\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"python\",\n    \"airflow\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.data-analytics\",\n    \"productFamily\": \"Acme Insight Hub\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/data-analytics/tc-python312-runtime.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"D2K2AEW24S-0XJ8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Python 3.12 / Apache Airflow Runtime\",\n  \"description\": \"Containerized Apache Airflow scheduler + worker image (apache/airflow\\nbase) running ELT DAGs and the churn-risk model training job. Shared\\nruntime stack for Data & Analytics workloads, distinct from the .NET\\nstack the rest of the company builds on.\\n\",\n  \"version\": \"3.12 / Airflow 2.9\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Python Software Foundation / Apache Software Foundation\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"python\",\n    \"airflow\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.data-analytics\",\n    \"productFamily\": \"Acme Insight Hub\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-RZV0\",\n    \"01KT0XNZEY-DENJ\"\n  ],\n  \"_source\": \"catalog/technology-components/data-analytics/tc-python312-runtime.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -47644,7 +53156,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-RZV0"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -47708,8 +53222,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-RZV0",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-RZV0",
+          "path": "implementations[2].ref"
+        },
+        {
+          "source": "01KVNWGWYD-TGZ9",
+          "path": "patch.implementations[2].ref"
+        },
         {
           "source": "DDKF51GRXT-9VE9",
           "path": "primaryTechnologyComponent"
@@ -47773,7 +53300,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"K8T2YQX5MD-NJ14\",\n  \"type\": \"technology_component\",\n  \"name\": \"Node.js 20 / Next.js 14 Runtime\",\n  \"description\": \"Containerized Next.js admin console runtime. The one product built on\\na Node.js stack rather than .NET or Python.\\n\",\n  \"version\": \"Node 20 / Next.js 14.2.3\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Node.js Foundation / Vercel\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"nodejs\",\n    \"nextjs\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Acme Admin Console\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/infra-devops/tc-nextjs-runtime.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"K8T2YQX5MD-NJ14\",\n  \"type\": \"technology_component\",\n  \"name\": \"Node.js 20 / Next.js 14 Runtime\",\n  \"description\": \"Containerized Next.js admin console runtime. The one product built on\\na Node.js stack rather than .NET or Python.\\n\",\n  \"version\": \"Node 20 / Next.js 14.2.3\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Node.js Foundation / Vercel\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"runtime\",\n    \"nodejs\",\n    \"nextjs\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.platform\",\n    \"productFamily\": \"Acme Admin Console\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-RZV0\"\n  ],\n  \"_source\": \"catalog/technology-components/infra-devops/tc-nextjs-runtime.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -47807,7 +53334,7 @@ window.DRAFT_BROWSER_DATA = {
       "classification": "",
       "platformDependency": "",
       "capabilities": [
-        "01KT0XNZEY-Q2TF"
+        "01KT0XNZEY-70Y6"
       ],
       "configurations": [],
       "networkPlacement": "",
@@ -47873,11 +53400,19 @@ window.DRAFT_BROWSER_DATA = {
       "hasRiskRef": false,
       "outboundRefs": [
         {
-          "target": "01KT0XNZEY-Q2TF",
+          "target": "01KT0XNZEY-70Y6",
           "path": "capabilities[0]"
         }
       ],
       "referencedBy": [
+        {
+          "source": "01KT0XNZEY-70Y6",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-G9FG",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "NDHCZF14QX-4EVH",
           "path": "serviceGroups[2].deployableObjects[0].ref"
@@ -47941,7 +53476,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"4MNRK1XQZ7-PB10\",\n  \"type\": \"technology_component\",\n  \"name\": \"Power BI Embedded Capacity (Rate Case Dashboard)\",\n  \"description\": \"Azure Power BI Embedded capacity hosting the rate-case dashboard\\nconsumed by regulators and outside counsel. First Power BI Embedded\\nobject in this catalog -- no prior example to follow, modeled as a\\nTechnologyComponent rather than a RuntimeService since it's a managed\\nPaaS reporting capacity, not a process we deploy code into.\\n\",\n  \"version\": \"A2 SKU\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"regulatory\",\n    \"contact\": \"regulatory@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"reporting\",\n    \"powerbi\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme RegTrack\"\n  },\n  \"capabilities\": [\n    \"01KT0XNZEY-Q2TF\"\n  ],\n  \"_source\": \"catalog/technology-components/regulatory/tc-powerbi-embedded.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"4MNRK1XQZ7-PB10\",\n  \"type\": \"technology_component\",\n  \"name\": \"Power BI Embedded Capacity (Rate Case Dashboard)\",\n  \"description\": \"Azure Power BI Embedded capacity hosting the rate-case dashboard\\nconsumed by regulators and outside counsel. First Power BI Embedded\\nobject in this catalog -- no prior example to follow, modeled as a\\nTechnologyComponent rather than a RuntimeService since it's a managed\\nPaaS reporting capacity, not a process we deploy code into.\\n\",\n  \"version\": \"A2 SKU\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"regulatory\",\n    \"contact\": \"regulatory@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"reporting\",\n    \"powerbi\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme RegTrack\"\n  },\n  \"capabilities\": [\n    \"01KT0XNZEY-70Y6\"\n  ],\n  \"_source\": \"catalog/technology-components/regulatory/tc-powerbi-embedded.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -47974,7 +53509,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-VD0Y"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -48038,8 +53575,22 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
-      "referencedBy": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-VD0Y",
+          "path": "capabilities[0]"
+        }
+      ],
+      "referencedBy": [
+        {
+          "source": "01KT0V5MCV-VD0Y",
+          "path": "implementations[1].ref"
+        },
+        {
+          "source": "01KVNWGWYD-WG50",
+          "path": "patch.implementations[1].ref"
+        }
+      ],
       "editorSchema": {
         "requiredFields": [
           "schemaVersion",
@@ -48098,7 +53649,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"2EJA62M0B7-HQXM\",\n  \"type\": \"technology_component\",\n  \"name\": \"Oracle Database 19c\",\n  \"description\": \"On-premise Oracle instance backing the legacy Property Tax schema\\n(PROPERTY_TAX_PARCEL and related tables). DBA-managed, not provisioned\\nvia Terraform or any code in this catalog -- see ticket TAX-1142.\\n\",\n  \"version\": \"19c\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Oracle\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2027-04-30\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"legacy\",\n    \"on-premise\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-oracle19c.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"2EJA62M0B7-HQXM\",\n  \"type\": \"technology_component\",\n  \"name\": \"Oracle Database 19c\",\n  \"description\": \"On-premise Oracle instance backing the legacy Property Tax schema\\n(PROPERTY_TAX_PARCEL and related tables). DBA-managed, not provisioned\\nvia Terraform or any code in this catalog -- see ticket TAX-1142.\\n\",\n  \"version\": \"19c\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Oracle\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2027-04-30\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"legacy\",\n    \"on-premise\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-VD0Y\"\n  ],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-oracle19c.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -48131,7 +53682,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-RZV0"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -48194,8 +53747,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-RZV0",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-RZV0",
+          "path": "implementations[3].ref"
+        },
+        {
+          "source": "01KVNWGWYD-TGZ9",
+          "path": "patch.implementations[3].ref"
+        },
         {
           "source": "FQR8TJFC7G-4MWS",
           "path": "primaryTechnologyComponent"
@@ -48259,7 +53825,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"ZYM7F5ZER1-468B\",\n  \"type\": \"technology_component\",\n  \"name\": \"PowerBuilder 2019 Runtime\",\n  \"description\": \"Vendor 4GL runtime for the legacy Property Tax thick-client application.\\nNo containerization, no horizontal scaling model -- a single Windows\\nservice process on a single VM. Modeled here as a TechnologyComponent\\nrather than forced into the runtime_service HA/scalability vocabulary,\\nper the friction note on rs-property-tax-legacy.yaml.\\n\",\n  \"version\": \"2019 R3\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Appeon (formerly Sybase/SAP)\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2027-06-30\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"legacy\",\n    \"powerbuilder\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-powerbuilder2019.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"ZYM7F5ZER1-468B\",\n  \"type\": \"technology_component\",\n  \"name\": \"PowerBuilder 2019 Runtime\",\n  \"description\": \"Vendor 4GL runtime for the legacy Property Tax thick-client application.\\nNo containerization, no horizontal scaling model -- a single Windows\\nservice process on a single VM. Modeled here as a TechnologyComponent\\nrather than forced into the runtime_service HA/scalability vocabulary,\\nper the friction note on rs-property-tax-legacy.yaml.\\n\",\n  \"version\": \"2019 R3\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Appeon (formerly Sybase/SAP)\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2027-06-30\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"legacy\",\n    \"powerbuilder\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-RZV0\"\n  ],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-powerbuilder2019.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -48292,7 +53858,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KT0V5MCV-VD0Y"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -48356,8 +53924,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KT0V5MCV-VD0Y",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KT0V5MCV-VD0Y",
+          "path": "implementations[2].ref"
+        },
+        {
+          "source": "01KVNWGWYD-WG50",
+          "path": "patch.implementations[2].ref"
+        },
         {
           "source": "5Z1DGT5HBX-38TA",
           "path": "primaryTechnologyComponent"
@@ -48429,7 +54010,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"TRAS6KGSAC-RGNM\",\n  \"type\": \"technology_component\",\n  \"name\": \"SQL Server 2022 (Azure SQL Managed Instance)\",\n  \"description\": \"Managed SQL Server used by the modern Tax Fixed Assets depreciation\\nengine. Reusable across other product teams running SQL Server-based\\ndatabases on Azure SQL Managed Instance.\\n\",\n  \"version\": \"2022\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"sqlserver\",\n    \"shared\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-sqlserver2022.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"TRAS6KGSAC-RGNM\",\n  \"type\": \"technology_component\",\n  \"name\": \"SQL Server 2022 (Azure SQL Managed Instance)\",\n  \"description\": \"Managed SQL Server used by the modern Tax Fixed Assets depreciation\\nengine. Reusable across other product teams running SQL Server-based\\ndatabases on Azure SQL Managed Instance.\\n\",\n  \"version\": \"2022\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"database\",\n    \"sqlserver\",\n    \"shared\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-VD0Y\"\n  ],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-sqlserver2022.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -48462,7 +54043,9 @@ window.DRAFT_BROWSER_DATA = {
       "productVersion": "",
       "classification": "",
       "platformDependency": "",
-      "capabilities": [],
+      "capabilities": [
+        "01KQQ4Q026-QM2X"
+      ],
       "configurations": [],
       "networkPlacement": "",
       "patchingOwner": "",
@@ -48525,8 +54108,21 @@ window.DRAFT_BROWSER_DATA = {
       "defaultSelection": false,
       "requirementCount": 0,
       "hasRiskRef": false,
-      "outboundRefs": [],
+      "outboundRefs": [
+        {
+          "target": "01KQQ4Q026-QM2X",
+          "path": "capabilities[0]"
+        }
+      ],
       "referencedBy": [
+        {
+          "source": "01KQQ4Q026-QM2X",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-SZ9A",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "8FRABMZWDP-NB72",
           "path": "operatingSystemComponent"
@@ -48590,7 +54186,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"8DD32B2D0H-2PCZ\",\n  \"type\": \"technology_component\",\n  \"name\": \"Windows Server 2022\",\n  \"description\": \"OS for the on-premise Atlanta data center VM running the legacy Property\\nTax PowerBuilder application. Not part of the Azure estate.\\n\",\n  \"version\": \"2022\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2031-10-14\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"operating-system\",\n    \"on-premise\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-windows-server2022.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"8DD32B2D0H-2PCZ\",\n  \"type\": \"technology_component\",\n  \"name\": \"Windows Server 2022\",\n  \"description\": \"OS for the on-premise Atlanta data center VM running the legacy Property\\nTax PowerBuilder application. Not part of the Azure estate.\\n\",\n  \"version\": \"2022\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"vendorLifecycle\": {\n    \"vendor\": \"Microsoft\",\n    \"supportStatus\": \"active\",\n    \"endOfSupportDate\": \"2031-10-14\"\n  },\n  \"owner\": {\n    \"team\": \"tax-compliance\",\n    \"contact\": \"tax-compliance@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"operating-system\",\n    \"on-premise\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.tax-regulatory\",\n    \"productFamily\": \"Acme Tax Suite\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-QM2X\"\n  ],\n  \"_source\": \"catalog/technology-components/tax-compliance/tc-windows-server2022.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -51538,7 +57134,7 @@ window.DRAFT_BROWSER_DATA = {
           "deploymentTarget": "azure-service-bus",
           "deployableObjects": [
             {
-              "ref": "PV9F22JQ2K-LSE9",
+              "ref": "01KVNWGWYF-DKXK",
               "networkZone": "messaging",
               "diagramTier": "utility",
               "intent": "standalone",
@@ -51593,7 +57189,7 @@ window.DRAFT_BROWSER_DATA = {
           "path": "serviceGroups[1].deployableObjects[0].ref"
         },
         {
-          "target": "PV9F22JQ2K-LSE9",
+          "target": "01KVNWGWYF-DKXK",
           "path": "serviceGroups[2].deployableObjects[0].ref"
         }
       ],
@@ -51655,7 +57251,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/software-deployment-pattern.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"QWD953NT60-B477\",\n  \"type\": \"software_deployment_pattern\",\n  \"name\": \"Acme Asset & Lease Manager Pattern\",\n  \"description\": \"Deployment pattern for the Asset & Lease Manager: containerized ASP.NET\\nCore API on the shared AKS baseline, Azure SQL Database for lease/ARO\\nrecords, dedicated Service Bus topic for lease lifecycle events.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"owner\": {\n    \"team\": \"asset-lease\",\n    \"contact\": \"asset-lease@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"software-deployment-pattern\",\n    \"asset-lease\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.asset-management\",\n    \"productFamily\": \"Acme Asset & Lease Manager\"\n  },\n  \"architectureNotes\": {\n    \"availabilityTarget\": \"99.5%\",\n    \"availabilityRequirement\": \"Active-active AKS pods, zone-redundant SQL Database.\",\n    \"dataClassification\": \"Confidential\",\n    \"failureDomain\": {\n      \"scope\": \"single-region\",\n      \"description\": \"Same single-region AKS concentration risk as Core Platform and Tax Fixed Assets.\"\n    },\n    \"patternDeviations\": \"none\",\n    \"deploymentTargets\": \"Shared AKS baseline, East US 2. Dedicated Azure SQL Database and Service Bus namespace.\",\n    \"interServiceConnections\": \"Calls the shared Vantage Entitlement API for licensing checks.\",\n    \"externalDependencies\": \"Azure AD B2C, Azure Key Vault, Datadog.\"\n  },\n  \"decisionRecords\": [],\n  \"networkZones\": [\n    {\n      \"id\": \"app\",\n      \"name\": \"Application\",\n      \"tier\": \"application\",\n      \"description\": \"AKS-hosted Asset & Lease Manager pods.\"\n    },\n    {\n      \"id\": \"data\",\n      \"name\": \"Data\",\n      \"tier\": \"data\",\n      \"description\": \"Azure SQL Database, private endpoint only.\"\n    },\n    {\n      \"id\": \"messaging\",\n      \"name\": \"Messaging\",\n      \"tier\": \"utility\",\n      \"description\": \"Dedicated Service Bus topic for lease lifecycle events.\"\n    }\n  ],\n  \"serviceGroups\": [\n    {\n      \"name\": \"Application\",\n      \"deploymentTarget\": \"H1ZTZXV5F6-C1CZ\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"KFP31VBNDB-RART\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"application\",\n          \"intent\": \"ha\",\n          \"notes\": \"2-4 replicas, HPA on CPU.\"\n        },\n        {\n          \"ref\": \"ZV0QNH8M3D-EYW8\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"application\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Identity & Access service.\"\n        },\n        {\n          \"ref\": \"37AJ772M7W-V27N\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Secrets Management service.\"\n        },\n        {\n          \"ref\": \"FH8VD6HQ69-ZMEG\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Observability service.\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Data\",\n      \"deploymentTarget\": \"azure-sql-database\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"5Z1DGT5HBX-38TA\",\n          \"networkZone\": \"data\",\n          \"diagramTier\": \"data\",\n          \"intent\": \"ha\",\n          \"notes\": \"Zone-redundant Azure SQL Database.\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Messaging\",\n      \"deploymentTarget\": \"azure-service-bus\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"PV9F22JQ2K-LSE9\",\n          \"networkZone\": \"messaging\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"standalone\",\n          \"notes\": \"Dedicated topic, single-team ownership, not shared.\"\n        }\n      ]\n    }\n  ],\n  \"_source\": \"catalog/engineering/software-deployment-patterns/asset-lease/sdp.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"QWD953NT60-B477\",\n  \"type\": \"software_deployment_pattern\",\n  \"name\": \"Acme Asset & Lease Manager Pattern\",\n  \"description\": \"Deployment pattern for the Asset & Lease Manager: containerized ASP.NET\\nCore API on the shared AKS baseline, Azure SQL Database for lease/ARO\\nrecords, dedicated Service Bus topic for lease lifecycle events.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"existing-only\",\n  \"owner\": {\n    \"team\": \"asset-lease\",\n    \"contact\": \"asset-lease@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"software-deployment-pattern\",\n    \"asset-lease\"\n  ],\n  \"businessContext\": {\n    \"pillar\": \"business-pillar.asset-management\",\n    \"productFamily\": \"Acme Asset & Lease Manager\"\n  },\n  \"architectureNotes\": {\n    \"availabilityTarget\": \"99.5%\",\n    \"availabilityRequirement\": \"Active-active AKS pods, zone-redundant SQL Database.\",\n    \"dataClassification\": \"Confidential\",\n    \"failureDomain\": {\n      \"scope\": \"single-region\",\n      \"description\": \"Same single-region AKS concentration risk as Core Platform and Tax Fixed Assets.\"\n    },\n    \"patternDeviations\": \"none\",\n    \"deploymentTargets\": \"Shared AKS baseline, East US 2. Dedicated Azure SQL Database and Service Bus namespace.\",\n    \"interServiceConnections\": \"Calls the shared Vantage Entitlement API for licensing checks.\",\n    \"externalDependencies\": \"Azure AD B2C, Azure Key Vault, Datadog.\"\n  },\n  \"decisionRecords\": [],\n  \"networkZones\": [\n    {\n      \"id\": \"app\",\n      \"name\": \"Application\",\n      \"tier\": \"application\",\n      \"description\": \"AKS-hosted Asset & Lease Manager pods.\"\n    },\n    {\n      \"id\": \"data\",\n      \"name\": \"Data\",\n      \"tier\": \"data\",\n      \"description\": \"Azure SQL Database, private endpoint only.\"\n    },\n    {\n      \"id\": \"messaging\",\n      \"name\": \"Messaging\",\n      \"tier\": \"utility\",\n      \"description\": \"Dedicated Service Bus topic for lease lifecycle events.\"\n    }\n  ],\n  \"serviceGroups\": [\n    {\n      \"name\": \"Application\",\n      \"deploymentTarget\": \"H1ZTZXV5F6-C1CZ\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"KFP31VBNDB-RART\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"application\",\n          \"intent\": \"ha\",\n          \"notes\": \"2-4 replicas, HPA on CPU.\"\n        },\n        {\n          \"ref\": \"ZV0QNH8M3D-EYW8\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"application\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Identity & Access service.\"\n        },\n        {\n          \"ref\": \"37AJ772M7W-V27N\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Secrets Management service.\"\n        },\n        {\n          \"ref\": \"FH8VD6HQ69-ZMEG\",\n          \"networkZone\": \"app\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"ha\",\n          \"notes\": \"Shared Observability service.\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Data\",\n      \"deploymentTarget\": \"azure-sql-database\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"5Z1DGT5HBX-38TA\",\n          \"networkZone\": \"data\",\n          \"diagramTier\": \"data\",\n          \"intent\": \"ha\",\n          \"notes\": \"Zone-redundant Azure SQL Database.\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Messaging\",\n      \"deploymentTarget\": \"azure-service-bus\",\n      \"deployableObjects\": [\n        {\n          \"ref\": \"01KVNWGWYF-DKXK\",\n          \"networkZone\": \"messaging\",\n          \"diagramTier\": \"utility\",\n          \"intent\": \"standalone\",\n          \"notes\": \"Dedicated topic, single-team ownership, not shared.\"\n        }\n      ]\n    }\n  ],\n  \"_source\": \"catalog/engineering/software-deployment-patterns/asset-lease/sdp.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -52974,7 +58570,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -53173,7 +58769,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/host.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"H1ZTZXV5F6-C1CZ\",\n  \"type\": \"host\",\n  \"name\": \"Shared AKS Node Pool Baseline\",\n  \"description\": \"The common AKS node pool configuration (OS image, VM size, ingress-nginx, cert-manager, Datadog DaemonSet) that Infra & DevOps publishes as a Terraform module and that every product team's own cluster is built from. This Host object models that baseline, not any one product's specific cluster instance.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"host\",\n    \"kubernetes\",\n    \"shared-service\"\n  ],\n  \"architecturalDecisions\": {\n    \"externalInteractionRationales\": {\n      \"Authentication Platform\": \"Node-level Azure AD-integrated RBAC; no local Kubernetes users exist.\",\n      \"Logging Service\": \"Container and node logs forwarded via the Datadog Agent DaemonSet rather than Azure Monitor directly, to keep one log pipeline of record.\",\n      \"Monitoring Service\": \"Datadog Kubernetes integration is the single source of node and pod health for every product cluster.\",\n      \"Security Monitoring Service\": \"Datadog Cloud Security Management scans node and container configuration against CIS Kubernetes Benchmark.\",\n      \"Patch Management Platform\": \"AKS node image auto-upgrade channel set to NodeImage, applying OS and kubelet patches on a weekly maintenance window.\"\n    },\n    \"internalComponentRationales\": {\n      \"Ubuntu 22.04 LTS\": \"Standard AKS-supported node OS image.\",\n      \"Azure Standard_D-series v5 VM\": \"General-purpose compute tier sized for typical product workloads; teams with different profiles (Data & Analytics' Spark workers) override the node pool VM size in their own infra/ but inherit this baseline module otherwise.\"\n    }\n  },\n  \"operatingSystemComponent\": \"C657R8CNHY-FDK6\",\n  \"computePlatformComponent\": \"WBCN4NVAYG-RFC8\",\n  \"internalComponents\": [\n    {\n      \"ref\": \"C657R8CNHY-FDK6\",\n      \"role\": \"os\"\n    },\n    {\n      \"ref\": \"WBCN4NVAYG-RFC8\",\n      \"role\": \"hardware\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Authentication Platform\",\n      \"notes\": \"Azure AD-integrated Kubernetes RBAC; no local cluster users.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-MHJM\"\n      ]\n    },\n    {\n      \"name\": \"Logging Service\",\n      \"notes\": \"Datadog Agent DaemonSet collects and forwards container and node logs.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-D04B\"\n      ]\n    },\n    {\n      \"name\": \"Monitoring Service\",\n      \"notes\": \"Datadog Kubernetes integration tracks node and pod health.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    },\n    {\n      \"name\": \"Security Monitoring Service\",\n      \"notes\": \"Datadog Cloud Security Management benchmarks node and container configuration.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-JW52\"\n      ]\n    },\n    {\n      \"name\": \"Patch Management Platform\",\n      \"notes\": \"AKS NodeImage auto-upgrade channel on a weekly maintenance window.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-BH6E\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-THYN\",\n    \"8SEDYZHP49-YJHQ\",\n    \"2EZZ268XWW-B5TP\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"VM-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"decisionRecord\",\n        \"key\": null\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/hosts/host-aks-shared-node-pool.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"H1ZTZXV5F6-C1CZ\",\n  \"type\": \"host\",\n  \"name\": \"Shared AKS Node Pool Baseline\",\n  \"description\": \"The common AKS node pool configuration (OS image, VM size, ingress-nginx, cert-manager, Datadog DaemonSet) that Infra & DevOps publishes as a Terraform module and that every product team's own cluster is built from. This Host object models that baseline, not any one product's specific cluster instance.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"host\",\n    \"kubernetes\",\n    \"shared-service\"\n  ],\n  \"architecturalDecisions\": {\n    \"externalInteractionRationales\": {\n      \"Authentication Platform\": \"Node-level Azure AD-integrated RBAC; no local Kubernetes users exist.\",\n      \"Logging Service\": \"Container and node logs forwarded via the Datadog Agent DaemonSet rather than Azure Monitor directly, to keep one log pipeline of record.\",\n      \"Monitoring Service\": \"Datadog Kubernetes integration is the single source of node and pod health for every product cluster.\",\n      \"Security Monitoring Service\": \"Datadog Cloud Security Management scans node and container configuration against CIS Kubernetes Benchmark.\",\n      \"Patch Management Platform\": \"AKS node image auto-upgrade channel set to NodeImage, applying OS and kubelet patches on a weekly maintenance window.\"\n    },\n    \"internalComponentRationales\": {\n      \"Ubuntu 22.04 LTS\": \"Standard AKS-supported node OS image.\",\n      \"Azure Standard_D-series v5 VM\": \"General-purpose compute tier sized for typical product workloads; teams with different profiles (Data & Analytics' Spark workers) override the node pool VM size in their own infra/ but inherit this baseline module otherwise.\"\n    }\n  },\n  \"operatingSystemComponent\": \"C657R8CNHY-FDK6\",\n  \"computePlatformComponent\": \"WBCN4NVAYG-RFC8\",\n  \"internalComponents\": [\n    {\n      \"ref\": \"C657R8CNHY-FDK6\",\n      \"role\": \"os\"\n    },\n    {\n      \"ref\": \"WBCN4NVAYG-RFC8\",\n      \"role\": \"hardware\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Authentication Platform\",\n      \"notes\": \"Azure AD-integrated Kubernetes RBAC; no local cluster users.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-MHJM\"\n      ]\n    },\n    {\n      \"name\": \"Logging Service\",\n      \"notes\": \"Datadog Agent DaemonSet collects and forwards container and node logs.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-D04B\"\n      ]\n    },\n    {\n      \"name\": \"Monitoring Service\",\n      \"notes\": \"Datadog Kubernetes integration tracks node and pod health.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    },\n    {\n      \"name\": \"Security Monitoring Service\",\n      \"notes\": \"Datadog Cloud Security Management benchmarks node and container configuration.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-JW52\"\n      ]\n    },\n    {\n      \"name\": \"Patch Management Platform\",\n      \"notes\": \"AKS NodeImage auto-upgrade channel on a weekly maintenance window.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-BH6E\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-THYN\",\n    \"8SEDYZHP49-YJHQ\",\n    \"2EZZ268XWW-B5TP\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"VM-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"decisionRecord\",\n        \"key\": null\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/hosts/host-aks-shared-node-pool.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -53228,7 +58824,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -53404,7 +59000,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/runtime-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"37MYJCZ1V9-439T\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Tenant Entitlement Cache (Azure Cache for Redis)\",\n  \"description\": \"Caching tier in front of the Acme Vantage entitlement database. Not part of the Admin agent's original shared-services list -- added during Core Platform's review of the draft catalog (see EXERCISE_REPORT.md Agent Disposition Log).\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"caching\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"A4M2HB1G1D-22DT\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Access key authentication scoped to the Vantage entitlement service's managed identity via Azure AD-based Redis authentication (no shared access keys distributed to other teams).\",\n    \"secretsManagement\": \"Connection string is not a static secret -- Azure AD token-based auth means no long-lived Redis password exists for this instance.\",\n    \"serviceLogging\": \"Cache hit/miss ratio and eviction events stream to Datadog via the Azure Cache for Redis diagnostic integration.\",\n    \"healthWelfareMonitoring\": \"Datadog Redis integration tracks memory pressure, hit ratio, and connected client count.\",\n    \"availabilityModel\": \"Premium tier with zone redundancy in East US 2; tracked against Microsoft's 99.9% Redis SLA.\",\n    \"scalabilityModel\": \"Vertical scaling reviewed quarterly against memory pressure metrics; clustering not yet enabled (entitlement dataset fits comfortably in a single shard today).\",\n    \"recoverabilityModel\": \"Cache is rebuildable from the Vantage Postgres system of record on cold start; no backup is taken because the cache holds no data that is not also durably stored elsewhere.\",\n    \"failureDomain\": \"A cache outage degrades entitlement-check latency (falls back to direct Postgres reads) but does not cause incorrect entitlement decisions or downtime.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"A4M2HB1G1D-22DT\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Hit ratio and memory pressure alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-caching.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"37MYJCZ1V9-439T\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Tenant Entitlement Cache (Azure Cache for Redis)\",\n  \"description\": \"Caching tier in front of the Acme Vantage entitlement database. Not part of the Admin agent's original shared-services list -- added during Core Platform's review of the draft catalog (see EXERCISE_REPORT.md Agent Disposition Log).\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"caching\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"A4M2HB1G1D-22DT\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Access key authentication scoped to the Vantage entitlement service's managed identity via Azure AD-based Redis authentication (no shared access keys distributed to other teams).\",\n    \"secretsManagement\": \"Connection string is not a static secret -- Azure AD token-based auth means no long-lived Redis password exists for this instance.\",\n    \"serviceLogging\": \"Cache hit/miss ratio and eviction events stream to Datadog via the Azure Cache for Redis diagnostic integration.\",\n    \"healthWelfareMonitoring\": \"Datadog Redis integration tracks memory pressure, hit ratio, and connected client count.\",\n    \"availabilityModel\": \"Premium tier with zone redundancy in East US 2; tracked against Microsoft's 99.9% Redis SLA.\",\n    \"scalabilityModel\": \"Vertical scaling reviewed quarterly against memory pressure metrics; clustering not yet enabled (entitlement dataset fits comfortably in a single shard today).\",\n    \"recoverabilityModel\": \"Cache is rebuildable from the Vantage Postgres system of record on cold start; no backup is taken because the cache holds no data that is not also durably stored elsewhere.\",\n    \"failureDomain\": \"A cache outage degrades entitlement-check latency (falls back to direct Postgres reads) but does not cause incorrect entitlement decisions or downtime.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"A4M2HB1G1D-22DT\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Hit ratio and memory pressure alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-caching.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -53467,7 +59063,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -53664,7 +59260,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/runtime-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"ZV0QNH8M3D-EYW8\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Identity & Access (Azure AD B2C)\",\n  \"aliases\": [],\n  \"description\": \"Shared tenant identity and authentication service consumed by every Acme PowerSoft product. Owned by Core Platform Engineering as part of the Acme Vantage platform substrate.\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"identity\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"M087QNW2D0-6G06\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Administrators authenticate to the Azure AD B2C admin portal via Acme corporate Azure AD with mandatory MFA (Conditional Access policy CA-12); no shared admin accounts exist.\",\n    \"secretsManagement\": \"Custom policy signing keys and client secrets are stored in the Core Platform Azure Key Vault and rotated every 90 days by an automated runbook.\",\n    \"serviceLogging\": \"Sign-in and audit logs stream to the Core Platform Log Analytics workspace via Azure AD B2C diagnostic settings, then forward to the company-wide Datadog log pipeline (see Observability shared service).\",\n    \"healthWelfareMonitoring\": \"Azure Monitor alerts on sign-in failure rate and custom policy execution latency; surfaced on the Core Platform Datadog dashboard.\",\n    \"availabilityModel\": \"Microsoft-operated multi-region active-active service; Acme PowerSoft has no failover responsibility, target availability tracked against Microsoft's 99.9% Azure AD B2C SLA.\",\n    \"scalabilityModel\": \"Fully elastic, vendor-managed; Core Platform monitors monthly active user (MAU) consumption against the licensed tier.\",\n    \"recoverabilityModel\": \"Vendor-managed; Core Platform's only recovery responsibility is custom policy and key restoration from the policies Git repository and Key Vault soft-delete/purge protection.\",\n    \"failureDomain\": \"An outage affects sign-in and token issuance for every Acme PowerSoft product simultaneously; cached tokens continue to authorize existing sessions until expiry.\",\n    \"externalInteractionRationales\": {\n      \"Service Monitoring\": \"Routed through the shared Observability runtime service rather than a bespoke dashboard, consistent with the Infra & DevOps observability baseline.\"\n    },\n    \"internalComponentRationales\": {\n      \"Azure AD B2C\": \"Sole internal component; this is a fully PaaS-delivered identity provider with no self-managed compute.\"\n    }\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"M087QNW2D0-6G06\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Sign-in success/failure rate and custom policy latency monitored via Azure Monitor diagnostic export into the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-identity-access.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"ZV0QNH8M3D-EYW8\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Identity & Access (Azure AD B2C)\",\n  \"aliases\": [],\n  \"description\": \"Shared tenant identity and authentication service consumed by every Acme PowerSoft product. Owned by Core Platform Engineering as part of the Acme Vantage platform substrate.\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"identity\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"M087QNW2D0-6G06\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Administrators authenticate to the Azure AD B2C admin portal via Acme corporate Azure AD with mandatory MFA (Conditional Access policy CA-12); no shared admin accounts exist.\",\n    \"secretsManagement\": \"Custom policy signing keys and client secrets are stored in the Core Platform Azure Key Vault and rotated every 90 days by an automated runbook.\",\n    \"serviceLogging\": \"Sign-in and audit logs stream to the Core Platform Log Analytics workspace via Azure AD B2C diagnostic settings, then forward to the company-wide Datadog log pipeline (see Observability shared service).\",\n    \"healthWelfareMonitoring\": \"Azure Monitor alerts on sign-in failure rate and custom policy execution latency; surfaced on the Core Platform Datadog dashboard.\",\n    \"availabilityModel\": \"Microsoft-operated multi-region active-active service; Acme PowerSoft has no failover responsibility, target availability tracked against Microsoft's 99.9% Azure AD B2C SLA.\",\n    \"scalabilityModel\": \"Fully elastic, vendor-managed; Core Platform monitors monthly active user (MAU) consumption against the licensed tier.\",\n    \"recoverabilityModel\": \"Vendor-managed; Core Platform's only recovery responsibility is custom policy and key restoration from the policies Git repository and Key Vault soft-delete/purge protection.\",\n    \"failureDomain\": \"An outage affects sign-in and token issuance for every Acme PowerSoft product simultaneously; cached tokens continue to authorize existing sessions until expiry.\",\n    \"externalInteractionRationales\": {\n      \"Service Monitoring\": \"Routed through the shared Observability runtime service rather than a bespoke dashboard, consistent with the Infra & DevOps observability baseline.\"\n    },\n    \"internalComponentRationales\": {\n      \"Azure AD B2C\": \"Sole internal component; this is a fully PaaS-delivered identity provider with no self-managed compute.\"\n    }\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"M087QNW2D0-6G06\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Sign-in success/failure rate and custom policy latency monitored via Azure Monitor diagnostic export into the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-identity-access.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -53727,7 +59323,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -53907,7 +59503,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/runtime-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"0XWT91WY2F-2RR4\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Messaging Backbone (Azure Service Bus)\",\n  \"description\": \"Cross-product asynchronous event backbone owned by Infra & DevOps on behalf of all product teams.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"messaging\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"VKSQHZCHTK-VJP1\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Producers and consumers authenticate via Azure AD workload identity (managed identity per AKS pod); no shared access signature keys are distributed to application code.\",\n    \"secretsManagement\": \"No long-lived secrets exist for this service; managed identity tokens are short-lived and issued by Azure AD.\",\n    \"serviceLogging\": \"Operational logs (throttling, dead-letter events) stream to Datadog via the Azure Service Bus diagnostic settings integration.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Service Bus integration tracks queue depth, dead-letter count, and active connection count per topic.\",\n    \"availabilityModel\": \"Premium tier with availability zone redundancy in East US 2; tracks Microsoft's 99.9% Service Bus Premium SLA.\",\n    \"scalabilityModel\": \"Messaging units scaled manually today based on quarterly throughput review; auto-scale evaluation tracked under DEVOPS-211.\",\n    \"recoverabilityModel\": \"Geo-disaster recovery paired namespace in Central US, manual failover initiated by Infra & DevOps on-call per RUNBOOK-SB-02.\",\n    \"failureDomain\": \"A regional outage affects all cross-product event delivery; producers buffer locally for up to 5 minutes before failing the originating request.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"VKSQHZCHTK-VJP1\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Queue depth and dead-letter alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"1JGV5Y25KN-73W7\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-messaging-backbone.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"0XWT91WY2F-2RR4\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Messaging Backbone (Azure Service Bus)\",\n  \"description\": \"Cross-product asynchronous event backbone owned by Infra & DevOps on behalf of all product teams.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"messaging\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"VKSQHZCHTK-VJP1\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Producers and consumers authenticate via Azure AD workload identity (managed identity per AKS pod); no shared access signature keys are distributed to application code.\",\n    \"secretsManagement\": \"No long-lived secrets exist for this service; managed identity tokens are short-lived and issued by Azure AD.\",\n    \"serviceLogging\": \"Operational logs (throttling, dead-letter events) stream to Datadog via the Azure Service Bus diagnostic settings integration.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Service Bus integration tracks queue depth, dead-letter count, and active connection count per topic.\",\n    \"availabilityModel\": \"Premium tier with availability zone redundancy in East US 2; tracks Microsoft's 99.9% Service Bus Premium SLA.\",\n    \"scalabilityModel\": \"Messaging units scaled manually today based on quarterly throughput review; auto-scale evaluation tracked under DEVOPS-211.\",\n    \"recoverabilityModel\": \"Geo-disaster recovery paired namespace in Central US, manual failover initiated by Infra & DevOps on-call per RUNBOOK-SB-02.\",\n    \"failureDomain\": \"A regional outage affects all cross-product event delivery; producers buffer locally for up to 5 minutes before failing the originating request.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"VKSQHZCHTK-VJP1\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Queue depth and dead-letter alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"1JGV5Y25KN-73W7\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-messaging-backbone.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -53970,7 +59566,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -54167,7 +59763,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/runtime-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"FH8VD6HQ69-ZMEG\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Observability Platform (Datadog)\",\n  \"description\": \"Company-wide metrics, logs, and APM trace aggregation. Every other shared service's \\\"Service Monitoring\\\" external interaction in this catalog resolves here.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"saas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"observability\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"792738MBB6-8XMK\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Datadog org access is federated through Azure AD SSO; per-user API keys are disabled org-wide in favor of scoped service account keys reviewed quarterly.\",\n    \"secretsManagement\": \"Datadog API and APP keys are stored in the Infra & DevOps Key Vault and injected into agent DaemonSets via CSI secrets store driver, never baked into images.\",\n    \"serviceLogging\": \"Datadog's own platform audit log (who changed which monitor/dashboard) is itself a paid add-on enabled for this account and exported to the AU-01 retention archive.\",\n    \"healthWelfareMonitoring\": \"Datadog monitors its own agent fleet health (agent-not-reporting monitor); paged to Infra & DevOps on-call if more than 5% of agents go dark for 15 minutes.\",\n    \"availabilityModel\": \"Vendor SaaS, multi-region; Acme PowerSoft has no infrastructure responsibility, tracked against Datadog's published status page SLA.\",\n    \"scalabilityModel\": \"Per-host/per-container pricing tier scaled automatically as AKS node pools scale; reviewed monthly against the Infra & DevOps cloud cost budget.\",\n    \"recoverabilityModel\": \"Dashboards and monitors are defined as code (this repo's dashboards/ directory, mirrored from each product repo) and can be reapplied via the Datadog Terraform provider if the SaaS account configuration were ever lost.\",\n    \"failureDomain\": \"An outage degrades visibility into every other shared service and product, but does not itself take production traffic down -- it is purely an observability dependency, not a request-path dependency.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"792738MBB6-8XMK\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"P6M8FWV2D8-0RM8\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    },\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-observability.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"FH8VD6HQ69-ZMEG\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Observability Platform (Datadog)\",\n  \"description\": \"Company-wide metrics, logs, and APM trace aggregation. Every other shared service's \\\"Service Monitoring\\\" external interaction in this catalog resolves here.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"saas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"observability\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"792738MBB6-8XMK\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Datadog org access is federated through Azure AD SSO; per-user API keys are disabled org-wide in favor of scoped service account keys reviewed quarterly.\",\n    \"secretsManagement\": \"Datadog API and APP keys are stored in the Infra & DevOps Key Vault and injected into agent DaemonSets via CSI secrets store driver, never baked into images.\",\n    \"serviceLogging\": \"Datadog's own platform audit log (who changed which monitor/dashboard) is itself a paid add-on enabled for this account and exported to the AU-01 retention archive.\",\n    \"healthWelfareMonitoring\": \"Datadog monitors its own agent fleet health (agent-not-reporting monitor); paged to Infra & DevOps on-call if more than 5% of agents go dark for 15 minutes.\",\n    \"availabilityModel\": \"Vendor SaaS, multi-region; Acme PowerSoft has no infrastructure responsibility, tracked against Datadog's published status page SLA.\",\n    \"scalabilityModel\": \"Per-host/per-container pricing tier scaled automatically as AKS node pools scale; reviewed monthly against the Infra & DevOps cloud cost budget.\",\n    \"recoverabilityModel\": \"Dashboards and monitors are defined as code (this repo's dashboards/ directory, mirrored from each product repo) and can be reapplied via the Datadog Terraform provider if the SaaS account configuration were ever lost.\",\n    \"failureDomain\": \"An outage degrades visibility into every other shared service and product, but does not itself take production traffic down -- it is purely an observability dependency, not a request-path dependency.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"792738MBB6-8XMK\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"P6M8FWV2D8-0RM8\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    },\n    {\n      \"requirementId\": \"SLA-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"availabilityModel\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-observability.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -54230,7 +59826,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -54431,7 +60027,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/runtime-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"37AJ772M7W-V27N\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Secrets Management (Azure Key Vault)\",\n  \"description\": \"Centralized secrets, key, and certificate storage consumed by every product team's AKS workloads via CSI secrets store driver.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"secrets-management\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"5Q5CZMHNTR-71A8\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Access to each product's vault is scoped by Azure RBAC to that product's AKS workload identity and to the Infra & DevOps break-glass admin group; no application uses a vault access policy with broad permissions.\",\n    \"secretsManagement\": \"This is itself the company's secrets management service; vault master access is the one credential not stored in another vault, and is split-knowledge protected per RUNBOOK-SEC-01.\",\n    \"serviceLogging\": \"Vault access logs (every Get/Set/Delete on a secret) stream to Datadog via Key Vault diagnostic settings, satisfying AU-01 for secret access specifically.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Key Vault integration alerts on throttling and on any access from outside the expected AKS workload identity set.\",\n    \"availabilityModel\": \"Premium (HSM-backed) tier with zone redundancy in East US 2; tracked against Microsoft's 99.99% Key Vault SLA.\",\n    \"scalabilityModel\": \"Vendor-managed; no scaling action required by Acme PowerSoft.\",\n    \"recoverabilityModel\": \"Soft-delete and purge protection enabled on every vault (90-day retention); vault contents also captured in the quarterly DR-01 recovery test for each dependent product.\",\n    \"failureDomain\": \"An outage blocks new secret retrieval; already-cached secrets in running pods continue to function until pod restart, bounding blast radius to new deployments and pod restarts only.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"5Q5CZMHNTR-71A8\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Access anomaly alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-JW52\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-secrets-mgmt.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"37AJ772M7W-V27N\",\n  \"type\": \"runtime_service\",\n  \"name\": \"Secrets Management (Azure Key Vault)\",\n  \"description\": \"Centralized secrets, key, and certificate storage consumed by every product team's AKS workloads via CSI secrets store driver.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"runtime\",\n    \"secrets-management\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"5Q5CZMHNTR-71A8\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Access to each product's vault is scoped by Azure RBAC to that product's AKS workload identity and to the Infra & DevOps break-glass admin group; no application uses a vault access policy with broad permissions.\",\n    \"secretsManagement\": \"This is itself the company's secrets management service; vault master access is the one credential not stored in another vault, and is split-knowledge protected per RUNBOOK-SEC-01.\",\n    \"serviceLogging\": \"Vault access logs (every Get/Set/Delete on a secret) stream to Datadog via Key Vault diagnostic settings, satisfying AU-01 for secret access specifically.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Key Vault integration alerts on throttling and on any access from outside the expected AKS workload identity set.\",\n    \"availabilityModel\": \"Premium (HSM-backed) tier with zone redundancy in East US 2; tracked against Microsoft's 99.99% Key Vault SLA.\",\n    \"scalabilityModel\": \"Vendor-managed; no scaling action required by Acme PowerSoft.\",\n    \"recoverabilityModel\": \"Soft-delete and purge protection enabled on every vault (90-day retention); vault contents also captured in the quarterly DR-01 recovery test for each dependent product.\",\n    \"failureDomain\": \"An outage blocks new secret retrieval; already-cached secrets in running pods continue to function until pod restart, bounding blast radius to new deployments and pod restarts only.\",\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"5Q5CZMHNTR-71A8\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Service Monitoring\",\n      \"notes\": \"Access anomaly alerts routed through the shared Observability runtime service.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-JW52\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-K5DR\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/runtime-services/rs-secrets-mgmt.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -54509,7 +60105,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Data & Analytics Engineering",
+        "team": "data-analytics",
         "contact": "data-analytics@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -54697,7 +60293,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/data-store-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"Z3CAV76ED8-7XEV\",\n  \"type\": \"data_store_service\",\n  \"name\": \"Acme Insight Hub Data Warehouse (Snowflake)\",\n  \"description\": \"Consolidated cross-product analytics warehouse fed by per-product ELT pipelines and serving forecasting model training data and BI queries.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"saas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Data & Analytics Engineering\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"data-at-rest\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"6YWAMCXE87-H8JW\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Analysts and pipeline service accounts authenticate via Azure AD SSO federated into Snowflake (SCIM-provisioned roles); no native Snowflake passwords are issued.\",\n    \"secretsManagement\": \"Pipeline service account key pairs are stored in the Infra & DevOps Key Vault and rotated every 180 days by an Airflow-triggered rotation job.\",\n    \"serviceLogging\": \"Snowflake's ACCOUNT_USAGE query history and login history are exported nightly into a dedicated audit schema and forwarded to Datadog log management.\",\n    \"healthWelfareMonitoring\": \"Datadog Snowflake integration tracks warehouse credit consumption, query queueing, and failed-login spikes.\",\n    \"availabilityModel\": \"Snowflake's standard multi-cluster, multi-AZ architecture within the Azure East US 2 region; tracked against Snowflake's published Enterprise SLA.\",\n    \"scalabilityModel\": \"Multi-cluster warehouse auto-scaling enabled for the BI consumption warehouse; the ELT load warehouse scales vertically only, reviewed quarterly against the cost budget.\",\n    \"recoverabilityModel\": \"Snowflake Time Travel (7-day) plus a weekly Fail-safe-backed database clone exported to a separate Snowflake account in a different Azure region for catastrophic-loss recovery.\",\n    \"failureDomain\": \"A Snowflake outage stops new ELT loads and BI queries but does not affect any product's operational database -- this is purely an analytics-tier dependency, not a transactional one.\",\n    \"backup\": {\n      \"strategy\": \"Snowflake Time Travel (7 days) plus weekly cross-region database clone.\",\n      \"rto\": \"4 hours for cross-region clone restore\",\n      \"rpo\": \"24 hours (last successful nightly clone)\"\n    },\n    \"ha\": {\n      \"mechanism\": \"Snowflake-managed multi-cluster warehouse with automatic cluster failover within region.\"\n    },\n    \"encryption\": {\n      \"atRest\": \"AES-256, Snowflake-managed keys (Tri-Secret Secure not yet enabled -- tracked under DATA-088).\"\n    },\n    \"accessControl\": {\n      \"model\": \"Role-based access control (RBAC) mapped from Azure AD group membership via SCIM; least-privilege roles per product schema.\"\n    },\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"6YWAMCXE87-H8JW\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Backup Platform\",\n      \"notes\": \"Weekly cross-region database clone to a secondary Snowflake account, orchestrated by an Airflow DAG.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-7T2H\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-VBF0\",\n    \"1JGV5Y25KN-73W7\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"DR-02\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"ha\"\n      }\n    },\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/data-store-services/ds-data-warehouse.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"Z3CAV76ED8-7XEV\",\n  \"type\": \"data_store_service\",\n  \"name\": \"Acme Insight Hub Data Warehouse (Snowflake)\",\n  \"description\": \"Consolidated cross-product analytics warehouse fed by per-product ELT pipelines and serving forecasting model training data and BI queries.\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"saas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"data-at-rest\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"6YWAMCXE87-H8JW\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Analysts and pipeline service accounts authenticate via Azure AD SSO federated into Snowflake (SCIM-provisioned roles); no native Snowflake passwords are issued.\",\n    \"secretsManagement\": \"Pipeline service account key pairs are stored in the Infra & DevOps Key Vault and rotated every 180 days by an Airflow-triggered rotation job.\",\n    \"serviceLogging\": \"Snowflake's ACCOUNT_USAGE query history and login history are exported nightly into a dedicated audit schema and forwarded to Datadog log management.\",\n    \"healthWelfareMonitoring\": \"Datadog Snowflake integration tracks warehouse credit consumption, query queueing, and failed-login spikes.\",\n    \"availabilityModel\": \"Snowflake's standard multi-cluster, multi-AZ architecture within the Azure East US 2 region; tracked against Snowflake's published Enterprise SLA.\",\n    \"scalabilityModel\": \"Multi-cluster warehouse auto-scaling enabled for the BI consumption warehouse; the ELT load warehouse scales vertically only, reviewed quarterly against the cost budget.\",\n    \"recoverabilityModel\": \"Snowflake Time Travel (7-day) plus a weekly Fail-safe-backed database clone exported to a separate Snowflake account in a different Azure region for catastrophic-loss recovery.\",\n    \"failureDomain\": \"A Snowflake outage stops new ELT loads and BI queries but does not affect any product's operational database -- this is purely an analytics-tier dependency, not a transactional one.\",\n    \"backup\": {\n      \"strategy\": \"Snowflake Time Travel (7 days) plus weekly cross-region database clone.\",\n      \"rto\": \"4 hours for cross-region clone restore\",\n      \"rpo\": \"24 hours (last successful nightly clone)\"\n    },\n    \"ha\": {\n      \"mechanism\": \"Snowflake-managed multi-cluster warehouse with automatic cluster failover within region.\"\n    },\n    \"encryption\": {\n      \"atRest\": \"AES-256, Snowflake-managed keys (Tri-Secret Secure not yet enabled -- tracked under DATA-088).\"\n    },\n    \"accessControl\": {\n      \"model\": \"Role-based access control (RBAC) mapped from Azure AD group membership via SCIM; least-privilege roles per product schema.\"\n    },\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"6YWAMCXE87-H8JW\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [\n    {\n      \"name\": \"Backup Platform\",\n      \"notes\": \"Weekly cross-region database clone to a secondary Snowflake account, orchestrated by an Airflow DAG.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-7T2H\"\n      ]\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-VBF0\",\n    \"1JGV5Y25KN-73W7\",\n    \"8SEDYZHP49-YJHQ\",\n    \"P6M8FWV2D8-0RM8\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"DR-02\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"ha\"\n      }\n    },\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    },\n    {\n      \"requirementId\": \"AU-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceLogging\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/data-store-services/ds-data-warehouse.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -54760,7 +60356,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Data & Analytics Engineering",
+        "team": "data-analytics",
         "contact": "data-analytics@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -54940,7 +60536,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/data-store-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"SP7JGWQ9Z3-DR4F\",\n  \"type\": \"data_store_service\",\n  \"name\": \"Cross-Product Raw Landing Zone (ADLS Gen2)\",\n  \"description\": \"Shared object storage landing zone for raw data extracted from every product's operational database before it is transformed and loaded into the Snowflake warehouse. Modeled as a catalog-level shared service rather than left implicit inside the Insight Hub product repo.\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Data & Analytics Engineering\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"data-at-rest\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"5JMBH216ND-AJE9\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Airflow worker pods authenticate via Azure AD workload identity scoped to read/write on their own product's partition prefix only.\",\n    \"secretsManagement\": \"No static account keys are distributed; workload identity tokens are short-lived and Azure AD-issued.\",\n    \"serviceLogging\": \"Storage diagnostic logs (read/write/list operations) stream to Datadog log management.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Storage integration tracks ingress/egress volume and 4xx/5xx rates per container.\",\n    \"availabilityModel\": \"Zone-redundant storage (ZRS) in East US 2; tracked against Microsoft's published ADLS Gen2 SLA.\",\n    \"scalabilityModel\": \"Effectively unbounded object storage; no manual scaling action required.\",\n    \"recoverabilityModel\": \"Soft-delete enabled with a 14-day retention window; raw data is also re-derivable by re-running the source product's extraction job if a partition were lost, so this is treated as a cache of extraction, not a sole system of record.\",\n    \"failureDomain\": \"An outage blocks new raw-data landing and the nightly ELT load, but does not affect any product's operational database.\",\n    \"backup\": {\n      \"strategy\": \"Soft-delete (14-day) plus re-extraction from source-of-record on the rare case data is lost outright.\",\n      \"rto\": \"8 hours (re-run extraction DAGs for the affected partition)\",\n      \"rpo\": \"24 hours (one missed nightly load)\"\n    },\n    \"ha\": {\n      \"mechanism\": \"Zone-redundant storage (ZRS).\"\n    },\n    \"encryption\": {\n      \"atRest\": \"AES-256, Microsoft-managed keys.\"\n    },\n    \"accessControl\": {\n      \"model\": \"Azure AD workload identity, partition-prefix-scoped per product.\"\n    },\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"5JMBH216ND-AJE9\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-VBF0\",\n    \"1JGV5Y25KN-73W7\",\n    \"8SEDYZHP49-YJHQ\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/data-store-services/ds-landing-zone.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"SP7JGWQ9Z3-DR4F\",\n  \"type\": \"data_store_service\",\n  \"name\": \"Cross-Product Raw Landing Zone (ADLS Gen2)\",\n  \"description\": \"Shared object storage landing zone for raw data extracted from every product's operational database before it is transformed and loaded into the Snowflake warehouse. Modeled as a catalog-level shared service rather than left implicit inside the Insight Hub product repo.\\n\",\n  \"version\": \"1.0.0\",\n  \"deliveryModel\": \"paas\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"data-at-rest\",\n    \"shared-service\"\n  ],\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"5JMBH216ND-AJE9\",\n  \"architecturalDecisions\": {\n    \"serviceAuthentication\": \"Airflow worker pods authenticate via Azure AD workload identity scoped to read/write on their own product's partition prefix only.\",\n    \"secretsManagement\": \"No static account keys are distributed; workload identity tokens are short-lived and Azure AD-issued.\",\n    \"serviceLogging\": \"Storage diagnostic logs (read/write/list operations) stream to Datadog log management.\",\n    \"healthWelfareMonitoring\": \"Datadog Azure Storage integration tracks ingress/egress volume and 4xx/5xx rates per container.\",\n    \"availabilityModel\": \"Zone-redundant storage (ZRS) in East US 2; tracked against Microsoft's published ADLS Gen2 SLA.\",\n    \"scalabilityModel\": \"Effectively unbounded object storage; no manual scaling action required.\",\n    \"recoverabilityModel\": \"Soft-delete enabled with a 14-day retention window; raw data is also re-derivable by re-running the source product's extraction job if a partition were lost, so this is treated as a cache of extraction, not a sole system of record.\",\n    \"failureDomain\": \"An outage blocks new raw-data landing and the nightly ELT load, but does not affect any product's operational database.\",\n    \"backup\": {\n      \"strategy\": \"Soft-delete (14-day) plus re-extraction from source-of-record on the rare case data is lost outright.\",\n      \"rto\": \"8 hours (re-run extraction DAGs for the affected partition)\",\n      \"rpo\": \"24 hours (one missed nightly load)\"\n    },\n    \"ha\": {\n      \"mechanism\": \"Zone-redundant storage (ZRS).\"\n    },\n    \"encryption\": {\n      \"atRest\": \"AES-256, Microsoft-managed keys.\"\n    },\n    \"accessControl\": {\n      \"model\": \"Azure AD workload identity, partition-prefix-scoped per product.\"\n    },\n    \"externalInteractionRationales\": {},\n    \"internalComponentRationales\": {}\n  },\n  \"internalComponents\": [\n    {\n      \"ref\": \"5JMBH216ND-AJE9\",\n      \"role\": \"function\"\n    }\n  ],\n  \"externalInteractions\": [],\n  \"requirementGroups\": [\n    \"01KQQ4Q027-VBF0\",\n    \"1JGV5Y25KN-73W7\",\n    \"8SEDYZHP49-YJHQ\"\n  ],\n  \"requirementImplementations\": [\n    {\n      \"requirementId\": \"DR-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"recoverabilityModel\"\n      }\n    },\n    {\n      \"requirementId\": \"AC-01\",\n      \"satisfiedBy\": {\n        \"mechanism\": \"architecturalDecision\",\n        \"key\": \"serviceAuthentication\"\n      }\n    }\n  ],\n  \"_source\": \"catalog/shared-services/data-store-services/ds-landing-zone.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -54988,7 +60584,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -55170,7 +60766,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/network-service.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"G5XV9MK4RH-RG0A\",\n  \"type\": \"network_service\",\n  \"name\": \"Platform API Gateway (Azure API Management)\",\n  \"description\": \"Single ingress point for every Acme PowerSoft product API. Enforces authentication (delegated to Identity & Access), per-tenant rate limiting, and request/response transformation so product teams do not each implement their own gateway layer.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"network-service\",\n    \"api-gateway\",\n    \"shared-service\"\n  ],\n  \"deliveryModel\": \"paas\",\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"MH7JS0SPA4-YA23\",\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure API Management\",\n  \"productVersion\": \"Premium v2\",\n  \"networkFunction\": \"API gateway -- inbound request routing, authentication enforcement, per-tenant rate limiting, and response transformation for every product API.\",\n  \"networkTopology\": \"Sits in the perimeter zone in front of each product's AKS ingress; all inbound product traffic from the public internet and from Acme's customer-facing web apps passes through this gateway before reaching any product runtime service.\",\n  \"protocols\": [\n    \"HTTPS\",\n    \"WebSocket (Insight Hub streaming endpoints only)\"\n  ],\n  \"architectureNotes\": {\n    \"placementContext\": \"Perimeter zone -- the only network service in the catalog with direct public internet exposure.\",\n    \"requirementContext\": \"Service Level Baseline (SLA-01/SLA-02) and Access Control Baseline (AC-01/AC-02) both apply because this is the shared ingress for every customer-facing product.\"\n  },\n  \"decisionRecords\": [],\n  \"internalComponents\": [\n    {\n      \"ref\": \"MH7JS0SPA4-YA23\",\n      \"role\": \"gateway\"\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KSWVZSZ5-B146\",\n    \"8SEDYZHP49-YJHQ\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"_source\": \"catalog/shared-services/network-services/rs-api-gateway.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"G5XV9MK4RH-RG0A\",\n  \"type\": \"network_service\",\n  \"name\": \"Platform API Gateway (Azure API Management)\",\n  \"description\": \"Single ingress point for every Acme PowerSoft product API. Enforces authentication (delegated to Identity & Access), per-tenant rate limiting, and request/response transformation so product teams do not each implement their own gateway layer.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"lifecycleStatus\": \"active\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"network-service\",\n    \"api-gateway\",\n    \"shared-service\"\n  ],\n  \"deliveryModel\": \"paas\",\n  \"host\": null,\n  \"primaryTechnologyComponent\": \"MH7JS0SPA4-YA23\",\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure API Management\",\n  \"productVersion\": \"Premium v2\",\n  \"networkFunction\": \"API gateway -- inbound request routing, authentication enforcement, per-tenant rate limiting, and response transformation for every product API.\",\n  \"networkTopology\": \"Sits in the perimeter zone in front of each product's AKS ingress; all inbound product traffic from the public internet and from Acme's customer-facing web apps passes through this gateway before reaching any product runtime service.\",\n  \"protocols\": [\n    \"HTTPS\",\n    \"WebSocket (Insight Hub streaming endpoints only)\"\n  ],\n  \"architectureNotes\": {\n    \"placementContext\": \"Perimeter zone -- the only network service in the catalog with direct public internet exposure.\",\n    \"requirementContext\": \"Service Level Baseline (SLA-01/SLA-02) and Access Control Baseline (AC-01/AC-02) both apply because this is the shared ingress for every customer-facing product.\"\n  },\n  \"decisionRecords\": [],\n  \"internalComponents\": [\n    {\n      \"ref\": \"MH7JS0SPA4-YA23\",\n      \"role\": \"gateway\"\n    }\n  ],\n  \"requirementGroups\": [\n    \"01KSWVZSZ5-B146\",\n    \"8SEDYZHP49-YJHQ\",\n    \"KZM0T9NY43-3H8K\"\n  ],\n  \"_source\": \"catalog/shared-services/network-services/rs-api-gateway.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -55225,7 +60821,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Data & Analytics Engineering",
+        "team": "data-analytics",
         "contact": "data-analytics@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -55286,6 +60882,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KT0V5MCV-E9TN",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-CMZ9",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "SP7JGWQ9Z3-DR4F",
           "path": "primaryTechnologyComponent"
         },
@@ -55352,7 +60956,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"5JMBH216ND-AJE9\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Data Lake Storage Gen2\",\n  \"description\": \"Shared raw-data landing zone, promoted to a catalog-level shared service by Data & Analytics during shared-service review -- previously modeled only inside the Insight Hub product repo's own infra/main.tf, which undersold that other future products could land data here too.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Data & Analytics Engineering\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"object-storage\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Data Lake Storage Gen2\",\n  \"productVersion\": \"n/a (Azure Storage account, hierarchical namespace enabled)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-E9TN\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"raw-landing-zone\",\n      \"name\": \"Cross-Product Raw Landing Zone\",\n      \"description\": \"ZRS-replicated storage account, hierarchical namespace enabled, partitioned by source product and ingestion date, feeding the nightly ELT loads into Snowflake.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-E9TN\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-adls-gen2.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"5JMBH216ND-AJE9\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Data Lake Storage Gen2\",\n  \"description\": \"Shared raw-data landing zone, promoted to a catalog-level shared service by Data & Analytics during shared-service review -- previously modeled only inside the Insight Hub product repo's own infra/main.tf, which undersold that other future products could land data here too.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"object-storage\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Data Lake Storage Gen2\",\n  \"productVersion\": \"n/a (Azure Storage account, hierarchical namespace enabled)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-E9TN\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"raw-landing-zone\",\n      \"name\": \"Cross-Product Raw Landing Zone\",\n      \"description\": \"ZRS-replicated storage account, hierarchical namespace enabled, partitioned by source product and ingestion date, feeding the nightly ELT loads into Snowflake.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-E9TN\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-adls-gen2.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -55409,7 +61013,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -55470,6 +61074,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KQQ4Q026-MHJM",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-XW56",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "ZV0QNH8M3D-EYW8",
           "path": "primaryTechnologyComponent"
         },
@@ -55536,7 +61148,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"M087QNW2D0-6G06\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure AD B2C\",\n  \"aliases\": [\n    \"Azure Active Directory B2C\"\n  ],\n  \"description\": \"Microsoft's customer identity and access management (CIAM) platform. Federates tenant identities for every Acme Vantage-hosted product and issues the OAuth2/OIDC tokens that the cross-product auth middleware validates on every request.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"identity\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Active Directory B2C\",\n  \"productVersion\": \"n/a (SaaS, vendor-managed release train)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service; Microsoft does not publish a deprecation date. Vendor lifecycle tracked via Microsoft's Azure service retirement notices.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-MHJM\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"tenant-federation\",\n      \"name\": \"Multi-Tenant Federation Policy\",\n      \"description\": \"Custom policy (Identity Experience Framework) issuing tenant-scoped JWTs consumed by Acme Vantage's entitlement middleware.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-MHJM\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-ad-b2c.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"M087QNW2D0-6G06\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure AD B2C\",\n  \"aliases\": [\n    \"Azure Active Directory B2C\"\n  ],\n  \"description\": \"Microsoft's customer identity and access management (CIAM) platform. Federates tenant identities for every Acme Vantage-hosted product and issues the OAuth2/OIDC tokens that the cross-product auth middleware validates on every request.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"identity\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Active Directory B2C\",\n  \"productVersion\": \"n/a (SaaS, vendor-managed release train)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service; Microsoft does not publish a deprecation date. Vendor lifecycle tracked via Microsoft's Azure service retirement notices.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-MHJM\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"tenant-federation\",\n      \"name\": \"Multi-Tenant Federation Policy\",\n      \"description\": \"Custom policy (Identity Experience Framework) issuing tenant-scoped JWTs consumed by Acme Vantage's entitlement middleware.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-MHJM\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-ad-b2c.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -55593,7 +61205,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -55654,6 +61266,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KT0V5MCV-3A6F",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-F6QT",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "G5XV9MK4RH-RG0A",
           "path": "primaryTechnologyComponent"
         },
@@ -55720,7 +61340,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"MH7JS0SPA4-YA23\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure API Management\",\n  \"aliases\": [\n    \"Azure APIM\"\n  ],\n  \"description\": \"Microsoft's managed API gateway. Fronts every Acme PowerSoft product API with shared routing, authentication enforcement, and rate limiting so individual product teams do not each build their own gateway layer.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"api-gateway\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure API Management\",\n  \"productVersion\": \"Premium v2\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-3A6F\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"product-routing-policies\",\n      \"name\": \"Per-Product Routing & Rate Limit Policies\",\n      \"description\": \"One API definition per product (Vantage, Tax Suite, Asset & Lease Manager, RegTrack, Insight Hub) with per-tenant rate limiting keyed on the Azure AD B2C tenant claim.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-3A6F\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-apim.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"MH7JS0SPA4-YA23\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure API Management\",\n  \"aliases\": [\n    \"Azure APIM\"\n  ],\n  \"description\": \"Microsoft's managed API gateway. Fronts every Acme PowerSoft product API with shared routing, authentication enforcement, and rate limiting so individual product teams do not each build their own gateway layer.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"api-gateway\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure API Management\",\n  \"productVersion\": \"Premium v2\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-3A6F\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"product-routing-policies\",\n      \"name\": \"Per-Product Routing & Rate Limit Policies\",\n      \"description\": \"One API definition per product (Vantage, Tax Suite, Asset & Lease Manager, RegTrack, Insight Hub) with per-tenant rate limiting keyed on the Azure AD B2C tenant claim.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-3A6F\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-apim.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -55775,7 +61395,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -55836,6 +61456,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KQQ4Q026-DTJJ",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-7QHG",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "37AJ772M7W-V27N",
           "path": "primaryTechnologyComponent"
         },
@@ -55902,7 +61530,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"5Q5CZMHNTR-71A8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Key Vault\",\n  \"description\": \"Centralized secrets, key, and certificate store. Every product team's database connection secrets, API keys, and TLS certificates are stored in a Key Vault instance rather than in source control or environment files.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"secrets-management\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Key Vault\",\n  \"productVersion\": \"Premium (HSM-backed)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-DTJJ\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"per-product-vault\",\n      \"name\": \"One Vault Per Product, RBAC-Scoped\",\n      \"description\": \"Each product team owns a dedicated Key Vault instance scoped by Azure RBAC to that team's AKS workload identities; no team can read another team's secrets.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-DTJJ\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-key-vault.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"5Q5CZMHNTR-71A8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Key Vault\",\n  \"description\": \"Centralized secrets, key, and certificate store. Every product team's database connection secrets, API keys, and TLS certificates are stored in a Key Vault instance rather than in source control or environment files.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"secrets-management\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Key Vault\",\n  \"productVersion\": \"Premium (HSM-backed)\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-DTJJ\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"per-product-vault\",\n      \"name\": \"One Vault Per Product, RBAC-Scoped\",\n      \"description\": \"Each product team owns a dedicated Key Vault instance scoped by Azure RBAC to that team's AKS workload identities; no team can read another team's secrets.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-DTJJ\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-key-vault.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -55957,7 +61585,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Core Platform Engineering",
+        "team": "core-platform",
         "contact": "core-platform@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -56018,6 +61646,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KT0V5MCV-ECR4",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-QXMV",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "37MYJCZ1V9-439T",
           "path": "primaryTechnologyComponent"
         },
@@ -56084,7 +61720,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"A4M2HB1G1D-22DT\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Cache for Redis\",\n  \"description\": \"Shared caching tier for tenant entitlement lookups and session state, proposed by Core Platform during shared-service review rather than requested by the Admin agent's original draft.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Core Platform Engineering\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"caching\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Cache for Redis\",\n  \"productVersion\": \"Premium tier\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-ECR4\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"entitlement-cache\",\n      \"name\": \"Tenant Entitlement Cache\",\n      \"description\": \"5-minute TTL cache of resolved TenantEntitlement records in front of the Vantage Postgres database, cutting entitlement-check latency from ~40ms to ~2ms on cache hit.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-ECR4\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-redis.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"A4M2HB1G1D-22DT\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Cache for Redis\",\n  \"description\": \"Shared caching tier for tenant entitlement lookups and session state, proposed by Core Platform during shared-service review rather than requested by the Admin agent's original draft.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"core-platform\",\n    \"contact\": \"core-platform@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"caching\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Cache for Redis\",\n  \"productVersion\": \"Premium tier\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-ECR4\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"entitlement-cache\",\n      \"name\": \"Tenant Entitlement Cache\",\n      \"description\": \"5-minute TTL cache of resolved TenantEntitlement records in front of the Vantage Postgres database, cutting entitlement-check latency from ~40ms to ~2ms on cache hit.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-ECR4\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-redis.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -56139,7 +61775,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -56200,6 +61836,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KT0V5MCV-KT72",
+          "path": "implementations[1].ref"
+        },
+        {
+          "source": "01KVNWGWYE-YVFY",
+          "path": "patch.implementations[1].ref"
+        },
+        {
           "source": "0XWT91WY2F-2RR4",
           "path": "primaryTechnologyComponent"
         },
@@ -56266,7 +61910,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"VKSQHZCHTK-VJP1\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Service Bus\",\n  \"description\": \"Microsoft's managed message broker. Carries asynchronous, cross-product domain events -- lease lifecycle events, tenant entitlement changes, billing events consumed by Insight Hub -- between product teams without each team standing up its own broker.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"messaging\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Service Bus\",\n  \"productVersion\": \"Premium tier\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-KT72\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"cross-product-topics\",\n      \"name\": \"Cross-Product Domain Event Topics\",\n      \"description\": \"One topic per cross-product event family (lease-lifecycle-events, entitlement-changes, billing-events) with per-product subscriptions and dead-letter queues.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-KT72\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-service-bus.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"VKSQHZCHTK-VJP1\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Service Bus\",\n  \"description\": \"Microsoft's managed message broker. Carries asynchronous, cross-product domain events -- lease lifecycle events, tenant entitlement changes, billing events consumed by Insight Hub -- between product teams without each team standing up its own broker.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"messaging\",\n    \"paas\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Service Bus\",\n  \"productVersion\": \"Premium tier\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously released first-party Azure service.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-KT72\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"cross-product-topics\",\n      \"name\": \"Cross-Product Domain Event Topics\",\n      \"description\": \"One topic per cross-product event family (lease-lifecycle-events, entitlement-changes, billing-events) with per-product subscriptions and dead-letter queues.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-KT72\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-service-bus.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -56312,7 +61956,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -56367,6 +62011,14 @@ window.DRAFT_BROWSER_DATA = {
         }
       ],
       "referencedBy": [
+        {
+          "source": "01KQQ4Q026-1HZP",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-595B",
+          "path": "patch.implementations[0].ref"
+        },
         {
           "source": "H1ZTZXV5F6-C1CZ",
           "path": "computePlatformComponent"
@@ -56434,7 +62086,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"WBCN4NVAYG-RFC8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Standard_D-series v5 VM\",\n  \"description\": \"Compute platform underlying the shared AKS node pools -- general-purpose Azure virtual machines.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"compute-platform\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Virtual Machines (Dsv5 series)\",\n  \"productVersion\": \"Dsv5\",\n  \"classification\": \"compute-platform\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously available Azure VM series; no fixed retirement date published.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-1HZP\"\n  ],\n  \"configurations\": [],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-vm-compute.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"WBCN4NVAYG-RFC8\",\n  \"type\": \"technology_component\",\n  \"name\": \"Azure Standard_D-series v5 VM\",\n  \"description\": \"Compute platform underlying the shared AKS node pools -- general-purpose Azure virtual machines.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"compute-platform\"\n  ],\n  \"vendor\": \"Microsoft\",\n  \"productName\": \"Azure Virtual Machines (Dsv5 series)\",\n  \"productVersion\": \"Dsv5\",\n  \"classification\": \"compute-platform\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"Continuously available Azure VM series; no fixed retirement date published.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-1HZP\"\n  ],\n  \"configurations\": [],\n  \"_source\": \"catalog/shared-services/technology-components/tc-azure-vm-compute.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -56492,7 +62144,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -56565,6 +62217,30 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KQQ4Q026-98VD",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KQQ4Q026-D04B",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KQQ4Q026-JW52",
+          "path": "implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-6663",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYD-ZKB7",
+          "path": "patch.implementations[0].ref"
+        },
+        {
+          "source": "01KVNWGWYE-7QJ8",
+          "path": "patch.implementations[0].ref"
+        },
+        {
           "source": "FH8VD6HQ69-ZMEG",
           "path": "primaryTechnologyComponent"
         },
@@ -56631,7 +62307,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"792738MBB6-8XMK\",\n  \"type\": \"technology_component\",\n  \"name\": \"Datadog Agent & SaaS Platform\",\n  \"description\": \"Company-wide observability platform: infrastructure monitoring, APM traces, and centralized log aggregation across every AKS cluster and Azure resource group Acme PowerSoft operates.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"observability\",\n    \"saas\"\n  ],\n  \"vendor\": \"Datadog, Inc.\",\n  \"productName\": \"Datadog\",\n  \"productVersion\": \"Agent 7.55\",\n  \"classification\": \"agent\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"SaaS platform with a rolling agent release; Infra & DevOps tracks agent version drift via the fleet dashboard and targets agents no more than 2 minor versions behind current.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-D04B\",\n    \"01KQQ4Q026-JW52\",\n    \"01KQQ4Q026-98VD\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"aks-daemonset\",\n      \"name\": \"AKS DaemonSet Deployment\",\n      \"description\": \"Datadog Agent deployed as a DaemonSet on every AKS node pool across all six product clusters plus the shared platform cluster, scraping container, node, and control-plane metrics.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\",\n        \"01KQQ4Q026-D04B\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-datadog-agent.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"792738MBB6-8XMK\",\n  \"type\": \"technology_component\",\n  \"name\": \"Datadog Agent & SaaS Platform\",\n  \"description\": \"Company-wide observability platform: infrastructure monitoring, APM traces, and centralized log aggregation across every AKS cluster and Azure resource group Acme PowerSoft operates.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"observability\",\n    \"saas\"\n  ],\n  \"vendor\": \"Datadog, Inc.\",\n  \"productName\": \"Datadog\",\n  \"productVersion\": \"Agent 7.55\",\n  \"classification\": \"agent\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"SaaS platform with a rolling agent release; Infra & DevOps tracks agent version drift via the fleet dashboard and targets agents no more than 2 minor versions behind current.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-D04B\",\n    \"01KQQ4Q026-JW52\",\n    \"01KQQ4Q026-98VD\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"aks-daemonset\",\n      \"name\": \"AKS DaemonSet Deployment\",\n      \"description\": \"Datadog Agent deployed as a DaemonSet on every AKS node pool across all six product clusters plus the shared platform cluster, scraping container, node, and control-plane metrics.\",\n      \"capabilities\": [\n        \"01KQQ4Q026-98VD\",\n        \"01KQQ4Q026-D04B\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-datadog-agent.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -56686,7 +62362,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Data & Analytics Engineering",
+        "team": "data-analytics",
         "contact": "data-analytics@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -56747,6 +62423,14 @@ window.DRAFT_BROWSER_DATA = {
       ],
       "referencedBy": [
         {
+          "source": "01KT0V5MCV-VD0Y",
+          "path": "implementations[3].ref"
+        },
+        {
+          "source": "01KVNWGWYD-WG50",
+          "path": "patch.implementations[3].ref"
+        },
+        {
           "source": "Z3CAV76ED8-7XEV",
           "path": "primaryTechnologyComponent"
         },
@@ -56813,7 +62497,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"6YWAMCXE87-H8JW\",\n  \"type\": \"technology_component\",\n  \"name\": \"Snowflake\",\n  \"description\": \"Cloud data warehouse hosting Acme Insight Hub's consolidated analytics schema. Primary destination for the ELT pipelines that pull billing, asset, tax, and regulatory data out of each product's operational database.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Data & Analytics Engineering\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"data-warehouse\",\n    \"saas\"\n  ],\n  \"vendor\": \"Snowflake Inc.\",\n  \"productName\": \"Snowflake\",\n  \"productVersion\": \"Enterprise edition, Azure region\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"SaaS platform with continuous release; no fixed end-of-life.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-VD0Y\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"insight-hub-warehouse\",\n      \"name\": \"ACME_INSIGHT_HUB_WH\",\n      \"description\": \"Medium warehouse, auto-suspend 300s, serving both the nightly ELT loads and ad hoc analyst queries against the consolidated schema.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-VD0Y\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-snowflake.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"6YWAMCXE87-H8JW\",\n  \"type\": \"technology_component\",\n  \"name\": \"Snowflake\",\n  \"description\": \"Cloud data warehouse hosting Acme Insight Hub's consolidated analytics schema. Primary destination for the ELT pipelines that pull billing, asset, tax, and regulatory data out of each product's operational database.\\n\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"data-analytics\",\n    \"contact\": \"data-analytics@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"data-warehouse\",\n    \"saas\"\n  ],\n  \"vendor\": \"Snowflake Inc.\",\n  \"productName\": \"Snowflake\",\n  \"productVersion\": \"Enterprise edition, Azure region\",\n  \"classification\": \"software\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"TBD\",\n    \"extendedSupportEnd\": \"TBD\",\n    \"notes\": \"SaaS platform with continuous release; no fixed end-of-life.\"\n  },\n  \"capabilities\": [\n    \"01KT0V5MCV-VD0Y\"\n  ],\n  \"configurations\": [\n    {\n      \"id\": \"insight-hub-warehouse\",\n      \"name\": \"ACME_INSIGHT_HUB_WH\",\n      \"description\": \"Medium warehouse, auto-suspend 300s, serving both the nightly ELT loads and ad hoc analyst queries against the consolidated schema.\",\n      \"capabilities\": [\n        \"01KT0V5MCV-VD0Y\"\n      ]\n    }\n  ],\n  \"_source\": \"catalog/shared-services/technology-components/tc-snowflake.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -56859,7 +62543,7 @@ window.DRAFT_BROWSER_DATA = {
       "authenticationModel": "",
       "incidentNotificationProcess": "",
       "owner": {
-        "team": "Infrastructure & DevOps Engineering",
+        "team": "infra-devops",
         "contact": "infra-devops@acmepowersoft.example.com"
       },
       "definitionOwner": {},
@@ -56914,6 +62598,14 @@ window.DRAFT_BROWSER_DATA = {
         }
       ],
       "referencedBy": [
+        {
+          "source": "01KQQ4Q026-QM2X",
+          "path": "implementations[1].ref"
+        },
+        {
+          "source": "01KVNWGWYE-SZ9A",
+          "path": "patch.implementations[1].ref"
+        },
         {
           "source": "H1ZTZXV5F6-C1CZ",
           "path": "operatingSystemComponent"
@@ -56981,7 +62673,7 @@ window.DRAFT_BROWSER_DATA = {
         },
         "schemaPath": "framework/schemas/technology-component.schema.yaml"
       },
-      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"C657R8CNHY-FDK6\",\n  \"type\": \"technology_component\",\n  \"name\": \"Ubuntu 22.04 LTS\",\n  \"description\": \"Host operating system image for every AKS node pool across all six product clusters and the shared platform cluster.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"Infrastructure & DevOps Engineering\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"operating-system\"\n  ],\n  \"vendor\": \"Canonical\",\n  \"productName\": \"Ubuntu Server\",\n  \"productVersion\": \"22.04 LTS\",\n  \"classification\": \"operating-system\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"2027-04-21\",\n    \"extendedSupportEnd\": \"2032-04-21\",\n    \"notes\": \"Standard Ubuntu LTS support window; AKS-managed node image patching keeps the kernel current within the LTS line.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-QM2X\"\n  ],\n  \"configurations\": [],\n  \"_source\": \"catalog/shared-services/technology-components/tc-ubuntu-os.yaml\"\n}",
+      "detail": "{\n  \"schemaVersion\": \"1.0\",\n  \"uid\": \"C657R8CNHY-FDK6\",\n  \"type\": \"technology_component\",\n  \"name\": \"Ubuntu 22.04 LTS\",\n  \"description\": \"Host operating system image for every AKS node pool across all six product clusters and the shared platform cluster.\",\n  \"version\": \"1.0.0\",\n  \"catalogStatus\": \"complete\",\n  \"owner\": {\n    \"team\": \"infra-devops\",\n    \"contact\": \"infra-devops@acmepowersoft.example.com\"\n  },\n  \"tags\": [\n    \"technology-component\",\n    \"operating-system\"\n  ],\n  \"vendor\": \"Canonical\",\n  \"productName\": \"Ubuntu Server\",\n  \"productVersion\": \"22.04 LTS\",\n  \"classification\": \"operating-system\",\n  \"vendorLifecycle\": {\n    \"mainstreamSupportEnd\": \"2027-04-21\",\n    \"extendedSupportEnd\": \"2032-04-21\",\n    \"notes\": \"Standard Ubuntu LTS support window; AKS-managed node image patching keeps the kernel current within the LTS line.\"\n  },\n  \"capabilities\": [\n    \"01KQQ4Q026-QM2X\"\n  ],\n  \"configurations\": [],\n  \"_source\": \"catalog/shared-services/technology-components/tc-ubuntu-os.yaml\"\n}",
       "existsInCatalog": true,
       "outboundRelationships": [],
       "inboundRelationships": []
@@ -57001,6 +62693,7 @@ window.DRAFT_BROWSER_DATA = {
     "domain",
     "host",
     "network_service",
+    "object_patch",
     "requirement_group",
     "runtime_service",
     "software_deployment_pattern",
@@ -57075,6 +62768,24 @@ window.DRAFT_BROWSER_DATA = {
         "path": "domain"
       }
     ],
+    "MH7JS0SPA4-YA23": [
+      {
+        "source": "01KT0V5MCV-3A6F",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYD-F6QT",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "G5XV9MK4RH-RG0A",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "G5XV9MK4RH-RG0A",
+        "path": "internalComponents[0].ref"
+      }
+    ],
     "01KQQ4Q027-C213": [
       {
         "source": "01KQQ4Q026-NB1W",
@@ -57127,6 +62838,82 @@ window.DRAFT_BROWSER_DATA = {
         "path": "domain"
       }
     ],
+    "12D3W1HAV5-AA70": [
+      {
+        "source": "01KT0V5MCV-RZV0",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYD-TGZ9",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "KFP31VBNDB-RART",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "W1GH4MXRC4-ZGMS",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "Y1C3JYAM8E-J7PG",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "G4GHBWA8G6-ACY2",
+        "path": "primaryTechnologyComponent"
+      }
+    ],
+    "D2K2AEW24S-0XJ8": [
+      {
+        "source": "01KT0V5MCV-RZV0",
+        "path": "implementations[1].ref"
+      },
+      {
+        "source": "01KT0XNZEY-DENJ",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYD-TGZ9",
+        "path": "patch.implementations[1].ref"
+      },
+      {
+        "source": "01KVNWGWYD-P66J",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "VEWWR9JZAC-P285",
+        "path": "primaryTechnologyComponent"
+      }
+    ],
+    "K8T2YQX5MD-NJ14": [
+      {
+        "source": "01KT0V5MCV-RZV0",
+        "path": "implementations[2].ref"
+      },
+      {
+        "source": "01KVNWGWYD-TGZ9",
+        "path": "patch.implementations[2].ref"
+      },
+      {
+        "source": "DDKF51GRXT-9VE9",
+        "path": "primaryTechnologyComponent"
+      }
+    ],
+    "ZYM7F5ZER1-468B": [
+      {
+        "source": "01KT0V5MCV-RZV0",
+        "path": "implementations[3].ref"
+      },
+      {
+        "source": "01KVNWGWYD-TGZ9",
+        "path": "patch.implementations[3].ref"
+      },
+      {
+        "source": "FQR8TJFC7G-4MWS",
+        "path": "primaryTechnologyComponent"
+      }
+    ],
     "01KT0XNZEY-GXYR": [
       {
         "source": "01KT0XNZEY-7HWQ",
@@ -57141,6 +62928,42 @@ window.DRAFT_BROWSER_DATA = {
         "path": "domain"
       }
     ],
+    "M087QNW2D0-6G06": [
+      {
+        "source": "01KQQ4Q026-MHJM",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYD-XW56",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "ZV0QNH8M3D-EYW8",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "ZV0QNH8M3D-EYW8",
+        "path": "internalComponents[0].ref"
+      }
+    ],
+    "A4M2HB1G1D-22DT": [
+      {
+        "source": "01KT0V5MCV-ECR4",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYD-QXMV",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "37MYJCZ1V9-439T",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "37MYJCZ1V9-439T",
+        "path": "internalComponents[0].ref"
+      }
+    ],
     "01KSWVZSZ5-GY67": [
       {
         "source": "01KT0XNZEY-RVTG",
@@ -57153,6 +62976,24 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "01KQQ4Q026-JW52",
         "path": "domain"
+      }
+    ],
+    "WBCN4NVAYG-RFC8": [
+      {
+        "source": "01KQQ4Q026-1HZP",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYD-595B",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "H1ZTZXV5F6-C1CZ",
+        "path": "computePlatformComponent"
+      },
+      {
+        "source": "H1ZTZXV5F6-C1CZ",
+        "path": "internalComponents[1].ref"
       }
     ],
     "01KT0XNZEY-QY0Y": [
@@ -57191,6 +63032,186 @@ window.DRAFT_BROWSER_DATA = {
         "path": "domain"
       }
     ],
+    "NWFNB1R5TX-N5AC": [
+      {
+        "source": "01KT0V5MCV-VD0Y",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYD-WG50",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "C14NBVQZN9-S0GV",
+        "path": "primaryTechnologyComponent"
+      }
+    ],
+    "2EJA62M0B7-HQXM": [
+      {
+        "source": "01KT0V5MCV-VD0Y",
+        "path": "implementations[1].ref"
+      },
+      {
+        "source": "01KVNWGWYD-WG50",
+        "path": "patch.implementations[1].ref"
+      }
+    ],
+    "TRAS6KGSAC-RGNM": [
+      {
+        "source": "01KT0V5MCV-VD0Y",
+        "path": "implementations[2].ref"
+      },
+      {
+        "source": "01KVNWGWYD-WG50",
+        "path": "patch.implementations[2].ref"
+      },
+      {
+        "source": "5Z1DGT5HBX-38TA",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "W8Y50NQF1Z-4VW7",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "66ZW6J2AAH-XSHS",
+        "path": "primaryTechnologyComponent"
+      }
+    ],
+    "6YWAMCXE87-H8JW": [
+      {
+        "source": "01KT0V5MCV-VD0Y",
+        "path": "implementations[3].ref"
+      },
+      {
+        "source": "01KVNWGWYD-WG50",
+        "path": "patch.implementations[3].ref"
+      },
+      {
+        "source": "Z3CAV76ED8-7XEV",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "Z3CAV76ED8-7XEV",
+        "path": "internalComponents[0].ref"
+      }
+    ],
+    "792738MBB6-8XMK": [
+      {
+        "source": "01KQQ4Q026-98VD",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KQQ4Q026-D04B",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KQQ4Q026-JW52",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYD-6663",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYD-ZKB7",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYE-7QJ8",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "FH8VD6HQ69-ZMEG",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "FH8VD6HQ69-ZMEG",
+        "path": "internalComponents[0].ref"
+      }
+    ],
+    "01KVNWGWYF-DKXK": [
+      {
+        "source": "01KT0V5MCV-KT72",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYE-YVFY",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "QWD953NT60-B477",
+        "path": "serviceGroups[2].deployableObjects[0].ref"
+      }
+    ],
+    "VKSQHZCHTK-VJP1": [
+      {
+        "source": "01KT0V5MCV-KT72",
+        "path": "implementations[1].ref"
+      },
+      {
+        "source": "01KVNWGWYE-YVFY",
+        "path": "patch.implementations[1].ref"
+      },
+      {
+        "source": "0XWT91WY2F-2RR4",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "0XWT91WY2F-2RR4",
+        "path": "internalComponents[0].ref"
+      }
+    ],
+    "5JMBH216ND-AJE9": [
+      {
+        "source": "01KT0V5MCV-E9TN",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYE-CMZ9",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "SP7JGWQ9Z3-DR4F",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "SP7JGWQ9Z3-DR4F",
+        "path": "internalComponents[0].ref"
+      }
+    ],
+    "8DD32B2D0H-2PCZ": [
+      {
+        "source": "01KQQ4Q026-QM2X",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYE-SZ9A",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "8FRABMZWDP-NB72",
+        "path": "operatingSystemComponent"
+      }
+    ],
+    "C657R8CNHY-FDK6": [
+      {
+        "source": "01KQQ4Q026-QM2X",
+        "path": "implementations[1].ref"
+      },
+      {
+        "source": "01KVNWGWYE-SZ9A",
+        "path": "patch.implementations[1].ref"
+      },
+      {
+        "source": "H1ZTZXV5F6-C1CZ",
+        "path": "operatingSystemComponent"
+      },
+      {
+        "source": "H1ZTZXV5F6-C1CZ",
+        "path": "internalComponents[0].ref"
+      }
+    ],
     "01KQQ4Q027-SGHR": [
       {
         "source": "01KQQ4Q026-S5J6",
@@ -57207,6 +63228,38 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "01KQQ4Q026-58Q3",
         "path": "domain"
+      }
+    ],
+    "4MNRK1XQZ7-PB10": [
+      {
+        "source": "01KT0XNZEY-70Y6",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYE-G9FG",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "NDHCZF14QX-4EVH",
+        "path": "serviceGroups[2].deployableObjects[0].ref"
+      }
+    ],
+    "5Q5CZMHNTR-71A8": [
+      {
+        "source": "01KQQ4Q026-DTJJ",
+        "path": "implementations[0].ref"
+      },
+      {
+        "source": "01KVNWGWYE-7QHG",
+        "path": "patch.implementations[0].ref"
+      },
+      {
+        "source": "37AJ772M7W-V27N",
+        "path": "primaryTechnologyComponent"
+      },
+      {
+        "source": "37AJ772M7W-V27N",
+        "path": "internalComponents[0].ref"
       }
     ],
     "01KQQ4Q026-7T2H": [
@@ -57399,6 +63452,10 @@ window.DRAFT_BROWSER_DATA = {
         "path": "requirements[2].relatedCapability"
       },
       {
+        "source": "01KVNWGWYD-XW56",
+        "path": "target"
+      },
+      {
         "source": "H1ZTZXV5F6-C1CZ",
         "path": "externalInteractions[0].capabilities[0]"
       },
@@ -57435,6 +63492,10 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "P6M8FWV2D8-0RM8",
         "path": "requirements[0].relatedCapability"
+      },
+      {
+        "source": "01KVNWGWYD-ZKB7",
+        "path": "target"
       },
       {
         "source": "H1ZTZXV5F6-C1CZ",
@@ -57477,6 +63538,10 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "KZM0T9NY43-3H8K",
         "path": "requirements[1].relatedCapability"
+      },
+      {
+        "source": "01KVNWGWYD-6663",
+        "path": "target"
       },
       {
         "source": "H1ZTZXV5F6-C1CZ",
@@ -57523,6 +63588,10 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "01KQQ4Q027-THYN",
         "path": "requirements[5].relatedCapability"
+      },
+      {
+        "source": "01KVNWGWYE-7QJ8",
+        "path": "target"
       },
       {
         "source": "H1ZTZXV5F6-C1CZ",
@@ -57593,6 +63662,10 @@ window.DRAFT_BROWSER_DATA = {
         "path": "requirements[3].relatedCapability"
       },
       {
+        "source": "01KVNWGWYE-7QHG",
+        "path": "target"
+      },
+      {
         "source": "5Q5CZMHNTR-71A8",
         "path": "capabilities[0]"
       },
@@ -57635,6 +63708,10 @@ window.DRAFT_BROWSER_DATA = {
         "path": "requirements[1].relatedCapability"
       },
       {
+        "source": "01KVNWGWYD-595B",
+        "path": "target"
+      },
+      {
         "source": "WBCN4NVAYG-RFC8",
         "path": "capabilities[0]"
       }
@@ -57645,6 +63722,14 @@ window.DRAFT_BROWSER_DATA = {
         "path": "requirements[0].relatedCapability"
       },
       {
+        "source": "01KVNWGWYE-SZ9A",
+        "path": "target"
+      },
+      {
+        "source": "8DD32B2D0H-2PCZ",
+        "path": "capabilities[0]"
+      },
+      {
         "source": "C657R8CNHY-FDK6",
         "path": "capabilities[0]"
       }
@@ -57653,6 +63738,10 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "01KT0VM061-CRN7",
         "path": "requirements[0].relatedCapability"
+      },
+      {
+        "source": "01KVNWGWYD-F6QT",
+        "path": "target"
       },
       {
         "source": "MH7JS0SPA4-YA23",
@@ -57685,6 +63774,26 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "01KT0VM061-CRN7",
         "path": "requirements[4].relatedCapability"
+      },
+      {
+        "source": "01KVNWGWYD-TGZ9",
+        "path": "target"
+      },
+      {
+        "source": "12D3W1HAV5-AA70",
+        "path": "capabilities[0]"
+      },
+      {
+        "source": "D2K2AEW24S-0XJ8",
+        "path": "capabilities[0]"
+      },
+      {
+        "source": "K8T2YQX5MD-NJ14",
+        "path": "capabilities[0]"
+      },
+      {
+        "source": "ZYM7F5ZER1-468B",
+        "path": "capabilities[0]"
       }
     ],
     "01KT0V5MCV-RM8M": [
@@ -57697,6 +63806,10 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "01KT0VM061-CRN7",
         "path": "requirements[6].relatedCapability"
+      },
+      {
+        "source": "01KVNWGWYD-QXMV",
+        "path": "target"
       },
       {
         "source": "A4M2HB1G1D-22DT",
@@ -57713,6 +63826,14 @@ window.DRAFT_BROWSER_DATA = {
         "path": "requirements[7].relatedCapability"
       },
       {
+        "source": "01KVNWGWYE-YVFY",
+        "path": "target"
+      },
+      {
+        "source": "01KVNWGWYF-DKXK",
+        "path": "capabilities[0]"
+      },
+      {
         "source": "VKSQHZCHTK-VJP1",
         "path": "capabilities[0]"
       },
@@ -57727,6 +63848,22 @@ window.DRAFT_BROWSER_DATA = {
         "path": "requirements[8].relatedCapability"
       },
       {
+        "source": "01KVNWGWYD-WG50",
+        "path": "target"
+      },
+      {
+        "source": "NWFNB1R5TX-N5AC",
+        "path": "capabilities[0]"
+      },
+      {
+        "source": "2EJA62M0B7-HQXM",
+        "path": "capabilities[0]"
+      },
+      {
+        "source": "TRAS6KGSAC-RGNM",
+        "path": "capabilities[0]"
+      },
+      {
         "source": "6YWAMCXE87-H8JW",
         "path": "capabilities[0]"
       },
@@ -57739,6 +63876,10 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "01KT0VM061-CRN7",
         "path": "requirements[9].relatedCapability"
+      },
+      {
+        "source": "01KVNWGWYE-CMZ9",
+        "path": "target"
       },
       {
         "source": "5JMBH216ND-AJE9",
@@ -57767,14 +63908,6 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "KKDJGX6P7C-N9AR",
         "path": "requirements[1].relatedCapability"
-      },
-      {
-        "source": "PV9F22JQ2K-LSE9",
-        "path": "capabilities[0]"
-      },
-      {
-        "source": "4MNRK1XQZ7-PB10",
-        "path": "capabilities[0]"
       },
       {
         "source": "KFP31VBNDB-RART",
@@ -57829,6 +63962,14 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "01KT0VM061-CRN7",
         "path": "requirements[16].relatedCapability"
+      },
+      {
+        "source": "01KVNWGWYD-P66J",
+        "path": "target"
+      },
+      {
+        "source": "D2K2AEW24S-0XJ8",
+        "path": "capabilities[1]"
       }
     ],
     "01KT0XNZEY-A7GK": [
@@ -57841,6 +63982,14 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "01KT0VM061-CRN7",
         "path": "requirements[18].relatedCapability"
+      },
+      {
+        "source": "01KVNWGWYE-G9FG",
+        "path": "target"
+      },
+      {
+        "source": "4MNRK1XQZ7-PB10",
+        "path": "capabilities[0]"
       }
     ],
     "01KT0XNZEY-RVTG": [
@@ -57867,12 +64016,6 @@ window.DRAFT_BROWSER_DATA = {
         "path": "requirements[2].relatedCapability"
       }
     ],
-    "8DD32B2D0H-2PCZ": [
-      {
-        "source": "8FRABMZWDP-NB72",
-        "path": "operatingSystemComponent"
-      }
-    ],
     "01KQQ4Q027-THYN": [
       {
         "source": "8FRABMZWDP-NB72",
@@ -57891,24 +64034,6 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "H1ZTZXV5F6-C1CZ",
         "path": "requirementGroups[2]"
-      }
-    ],
-    "12D3W1HAV5-AA70": [
-      {
-        "source": "KFP31VBNDB-RART",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "W1GH4MXRC4-ZGMS",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "Y1C3JYAM8E-J7PG",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "G4GHBWA8G6-ACY2",
-        "path": "primaryTechnologyComponent"
       }
     ],
     "H1ZTZXV5F6-C1CZ": [
@@ -58039,18 +64164,6 @@ window.DRAFT_BROWSER_DATA = {
         "path": "requirementGroups[1]"
       }
     ],
-    "D2K2AEW24S-0XJ8": [
-      {
-        "source": "VEWWR9JZAC-P285",
-        "path": "primaryTechnologyComponent"
-      }
-    ],
-    "K8T2YQX5MD-NJ14": [
-      {
-        "source": "DDKF51GRXT-9VE9",
-        "path": "primaryTechnologyComponent"
-      }
-    ],
     "P6M8FWV2D8-0RM8": [
       {
         "source": "Y1C3JYAM8E-J7PG",
@@ -58093,12 +64206,6 @@ window.DRAFT_BROWSER_DATA = {
         "path": "requirementGroups[3]"
       }
     ],
-    "ZYM7F5ZER1-468B": [
-      {
-        "source": "FQR8TJFC7G-4MWS",
-        "path": "primaryTechnologyComponent"
-      }
-    ],
     "8FRABMZWDP-NB72": [
       {
         "source": "FQR8TJFC7G-4MWS",
@@ -58113,20 +64220,6 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "G4GHBWA8G6-ACY2",
         "path": "requirementGroups[2]"
-      }
-    ],
-    "TRAS6KGSAC-RGNM": [
-      {
-        "source": "5Z1DGT5HBX-38TA",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "W8Y50NQF1Z-4VW7",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "66ZW6J2AAH-XSHS",
-        "path": "primaryTechnologyComponent"
       }
     ],
     "01KQQ4Q027-VBF0": [
@@ -58153,12 +64246,6 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "SP7JGWQ9Z3-DR4F",
         "path": "requirementGroups[0]"
-      }
-    ],
-    "NWFNB1R5TX-N5AC": [
-      {
-        "source": "C14NBVQZN9-S0GV",
-        "path": "primaryTechnologyComponent"
       }
     ],
     "KFP31VBNDB-RART": [
@@ -58235,12 +64322,6 @@ window.DRAFT_BROWSER_DATA = {
         "path": "serviceGroups[1].deployableObjects[0].ref"
       }
     ],
-    "PV9F22JQ2K-LSE9": [
-      {
-        "source": "QWD953NT60-B477",
-        "path": "serviceGroups[2].deployableObjects[0].ref"
-      }
-    ],
     "G5XV9MK4RH-RG0A": [
       {
         "source": "2EH86Y2YDS-3JRD",
@@ -58295,12 +64376,6 @@ window.DRAFT_BROWSER_DATA = {
         "path": "serviceGroups[1].deployableObjects[0].ref"
       }
     ],
-    "4MNRK1XQZ7-PB10": [
-      {
-        "source": "NDHCZF14QX-4EVH",
-        "path": "serviceGroups[2].deployableObjects[0].ref"
-      }
-    ],
     "G4GHBWA8G6-ACY2": [
       {
         "source": "BF6671X2X0-MH1Y",
@@ -58317,106 +64392,6 @@ window.DRAFT_BROWSER_DATA = {
       {
         "source": "BF6671X2X0-MH1Y",
         "path": "serviceGroups[1].deployableObjects[0].ref"
-      }
-    ],
-    "C657R8CNHY-FDK6": [
-      {
-        "source": "H1ZTZXV5F6-C1CZ",
-        "path": "operatingSystemComponent"
-      },
-      {
-        "source": "H1ZTZXV5F6-C1CZ",
-        "path": "internalComponents[0].ref"
-      }
-    ],
-    "WBCN4NVAYG-RFC8": [
-      {
-        "source": "H1ZTZXV5F6-C1CZ",
-        "path": "computePlatformComponent"
-      },
-      {
-        "source": "H1ZTZXV5F6-C1CZ",
-        "path": "internalComponents[1].ref"
-      }
-    ],
-    "A4M2HB1G1D-22DT": [
-      {
-        "source": "37MYJCZ1V9-439T",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "37MYJCZ1V9-439T",
-        "path": "internalComponents[0].ref"
-      }
-    ],
-    "M087QNW2D0-6G06": [
-      {
-        "source": "ZV0QNH8M3D-EYW8",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "ZV0QNH8M3D-EYW8",
-        "path": "internalComponents[0].ref"
-      }
-    ],
-    "VKSQHZCHTK-VJP1": [
-      {
-        "source": "0XWT91WY2F-2RR4",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "0XWT91WY2F-2RR4",
-        "path": "internalComponents[0].ref"
-      }
-    ],
-    "792738MBB6-8XMK": [
-      {
-        "source": "FH8VD6HQ69-ZMEG",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "FH8VD6HQ69-ZMEG",
-        "path": "internalComponents[0].ref"
-      }
-    ],
-    "5Q5CZMHNTR-71A8": [
-      {
-        "source": "37AJ772M7W-V27N",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "37AJ772M7W-V27N",
-        "path": "internalComponents[0].ref"
-      }
-    ],
-    "6YWAMCXE87-H8JW": [
-      {
-        "source": "Z3CAV76ED8-7XEV",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "Z3CAV76ED8-7XEV",
-        "path": "internalComponents[0].ref"
-      }
-    ],
-    "5JMBH216ND-AJE9": [
-      {
-        "source": "SP7JGWQ9Z3-DR4F",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "SP7JGWQ9Z3-DR4F",
-        "path": "internalComponents[0].ref"
-      }
-    ],
-    "MH7JS0SPA4-YA23": [
-      {
-        "source": "G5XV9MK4RH-RG0A",
-        "path": "primaryTechnologyComponent"
-      },
-      {
-        "source": "G5XV9MK4RH-RG0A",
-        "path": "internalComponents[0].ref"
       }
     ],
     "01KSWVZSZ5-B146": [
@@ -58477,9 +64452,19 @@ window.DRAFT_BROWSER_DATA = {
               "uid": "01KT0XNZEY-70Y6",
               "name": "Reporting",
               "description": "Curated metrics and datasets are presented to consumers through managed reports and dashboards.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "regulatory",
+                "contact": "regulatory@acmepowersoft.example.com"
+              },
+              "implementationCount": 1,
+              "implementations": [
+                {
+                  "ref": "4MNRK1XQZ7-PB10",
+                  "lifecycleStatus": "existing-only",
+                  "configuration": "",
+                  "notes": "Power BI Embedded Capacity (Rate Case Dashboard) (regulatory)"
+                }
+              ]
             }
           ]
         },
@@ -58494,27 +64479,75 @@ window.DRAFT_BROWSER_DATA = {
               "uid": "01KT0V5MCV-RZV0",
               "name": "Application Runtime",
               "description": "First-party application code executes on a managed runtime that provides the process, web, or worker execution environment.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "infra-devops",
+                "contact": "infra-devops@acmepowersoft.example.com"
+              },
+              "implementationCount": 4,
+              "implementations": [
+                {
+                  "ref": "12D3W1HAV5-AA70",
+                  "lifecycleStatus": "existing-only",
+                  "configuration": "",
+                  "notes": ".NET 8 ASP.NET Core Runtime (core-platform)"
+                },
+                {
+                  "ref": "K8T2YQX5MD-NJ14",
+                  "lifecycleStatus": "existing-only",
+                  "configuration": "",
+                  "notes": "Node.js 20 / Next.js 14 Runtime (infra-devops)"
+                },
+                {
+                  "ref": "ZYM7F5ZER1-468B",
+                  "lifecycleStatus": "existing-only",
+                  "configuration": "",
+                  "notes": "PowerBuilder 2019 Runtime (tax-compliance)"
+                },
+                {
+                  "ref": "D2K2AEW24S-0XJ8",
+                  "lifecycleStatus": "existing-only",
+                  "configuration": "",
+                  "notes": "Python 3.12 / Apache Airflow Runtime (data-analytics)"
+                }
+              ]
             },
             {
               "id": "01KT0V5MCV-ECR4",
               "uid": "01KT0V5MCV-ECR4",
               "name": "Caching",
               "description": "Frequently accessed data is stored in a fast, ephemeral tier to reduce latency and load on the system of record.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "core-platform",
+                "contact": "core-platform@acmepowersoft.example.com"
+              },
+              "implementationCount": 1,
+              "implementations": [
+                {
+                  "ref": "A4M2HB1G1D-22DT",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Azure Cache for Redis (Core Platform Engineering)"
+                }
+              ]
             },
             {
               "id": "01KQQ4Q026-1HZP",
               "uid": "01KQQ4Q026-1HZP",
               "name": "Compute Platform",
               "description": "Compute substrate or virtualized platform used to run Hosts.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "infra-devops",
+                "contact": "infra-devops@acmepowersoft.example.com"
+              },
+              "implementationCount": 1,
+              "implementations": [
+                {
+                  "ref": "WBCN4NVAYG-RFC8",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Azure Standard_D-series v5 VM (Infrastructure & DevOps Engineering)"
+                }
+              ]
             },
             {
               "id": "01KQQ4Q026-GW5D",
@@ -58530,18 +64563,50 @@ window.DRAFT_BROWSER_DATA = {
               "uid": "01KT0V5MCV-KT72",
               "name": "Messaging",
               "description": "Asynchronous messages and events are accepted, queued, and delivered between producers and consumers.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "infra-devops",
+                "contact": "infra-devops@acmepowersoft.example.com"
+              },
+              "implementationCount": 2,
+              "implementations": [
+                {
+                  "ref": "01KVNWGWYF-DKXK",
+                  "lifecycleStatus": "existing-only",
+                  "configuration": "",
+                  "notes": "Asset & Lease Events Topic (Dedicated Service Bus) (asset-lease)"
+                },
+                {
+                  "ref": "VKSQHZCHTK-VJP1",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Azure Service Bus (Infrastructure & DevOps Engineering)"
+                }
+              ]
             },
             {
               "id": "01KQQ4Q026-QM2X",
               "uid": "01KQQ4Q026-QM2X",
               "name": "Operating System",
               "description": "Supported operating system product used to define managed Hosts.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "infra-devops",
+                "contact": "infra-devops@acmepowersoft.example.com"
+              },
+              "implementationCount": 2,
+              "implementations": [
+                {
+                  "ref": "8DD32B2D0H-2PCZ",
+                  "lifecycleStatus": "existing-only",
+                  "configuration": "",
+                  "notes": "Windows Server 2022 (tax-compliance)"
+                },
+                {
+                  "ref": "C657R8CNHY-FDK6",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Ubuntu 22.04 LTS (Infrastructure & DevOps Engineering)"
+                }
+              ]
             },
             {
               "id": "01KQQ4Q026-BH6E",
@@ -58583,9 +64648,37 @@ window.DRAFT_BROWSER_DATA = {
               "uid": "01KT0V5MCV-VD0Y",
               "name": "Data Persistence",
               "description": "Structured application data is durably stored, queried, and managed in a database or persistence platform.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "infra-devops",
+                "contact": "infra-devops@acmepowersoft.example.com"
+              },
+              "implementationCount": 4,
+              "implementations": [
+                {
+                  "ref": "2EJA62M0B7-HQXM",
+                  "lifecycleStatus": "existing-only",
+                  "configuration": "",
+                  "notes": "Oracle Database 19c (tax-compliance)"
+                },
+                {
+                  "ref": "NWFNB1R5TX-N5AC",
+                  "lifecycleStatus": "existing-only",
+                  "configuration": "",
+                  "notes": "PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server) (core-platform)"
+                },
+                {
+                  "ref": "TRAS6KGSAC-RGNM",
+                  "lifecycleStatus": "existing-only",
+                  "configuration": "",
+                  "notes": "SQL Server 2022 (Azure SQL Managed Instance) (tax-compliance)"
+                },
+                {
+                  "ref": "6YWAMCXE87-H8JW",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Snowflake (Data & Analytics Engineering)"
+                }
+              ]
             },
             {
               "id": "01KQQ4Q026-7T2H",
@@ -58619,9 +64712,19 @@ window.DRAFT_BROWSER_DATA = {
               "uid": "01KT0V5MCV-E9TN",
               "name": "Object Storage",
               "description": "Unstructured objects and blobs are durably stored and retrieved through an object storage interface.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "data-analytics",
+                "contact": "data-analytics@acmepowersoft.example.com"
+              },
+              "implementationCount": 1,
+              "implementations": [
+                {
+                  "ref": "5JMBH216ND-AJE9",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Azure Data Lake Storage Gen2 (Data & Analytics Engineering)"
+                }
+              ]
             }
           ]
         },
@@ -58645,9 +64748,19 @@ window.DRAFT_BROWSER_DATA = {
               "uid": "01KQQ4Q026-MHJM",
               "name": "Authentication",
               "description": "Identity and access authentication capability for users, services, administrators, or workloads.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "core-platform",
+                "contact": "core-platform@acmepowersoft.example.com"
+              },
+              "implementationCount": 1,
+              "implementations": [
+                {
+                  "ref": "M087QNW2D0-6G06",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Azure AD B2C (Core Platform Engineering)"
+                }
+              ]
             }
           ]
         },
@@ -58662,9 +64775,19 @@ window.DRAFT_BROWSER_DATA = {
               "uid": "01KT0XNZEY-DENJ",
               "name": "Data Integration",
               "description": "Data is moved, transformed, and synchronized between systems through a managed integration or ETL platform.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "data-analytics",
+                "contact": "data-analytics@acmepowersoft.example.com"
+              },
+              "implementationCount": 1,
+              "implementations": [
+                {
+                  "ref": "D2K2AEW24S-0XJ8",
+                  "lifecycleStatus": "existing-only",
+                  "configuration": "",
+                  "notes": "Python 3.12 / Apache Airflow Runtime (data-analytics)"
+                }
+              ]
             },
             {
               "id": "01KT0XNZEY-KPTW",
@@ -58697,9 +64820,19 @@ window.DRAFT_BROWSER_DATA = {
               "uid": "01KT0V5MCV-3A6F",
               "name": "API Gateway",
               "description": "Inbound API traffic is routed, authenticated, rate-limited, and transformed at a managed entry point in front of backend services.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "core-platform",
+                "contact": "core-platform@acmepowersoft.example.com"
+              },
+              "implementationCount": 1,
+              "implementations": [
+                {
+                  "ref": "MH7JS0SPA4-YA23",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Azure API Management (Core Platform Engineering)"
+                }
+              ]
             },
             {
               "id": "01KT0V5MCV-HZ37",
@@ -58786,18 +64919,38 @@ window.DRAFT_BROWSER_DATA = {
               "uid": "01KQQ4Q026-98VD",
               "name": "Health and Welfare Monitoring",
               "description": "Runtime health, uptime, metrics, and operational welfare visibility.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "infra-devops",
+                "contact": "infra-devops@acmepowersoft.example.com"
+              },
+              "implementationCount": 1,
+              "implementations": [
+                {
+                  "ref": "792738MBB6-8XMK",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)"
+                }
+              ]
             },
             {
               "id": "01KQQ4Q026-D04B",
               "uid": "01KQQ4Q026-D04B",
               "name": "Log Management",
               "description": "Aggregation, retention, searchability, and forwarding of system or application logs.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "infra-devops",
+                "contact": "infra-devops@acmepowersoft.example.com"
+              },
+              "implementationCount": 1,
+              "implementations": [
+                {
+                  "ref": "792738MBB6-8XMK",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)"
+                }
+              ]
             }
           ]
         },
@@ -58821,18 +64974,38 @@ window.DRAFT_BROWSER_DATA = {
               "uid": "01KQQ4Q026-DTJJ",
               "name": "Secrets Management",
               "description": "Secure storage, rotation, and access mediation for secrets and authenticators.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "infra-devops",
+                "contact": "infra-devops@acmepowersoft.example.com"
+              },
+              "implementationCount": 1,
+              "implementations": [
+                {
+                  "ref": "5Q5CZMHNTR-71A8",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Azure Key Vault (Infrastructure & DevOps Engineering)"
+                }
+              ]
             },
             {
               "id": "01KQQ4Q026-JW52",
               "uid": "01KQQ4Q026-JW52",
               "name": "Security Monitoring",
               "description": "Threat detection, intrusion detection, security event monitoring, and audit telemetry.",
-              "owner": {},
-              "implementationCount": 0,
-              "implementations": []
+              "owner": {
+                "team": "infra-devops",
+                "contact": "infra-devops@acmepowersoft.example.com"
+              },
+              "implementationCount": 1,
+              "implementations": [
+                {
+                  "ref": "792738MBB6-8XMK",
+                  "lifecycleStatus": "preferred",
+                  "configuration": "",
+                  "notes": "Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)"
+                }
+              ]
             }
           ]
         },
@@ -59306,7 +65479,7 @@ window.DRAFT_BROWSER_DATA = {
         "catalogStatus": "complete",
         "provider": {},
         "authority": {},
-        "active": false,
+        "active": true,
         "description": "Acme PowerSoft's internal control baseline for administrative and application access to any deployable service or host. Derived from the company's SOC 2 Type II control set (control family AC). Applies to every shared service and host in the catalog, and to every product team's runtime and data store services once they begin onboarding.\n",
         "requirementCount": 2
       },
@@ -59334,7 +65507,7 @@ window.DRAFT_BROWSER_DATA = {
         "catalogStatus": "complete",
         "provider": {},
         "authority": {},
-        "active": false,
+        "active": true,
         "description": "Centralized, tamper-evident logging requirements for security-relevant events, required for SOC 2 and for several customers' own regulatory audit obligations that flow through to Acme PowerSoft as a vendor.\n",
         "requirementCount": 1
       },
@@ -59346,7 +65519,7 @@ window.DRAFT_BROWSER_DATA = {
         "catalogStatus": "complete",
         "provider": {},
         "authority": {},
-        "active": false,
+        "active": true,
         "description": "Governs how production changes to any deployable service reach production. NOTE (assumption logged in EXERCISE_REPORT.md): neither the runtime-service nor data-store-service templates expose an architecturalDecisions key that naturally represents \"how changes are reviewed and promoted.\" This group is therefore satisfiable only via decisionRecord, which is a heavier mechanism than a routine process attestation warrants. Flagged as a Schema Completeness friction point rather than worked around silently.\n",
         "requirementCount": 2
       },
@@ -59390,7 +65563,7 @@ window.DRAFT_BROWSER_DATA = {
         "catalogStatus": "complete",
         "provider": {},
         "authority": {},
-        "active": false,
+        "active": true,
         "description": "Recovery objective and resilience documentation required for any service that holds state or is load-bearing for customer-facing availability.\n",
         "requirementCount": 2
       },
@@ -59654,7 +65827,7 @@ window.DRAFT_BROWSER_DATA = {
         "catalogStatus": "complete",
         "provider": {},
         "authority": {},
-        "active": false,
+        "active": true,
         "description": "Availability commitment and incident communication requirements for any service that other teams or customers depend on.\n",
         "requirementCount": 2
       },
@@ -59702,19 +65875,91 @@ window.DRAFT_BROWSER_DATA = {
         "catalogStatus": "complete",
         "provider": {},
         "authority": {},
-        "active": false,
+        "active": true,
         "description": "Patch cadence and vendor support status requirements for any technology component or host running in production.\n",
         "requirementCount": 1
       }
     ],
-    "activeRequirementGroups": [],
+    "activeRequirementGroups": [
+      "8SEDYZHP49-YJHQ",
+      "P6M8FWV2D8-0RM8",
+      "KKDJGX6P7C-N9AR",
+      "1JGV5Y25KN-73W7",
+      "KZM0T9NY43-3H8K",
+      "2EZZ268XWW-B5TP"
+    ],
     "requireActiveRequirementGroupDisposition": false
   },
-  "vocabulary": {},
+  "vocabulary": {
+    "teams": {
+      "mode": "advisory",
+      "values": [
+        {
+          "id": "core-platform",
+          "name": "Core Platform Engineering",
+          "contact": "core-platform@acmepowersoft.example.com"
+        },
+        {
+          "id": "tax-compliance",
+          "name": "Tax & Compliance Engineering",
+          "contact": "tax-compliance@acmepowersoft.example.com"
+        },
+        {
+          "id": "asset-lease",
+          "name": "Asset & Lease Engineering",
+          "contact": "asset-lease@acmepowersoft.example.com"
+        },
+        {
+          "id": "regulatory",
+          "name": "Regulatory Engineering",
+          "contact": "regulatory@acmepowersoft.example.com"
+        },
+        {
+          "id": "data-analytics",
+          "name": "Data & Analytics Engineering",
+          "contact": "data-analytics@acmepowersoft.example.com"
+        },
+        {
+          "id": "infra-devops",
+          "name": "Infrastructure & DevOps Engineering",
+          "contact": "infra-devops@acmepowersoft.example.com"
+        }
+      ]
+    }
+  },
   "businessTaxonomy": {
-    "pillars": [],
+    "pillars": [
+      {
+        "id": "business-pillar.platform",
+        "name": "Platform & Core Services",
+        "owner": {
+          "team": "core-platform",
+          "contact": "core-platform@acmepowersoft.example.com"
+        }
+      },
+      {
+        "id": "business-pillar.tax-regulatory",
+        "name": "Tax & Regulatory"
+      },
+      {
+        "id": "business-pillar.asset-management",
+        "name": "Asset & Lease Management",
+        "owner": {
+          "team": "asset-lease",
+          "contact": "asset-lease@acmepowersoft.example.com"
+        }
+      },
+      {
+        "id": "business-pillar.data-analytics",
+        "name": "Data & Analytics",
+        "owner": {
+          "team": "data-analytics",
+          "contact": "data-analytics@acmepowersoft.example.com"
+        }
+      }
+    ],
     "hierarchy": [],
-    "requireSoftwareDeploymentPatternPillar": false
+    "requireSoftwareDeploymentPatternPillar": true
   },
   "browserConfig": {
     "defaultMapView": "world"

@@ -6,7 +6,7 @@ description: Compute platform underlying the shared AKS node pools -- general-pu
 version: 1.0.0
 catalogStatus: complete
 owner:
-  team: Infrastructure & DevOps Engineering
+  team: infra-devops
   contact: infra-devops@acmepowersoft.example.com
 tags:
   - technology-component

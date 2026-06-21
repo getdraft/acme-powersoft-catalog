@@ -1,0 +1,34 @@
+schemaVersion: '1.0'
+uid: 01KVNWGWYD-TGZ9
+type: object_patch
+name: Acme PowerSoft Acceptable Use -- Application Runtime
+aliases: []
+description: 'Company-local implementation lifecycle mapping for the Application Runtime capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.'
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: preferred
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+- configuration
+- acceptable-use
+- object-patch
+target: 01KT0V5MCV-RZV0
+patch:
+  owner:
+    team: infra-devops
+    contact: infra-devops@acmepowersoft.example.com
+  implementations:
+  - ref: 12D3W1HAV5-AA70
+    lifecycleStatus: existing-only
+    notes: .NET 8 ASP.NET Core Runtime (core-platform)
+  - ref: D2K2AEW24S-0XJ8
+    lifecycleStatus: existing-only
+    notes: Python 3.12 / Apache Airflow Runtime (data-analytics)
+  - ref: K8T2YQX5MD-NJ14
+    lifecycleStatus: existing-only
+    notes: Node.js 20 / Next.js 14 Runtime (infra-devops)
+  - ref: ZYM7F5ZER1-468B
+    lifecycleStatus: existing-only
+    notes: PowerBuilder 2019 Runtime (tax-compliance)

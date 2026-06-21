@@ -11,7 +11,7 @@ description: >
 version: 1.0.0
 catalogStatus: complete
 owner:
-  team: Core Platform Engineering
+  team: core-platform
   contact: core-platform@acmepowersoft.example.com
 tags:
   - technology-component

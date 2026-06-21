@@ -12,7 +12,7 @@ deliveryModel: paas
 catalogStatus: complete
 lifecycleStatus: active
 owner:
-  team: Core Platform Engineering
+  team: core-platform
   contact: core-platform@acmepowersoft.example.com
 tags:
   - runtime

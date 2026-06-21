@@ -2,10 +2,13 @@ schemaVersion: '1.0'
 uid: QWD953NT60-B477
 type: software_deployment_pattern
 name: Acme Asset & Lease Manager Pattern
-description: |
-  Deployment pattern for the Asset & Lease Manager: containerized ASP.NET
+description: 'Deployment pattern for the Asset & Lease Manager: containerized ASP.NET
+
   Core API on the shared AKS baseline, Azure SQL Database for lease/ARO
+
   records, dedicated Service Bus topic for lease lifecycle events.
+
+  '
 version: 1.0.0
 catalogStatus: complete
 lifecycleStatus: existing-only
@@ -78,7 +81,7 @@ serviceGroups:
 - name: Messaging
   deploymentTarget: azure-service-bus
   deployableObjects:
-  - ref: PV9F22JQ2K-LSE9
+  - ref: 01KVNWGWYF-DKXK
     networkZone: messaging
     diagramTier: utility
     intent: standalone

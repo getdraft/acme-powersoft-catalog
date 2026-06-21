@@ -1,0 +1,25 @@
+schemaVersion: '1.0'
+uid: 01KVNWGWYD-QXMV
+type: object_patch
+name: Acme PowerSoft Acceptable Use -- Caching
+aliases: []
+description: 'Company-local implementation lifecycle mapping for the Caching capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.'
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: preferred
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+- configuration
+- acceptable-use
+- object-patch
+target: 01KT0V5MCV-ECR4
+patch:
+  owner:
+    team: core-platform
+    contact: core-platform@acmepowersoft.example.com
+  implementations:
+  - ref: A4M2HB1G1D-22DT
+    lifecycleStatus: preferred
+    notes: Azure Cache for Redis (Core Platform Engineering)

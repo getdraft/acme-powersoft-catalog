@@ -24,4 +24,6 @@ tags:
 businessContext:
   pillar: business-pillar.data-analytics
   productFamily: Acme Insight Hub
-capabilities: []
+capabilities:
+- 01KT0V5MCV-RZV0
+- 01KT0XNZEY-DENJ

@@ -25,4 +25,5 @@ tags:
 businessContext:
   pillar: business-pillar.platform
   productFamily: Shared Runtime Stacks
-capabilities: []
+capabilities:
+- 01KT0V5MCV-RZV0

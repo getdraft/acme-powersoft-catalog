@@ -1,0 +1,25 @@
+schemaVersion: '1.0'
+uid: 01KVNWGWYE-CMZ9
+type: object_patch
+name: Acme PowerSoft Acceptable Use -- Object Storage
+aliases: []
+description: 'Company-local implementation lifecycle mapping for the Object Storage capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.'
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: preferred
+owner:
+  team: data-analytics
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+- configuration
+- acceptable-use
+- object-patch
+target: 01KT0V5MCV-E9TN
+patch:
+  owner:
+    team: data-analytics
+    contact: data-analytics@acmepowersoft.example.com
+  implementations:
+  - ref: 5JMBH216ND-AJE9
+    lifecycleStatus: preferred
+    notes: Azure Data Lake Storage Gen2 (Data & Analytics Engineering)

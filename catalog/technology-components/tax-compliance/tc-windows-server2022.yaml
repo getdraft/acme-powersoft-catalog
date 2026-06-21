@@ -22,4 +22,5 @@ tags:
 businessContext:
   pillar: business-pillar.tax-regulatory
   productFamily: Acme Tax Suite
-capabilities: []
+capabilities:
+- 01KQQ4Q026-QM2X

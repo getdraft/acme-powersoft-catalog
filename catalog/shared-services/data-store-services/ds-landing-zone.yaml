@@ -12,7 +12,7 @@ deliveryModel: paas
 catalogStatus: complete
 lifecycleStatus: active
 owner:
-  team: Data & Analytics Engineering
+  team: data-analytics
   contact: data-analytics@acmepowersoft.example.com
 tags:
   - data-at-rest

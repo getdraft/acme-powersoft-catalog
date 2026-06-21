@@ -12,7 +12,7 @@ version: 1.0.0
 catalogStatus: complete
 lifecycleStatus: active
 owner:
-  team: Infrastructure & DevOps Engineering
+  team: infra-devops
   contact: infra-devops@acmepowersoft.example.com
 tags:
   - host

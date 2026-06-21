@@ -21,7 +21,13 @@ paths:
   configurations: configurations
 
 requirements:
-  activeRequirementGroups: []
+  activeRequirementGroups:
+    - 8SEDYZHP49-YJHQ  # Access Control Baseline
+    - P6M8FWV2D8-0RM8  # Audit & Compliance Baseline
+    - KKDJGX6P7C-N9AR  # Change Management Baseline
+    - 1JGV5Y25KN-73W7  # Disaster Recovery Baseline
+    - KZM0T9NY43-3H8K  # Service Level Baseline
+    - 2EZZ268XWW-B5TP  # Vulnerability Management Baseline
   requireActiveRequirementGroupDisposition: false
 
 contribution:
@@ -29,4 +35,46 @@ contribution:
 
 # Optional company vocabulary lists. Declare lists gradually. Use advisory while
 # onboarding and gated when the company wants validation to block non-standard values.
-vocabulary: {}
+businessTaxonomy:
+  requireSoftwareDeploymentPatternPillar: true
+  pillars:
+    - id: business-pillar.platform
+      name: Platform & Core Services
+      owner:
+        team: core-platform
+        contact: core-platform@acmepowersoft.example.com
+    - id: business-pillar.tax-regulatory
+      name: Tax & Regulatory
+    - id: business-pillar.asset-management
+      name: Asset & Lease Management
+      owner:
+        team: asset-lease
+        contact: asset-lease@acmepowersoft.example.com
+    - id: business-pillar.data-analytics
+      name: Data & Analytics
+      owner:
+        team: data-analytics
+        contact: data-analytics@acmepowersoft.example.com
+
+vocabulary:
+  teams:
+    mode: advisory
+    values:
+      - id: core-platform
+        name: Core Platform Engineering
+        contact: core-platform@acmepowersoft.example.com
+      - id: tax-compliance
+        name: Tax & Compliance Engineering
+        contact: tax-compliance@acmepowersoft.example.com
+      - id: asset-lease
+        name: Asset & Lease Engineering
+        contact: asset-lease@acmepowersoft.example.com
+      - id: regulatory
+        name: Regulatory Engineering
+        contact: regulatory@acmepowersoft.example.com
+      - id: data-analytics
+        name: Data & Analytics Engineering
+        contact: data-analytics@acmepowersoft.example.com
+      - id: infra-devops
+        name: Infrastructure & DevOps Engineering
+        contact: infra-devops@acmepowersoft.example.com

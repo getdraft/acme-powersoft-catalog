@@ -1,0 +1,25 @@
+schemaVersion: '1.0'
+uid: 01KVNWGWYE-G9FG
+type: object_patch
+name: Acme PowerSoft Acceptable Use -- Reporting
+aliases: []
+description: 'Company-local implementation lifecycle mapping for the Reporting capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.'
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: preferred
+owner:
+  team: regulatory
+  contact: regulatory@acmepowersoft.example.com
+tags:
+- configuration
+- acceptable-use
+- object-patch
+target: 01KT0XNZEY-70Y6
+patch:
+  owner:
+    team: regulatory
+    contact: regulatory@acmepowersoft.example.com
+  implementations:
+  - ref: 4MNRK1XQZ7-PB10
+    lifecycleStatus: existing-only
+    notes: Power BI Embedded Capacity (Rate Case Dashboard) (regulatory)

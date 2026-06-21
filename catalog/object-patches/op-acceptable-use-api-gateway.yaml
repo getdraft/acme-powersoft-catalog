@@ -1,0 +1,25 @@
+schemaVersion: '1.0'
+uid: 01KVNWGWYD-F6QT
+type: object_patch
+name: Acme PowerSoft Acceptable Use -- API Gateway
+aliases: []
+description: 'Company-local implementation lifecycle mapping for the API Gateway capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.'
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: preferred
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+- configuration
+- acceptable-use
+- object-patch
+target: 01KT0V5MCV-3A6F
+patch:
+  owner:
+    team: core-platform
+    contact: core-platform@acmepowersoft.example.com
+  implementations:
+  - ref: MH7JS0SPA4-YA23
+    lifecycleStatus: preferred
+    notes: Azure API Management (Core Platform Engineering)

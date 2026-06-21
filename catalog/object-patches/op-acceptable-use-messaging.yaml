@@ -1,0 +1,28 @@
+schemaVersion: '1.0'
+uid: 01KVNWGWYE-YVFY
+type: object_patch
+name: Acme PowerSoft Acceptable Use -- Messaging
+aliases: []
+description: 'Company-local implementation lifecycle mapping for the Messaging capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.'
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: preferred
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+- configuration
+- acceptable-use
+- object-patch
+target: 01KT0V5MCV-KT72
+patch:
+  owner:
+    team: infra-devops
+    contact: infra-devops@acmepowersoft.example.com
+  implementations:
+  - ref: 01KVNWGWYF-DKXK
+    lifecycleStatus: existing-only
+    notes: Asset & Lease Events Topic (Dedicated Service Bus) (asset-lease)
+  - ref: VKSQHZCHTK-VJP1
+    lifecycleStatus: preferred
+    notes: Azure Service Bus (Infrastructure & DevOps Engineering)

@@ -1,0 +1,25 @@
+schemaVersion: '1.0'
+uid: 01KVNWGWYD-ZKB7
+type: object_patch
+name: Acme PowerSoft Acceptable Use -- Log Management
+aliases: []
+description: 'Company-local implementation lifecycle mapping for the Log Management capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.'
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: preferred
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+- configuration
+- acceptable-use
+- object-patch
+target: 01KQQ4Q026-D04B
+patch:
+  owner:
+    team: infra-devops
+    contact: infra-devops@acmepowersoft.example.com
+  implementations:
+  - ref: 792738MBB6-8XMK
+    lifecycleStatus: preferred
+    notes: Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)

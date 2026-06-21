@@ -1,0 +1,25 @@
+schemaVersion: '1.0'
+uid: 01KVNWGWYE-7QJ8
+type: object_patch
+name: Acme PowerSoft Acceptable Use -- Security Monitoring
+aliases: []
+description: 'Company-local implementation lifecycle mapping for the Security Monitoring capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.'
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: preferred
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+- configuration
+- acceptable-use
+- object-patch
+target: 01KQQ4Q026-JW52
+patch:
+  owner:
+    team: infra-devops
+    contact: infra-devops@acmepowersoft.example.com
+  implementations:
+  - ref: 792738MBB6-8XMK
+    lifecycleStatus: preferred
+    notes: Datadog Agent & SaaS Platform (Infrastructure & DevOps Engineering)

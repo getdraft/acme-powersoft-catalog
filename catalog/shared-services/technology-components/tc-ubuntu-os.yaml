@@ -6,7 +6,7 @@ description: Host operating system image for every AKS node pool across all six 
 version: 1.0.0
 catalogStatus: complete
 owner:
-  team: Infrastructure & DevOps Engineering
+  team: infra-devops
   contact: infra-devops@acmepowersoft.example.com
 tags:
   - technology-component

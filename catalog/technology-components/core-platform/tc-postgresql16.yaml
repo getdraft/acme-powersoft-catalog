@@ -21,4 +21,5 @@ tags:
 businessContext:
   pillar: business-pillar.platform
   productFamily: Acme Vantage
-capabilities: []
+capabilities:
+- 01KT0V5MCV-VD0Y

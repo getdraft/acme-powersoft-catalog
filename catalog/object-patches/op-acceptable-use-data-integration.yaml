@@ -1,0 +1,25 @@
+schemaVersion: '1.0'
+uid: 01KVNWGWYD-P66J
+type: object_patch
+name: Acme PowerSoft Acceptable Use -- Data Integration
+aliases: []
+description: 'Company-local implementation lifecycle mapping for the Data Integration capability: which TechnologyComponents Acme PowerSoft has approved, and at what disposition.'
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: preferred
+owner:
+  team: data-analytics
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+- configuration
+- acceptable-use
+- object-patch
+target: 01KT0XNZEY-DENJ
+patch:
+  owner:
+    team: data-analytics
+    contact: data-analytics@acmepowersoft.example.com
+  implementations:
+  - ref: D2K2AEW24S-0XJ8
+    lifecycleStatus: existing-only
+    notes: Python 3.12 / Apache Airflow Runtime (data-analytics)

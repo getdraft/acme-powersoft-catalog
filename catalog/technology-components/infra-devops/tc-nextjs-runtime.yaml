@@ -22,4 +22,5 @@ tags:
 businessContext:
   pillar: business-pillar.platform
   productFamily: Acme Admin Console
-capabilities: []
+capabilities:
+- 01KT0V5MCV-RZV0

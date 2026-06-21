@@ -10,7 +10,7 @@ description: >
 version: 1.0.0
 catalogStatus: complete
 owner:
-  team: Data & Analytics Engineering
+  team: data-analytics
   contact: data-analytics@acmepowersoft.example.com
 tags:
   - technology-component
