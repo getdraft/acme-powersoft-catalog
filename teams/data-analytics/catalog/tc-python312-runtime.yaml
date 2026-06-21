@@ -1,0 +1,27 @@
+schemaVersion: '1.0'
+uid: D2K2AEW24S-0XJ8
+type: technology_component
+name: Python 3.12 / Apache Airflow Runtime
+description: |
+  Containerized Apache Airflow scheduler + worker image (apache/airflow
+  base) running ELT DAGs and the churn-risk model training job. Shared
+  runtime stack for Data & Analytics workloads, distinct from the .NET
+  stack the rest of the company builds on.
+version: 3.12 / Airflow 2.9
+catalogStatus: complete
+lifecycleStatus: existing-only
+vendorLifecycle:
+  vendor: Python Software Foundation / Apache Software Foundation
+  supportStatus: active
+owner:
+  team: data-analytics
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+- technology-component
+- runtime
+- python
+- airflow
+businessContext:
+  pillar: business-pillar.data-analytics
+  productFamily: Acme Insight Hub
+capabilities: []

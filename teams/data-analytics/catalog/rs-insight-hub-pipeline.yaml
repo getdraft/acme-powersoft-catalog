@@ -1,0 +1,49 @@
+schemaVersion: '1.0'
+uid: VEWWR9JZAC-P285
+type: runtime_service
+name: Insight Hub Pipeline Runtime (Airflow)
+description: |
+  Apache Airflow scheduler + workers running the billing-to-warehouse ELT
+  DAG (extract from operational stores, load to Snowflake via the landing
+  zone) and the periodic churn-risk model training job. Not request-driven
+  like the other products' RuntimeServices -- scheduled batch work.
+version: '2.9'
+catalogStatus: complete
+lifecycleStatus: existing-only
+primaryTechnologyComponent: D2K2AEW24S-0XJ8
+host: H1ZTZXV5F6-C1CZ
+owner:
+  team: data-analytics
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+- runtime-service
+- data-analytics
+- batch
+businessContext:
+  pillar: business-pillar.data-analytics
+  productFamily: Acme Insight Hub
+capabilities:
+- 01KT0XNZEY-Q2TF
+requirementGroups:
+- 01KQQ4Q027-K5DR
+- 8SEDYZHP49-YJHQ
+- 1JGV5Y25KN-73W7
+architecturalDecisions:
+  serviceAuthentication:
+    answer: Service-to-service auth to Snowflake and ADLS via managed identity / key-pair auth; no end-user-facing auth since this is batch-only.
+  secretsManagement:
+    answer: Snowflake key-pair credentials and connection secrets in Key Vault via the shared Secrets Management runtime service.
+    satisfiedBy: relatedObject
+  serviceLogging:
+    answer: Airflow task logs forwarded to the shared Observability runtime service; DAG run history retained in Airflow's own metadata DB.
+    satisfiedBy: relatedObject
+  healthWelfareMonitoring:
+    answer: Airflow scheduler liveness probe; DAG SLA-miss alerts routed through shared Observability.
+  availabilityModel:
+    answer: Single scheduler instance (Airflow's own HA scheduler mode not yet enabled -- tracked as ticket DATA-212). Worker pool is horizontally scalable.
+  scalabilityModel:
+    answer: KubernetesExecutor -- worker pods scale per task, not per replica count.
+  recoverabilityModel:
+    answer: DAGs are idempotent and re-runnable; a missed/failed run is recovered by re-triggering, not by infrastructure failover.
+  failureDomain:
+    answer: Single AKS cluster, single region. Scheduler is a single point of failure for new DAG runs until DATA-212 lands -- already-running tasks are unaffected.
