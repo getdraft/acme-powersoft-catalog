@@ -1,0 +1,48 @@
+schemaVersion: '1.0'
+uid: KFP31VBNDB-RART
+type: runtime_service
+name: Asset & Lease Manager API
+description: |
+  ASP.NET Core service computing ARO (Asset Retirement Obligation) accretion
+  schedules and managing lease asset records. Publishes lease lifecycle
+  events to a dedicated Service Bus topic.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: existing-only
+primaryTechnologyComponent: 12D3W1HAV5-AA70
+host: H1ZTZXV5F6-C1CZ
+owner:
+  team: asset-lease
+  contact: asset-lease@acmepowersoft.example.com
+tags:
+- runtime-service
+- asset-lease
+businessContext:
+  pillar: business-pillar.asset-management
+  productFamily: Acme Asset & Lease Manager
+capabilities:
+- 01KT0XNZEY-Q2TF
+requirementGroups:
+- 01KQQ4Q027-K5DR
+- 8SEDYZHP49-YJHQ
+- KZM0T9NY43-3H8K
+architecturalDecisions:
+  serviceAuthentication:
+    answer: Azure AD B2C via the shared Identity & Access runtime service.
+    satisfiedBy: relatedObject
+  secretsManagement:
+    answer: Key Vault via the shared Secrets Management runtime service.
+    satisfiedBy: relatedObject
+  serviceLogging:
+    answer: Forwarded to the shared Observability runtime service.
+    satisfiedBy: relatedObject
+  healthWelfareMonitoring:
+    answer: Liveness/readiness probes; alerts via shared Observability.
+  availabilityModel:
+    answer: Active-active, 2-4 replicas. 99.5% target.
+  scalabilityModel:
+    answer: Horizontal pod autoscaling on CPU.
+  recoverabilityModel:
+    answer: Stateless; state in the Asset & Lease SQL database and Service Bus topic (at-least-once redelivery).
+  failureDomain:
+    answer: Single AKS cluster, single region -- same regional concentration risk noted for Vantage and Fixed Assets.

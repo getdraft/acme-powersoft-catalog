@@ -1,0 +1,50 @@
+schemaVersion: '1.0'
+uid: 5Z1DGT5HBX-38TA
+type: data_store_service
+name: Asset & Lease Database
+description: |
+  Azure SQL Database backing lease and ARO accretion records for the
+  Asset & Lease Manager API (KFP31VBNDB-RART).
+version: '2022'
+catalogStatus: complete
+lifecycleStatus: existing-only
+primaryTechnologyComponent: TRAS6KGSAC-RGNM
+host: null
+owner:
+  team: asset-lease
+  contact: asset-lease@acmepowersoft.example.com
+tags:
+- data-store-service
+- asset-lease
+businessContext:
+  pillar: business-pillar.asset-management
+  productFamily: Acme Asset & Lease Manager
+capabilities:
+- 01KQQ4Q026-7T2H
+requirementGroups:
+- 01KQQ4Q027-VBF0
+- P6M8FWV2D8-0RM8
+architecturalDecisions:
+  serviceAuthentication:
+    answer: Azure AD-integrated auth via managed identity.
+  secretsManagement:
+    answer: No static credentials; managed identity only.
+  serviceLogging:
+    answer: Auditing enabled, forwarded to shared Observability.
+    satisfiedBy: relatedObject
+  healthWelfareMonitoring:
+    answer: Azure-native metrics via shared Observability.
+  availabilityModel:
+    answer: Standard tier with zone redundancy.
+  scalabilityModel:
+    answer: Vertical scaling (DTU/vCore tier adjustment).
+  recoverabilityModel:
+    answer: Automated backups, 7-day PITR (Standard tier default).
+  backup:
+    answer: Azure-managed automated backups.
+  ha:
+    answer: Zone-redundant.
+  encryption:
+    answer: Transparent Data Encryption at rest, TLS in transit.
+  accessControl:
+    answer: Azure AD-only; private endpoint.
