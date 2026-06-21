@@ -1,0 +1,34 @@
+schemaVersion: '1.0'
+uid: 6YWAMCXE87-H8JW
+type: technology_component
+name: Snowflake
+description: >
+  Cloud data warehouse hosting Acme Insight Hub's consolidated analytics
+  schema. Primary destination for the ELT pipelines that pull billing,
+  asset, tax, and regulatory data out of each product's operational
+  database.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Data & Analytics Engineering
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+  - technology-component
+  - data-warehouse
+  - saas
+vendor: Snowflake Inc.
+productName: Snowflake
+productVersion: "Enterprise edition, Azure region"
+classification: software
+vendorLifecycle:
+  mainstreamSupportEnd: TBD
+  extendedSupportEnd: TBD
+  notes: SaaS platform with continuous release; no fixed end-of-life.
+capabilities:
+  - 01KT0V5MCV-VD0Y
+configurations:
+  - id: insight-hub-warehouse
+    name: ACME_INSIGHT_HUB_WH
+    description: Medium warehouse, auto-suspend 300s, serving both the nightly ELT loads and ad hoc analyst queries against the consolidated schema.
+    capabilities:
+      - 01KT0V5MCV-VD0Y

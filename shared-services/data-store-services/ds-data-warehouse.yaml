@@ -1,0 +1,68 @@
+schemaVersion: '1.0'
+uid: Z3CAV76ED8-7XEV
+type: data_store_service
+name: Acme Insight Hub Data Warehouse (Snowflake)
+description: Consolidated cross-product analytics warehouse fed by per-product ELT pipelines and serving forecasting model training data and BI queries.
+version: 1.0.0
+deliveryModel: saas
+catalogStatus: complete
+lifecycleStatus: active
+owner:
+  team: Data & Analytics Engineering
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+  - data-at-rest
+  - shared-service
+host: null
+primaryTechnologyComponent: 6YWAMCXE87-H8JW
+architecturalDecisions:
+  serviceAuthentication: Analysts and pipeline service accounts authenticate via Azure AD SSO federated into Snowflake (SCIM-provisioned roles); no native Snowflake passwords are issued.
+  secretsManagement: Pipeline service account key pairs are stored in the Infra & DevOps Key Vault and rotated every 180 days by an Airflow-triggered rotation job.
+  serviceLogging: Snowflake's ACCOUNT_USAGE query history and login history are exported nightly into a dedicated audit schema and forwarded to Datadog log management.
+  healthWelfareMonitoring: Datadog Snowflake integration tracks warehouse credit consumption, query queueing, and failed-login spikes.
+  availabilityModel: Snowflake's standard multi-cluster, multi-AZ architecture within the Azure East US 2 region; tracked against Snowflake's published Enterprise SLA.
+  scalabilityModel: Multi-cluster warehouse auto-scaling enabled for the BI consumption warehouse; the ELT load warehouse scales vertically only, reviewed quarterly against the cost budget.
+  recoverabilityModel: Snowflake Time Travel (7-day) plus a weekly Fail-safe-backed database clone exported to a separate Snowflake account in a different Azure region for catastrophic-loss recovery.
+  failureDomain: A Snowflake outage stops new ELT loads and BI queries but does not affect any product's operational database -- this is purely an analytics-tier dependency, not a transactional one.
+  backup:
+    strategy: Snowflake Time Travel (7 days) plus weekly cross-region database clone.
+    rto: "4 hours for cross-region clone restore"
+    rpo: "24 hours (last successful nightly clone)"
+  ha:
+    mechanism: Snowflake-managed multi-cluster warehouse with automatic cluster failover within region.
+  encryption:
+    atRest: AES-256, Snowflake-managed keys (Tri-Secret Secure not yet enabled -- tracked under DATA-088).
+  accessControl:
+    model: Role-based access control (RBAC) mapped from Azure AD group membership via SCIM; least-privilege roles per product schema.
+  externalInteractionRationales: {}
+  internalComponentRationales: {}
+internalComponents:
+  - ref: 6YWAMCXE87-H8JW
+    role: function
+externalInteractions:
+  - name: Backup Platform
+    notes: Weekly cross-region database clone to a secondary Snowflake account, orchestrated by an Airflow DAG.
+    capabilities:
+      - 01KQQ4Q026-7T2H
+requirementGroups:
+  - 01KQQ4Q027-VBF0
+  - 1JGV5Y25KN-73W7
+  - 8SEDYZHP49-YJHQ
+  - P6M8FWV2D8-0RM8
+requirementImplementations:
+  - requirementId: DR-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: recoverabilityModel
+  - requirementId: DR-02
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: ha
+  - requirementId: AC-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: serviceAuthentication
+  - requirementId: AU-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: serviceLogging
