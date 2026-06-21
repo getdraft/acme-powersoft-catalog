@@ -1,0 +1,49 @@
+schemaVersion: '1.0'
+uid: 37MYJCZ1V9-439T
+type: runtime_service
+name: Tenant Entitlement Cache (Azure Cache for Redis)
+description: >
+  Caching tier in front of the Acme Vantage entitlement database. Not part
+  of the Admin agent's original shared-services list -- added during
+  Core Platform's review of the draft catalog (see EXERCISE_REPORT.md
+  Agent Disposition Log).
+version: 1.0.0
+deliveryModel: paas
+catalogStatus: complete
+lifecycleStatus: active
+owner:
+  team: Core Platform Engineering
+  contact: core-platform@acmepowersoft.example.com
+tags:
+  - runtime
+  - caching
+  - shared-service
+host: null
+primaryTechnologyComponent: A4M2HB1G1D-22DT
+architecturalDecisions:
+  serviceAuthentication: Access key authentication scoped to the Vantage entitlement service's managed identity via Azure AD-based Redis authentication (no shared access keys distributed to other teams).
+  secretsManagement: Connection string is not a static secret -- Azure AD token-based auth means no long-lived Redis password exists for this instance.
+  serviceLogging: Cache hit/miss ratio and eviction events stream to Datadog via the Azure Cache for Redis diagnostic integration.
+  healthWelfareMonitoring: Datadog Redis integration tracks memory pressure, hit ratio, and connected client count.
+  availabilityModel: Premium tier with zone redundancy in East US 2; tracked against Microsoft's 99.9% Redis SLA.
+  scalabilityModel: Vertical scaling reviewed quarterly against memory pressure metrics; clustering not yet enabled (entitlement dataset fits comfortably in a single shard today).
+  recoverabilityModel: Cache is rebuildable from the Vantage Postgres system of record on cold start; no backup is taken because the cache holds no data that is not also durably stored elsewhere.
+  failureDomain: A cache outage degrades entitlement-check latency (falls back to direct Postgres reads) but does not cause incorrect entitlement decisions or downtime.
+  externalInteractionRationales: {}
+  internalComponentRationales: {}
+internalComponents:
+  - ref: A4M2HB1G1D-22DT
+    role: function
+externalInteractions:
+  - name: Service Monitoring
+    notes: Hit ratio and memory pressure alerts routed through the shared Observability runtime service.
+    capabilities:
+      - 01KQQ4Q026-98VD
+requirementGroups:
+  - 01KQQ4Q027-K5DR
+  - KZM0T9NY43-3H8K
+requirementImplementations:
+  - requirementId: SLA-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: availabilityModel

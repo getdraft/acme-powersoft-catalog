@@ -1,0 +1,30 @@
+schemaVersion: '1.0'
+uid: A4M2HB1G1D-22DT
+type: technology_component
+name: Azure Cache for Redis
+description: Shared caching tier for tenant entitlement lookups and session state, proposed by Core Platform during shared-service review rather than requested by the Admin agent's original draft.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Core Platform Engineering
+  contact: core-platform@acmepowersoft.example.com
+tags:
+  - technology-component
+  - caching
+  - paas
+vendor: Microsoft
+productName: Azure Cache for Redis
+productVersion: "Premium tier"
+classification: software
+vendorLifecycle:
+  mainstreamSupportEnd: TBD
+  extendedSupportEnd: TBD
+  notes: Continuously released first-party Azure service.
+capabilities:
+  - 01KT0V5MCV-ECR4
+configurations:
+  - id: entitlement-cache
+    name: Tenant Entitlement Cache
+    description: 5-minute TTL cache of resolved TenantEntitlement records in front of the Vantage Postgres database, cutting entitlement-check latency from ~40ms to ~2ms on cache hit.
+    capabilities:
+      - 01KT0V5MCV-ECR4
