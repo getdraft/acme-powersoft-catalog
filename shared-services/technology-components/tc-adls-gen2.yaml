@@ -1,0 +1,34 @@
+schemaVersion: '1.0'
+uid: 5JMBH216ND-AJE9
+type: technology_component
+name: Azure Data Lake Storage Gen2
+description: >
+  Shared raw-data landing zone, promoted to a catalog-level shared service by
+  Data & Analytics during shared-service review -- previously modeled only
+  inside the Insight Hub product repo's own infra/main.tf, which undersold
+  that other future products could land data here too.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Data & Analytics Engineering
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+  - technology-component
+  - object-storage
+  - paas
+vendor: Microsoft
+productName: Azure Data Lake Storage Gen2
+productVersion: "n/a (Azure Storage account, hierarchical namespace enabled)"
+classification: software
+vendorLifecycle:
+  mainstreamSupportEnd: TBD
+  extendedSupportEnd: TBD
+  notes: Continuously released first-party Azure service.
+capabilities:
+  - 01KT0V5MCV-E9TN
+configurations:
+  - id: raw-landing-zone
+    name: Cross-Product Raw Landing Zone
+    description: ZRS-replicated storage account, hierarchical namespace enabled, partitioned by source product and ingestion date, feeding the nightly ELT loads into Snowflake.
+    capabilities:
+      - 01KT0V5MCV-E9TN

@@ -1,0 +1,59 @@
+schemaVersion: '1.0'
+uid: SP7JGWQ9Z3-DR4F
+type: data_store_service
+name: Cross-Product Raw Landing Zone (ADLS Gen2)
+description: >
+  Shared object storage landing zone for raw data extracted from every
+  product's operational database before it is transformed and loaded into
+  the Snowflake warehouse. Modeled as a catalog-level shared service rather
+  than left implicit inside the Insight Hub product repo.
+version: 1.0.0
+deliveryModel: paas
+catalogStatus: complete
+lifecycleStatus: active
+owner:
+  team: Data & Analytics Engineering
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+  - data-at-rest
+  - shared-service
+host: null
+primaryTechnologyComponent: 5JMBH216ND-AJE9
+architecturalDecisions:
+  serviceAuthentication: Airflow worker pods authenticate via Azure AD workload identity scoped to read/write on their own product's partition prefix only.
+  secretsManagement: No static account keys are distributed; workload identity tokens are short-lived and Azure AD-issued.
+  serviceLogging: Storage diagnostic logs (read/write/list operations) stream to Datadog log management.
+  healthWelfareMonitoring: Datadog Azure Storage integration tracks ingress/egress volume and 4xx/5xx rates per container.
+  availabilityModel: Zone-redundant storage (ZRS) in East US 2; tracked against Microsoft's published ADLS Gen2 SLA.
+  scalabilityModel: Effectively unbounded object storage; no manual scaling action required.
+  recoverabilityModel: Soft-delete enabled with a 14-day retention window; raw data is also re-derivable by re-running the source product's extraction job if a partition were lost, so this is treated as a cache of extraction, not a sole system of record.
+  failureDomain: An outage blocks new raw-data landing and the nightly ELT load, but does not affect any product's operational database.
+  backup:
+    strategy: Soft-delete (14-day) plus re-extraction from source-of-record on the rare case data is lost outright.
+    rto: "8 hours (re-run extraction DAGs for the affected partition)"
+    rpo: "24 hours (one missed nightly load)"
+  ha:
+    mechanism: Zone-redundant storage (ZRS).
+  encryption:
+    atRest: AES-256, Microsoft-managed keys.
+  accessControl:
+    model: Azure AD workload identity, partition-prefix-scoped per product.
+  externalInteractionRationales: {}
+  internalComponentRationales: {}
+internalComponents:
+  - ref: 5JMBH216ND-AJE9
+    role: function
+externalInteractions: []
+requirementGroups:
+  - 01KQQ4Q027-VBF0
+  - 1JGV5Y25KN-73W7
+  - 8SEDYZHP49-YJHQ
+requirementImplementations:
+  - requirementId: DR-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: recoverabilityModel
+  - requirementId: AC-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: serviceAuthentication
