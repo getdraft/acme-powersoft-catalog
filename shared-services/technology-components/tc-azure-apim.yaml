@@ -1,0 +1,34 @@
+schemaVersion: '1.0'
+uid: MH7JS0SPA4-YA23
+type: technology_component
+name: Azure API Management
+aliases: ["Azure APIM"]
+description: >
+  Microsoft's managed API gateway. Fronts every Acme PowerSoft product API
+  with shared routing, authentication enforcement, and rate limiting so
+  individual product teams do not each build their own gateway layer.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Core Platform Engineering
+  contact: core-platform@acmepowersoft.example.com
+tags:
+  - technology-component
+  - api-gateway
+  - paas
+vendor: Microsoft
+productName: Azure API Management
+productVersion: "Premium v2"
+classification: software
+vendorLifecycle:
+  mainstreamSupportEnd: TBD
+  extendedSupportEnd: TBD
+  notes: Continuously released first-party Azure service.
+capabilities:
+  - 01KT0V5MCV-3A6F
+configurations:
+  - id: product-routing-policies
+    name: Per-Product Routing & Rate Limit Policies
+    description: One API definition per product (Vantage, Tax Suite, Asset & Lease Manager, RegTrack, Insight Hub) with per-tenant rate limiting keyed on the Azure AD B2C tenant claim.
+    capabilities:
+      - 01KT0V5MCV-3A6F

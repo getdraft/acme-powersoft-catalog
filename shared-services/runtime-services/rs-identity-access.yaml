@@ -1,0 +1,60 @@
+schemaVersion: '1.0'
+uid: ZV0QNH8M3D-EYW8
+type: runtime_service
+name: Identity & Access (Azure AD B2C)
+aliases: []
+description: >
+  Shared tenant identity and authentication service consumed by every Acme
+  PowerSoft product. Owned by Core Platform Engineering as part of the
+  Acme Vantage platform substrate.
+version: 1.0.0
+deliveryModel: paas
+catalogStatus: complete
+lifecycleStatus: active
+owner:
+  team: Core Platform Engineering
+  contact: core-platform@acmepowersoft.example.com
+tags:
+  - runtime
+  - identity
+  - shared-service
+# FRICTION NOTE (see EXERCISE_REPORT.md): this template's  field has no
+# documented way to express "not applicable, fully vendor-managed PaaS."
+# Set to null rather than omitted so it is visibly answered-and-N/A instead
+# of silently missing.
+host: null
+primaryTechnologyComponent: M087QNW2D0-6G06
+architecturalDecisions:
+  serviceAuthentication: Administrators authenticate to the Azure AD B2C admin portal via Acme corporate Azure AD with mandatory MFA (Conditional Access policy CA-12); no shared admin accounts exist.
+  secretsManagement: Custom policy signing keys and client secrets are stored in the Core Platform Azure Key Vault and rotated every 90 days by an automated runbook.
+  serviceLogging: Sign-in and audit logs stream to the Core Platform Log Analytics workspace via Azure AD B2C diagnostic settings, then forward to the company-wide Datadog log pipeline (see Observability shared service).
+  healthWelfareMonitoring: Azure Monitor alerts on sign-in failure rate and custom policy execution latency; surfaced on the Core Platform Datadog dashboard.
+  availabilityModel: Microsoft-operated multi-region active-active service; Acme PowerSoft has no failover responsibility, target availability tracked against Microsoft's 99.9% Azure AD B2C SLA.
+  scalabilityModel: Fully elastic, vendor-managed; Core Platform monitors monthly active user (MAU) consumption against the licensed tier.
+  recoverabilityModel: Vendor-managed; Core Platform's only recovery responsibility is custom policy and key restoration from the policies Git repository and Key Vault soft-delete/purge protection.
+  failureDomain: An outage affects sign-in and token issuance for every Acme PowerSoft product simultaneously; cached tokens continue to authorize existing sessions until expiry.
+  externalInteractionRationales:
+    Service Monitoring: Routed through the shared Observability runtime service rather than a bespoke dashboard, consistent with the Infra & DevOps observability baseline.
+  internalComponentRationales:
+    Azure AD B2C: Sole internal component; this is a fully PaaS-delivered identity provider with no self-managed compute.
+internalComponents:
+  - ref: M087QNW2D0-6G06
+    role: function
+externalInteractions:
+  - name: Service Monitoring
+    notes: Sign-in success/failure rate and custom policy latency monitored via Azure Monitor diagnostic export into the shared Observability runtime service.
+    capabilities:
+      - 01KQQ4Q026-98VD
+requirementGroups:
+  - 01KQQ4Q027-K5DR
+  - 8SEDYZHP49-YJHQ
+  - P6M8FWV2D8-0RM8
+requirementImplementations:
+  - requirementId: AC-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: serviceAuthentication
+  - requirementId: AU-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: serviceLogging
