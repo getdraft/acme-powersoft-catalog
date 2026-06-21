@@ -1,0 +1,36 @@
+schemaVersion: "1.0"
+uid: P6M8FWV2D8-0RM8
+type: requirement_group
+name: Audit & Compliance Baseline
+aliases: ["AU Baseline"]
+description: >
+  Centralized, tamper-evident logging requirements for security-relevant
+  events, required for SOC 2 and for several customers' own regulatory
+  audit obligations that flow through to Acme PowerSoft as a vendor.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Security & Compliance
+  contact: security-compliance@acmepowersoft.example.com
+activation: always
+appliesTo:
+  - runtime_service
+  - data_store_service
+  - host
+requirements:
+  - id: AU-01
+    description: Security-relevant events (authentication success/failure, privilege change, data export) must be logged to a centralized, tamper-evident log store and retained for at least one year.
+    rationale: Centralized retention beyond the typical 30-90 day default is required both by SOC 2 CC7.2 and by several customers' own utility-commission audit requirements that obligate their vendors.
+    relatedCapability: 01KQQ4Q026-D04B
+    requirementMode: mandatory
+    naAllowed: false
+    canBeSatisfiedBy:
+      - mechanism: architecturalDecision
+        key: serviceLogging
+      - mechanism: technologyComponentConfiguration
+        criteria:
+          capability: 01KQQ4Q026-JW52
+    minimumSatisfactions: 1
+    validAnswerTypes:
+      - architecturalDecision
+      - technologyComponentConfiguration

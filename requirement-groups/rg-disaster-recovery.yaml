@@ -1,0 +1,46 @@
+schemaVersion: "1.0"
+uid: 1JGV5Y25KN-73W7
+type: requirement_group
+name: Disaster Recovery Baseline
+aliases: ["DR Baseline"]
+description: >
+  Recovery objective and resilience documentation required for any service
+  that holds state or is load-bearing for customer-facing availability.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Security & Compliance
+  contact: security-compliance@acmepowersoft.example.com
+activation: always
+appliesTo:
+  - data_store_service
+  - runtime_service
+requirements:
+  - id: DR-01
+    description: The service must document a Recovery Time Objective (RTO) and Recovery Point Objective (RPO), and the recovery procedure must have been tested within the last 12 months.
+    rationale: Untested recovery procedures are the most common cause of failed disaster recovery; RTO/RPO must be explicit so customer SLAs can be reconciled against actual recoverability.
+    relatedCapability: 01KQQ4Q026-7T2H
+    requirementMode: mandatory
+    naAllowed: false
+    canBeSatisfiedBy:
+      - mechanism: architecturalDecision
+        key: recoverabilityModel
+      - mechanism: architecturalDecision
+        key: backup
+    minimumSatisfactions: 1
+    validAnswerTypes:
+      - architecturalDecision
+  - id: DR-02
+    description: The backup or replication target must reside in a separate Azure region or, at minimum, a separate availability zone from the production instance.
+    rationale: Co-located backups do not survive a regional outage; geographic separation is required for the recovery objective in DR-01 to be credible.
+    relatedCapability: 01KQQ4Q026-7T2H
+    requirementMode: mandatory
+    naAllowed: false
+    canBeSatisfiedBy:
+      - mechanism: architecturalDecision
+        key: ha
+      - mechanism: decisionRecord
+    minimumSatisfactions: 1
+    validAnswerTypes:
+      - architecturalDecision
+      - decisionRecord

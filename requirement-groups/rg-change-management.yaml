@@ -1,0 +1,49 @@
+schemaVersion: "1.0"
+uid: KKDJGX6P7C-N9AR
+type: requirement_group
+name: Change Management Baseline
+aliases: ["CM Baseline"]
+description: >
+  Governs how production changes to any deployable service reach production.
+  NOTE (assumption logged in EXERCISE_REPORT.md): neither the runtime-service
+  nor data-store-service templates expose an architecturalDecisions key that
+  naturally represents "how changes are reviewed and promoted." This group
+  is therefore satisfiable only via decisionRecord, which is a heavier
+  mechanism than a routine process attestation warrants. Flagged as a
+  Schema Completeness friction point rather than worked around silently.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Security & Compliance
+  contact: security-compliance@acmepowersoft.example.com
+activation: always
+appliesTo:
+  - runtime_service
+  - network_service
+  - data_store_service
+  - host
+requirements:
+  - id: CM-01
+    description: Production changes must go through a peer-reviewed pull request with at least one approval before merge.
+    rationale: Peer review is Acme PowerSoft's primary control against unreviewed production changes and is required by SOC 2 CC8.1.
+    relatedCapability: 01KT0XNZEY-Q2TF
+    requirementMode: mandatory
+    naAllowed: false
+    canBeSatisfiedBy:
+      - mechanism: decisionRecord
+        example: A committed DecisionRecord naming the repository's required-reviewers policy and the CI/CD pipeline that enforces it.
+    minimumSatisfactions: 1
+    validAnswerTypes:
+      - decisionRecord
+  - id: CM-02
+    description: Emergency changes that bypass standard review must be logged and retroactively reviewed within 2 business days.
+    rationale: Emergency changes are sometimes necessary during incidents, but unreviewed changes must not become a permanent escape hatch from CM-01.
+    relatedCapability: 01KT0XNZEY-Q2TF
+    requirementMode: conditional
+    naAllowed: true
+    canBeSatisfiedBy:
+      - mechanism: decisionRecord
+        example: A committed DecisionRecord describing the emergency-change runbook and retroactive review SLA.
+    minimumSatisfactions: 1
+    validAnswerTypes:
+      - decisionRecord

@@ -1,0 +1,50 @@
+schemaVersion: "1.0"
+uid: 8SEDYZHP49-YJHQ
+type: requirement_group
+name: Access Control Baseline
+aliases: ["AC Baseline"]
+description: >
+  Acme PowerSoft's internal control baseline for administrative and
+  application access to any deployable service or host. Derived from the
+  company's SOC 2 Type II control set (control family AC). Applies to every
+  shared service and host in the catalog, and to every product team's
+  runtime and data store services once they begin onboarding.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Security & Compliance
+  contact: security-compliance@acmepowersoft.example.com
+activation: always
+appliesTo:
+  - host
+  - runtime_service
+  - data_store_service
+  - network_service
+requirements:
+  - id: AC-01
+    description: Administrative access to this service must use named individual accounts with multi-factor authentication. Shared or service-account interactive logins are not permitted.
+    rationale: Named, MFA-protected accounts are required to attribute administrative actions to an individual and to meet SOC 2 CC6.1 access control expectations.
+    relatedCapability: 01KQQ4Q026-4JR6
+    requirementMode: mandatory
+    naAllowed: false
+    canBeSatisfiedBy:
+      - mechanism: architecturalDecision
+        key: serviceAuthentication
+      - mechanism: decisionRecord
+        example: A committed DecisionRecord describing an access model exception and its compensating control.
+    minimumSatisfactions: 1
+    validAnswerTypes:
+      - architecturalDecision
+      - decisionRecord
+  - id: AC-02
+    description: Access to this service must be reviewed at least quarterly, and access must be de-provisioned within 24 hours of a role change or termination.
+    rationale: Periodic access review and prompt de-provisioning are required by SOC 2 CC6.2/CC6.3 and reduce the window in which stale credentials can be misused.
+    relatedCapability: 01KQQ4Q026-4JR6
+    requirementMode: mandatory
+    naAllowed: false
+    canBeSatisfiedBy:
+      - mechanism: decisionRecord
+        example: A committed DecisionRecord naming the access review cadence and the de-provisioning automation or runbook used.
+    minimumSatisfactions: 1
+    validAnswerTypes:
+      - decisionRecord

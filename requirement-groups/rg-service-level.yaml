@@ -1,0 +1,45 @@
+schemaVersion: "1.0"
+uid: KZM0T9NY43-3H8K
+type: requirement_group
+name: Service Level Baseline
+aliases: ["SLA Baseline"]
+description: >
+  Availability commitment and incident communication requirements for any
+  service that other teams or customers depend on.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Security & Compliance
+  contact: security-compliance@acmepowersoft.example.com
+activation: always
+appliesTo:
+  - runtime_service
+  - network_service
+  - data_store_service
+requirements:
+  - id: SLA-01
+    description: The service must declare an availability target (for example, 99.9%) and identify the monitoring used to measure conformance to it.
+    rationale: An availability target that is not measured is a marketing claim, not an engineering commitment; this requirement ties the target to a concrete monitoring mechanism.
+    relatedCapability: 01KQQ4Q026-98VD
+    requirementMode: mandatory
+    naAllowed: false
+    canBeSatisfiedBy:
+      - mechanism: architecturalDecision
+        key: availabilityModel
+      - mechanism: architecturalDecision
+        key: healthWelfareMonitoring
+    minimumSatisfactions: 2
+    validAnswerTypes:
+      - architecturalDecision
+  - id: SLA-02
+    description: Customer-facing services must publish an incident communication procedure that defines severity tiers and notification timelines for each tier.
+    rationale: Customers and downstream product teams need a predictable communication contract during incidents, independent of which engineer is on call.
+    relatedCapability: 01KQQ4Q026-98VD
+    requirementMode: conditional
+    naAllowed: true
+    canBeSatisfiedBy:
+      - mechanism: decisionRecord
+        example: A committed DecisionRecord naming the severity tier definitions and the status-page or notification channel used per tier.
+    minimumSatisfactions: 1
+    validAnswerTypes:
+      - decisionRecord
