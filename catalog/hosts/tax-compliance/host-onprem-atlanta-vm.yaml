@@ -27,7 +27,7 @@ capabilities: []
 requirementGroups:
 - 01KQQ4Q027-THYN
 - 2EZZ268XWW-B5TP
-architecturalDecisions:
+notes:
   patchManagement:
     answer: Manual quarterly patching per RUNBOOK-PT-04. No automated patch pipeline. Tracked as TAX-1142 for eventual migration off on-premise hardware.
     satisfiedBy: decisionRecord

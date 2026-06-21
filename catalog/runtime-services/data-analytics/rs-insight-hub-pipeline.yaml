@@ -28,7 +28,7 @@ requirementGroups:
 - 01KQQ4Q027-K5DR
 - 8SEDYZHP49-YJHQ
 - 1JGV5Y25KN-73W7
-architecturalDecisions:
+notes:
   serviceAuthentication:
     answer: Service-to-service auth to Snowflake and ADLS via managed identity / key-pair auth; no end-user-facing auth since this is batch-only.
   secretsManagement:

@@ -28,7 +28,7 @@ networkTopology: Sits in the perimeter zone in front of each product's AKS ingre
 protocols:
   - HTTPS
   - WebSocket (Insight Hub streaming endpoints only)
-architectureNotes:
+notes:
   placementContext: Perimeter zone -- the only network service in the catalog with direct public internet exposure.
   requirementContext: Service Level Baseline (SLA-01/SLA-02) and Access Control Baseline (AC-01/AC-02) both apply because this is the shared ingress for every customer-facing product.
 decisionRecords: []

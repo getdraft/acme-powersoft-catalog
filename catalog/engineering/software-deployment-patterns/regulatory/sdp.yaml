@@ -19,7 +19,7 @@ tags:
 businessContext:
   pillar: business-pillar.tax-regulatory
   productFamily: Acme RegTrack
-architectureNotes:
+notes:
   availabilityTarget: 99.5% (engine) / Microsoft SLA, not independently modeled (Power BI Embedded)
   availabilityRequirement: Active-active AKS pods, zone-redundant SQL Database.
   dataClassification: Confidential
@@ -34,7 +34,9 @@ architectureNotes:
   deploymentTargets: Shared AKS baseline (engine), Azure SQL Database, Power BI Embedded A2 capacity.
   interServiceConnections: Calls the shared Vantage Entitlement API for licensing checks.
   externalDependencies: Azure AD B2C, Azure Key Vault, Datadog, Power BI Embedded.
-decisionRecords: []
+decisionRecords:
+  - ref: MEKHRF9KYX-TCWC
+    key: noApplicablePattern
 networkZones:
 - id: app
   name: Application

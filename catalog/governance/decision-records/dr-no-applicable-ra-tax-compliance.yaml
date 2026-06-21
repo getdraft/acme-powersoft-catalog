@@ -1,0 +1,36 @@
+schemaVersion: "1.0"
+uid: RR523W7VW7-1NDK
+type: decision_record
+name: "No applicable reference architecture — Acme Tax Suite"
+aliases: []
+description: >
+  No company-approved ReferenceArchitecture existed at the time of initial
+  catalog authoring that matched this deployment's shape. The SDP was
+  authored directly against active RequirementGroups. A reference
+  architecture should be proposed when the pattern is stable and reusable.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: tax-compliance
+  contact: tax-compliance@acmepowersoft.example.com
+tags:
+  - decision-record
+  - reference-architecture
+  - no-applicable-pattern
+category: decision
+status: accepted
+key: noApplicablePattern
+affectedComponent: BF6671X2X0-MH1Y
+impact: >
+  SDP was authored without a ReferenceArchitecture baseline. Pattern
+  deviations and capability slots are not automatically validated against
+  a canonical shape.
+decisionRationale: >
+  No approved ReferenceArchitecture matched the team's deployment shape
+  at initial catalog authoring time. Accepted for v1.0 catalog completion;
+  a reference architecture should be proposed once the pattern is validated
+  in production.
+linkedSoftwareDeployment: BF6671X2X0-MH1Y
+relatedDecisionRecords: []
+controlReferences: []

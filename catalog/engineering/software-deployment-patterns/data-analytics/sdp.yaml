@@ -19,7 +19,7 @@ tags:
 businessContext:
   pillar: business-pillar.data-analytics
   productFamily: Acme Insight Hub
-architectureNotes:
+notes:
   availabilityTarget: best-effort (batch); DAG SLA-miss alerting, not uptime-based
   availabilityRequirement: >-
     Single Airflow scheduler (HA mode not yet enabled, DATA-212),
@@ -37,7 +37,9 @@ architectureNotes:
     Relationship objects), writes to the shared ADLS Gen2 landing zone,
     loads from there into the shared Snowflake warehouse.
   externalDependencies: Snowflake, Azure Key Vault, Datadog.
-decisionRecords: []
+decisionRecords:
+  - ref: F4SDCJ57WY-PBG7
+    key: noApplicablePattern
 networkZones:
 - id: orchestration
   name: Orchestration

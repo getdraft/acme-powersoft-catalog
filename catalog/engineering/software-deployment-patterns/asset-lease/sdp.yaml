@@ -21,7 +21,7 @@ tags:
 businessContext:
   pillar: business-pillar.asset-management
   productFamily: Acme Asset & Lease Manager
-architectureNotes:
+notes:
   availabilityTarget: 99.5%
   availabilityRequirement: Active-active AKS pods, zone-redundant SQL Database.
   dataClassification: Confidential
@@ -32,7 +32,9 @@ architectureNotes:
   deploymentTargets: Shared AKS baseline, East US 2. Dedicated Azure SQL Database and Service Bus namespace.
   interServiceConnections: Calls the shared Vantage Entitlement API for licensing checks.
   externalDependencies: Azure AD B2C, Azure Key Vault, Datadog.
-decisionRecords: []
+decisionRecords:
+  - ref: 3KVCQSWQFQ-KXXG
+    key: noApplicablePattern
 networkZones:
 - id: app
   name: Application

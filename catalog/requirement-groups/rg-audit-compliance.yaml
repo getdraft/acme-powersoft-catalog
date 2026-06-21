@@ -25,12 +25,12 @@ requirements:
     requirementMode: mandatory
     naAllowed: false
     canBeSatisfiedBy:
-      - mechanism: architecturalDecision
+      - mechanism: decisionRecord
         key: serviceLogging
       - mechanism: technologyComponentConfiguration
         criteria:
           capability: 01KQQ4Q026-JW52
     minimumSatisfactions: 1
     validAnswerTypes:
-      - architecturalDecision
+      - decisionRecord
       - technologyComponentConfiguration

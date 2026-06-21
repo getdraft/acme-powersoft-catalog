@@ -21,7 +21,7 @@ tags:
 businessContext:
   pillar: business-pillar.platform
   productFamily: Acme Vantage
-architectureNotes:
+notes:
   availabilityTarget: 99.9%
   availabilityRequirement: >-
     Active-active API pods (3-12 replicas) behind the shared API Gateway;
@@ -48,7 +48,9 @@ architectureNotes:
   externalDependencies: >-
     Azure AD B2C for end-user and service-to-service auth. Azure Key Vault
     for secrets. Datadog for observability.
-decisionRecords: []
+decisionRecords:
+  - ref: K7EMB3CJ2M-QW29
+    key: noApplicablePattern
 networkZones:
 - id: edge
   name: Edge

@@ -1,0 +1,32 @@
+schemaVersion: "1.0"
+workspace:
+  name: {{workspace_name}}
+  displayName: {{workspace_label}}
+  companyName: {{company_name}}
+
+repository:
+  provider: github
+  owner: <github-org>
+  name: {{workspace_name}}
+  defaultBranch: main
+
+framework:
+  source: https://github.com/getdraft/draftsman.git
+  vendoredPath: .draft/framework
+  updatePolicy: explicit
+  updateWorkflow: enabled
+
+paths:
+  catalog: catalog
+  configurations: configurations
+
+requirements:
+  activeRequirementGroups: []
+  requireActiveRequirementGroupDisposition: false
+
+contribution:
+  branchingStrategy: {{branching_strategy}}
+
+# Optional company vocabulary lists. Declare lists gradually. Use advisory while
+# onboarding and gated when the company wants validation to block non-standard values.
+vocabulary: {}

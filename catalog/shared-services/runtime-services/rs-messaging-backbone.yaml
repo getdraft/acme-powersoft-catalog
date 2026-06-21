@@ -16,7 +16,7 @@ tags:
   - shared-service
 host: null
 primaryTechnologyComponent: VKSQHZCHTK-VJP1
-architecturalDecisions:
+notes:
   serviceAuthentication: Producers and consumers authenticate via Azure AD workload identity (managed identity per AKS pod); no shared access signature keys are distributed to application code.
   secretsManagement: No long-lived secrets exist for this service; managed identity tokens are short-lived and issued by Azure AD.
   serviceLogging: Operational logs (throttling, dead-letter events) stream to Datadog via the Azure Service Bus diagnostic settings integration.
@@ -42,9 +42,9 @@ requirementGroups:
 requirementImplementations:
   - requirementId: DR-01
     satisfiedBy:
-      mechanism: architecturalDecision
+      mechanism: decisionRecord
       key: recoverabilityModel
   - requirementId: SLA-01
     satisfiedBy:
-      mechanism: architecturalDecision
+      mechanism: decisionRecord
       key: availabilityModel

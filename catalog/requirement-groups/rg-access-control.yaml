@@ -28,13 +28,13 @@ requirements:
     requirementMode: mandatory
     naAllowed: false
     canBeSatisfiedBy:
-      - mechanism: architecturalDecision
+      - mechanism: decisionRecord
         key: serviceAuthentication
       - mechanism: decisionRecord
         example: A committed DecisionRecord describing an access model exception and its compensating control.
     minimumSatisfactions: 1
     validAnswerTypes:
-      - architecturalDecision
+      - decisionRecord
       - decisionRecord
   - id: AC-02
     description: Access to this service must be reviewed at least quarterly, and access must be de-provisioned within 24 hours of a role change or termination.

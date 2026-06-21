@@ -16,7 +16,7 @@ tags:
   - shared-service
 host: null
 primaryTechnologyComponent: 792738MBB6-8XMK
-architecturalDecisions:
+notes:
   serviceAuthentication: Datadog org access is federated through Azure AD SSO; per-user API keys are disabled org-wide in favor of scoped service account keys reviewed quarterly.
   secretsManagement: Datadog API and APP keys are stored in the Infra & DevOps Key Vault and injected into agent DaemonSets via CSI secrets store driver, never baked into images.
   serviceLogging: Datadog's own platform audit log (who changed which monitor/dashboard) is itself a paid add-on enabled for this account and exported to the AU-01 retention archive.
@@ -38,9 +38,9 @@ requirementGroups:
 requirementImplementations:
   - requirementId: AU-01
     satisfiedBy:
-      mechanism: architecturalDecision
+      mechanism: decisionRecord
       key: serviceLogging
   - requirementId: SLA-01
     satisfiedBy:
-      mechanism: architecturalDecision
+      mechanism: decisionRecord
       key: availabilityModel

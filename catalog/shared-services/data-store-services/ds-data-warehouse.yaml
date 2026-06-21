@@ -15,7 +15,7 @@ tags:
   - shared-service
 host: null
 primaryTechnologyComponent: 6YWAMCXE87-H8JW
-architecturalDecisions:
+notes:
   serviceAuthentication: Analysts and pipeline service accounts authenticate via Azure AD SSO federated into Snowflake (SCIM-provisioned roles); no native Snowflake passwords are issued.
   secretsManagement: Pipeline service account key pairs are stored in the Infra & DevOps Key Vault and rotated every 180 days by an Airflow-triggered rotation job.
   serviceLogging: Snowflake's ACCOUNT_USAGE query history and login history are exported nightly into a dedicated audit schema and forwarded to Datadog log management.
@@ -52,17 +52,17 @@ requirementGroups:
 requirementImplementations:
   - requirementId: DR-01
     satisfiedBy:
-      mechanism: architecturalDecision
+      mechanism: decisionRecord
       key: recoverabilityModel
   - requirementId: DR-02
     satisfiedBy:
-      mechanism: architecturalDecision
+      mechanism: decisionRecord
       key: ha
   - requirementId: AC-01
     satisfiedBy:
-      mechanism: architecturalDecision
+      mechanism: decisionRecord
       key: serviceAuthentication
   - requirementId: AU-01
     satisfiedBy:
-      mechanism: architecturalDecision
+      mechanism: decisionRecord
       key: serviceLogging

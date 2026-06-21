@@ -6,7 +6,7 @@ aliases: ["CM Baseline"]
 description: >
   Governs how production changes to any deployable service reach production.
   NOTE (assumption logged in EXERCISE_REPORT.md): neither the runtime-service
-  nor data-store-service templates expose an architecturalDecisions key that
+  nor data-store-service templates expose an notes key that
   naturally represents "how changes are reviewed and promoted." This group
   is therefore satisfiable only via decisionRecord, which is a heavier
   mechanism than a routine process attestation warrants. Flagged as a

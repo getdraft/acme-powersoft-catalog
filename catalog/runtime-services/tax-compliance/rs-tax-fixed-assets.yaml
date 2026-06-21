@@ -26,7 +26,7 @@ requirementGroups:
 - 01KQQ4Q027-K5DR
 - 8SEDYZHP49-YJHQ
 - KKDJGX6P7C-N9AR
-architecturalDecisions:
+notes:
   serviceAuthentication:
     answer: Azure AD B2C via the shared Identity & Access runtime service.
     satisfiedBy: relatedObject

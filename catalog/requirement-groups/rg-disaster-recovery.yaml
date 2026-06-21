@@ -23,13 +23,13 @@ requirements:
     requirementMode: mandatory
     naAllowed: false
     canBeSatisfiedBy:
-      - mechanism: architecturalDecision
+      - mechanism: decisionRecord
         key: recoverabilityModel
-      - mechanism: architecturalDecision
+      - mechanism: decisionRecord
         key: backup
     minimumSatisfactions: 1
     validAnswerTypes:
-      - architecturalDecision
+      - decisionRecord
   - id: DR-02
     description: The backup or replication target must reside in a separate Azure region or, at minimum, a separate availability zone from the production instance.
     rationale: Co-located backups do not survive a regional outage; geographic separation is required for the recovery objective in DR-01 to be credible.
@@ -37,10 +37,10 @@ requirements:
     requirementMode: mandatory
     naAllowed: false
     canBeSatisfiedBy:
-      - mechanism: architecturalDecision
+      - mechanism: decisionRecord
         key: ha
       - mechanism: decisionRecord
     minimumSatisfactions: 1
     validAnswerTypes:
-      - architecturalDecision
+      - decisionRecord
       - decisionRecord

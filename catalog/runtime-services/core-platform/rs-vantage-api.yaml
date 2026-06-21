@@ -31,7 +31,7 @@ requirementGroups:
 - 8SEDYZHP49-YJHQ
 - 1JGV5Y25KN-73W7
 - KZM0T9NY43-3H8K
-architecturalDecisions:
+notes:
   serviceAuthentication:
     answer: Delegates to Azure AD B2C (M087QNW2D0-6G06) via the shared Identity & Access runtime service (ZV0QNH8M3D-EYW8).
     satisfiedBy: relatedObject

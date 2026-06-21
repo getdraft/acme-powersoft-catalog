@@ -28,7 +28,7 @@ capabilities: []
 requirementGroups:
 - 01KQQ4Q027-K5DR
 - KKDJGX6P7C-N9AR
-architecturalDecisions:
+notes:
   serviceAuthentication:
     answer: Windows-integrated authentication (local AD). No OAuth/OIDC -- predates the company's Azure AD B2C adoption.
   secretsManagement:

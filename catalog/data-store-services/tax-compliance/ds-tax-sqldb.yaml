@@ -26,7 +26,7 @@ capabilities:
 requirementGroups:
 - 01KQQ4Q027-VBF0
 - P6M8FWV2D8-0RM8
-architecturalDecisions:
+notes:
   serviceAuthentication:
     answer: Azure AD-integrated auth via managed identity.
   secretsManagement:

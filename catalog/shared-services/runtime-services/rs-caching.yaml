@@ -20,7 +20,7 @@ tags:
   - shared-service
 host: null
 primaryTechnologyComponent: A4M2HB1G1D-22DT
-architecturalDecisions:
+notes:
   serviceAuthentication: Access key authentication scoped to the Vantage entitlement service's managed identity via Azure AD-based Redis authentication (no shared access keys distributed to other teams).
   secretsManagement: Connection string is not a static secret -- Azure AD token-based auth means no long-lived Redis password exists for this instance.
   serviceLogging: Cache hit/miss ratio and eviction events stream to Datadog via the Azure Cache for Redis diagnostic integration.
@@ -45,5 +45,5 @@ requirementGroups:
 requirementImplementations:
   - requirementId: SLA-01
     satisfiedBy:
-      mechanism: architecturalDecision
+      mechanism: decisionRecord
       key: availabilityModel

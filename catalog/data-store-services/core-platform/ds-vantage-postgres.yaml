@@ -25,7 +25,7 @@ requirementGroups:
 - 01KQQ4Q027-VBF0
 - 1JGV5Y25KN-73W7
 - P6M8FWV2D8-0RM8
-architecturalDecisions:
+notes:
   serviceAuthentication:
     answer: Azure AD-integrated authentication; no shared passwords. App connects via managed identity.
   secretsManagement:

@@ -22,7 +22,7 @@ tags:
 businessContext:
   pillar: business-pillar.tax-regulatory
   productFamily: Acme Tax Suite
-architectureNotes:
+notes:
   availabilityTarget: 99.5% (Fixed Assets) / not formally defined (Property Tax Legacy)
   availabilityRequirement: >-
     Fixed Assets: active-active AKS pods, zone-redundant SQL MI. Property
@@ -44,7 +44,9 @@ architectureNotes:
     on-premise Windows VM, Atlanta data center.
   interServiceConnections: Both systems call the shared Vantage Entitlement API for licensing checks.
   externalDependencies: Azure AD B2C, Azure Key Vault, Datadog (Fixed Assets only -- Property Tax Legacy is not integrated with any of these).
-decisionRecords: []
+decisionRecords:
+  - ref: RR523W7VW7-1NDK
+    key: noApplicablePattern
 networkZones:
 - id: app-modern
   name: Fixed Assets Application

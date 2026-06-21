@@ -19,7 +19,7 @@ tags:
   - shared-service
 host: null
 primaryTechnologyComponent: 5JMBH216ND-AJE9
-architecturalDecisions:
+notes:
   serviceAuthentication: Airflow worker pods authenticate via Azure AD workload identity scoped to read/write on their own product's partition prefix only.
   secretsManagement: No static account keys are distributed; workload identity tokens are short-lived and Azure AD-issued.
   serviceLogging: Storage diagnostic logs (read/write/list operations) stream to Datadog log management.
@@ -51,9 +51,9 @@ requirementGroups:
 requirementImplementations:
   - requirementId: DR-01
     satisfiedBy:
-      mechanism: architecturalDecision
+      mechanism: decisionRecord
       key: recoverabilityModel
   - requirementId: AC-01
     satisfiedBy:
-      mechanism: architecturalDecision
+      mechanism: decisionRecord
       key: serviceAuthentication

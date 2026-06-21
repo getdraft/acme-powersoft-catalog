@@ -24,13 +24,13 @@ requirements:
     requirementMode: mandatory
     naAllowed: false
     canBeSatisfiedBy:
-      - mechanism: architecturalDecision
+      - mechanism: decisionRecord
         key: availabilityModel
-      - mechanism: architecturalDecision
+      - mechanism: decisionRecord
         key: healthWelfareMonitoring
     minimumSatisfactions: 2
     validAnswerTypes:
-      - architecturalDecision
+      - decisionRecord
   - id: SLA-02
     description: Customer-facing services must publish an incident communication procedure that defines severity tiers and notification timelines for each tier.
     rationale: Customers and downstream product teams need a predictable communication contract during incidents, independent of which engineer is on call.

@@ -1,0 +1,36 @@
+schemaVersion: "1.0"
+uid: K7EMB3CJ2M-QW29
+type: decision_record
+name: "No applicable reference architecture — Acme Vantage"
+aliases: []
+description: >
+  No company-approved ReferenceArchitecture existed at the time of initial
+  catalog authoring that matched this deployment's shape. The SDP was
+  authored directly against active RequirementGroups. A reference
+  architecture should be proposed when the pattern is stable and reusable.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+  - decision-record
+  - reference-architecture
+  - no-applicable-pattern
+category: decision
+status: accepted
+key: noApplicablePattern
+affectedComponent: 2EH86Y2YDS-3JRD
+impact: >
+  SDP was authored without a ReferenceArchitecture baseline. Pattern
+  deviations and capability slots are not automatically validated against
+  a canonical shape.
+decisionRationale: >
+  No approved ReferenceArchitecture matched the team's deployment shape
+  at initial catalog authoring time. Accepted for v1.0 catalog completion;
+  a reference architecture should be proposed once the pattern is validated
+  in production.
+linkedSoftwareDeployment: 2EH86Y2YDS-3JRD
+relatedDecisionRecords: []
+controlReferences: []

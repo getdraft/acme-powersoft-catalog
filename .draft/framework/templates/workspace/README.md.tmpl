@@ -1,0 +1,68 @@
+# {{workspace_label}}
+
+This repository is the DRAFT architecture workspace for {{company_name}}. It
+vendors the DRAFT framework under `.draft/framework/` so architects, engineers,
+product managers, and AI assistants can use the same schemas, prompts,
+validation rules, templates, and browser generation tools.
+
+DRAFT turns architecture conversations into governed, reviewable source files.
+The intended authoring experience is simple: connect your preferred AI tool to
+this repo, ask it to act as the Draftsman, and review the resulting YAML changes
+as ordinary Git diffs or pull requests.
+
+## Start With This Prompt
+
+Copy this into your preferred AI tool:
+
+```text
+I want a Draftsman session for {{workspace_label}}.
+
+Use the DRAFT workspace repository {{repository_reference}}.
+Read and follow the repository bootstrap instructions, starting with AGENTS.md.
+Use the vendored framework copy under .draft/framework/ as the approved source
+of Draftsman instructions, schemas, docs, and tools. Assume the Draftsman role
+defined by the repo instead of inventing your own workflow.
+
+Inspect the existing workspace, catalog, and configurations first. Then start
+the Draftsman session with the next useful action. Ask only the first question
+needed to move the work forward.
+
+If you cannot connect to the repo, inspect its files, or write changes back to
+it, stop and tell the user exactly what they need to enable so the Draftsman
+session can work end to end.
+```
+
+## Commands
+
+The `/draft` command works in any AI IDE. Claude Code users see it in `/`
+autocomplete after the command symlink is installed. Other tools respond when
+you type the command phrase in chat or when their project instruction file
+matches the phrase.
+
+| Command | What it does |
+|---|---|
+| `/draft` (or `/draft help`) | List available DRAFT verbs. |
+| `/draft guide [intent]` | Start a Draftsman session, or resume a guided DraftingSession for a specific system or product area. Provide an optional intent or leave it blank to be prompted. |
+| `/draft review [PR\|security\|path]` | Review an open PR for catalog correctness, or audit catalog content for quality and security compliance. |
+| `/draft update` | Check for framework updates and guide a safe upgrade. |
+
+If your AI tool does not respond to slash commands, phrase the request naturally —
+*"Act as a Draftsman and help me draft [system name]."* — and any AI reading
+`AGENTS.md` will pick up the Draftsman role automatically.
+
+## How This Workspace Works
+
+- `AGENTS.md` is the canonical bootstrap for AI assistants.
+- `.draft/workspace.yaml` declares workspace metadata, active RequirementGroups, business taxonomy, and optional company vocabulary lists.
+- `.draft/framework/` is the vendored framework copy and is read-only during
+  normal Draftsman authoring.
+- `catalog/` contains {{company_name}} architecture inventory.
+- `configurations/` contains {{company_name}} capabilities, RequirementGroups,
+  domains, vocabulary source files, vocabulary proposals, and object patches.
+- `docs/index.html` is the generated architecture browser when this workspace
+  publishes one.
+
+If a Draftsman session uncovers a reusable DRAFT framework bug or feature
+request, the AI should recommend submitting a sanitized upstream issue to the
+public `getdraft/draftsman` repository instead of editing `.draft/framework/**`
+directly.

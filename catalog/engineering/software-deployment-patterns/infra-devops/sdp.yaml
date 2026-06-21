@@ -19,7 +19,7 @@ tags:
 businessContext:
   pillar: business-pillar.platform
   productFamily: Acme Admin Console
-architectureNotes:
+notes:
   availabilityTarget: 99% (internal tool, business-hours usage)
   availabilityRequirement: Active-active, fixed 2 replicas.
   dataClassification: Internal
@@ -32,7 +32,9 @@ architectureNotes:
   deploymentTargets: Shared AKS baseline, East US 2.
   interServiceConnections: All data access proxied through the Vantage Entitlement API; no direct database connection of its own.
   externalDependencies: Azure AD B2C, Azure Key Vault, Datadog.
-decisionRecords: []
+decisionRecords:
+  - ref: T7HDN1C4Y6-N0E3
+    key: noApplicablePattern
 networkZones:
 - id: app
   name: Application

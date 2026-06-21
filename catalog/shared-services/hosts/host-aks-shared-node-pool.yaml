@@ -18,7 +18,7 @@ tags:
   - host
   - kubernetes
   - shared-service
-architecturalDecisions:
+notes:
   externalInteractionRationales:
     Authentication Platform: Node-level Azure AD-integrated RBAC; no local Kubernetes users exist.
     Logging Service: Container and node logs forwarded via the Datadog Agent DaemonSet rather than Azure Monitor directly, to keep one log pipeline of record.
