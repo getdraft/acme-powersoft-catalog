@@ -48,12 +48,21 @@ requirementGroups:
   - 01KQQ4Q027-VBF0
   - 1JGV5Y25KN-73W7
   - 8SEDYZHP49-YJHQ
+decisionRecords:
+  - ref: R07JQGMBBY-6B8S
+    key: recoverabilityModel
+  - ref: 9H6CA4N2A8-VZ8G
+    key: serviceAuthentication
 requirementImplementations:
-  - requirementId: DR-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: recoverabilityModel
-  - requirementId: AC-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: serviceAuthentication
+  - requirementGroup: 1JGV5Y25KN-73W7
+    requirementId: DR-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: recoverabilityModel
+    ref: R07JQGMBBY-6B8S
+  - requirementGroup: 8SEDYZHP49-YJHQ
+    requirementId: AC-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: serviceAuthentication
+    ref: 9H6CA4N2A8-VZ8G

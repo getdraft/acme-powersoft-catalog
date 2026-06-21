@@ -1,0 +1,30 @@
+schemaVersion: "1.0"
+uid: 2PX64E94WE-ANWX
+type: decision_record
+name: "Access Control — Azure AD B2C Identity Service"
+description: >
+  Documents the access control model for the shared Azure AD B2C identity
+  service in satisfaction of AC-01 (Administrative Access Control).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+  - decision-record
+  - access-control
+  - shared-service
+category: decision
+status: accepted
+key: serviceAuthentication
+affectedComponent: ZV0QNH8M3D-EYW8
+decisionRationale: >
+  Administrators authenticate to the Azure AD B2C admin portal via Acme
+  corporate Azure AD with mandatory MFA enforced by Conditional Access
+  policy CA-12. No shared admin accounts exist. This directly satisfies
+  AC-01's requirement for named individual accounts with multi-factor
+  authentication.
+controlReferences:
+  - SOC2-CC6.1
+relatedDecisionRecords: []

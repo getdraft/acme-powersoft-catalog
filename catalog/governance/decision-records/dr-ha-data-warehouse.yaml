@@ -1,0 +1,34 @@
+schemaVersion: "1.0"
+uid: 8KB6TBR17C-FG0W
+type: decision_record
+name: "High Availability — Snowflake Data Warehouse"
+description: >
+  Documents the high-availability mechanism for the shared Snowflake Data
+  Warehouse in satisfaction of DR-02 (High Availability).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: data-analytics
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+  - decision-record
+  - high-availability
+  - shared-service
+category: decision
+status: accepted
+key: ha
+affectedComponent: Z3CAV76ED8-7XEV
+decisionRationale: >
+  Snowflake's multi-cluster warehouse architecture provides automatic cluster
+  failover within the Azure East US 2 region. The BI consumption warehouse
+  has auto-scaling enabled (multi-cluster); the ELT load warehouse scales
+  vertically. In-region node failures are handled transparently by Snowflake's
+  platform without operator intervention. Cross-region HA is addressed in the
+  DR-01 recoverability record (cross-region clone). These mechanisms satisfy
+  DR-02's requirement for backup storage in a separate region or availability
+  zone.
+controlReferences:
+  - SOC2-A1.2
+relatedDecisionRecords:
+  - 5T6Z38JS60-H8WK

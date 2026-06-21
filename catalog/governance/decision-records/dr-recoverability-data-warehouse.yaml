@@ -1,0 +1,33 @@
+schemaVersion: "1.0"
+uid: 5T6Z38JS60-H8WK
+type: decision_record
+name: "Recoverability Model — Snowflake Data Warehouse"
+description: >
+  Documents the recovery time and point objectives for the shared Snowflake
+  Data Warehouse in satisfaction of DR-01 (Disaster Recovery).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: data-analytics
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+  - decision-record
+  - disaster-recovery
+  - shared-service
+category: decision
+status: accepted
+key: recoverabilityModel
+affectedComponent: Z3CAV76ED8-7XEV
+decisionRationale: >
+  RTO: 4 hours (cross-region clone restore).
+  RPO: 24 hours (last successful nightly clone).
+  Recovery strategy: Snowflake Time Travel (7-day window) handles accidental
+  deletion and logical corruption within the primary account. A weekly
+  cross-region database clone to a secondary Snowflake account in a different
+  Azure region provides catastrophic-loss recovery. Recovery procedures are
+  documented and the cross-region clone restore process is tested during the
+  annual DR exercise.
+controlReferences:
+  - SOC2-A1.3
+relatedDecisionRecords: []

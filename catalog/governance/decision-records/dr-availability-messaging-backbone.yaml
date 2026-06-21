@@ -1,0 +1,35 @@
+schemaVersion: "1.0"
+uid: DQ7CFFDSYG-31SG
+type: decision_record
+name: "Availability Target — Azure Service Bus Messaging Backbone"
+description: >
+  Documents the declared availability target and monitoring approach for the
+  shared Azure Service Bus messaging backbone in satisfaction of SLA-01
+  (Service Level Agreement).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - decision-record
+  - service-level
+  - shared-service
+category: decision
+status: accepted
+key: availabilityModel
+affectedComponent: 0XWT91WY2F-2RR4
+decisionRationale: >
+  Availability target: 99.9% (aligns with Microsoft's published Service Bus
+  Premium SLA for zone-redundant deployments in East US 2).
+  Architecture: Premium tier with availability zone redundancy.
+  Monitoring: Datadog Azure Service Bus integration tracks queue depth,
+  dead-letter count, and active connection count per topic. Azure Monitor
+  alerts on throttling and dead-letter spikes are routed through the shared
+  Observability service. These declarations satisfy SLA-01's requirement to
+  declare an availability target and identify the monitoring used to measure
+  conformance.
+controlReferences:
+  - SOC2-A1.1
+relatedDecisionRecords: []

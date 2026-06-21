@@ -1,0 +1,30 @@
+schemaVersion: "1.0"
+uid: 9H6CA4N2A8-VZ8G
+type: decision_record
+name: "Access Control — ADLS Data Landing Zone"
+description: >
+  Documents the access control model for the shared Azure Data Lake Storage
+  Gen2 landing zone in satisfaction of AC-01 (Administrative Access Control).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - decision-record
+  - access-control
+  - shared-service
+category: decision
+status: accepted
+key: serviceAuthentication
+affectedComponent: SP7JGWQ9Z3-DR4F
+decisionRationale: >
+  Airflow worker pods authenticate via Azure AD workload identity scoped to
+  read/write on their own product's partition prefix only. No static account
+  keys are distributed; workload identity tokens are short-lived and issued
+  by Azure AD. This satisfies AC-01's requirement for named, non-shared
+  identities with equivalent strong authentication.
+controlReferences:
+  - SOC2-CC6.1
+relatedDecisionRecords: []

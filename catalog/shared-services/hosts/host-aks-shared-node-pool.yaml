@@ -61,8 +61,11 @@ requirementGroups:
   - 8SEDYZHP49-YJHQ
   - 2EZZ268XWW-B5TP
   - P6M8FWV2D8-0RM8
+decisionRecords:
+  - ref: 4EEW7MZ0YX-DFWJ
 requirementImplementations:
-  - requirementId: VM-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: null
+  - requirementGroup: 2EZZ268XWW-B5TP
+    requirementId: VM-01
+    status: satisfied
+    mechanism: decisionRecord
+    ref: 4EEW7MZ0YX-DFWJ

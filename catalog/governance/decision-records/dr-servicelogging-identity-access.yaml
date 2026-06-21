@@ -1,0 +1,31 @@
+schemaVersion: "1.0"
+uid: A3X2WN9SQR-8Q8G
+type: decision_record
+name: "Audit Logging — Azure AD B2C Identity Service"
+description: >
+  Documents the centralized logging approach for the shared Azure AD B2C
+  identity service in satisfaction of AU-01 (Audit Logging).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+  - decision-record
+  - audit-logging
+  - shared-service
+category: decision
+status: accepted
+key: serviceLogging
+affectedComponent: ZV0QNH8M3D-EYW8
+decisionRationale: >
+  Sign-in and audit logs stream from Azure AD B2C diagnostic settings to
+  the Core Platform Log Analytics workspace, then forward to the company-wide
+  Datadog log pipeline (via the shared Observability runtime service). Datadog
+  provides the tamper-evident, centralized log store with retention meeting
+  AU-01's 12-month requirement. All sign-in successes, failures, and admin
+  operations are captured.
+controlReferences:
+  - SOC2-CC7.2
+relatedDecisionRecords: []

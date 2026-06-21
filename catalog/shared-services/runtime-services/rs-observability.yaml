@@ -35,12 +35,21 @@ requirementGroups:
   - 01KQQ4Q027-K5DR
   - P6M8FWV2D8-0RM8
   - KZM0T9NY43-3H8K
+decisionRecords:
+  - ref: J1Z5VNP4K4-1Y6V
+    key: serviceLogging
+  - ref: 9M10QY0RXW-YRF2
+    key: availabilityModel
 requirementImplementations:
-  - requirementId: AU-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: serviceLogging
-  - requirementId: SLA-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: availabilityModel
+  - requirementGroup: P6M8FWV2D8-0RM8
+    requirementId: AU-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: serviceLogging
+    ref: J1Z5VNP4K4-1Y6V
+  - requirementGroup: KZM0T9NY43-3H8K
+    requirementId: SLA-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: availabilityModel
+    ref: 9M10QY0RXW-YRF2

@@ -1,0 +1,34 @@
+schemaVersion: "1.0"
+uid: R07JQGMBBY-6B8S
+type: decision_record
+name: "Recoverability Model — ADLS Data Landing Zone"
+description: >
+  Documents the recovery time and point objectives for the shared ADLS
+  Gen2 data landing zone in satisfaction of DR-01 (Disaster Recovery).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - decision-record
+  - disaster-recovery
+  - shared-service
+category: decision
+status: accepted
+key: recoverabilityModel
+affectedComponent: SP7JGWQ9Z3-DR4F
+decisionRationale: >
+  RTO: 8 hours (re-run extraction DAGs for the affected partition).
+  RPO: 24 hours (one missed nightly load).
+  Recovery strategy: ADLS soft-delete (14-day retention window) is the
+  primary recovery mechanism for accidental deletion. Because raw landing
+  data is re-derivable by re-running each source product's extraction job,
+  the landing zone is treated as a cache of extraction, not a sole system of
+  record. Full partition loss recovery is therefore a pipeline re-run rather
+  than a restore operation. These objectives have been reviewed and accepted
+  by the Data & Analytics team.
+controlReferences:
+  - SOC2-A1.3
+relatedDecisionRecords: []

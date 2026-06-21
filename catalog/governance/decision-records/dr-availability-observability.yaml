@@ -1,0 +1,36 @@
+schemaVersion: "1.0"
+uid: 9M10QY0RXW-YRF2
+type: decision_record
+name: "Availability Target — Datadog Observability Platform"
+description: >
+  Documents the declared availability target and monitoring approach for the
+  shared Datadog observability platform in satisfaction of SLA-01 (Service
+  Level Agreement).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - decision-record
+  - service-level
+  - shared-service
+category: decision
+status: accepted
+key: availabilityModel
+affectedComponent: FH8VD6HQ69-ZMEG
+decisionRationale: >
+  Availability target: tracked against Datadog's published status page SLA
+  (vendor SaaS, multi-region; Acme PowerSoft has no infrastructure
+  responsibility). An outage degrades visibility into every other shared
+  service and product but does not itself take production traffic down —
+  it is a purely observability dependency, not a request-path dependency.
+  Monitoring: Datadog monitors its own agent fleet health (agent-not-reporting
+  monitor); paged to Infra & DevOps on-call if more than 5% of agents go
+  dark for 15 minutes. These declarations satisfy SLA-01's requirement to
+  declare an availability target and identify the monitoring used to measure
+  conformance.
+controlReferences:
+  - SOC2-A1.1
+relatedDecisionRecords: []

@@ -39,12 +39,21 @@ requirementGroups:
   - 01KQQ4Q027-K5DR
   - 1JGV5Y25KN-73W7
   - KZM0T9NY43-3H8K
+decisionRecords:
+  - ref: EZ5M2Q77AG-1SEB
+    key: recoverabilityModel
+  - ref: DQ7CFFDSYG-31SG
+    key: availabilityModel
 requirementImplementations:
-  - requirementId: DR-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: recoverabilityModel
-  - requirementId: SLA-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: availabilityModel
+  - requirementGroup: 1JGV5Y25KN-73W7
+    requirementId: DR-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: recoverabilityModel
+    ref: EZ5M2Q77AG-1SEB
+  - requirementGroup: KZM0T9NY43-3H8K
+    requirementId: SLA-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: availabilityModel
+    ref: DQ7CFFDSYG-31SG

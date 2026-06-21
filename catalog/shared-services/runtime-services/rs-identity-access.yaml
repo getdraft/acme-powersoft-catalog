@@ -49,12 +49,21 @@ requirementGroups:
   - 01KQQ4Q027-K5DR
   - 8SEDYZHP49-YJHQ
   - P6M8FWV2D8-0RM8
+decisionRecords:
+  - ref: 2PX64E94WE-ANWX
+    key: serviceAuthentication
+  - ref: A3X2WN9SQR-8Q8G
+    key: serviceLogging
 requirementImplementations:
-  - requirementId: AC-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: serviceAuthentication
-  - requirementId: AU-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: serviceLogging
+  - requirementGroup: 8SEDYZHP49-YJHQ
+    requirementId: AC-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: serviceAuthentication
+    ref: 2PX64E94WE-ANWX
+  - requirementGroup: P6M8FWV2D8-0RM8
+    requirementId: AU-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: serviceLogging
+    ref: A3X2WN9SQR-8Q8G

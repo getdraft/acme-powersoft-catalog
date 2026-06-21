@@ -1,0 +1,31 @@
+schemaVersion: "1.0"
+uid: 5TE793A7E9-NKME
+type: decision_record
+name: "Audit Logging — Snowflake Data Warehouse"
+description: >
+  Documents the centralized logging approach for the shared Snowflake Data
+  Warehouse in satisfaction of AU-01 (Audit Logging).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: data-analytics
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+  - decision-record
+  - audit-logging
+  - shared-service
+category: decision
+status: accepted
+key: serviceLogging
+affectedComponent: Z3CAV76ED8-7XEV
+decisionRationale: >
+  Snowflake's ACCOUNT_USAGE query history and login history views are
+  exported nightly into a dedicated audit schema and forwarded to Datadog
+  log management. Datadog provides the tamper-evident, centralized log
+  store with at least 12-month retention required by AU-01. The audit schema
+  export covers all security-relevant events: queries, logins, role grants,
+  and warehouse operations.
+controlReferences:
+  - SOC2-CC7.2
+relatedDecisionRecords: []

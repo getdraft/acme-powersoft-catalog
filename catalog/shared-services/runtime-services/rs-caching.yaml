@@ -42,8 +42,13 @@ externalInteractions:
 requirementGroups:
   - 01KQQ4Q027-K5DR
   - KZM0T9NY43-3H8K
+decisionRecords:
+  - ref: RATHKFJREJ-J2QN
+    key: availabilityModel
 requirementImplementations:
-  - requirementId: SLA-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: availabilityModel
+  - requirementGroup: KZM0T9NY43-3H8K
+    requirementId: SLA-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: availabilityModel
+    ref: RATHKFJREJ-J2QN

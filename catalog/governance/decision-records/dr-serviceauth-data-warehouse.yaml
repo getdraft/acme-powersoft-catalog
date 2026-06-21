@@ -1,0 +1,30 @@
+schemaVersion: "1.0"
+uid: AY0FN501VQ-9SYT
+type: decision_record
+name: "Access Control — Snowflake Data Warehouse"
+description: >
+  Documents the access control model for the shared Snowflake Data Warehouse
+  in satisfaction of AC-01 (Administrative Access Control).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: data-analytics
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+  - decision-record
+  - access-control
+  - shared-service
+category: decision
+status: accepted
+key: serviceAuthentication
+affectedComponent: Z3CAV76ED8-7XEV
+decisionRationale: >
+  Analysts and pipeline service accounts authenticate via Azure AD SSO
+  federated into Snowflake (SCIM-provisioned roles); no native Snowflake
+  passwords are issued. This satisfies AC-01's requirement for named
+  individual accounts with strong authentication (Azure AD MFA applies to
+  all federated users) and no shared credentials.
+controlReferences:
+  - SOC2-CC6.1
+relatedDecisionRecords: []

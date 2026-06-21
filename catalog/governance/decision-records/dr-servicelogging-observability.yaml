@@ -1,0 +1,31 @@
+schemaVersion: "1.0"
+uid: J1Z5VNP4K4-1Y6V
+type: decision_record
+name: "Audit Logging — Datadog Observability Platform"
+description: >
+  Documents the centralized logging approach for the shared Datadog
+  observability platform in satisfaction of AU-01 (Audit Logging).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - decision-record
+  - audit-logging
+  - shared-service
+category: decision
+status: accepted
+key: serviceLogging
+affectedComponent: FH8VD6HQ69-ZMEG
+decisionRationale: >
+  Datadog's platform audit log (who changed which monitor, dashboard, or
+  alert) is a paid add-on enabled for this account and exported to the
+  AU-01 retention archive. Because Datadog is itself the observability
+  platform, its audit log is the authoritative record of security-relevant
+  configuration changes. Export to a separate archive provides the required
+  tamper-evident, centralized store with 12-month retention.
+controlReferences:
+  - SOC2-CC7.2
+relatedDecisionRecords: []

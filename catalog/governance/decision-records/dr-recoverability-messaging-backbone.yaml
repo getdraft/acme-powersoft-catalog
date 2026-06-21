@@ -1,0 +1,33 @@
+schemaVersion: "1.0"
+uid: EZ5M2Q77AG-1SEB
+type: decision_record
+name: "Recoverability Model — Azure Service Bus Messaging Backbone"
+description: >
+  Documents the recovery model for the shared Azure Service Bus messaging
+  backbone in satisfaction of DR-01 (Disaster Recovery).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - decision-record
+  - disaster-recovery
+  - shared-service
+category: decision
+status: accepted
+key: recoverabilityModel
+affectedComponent: 0XWT91WY2F-2RR4
+decisionRationale: >
+  A geo-disaster recovery paired namespace is provisioned in Central US.
+  Failover is manual, initiated by the Infra & DevOps on-call engineer
+  following RUNBOOK-SB-02. Producers buffer locally for up to 5 minutes
+  before failing the originating request during a regional outage. Recovery
+  time is bounded by the time to initiate failover and update DNS; tested
+  during the annual DR exercise. In-flight messages not yet acknowledged at
+  failover time may be lost — this is an accepted risk for event-driven
+  workloads.
+controlReferences:
+  - SOC2-A1.3
+relatedDecisionRecords: []

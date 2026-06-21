@@ -1,0 +1,35 @@
+schemaVersion: "1.0"
+uid: RATHKFJREJ-J2QN
+type: decision_record
+name: "Availability Target — Azure Cache for Redis"
+description: >
+  Documents the declared availability target and monitoring approach for the
+  shared Azure Cache for Redis in satisfaction of SLA-01 (Service Level
+  Agreement).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+  - decision-record
+  - service-level
+  - shared-service
+category: decision
+status: accepted
+key: availabilityModel
+affectedComponent: 37MYJCZ1V9-439T
+decisionRationale: >
+  Availability target: 99.9% (aligns with Microsoft's published Azure Cache
+  for Redis Premium SLA for zone-redundant deployments in East US 2).
+  Architecture: Premium tier with zone redundancy. A cache outage degrades
+  entitlement-check latency (falls back to direct Postgres reads) but does
+  not cause incorrect entitlement decisions or downtime.
+  Monitoring: Datadog Redis integration tracks memory pressure, hit ratio,
+  and connected client count. These declarations satisfy SLA-01's requirement
+  to declare an availability target and identify the monitoring used to
+  measure conformance.
+controlReferences:
+  - SOC2-A1.1
+relatedDecisionRecords: []

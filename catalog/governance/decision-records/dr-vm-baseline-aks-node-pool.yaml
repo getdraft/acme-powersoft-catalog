@@ -1,0 +1,33 @@
+schemaVersion: "1.0"
+uid: 4EEW7MZ0YX-DFWJ
+type: decision_record
+name: "Patch Cadence — Shared AKS Node Pool Baseline"
+description: >
+  Documents the patch cadence and vendor lifecycle status for the shared AKS
+  node pool baseline in satisfaction of VM-01 (Vulnerability Management
+  Baseline).
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: candidate
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - decision-record
+  - vulnerability-management
+  - shared-service
+category: decision
+status: accepted
+affectedComponent: H1ZTZXV5F6-C1CZ
+decisionRationale: >
+  OS: Ubuntu 22.04 LTS — Microsoft mainstream support through April 2027 via
+  the AKS-supported node image channel. Compute: Azure Standard_D-series v5
+  VM SKU — currently in mainstream support with no announced end-of-life date.
+  Patch cadence: the AKS NodeImage auto-upgrade channel is enabled on a weekly
+  maintenance window, automatically applying OS and kubelet patches without
+  manual operator action. Neither component is past its vendor's
+  end-of-extended-support date. These declarations satisfy VM-01's requirement
+  for a documented patch cadence and confirmed lifecycle status.
+controlReferences:
+  - SOC2-CC7.1
+relatedDecisionRecords: []

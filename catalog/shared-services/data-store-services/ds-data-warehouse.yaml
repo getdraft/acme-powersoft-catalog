@@ -49,20 +49,37 @@ requirementGroups:
   - 1JGV5Y25KN-73W7
   - 8SEDYZHP49-YJHQ
   - P6M8FWV2D8-0RM8
+decisionRecords:
+  - ref: 5T6Z38JS60-H8WK
+    key: recoverabilityModel
+  - ref: 8KB6TBR17C-FG0W
+    key: ha
+  - ref: AY0FN501VQ-9SYT
+    key: serviceAuthentication
+  - ref: 5TE793A7E9-NKME
+    key: serviceLogging
 requirementImplementations:
-  - requirementId: DR-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: recoverabilityModel
-  - requirementId: DR-02
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: ha
-  - requirementId: AC-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: serviceAuthentication
-  - requirementId: AU-01
-    satisfiedBy:
-      mechanism: decisionRecord
-      key: serviceLogging
+  - requirementGroup: 1JGV5Y25KN-73W7
+    requirementId: DR-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: recoverabilityModel
+    ref: 5T6Z38JS60-H8WK
+  - requirementGroup: 1JGV5Y25KN-73W7
+    requirementId: DR-02
+    status: satisfied
+    mechanism: decisionRecord
+    key: ha
+    ref: 8KB6TBR17C-FG0W
+  - requirementGroup: 8SEDYZHP49-YJHQ
+    requirementId: AC-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: serviceAuthentication
+    ref: AY0FN501VQ-9SYT
+  - requirementGroup: P6M8FWV2D8-0RM8
+    requirementId: AU-01
+    status: satisfied
+    mechanism: decisionRecord
+    key: serviceLogging
+    ref: 5TE793A7E9-NKME
