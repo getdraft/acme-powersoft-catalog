@@ -1,0 +1,2308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRAFT User Manual</title>
+  <style>
+    /* ── Font faces ─────────────────────────────────────────── */
+    @font-face {
+      font-family: "Instrument Serif";
+      src: url("assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Instrument Serif";
+      src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Sans";
+      src: url("assets/fonts/IBMPlexSans-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Sans";
+      src: url("assets/fonts/IBMPlexSans-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Sans";
+      src: url("assets/fonts/IBMPlexSans-SemiBold.woff2") format("woff2");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("assets/fonts/IBMPlexMono-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("assets/fonts/IBMPlexMono-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ── Design tokens ──────────────────────────────────────── */
+    :root {
+      --paper:        #f3eee4;
+      --paper-soft:   #ebe4d5;
+      --paper-strong: #ddd3bf;
+      --surface:      #fbf7f0;
+      --ink:          #15171c;
+      --ink-soft:     #2a2d35;
+      --subtle:       #4d525d;
+      --muted:        #7a7f8a;
+      --rule:         rgba(21, 23, 28, 0.10);
+      --border:       rgba(21, 23, 28, 0.16);
+      --accent:       #1f4287;
+      --accent-strong:#0d2d6b;
+      --accent-soft:  rgba(31, 66, 135, 0.10);
+      --accent-line:  rgba(31, 66, 135, 0.32);
+      --mark:         #b65d3c;
+      --mark-soft:    rgba(182, 93, 60, 0.10);
+      --ok:           #2f6b46;
+      --ok-soft:      rgba(47, 107, 70, 0.10);
+      --code-bg:      #15171c;
+      --code-fg:      #f3eee4;
+      --code-soft:    #8a8f99;
+    }
+
+    /* ── Reset & base ───────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+      font-size: 16px;
+    }
+    body {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      font-weight: 400;
+      color: var(--ink);
+      background: var(--surface);
+      line-height: 1.65;
+    }
+    em { font-style: italic; }
+    strong { font-weight: 600; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Topbar ─────────────────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(243, 238, 228, 0.90);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 56px;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      gap: 24px;
+    }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .topbar-brand img {
+      height: 28px;
+      width: auto;
+    }
+    .topbar-wordmark {
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+    }
+    .topbar-sublabel {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      margin-left: 4px;
+    }
+    .topbar-nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+    .topbar-nav a {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: var(--subtle);
+      transition: color 0.15s;
+    }
+    .topbar-nav a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .topbar-version {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .hero {
+      background: var(--paper);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 48px 72px;
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, var(--paper) 100%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-line);
+      border-radius: 100px;
+      padding: 4px 14px;
+    }
+    .hero-pill span {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .hero-pill .pill-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--accent-line);
+    }
+    .hero-headline {
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+    .hero-lede {
+      font-size: 1.125rem;
+      color: var(--subtle);
+      max-width: 640px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+    .audience-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .audience-card {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 24px 22px 22px;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(21,23,28,0.06);
+    }
+    .audience-ordinal {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .audience-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .audience-headline {
+      font-family: "Instrument Serif", serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .audience-body {
+      font-size: 0.875rem;
+      color: var(--subtle);
+      line-height: 1.6;
+    }
+    .principles-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+      margin-bottom: 48px;
+    }
+    .principle {
+      padding: 24px 24px 22px;
+      border-right: 1px solid var(--border);
+    }
+    .principle:last-child { border-right: none; }
+    .principle-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .principle-text {
+      font-size: 0.875rem;
+      color: var(--subtle);
+      line-height: 1.6;
+    }
+    .section-index {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .index-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 18px 16px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      display: block;
+      color: inherit;
+    }
+    .index-card:hover {
+      border-color: var(--accent-line);
+      box-shadow: 0 2px 8px rgba(31,66,135,0.08);
+      text-decoration: none;
+    }
+    .index-part-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .index-card-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      margin-bottom: 6px;
+    }
+    .index-card-desc {
+      font-size: 0.8rem;
+      color: var(--subtle);
+      line-height: 1.5;
+    }
+
+    /* ── Page body layout ───────────────────────────────────── */
+    .page-wrap {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      max-width: 1280px;
+      margin: 0 auto;
+      gap: 0;
+      align-items: start;
+      padding: 0 24px;
+    }
+
+    /* ── Sidebar ────────────────────────────────────────────── */
+    .sidebar {
+      position: sticky;
+      top: 72px;
+      max-height: calc(100vh - 88px);
+      overflow-y: auto;
+      padding: 32px 0 48px 0;
+      border-right: 1px solid var(--rule);
+    }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--paper-strong); border-radius: 2px; }
+    .sidebar-group {
+      margin-bottom: 24px;
+    }
+    .sidebar-group-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 20px 8px;
+      margin-bottom: 2px;
+    }
+    .sidebar-part-badge {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent-line);
+      border-radius: 3px;
+      padding: 2px 5px;
+    }
+    .sidebar-group-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+    .sidebar-link {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--subtle);
+      padding: 5px 20px 5px 24px;
+      border-left: 2px solid transparent;
+      transition: color 0.12s, border-color 0.12s, background 0.12s;
+      line-height: 1.4;
+    }
+    .sidebar-link:hover {
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--accent-soft);
+    }
+    .sidebar-link.is-active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+      background: var(--accent-soft);
+      font-weight: 500;
+    }
+    .sidebar-sub-link {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 4px 20px 4px 32px;
+      border-left: 2px solid transparent;
+      transition: color 0.12s, border-color 0.12s, background 0.12s;
+      line-height: 1.4;
+    }
+    .sidebar-sub-link:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .sidebar-sub-link.is-active {
+      color: var(--accent);
+      border-left-color: var(--accent-line);
+      font-weight: 500;
+    }
+
+    /* ── Main content ───────────────────────────────────────── */
+    main {
+      padding: 48px 0 80px 48px;
+      min-width: 0;
+    }
+    .content-col {
+      max-width: 760px;
+    }
+    .content-col.wide {
+      max-width: 920px;
+    }
+
+    /* ── Part header ────────────────────────────────────────── */
+    .part {
+      margin-bottom: 96px;
+    }
+    .part-header {
+      margin-bottom: 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .part-number-display {
+      font-family: "Instrument Serif", serif;
+      font-size: 72px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--accent-soft);
+      margin-bottom: 0;
+    }
+    .part-eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+      margin-top: -8px;
+    }
+    .part-title {
+      font-family: "Instrument Serif", serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .part-lede {
+      font-size: 1rem;
+      color: var(--subtle);
+      max-width: 560px;
+      line-height: 1.65;
+    }
+
+    /* ── Sub-part header (3a, 3b) ───────────────────────────── */
+    .subpart-header {
+      border-top: 2px dashed var(--accent-line);
+      padding-top: 32px;
+      margin-bottom: 40px;
+      margin-top: 64px;
+    }
+    .subpart-number-display {
+      font-family: "Instrument Serif", serif;
+      font-size: 50px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--accent-soft);
+      margin-bottom: 0;
+    }
+    .subpart-eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+      margin-top: -4px;
+    }
+    .subpart-title {
+      font-family: "Instrument Serif", serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    /* ── Chapter ────────────────────────────────────────────── */
+    .chapter {
+      margin-bottom: 56px;
+    }
+    .chapter-num {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+    .chapter h3 {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .chapter p {
+      font-size: 0.9375rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .chapter p:last-child { margin-bottom: 0; }
+    .chapter ul, .chapter ol {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+    .chapter li {
+      font-size: 0.9375rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin-bottom: 6px;
+    }
+    .block-gap { margin-bottom: 28px; }
+
+    /* ── Tables ─────────────────────────────────────────────── */
+    .draft-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      font-size: 0.875rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    .draft-table th {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      background: var(--paper-soft);
+      padding: 10px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .draft-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--ink-soft);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .draft-table tr:last-child td { border-bottom: none; }
+    .draft-table tr:hover td { background: var(--paper-soft); }
+    .draft-table td:first-child {
+      font-weight: 500;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .draft-table code {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.8rem;
+      background: var(--paper-soft);
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: var(--ink);
+    }
+
+    /* ── Code blocks ────────────────────────────────────────── */
+    .code-block {
+      background: var(--code-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    .code-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .code-lang {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--code-soft);
+    }
+    .copy-btn {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7rem;
+      color: var(--code-soft);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 3px 8px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .copy-btn:hover {
+      color: var(--code-fg);
+      border-color: rgba(255,255,255,0.25);
+    }
+    .code-block pre {
+      padding: 16px 18px;
+      overflow-x: auto;
+    }
+    .code-block code {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      color: var(--code-fg);
+      line-height: 1.65;
+      white-space: pre;
+    }
+
+    /* ── Callouts ───────────────────────────────────────────── */
+    .callout {
+      display: flex;
+      gap: 14px;
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 16px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+    .callout.is-rule {
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      border: 1px solid var(--accent-line);
+      border-radius: 6px;
+    }
+    .callout.is-warn {
+      background: var(--mark-soft);
+      border-left: 3px solid var(--mark);
+      border-radius: 0 6px 6px 0;
+    }
+    .callout.is-ok {
+      background: var(--ok-soft);
+      border-left: 3px solid var(--ok);
+      border-radius: 0 6px 6px 0;
+    }
+    .callout-badge {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .callout.is-rule .callout-badge { background: var(--accent); }
+    .callout.is-warn .callout-badge { background: var(--mark); }
+    .callout.is-ok .callout-badge { background: var(--ok); }
+    .callout-content {}
+    .callout-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      color: var(--accent);
+    }
+    .callout.is-warn .callout-label { color: var(--mark); }
+    .callout.is-ok .callout-label { color: var(--ok); }
+    .callout-body {
+      font-size: 0.875rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ── Object cards ───────────────────────────────────────── */
+    .object-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .object-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 16px 14px;
+      transition: border-color 0.15s;
+    }
+    .object-card:hover { border-color: var(--accent-line); }
+    .object-card-eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .object-card h5 {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .object-card p {
+      font-size: 0.82rem;
+      color: var(--subtle);
+      line-height: 1.55;
+    }
+
+    /* ── Definition list ────────────────────────────────────── */
+    .def-list {
+      margin-bottom: 28px;
+    }
+    .def-list dt {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink);
+      padding: 8px 0 2px;
+      border-top: 1px solid var(--rule);
+    }
+    .def-list dt:first-of-type { border-top: none; padding-top: 0; }
+    .def-list dd {
+      font-size: 0.875rem;
+      color: var(--subtle);
+      line-height: 1.6;
+      padding-bottom: 8px;
+    }
+
+    /* ── Tabs ───────────────────────────────────────────────── */
+    .tabs {
+      margin-bottom: 28px;
+    }
+    .tab-bar {
+      display: flex;
+      gap: 2px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 0;
+    }
+    .tab-btn {
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--subtle);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      padding: 9px 16px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tab-btn:hover { color: var(--ink); }
+    .tab-btn.is-active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .tab-panel {
+      display: none;
+      padding-top: 20px;
+    }
+    .tab-panel.is-active { display: block; }
+
+    /* ── Diagram block ──────────────────────────────────────── */
+    .diagram-block {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      background: var(--surface);
+    }
+    .diagram-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: var(--paper-soft);
+      border-bottom: 1px solid var(--border);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--subtle);
+    }
+    .diagram-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .diagram-body {
+      padding: 24px;
+      overflow-x: auto;
+      text-align: center;
+    }
+    .diagram-body img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ── Checklist ──────────────────────────────────────────── */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 28px;
+    }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9375rem;
+      color: var(--ink-soft);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--rule);
+      line-height: 1.55;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before {
+      content: "";
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 3px;
+      margin-top: 2px;
+      background: var(--surface);
+    }
+
+    /* ── Inline code ────────────────────────────────────────── */
+    code {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85em;
+      background: var(--paper-soft);
+      color: var(--ink-soft);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+    .code-block code {
+      background: transparent;
+      color: var(--code-fg);
+      padding: 0;
+      border-radius: 0;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--rule);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── Mobile / responsive ────────────────────────────────── */
+    @media (max-width: 1080px) {
+      .page-wrap {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+        overflow-y: visible;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 24px 0 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+      }
+      .sidebar-group {
+        margin-bottom: 8px;
+      }
+      main {
+        padding: 32px 0 64px;
+      }
+      .audience-pillars {
+        grid-template-columns: 1fr;
+      }
+      .principles-strip {
+        grid-template-columns: 1fr;
+      }
+      .principle {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .principle:last-child { border-bottom: none; }
+      .section-index {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero {
+        padding: 48px 24px 48px;
+      }
+    }
+    @media (max-width: 640px) {
+      .section-index {
+        grid-template-columns: 1fr;
+      }
+      .topbar-nav {
+        display: none;
+      }
+    }
+
+    /* ── Print ──────────────────────────────────────────────── */
+    @media print {
+      .topbar, .sidebar, .copy-btn, footer { display: none; }
+      body { background: white; color: black; }
+      .hero { background: white; }
+      .page-wrap { display: block; }
+      main { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Topbar ─────────────────────────────────────────────── -->
+  <header class="topbar" role="banner">
+    <div class="topbar-brand">
+      <img src="assets/draft-logo.png" alt="DRAFT logo" height="28">
+      <span class="topbar-wordmark">DRAFT</span>
+      <span class="topbar-sublabel">User Manual</span>
+    </div>
+    <nav class="topbar-nav" aria-label="Manual sections">
+      <a href="#part-1">Why &amp; What</a>
+      <a href="#part-2">Experience</a>
+      <a href="#part-3">The Model</a>
+      <a href="#part-4">Setup</a>
+    </nav>
+    <span class="topbar-version">v0.15</span>
+  </header>
+
+  <!-- ── Hero ───────────────────────────────────────────────── -->
+  <section class="hero" aria-label="Introduction">
+    <svg class="hero-pattern" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1" fill="rgba(21,23,28,0.18)"></circle>
+        </pattern>
+      </defs>
+      <rect width="800" height="500" fill="url(#dots)"></rect>
+    </svg>
+    <div class="hero-gradient" aria-hidden="true"></div>
+    <div class="hero-inner">
+
+      <!-- Eyebrow pill -->
+      <div class="hero-eyebrow">
+        <div class="hero-pill">
+          <span>The Draftsman's Manual</span>
+          <span class="pill-dot" aria-hidden="true"></span>
+          <span>An AI-first, Git-native architecture framework</span>
+        </div>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-headline">Architecture-as-code, <em>AI-first.</em></h1>
+
+      <!-- Lede -->
+      <p class="hero-lede">
+        DRAFT turns architecture conversations into governed YAML reviewed in
+        ordinary Git pull requests — no DRAFT app, no hosted service, no
+        separate CLI. The catalog is the repository.
+      </p>
+
+      <!-- Audience pillars -->
+      <div class="audience-pillars" role="list">
+        <div class="audience-card" role="listitem">
+          <span class="audience-ordinal">01</span>
+          <div class="audience-label">For engineers</div>
+          <div class="audience-headline">Ship code, not <em>catalog entries.</em></div>
+          <p class="audience-body">Connect the AI tool you already use to the repo. The Draftsman handles schema details; you review YAML diffs.</p>
+        </div>
+        <div class="audience-card" role="listitem">
+          <span class="audience-ordinal">02</span>
+          <div class="audience-label">For compliance</div>
+          <div class="audience-headline">Compliance <em>by design,</em> by default.</div>
+          <p class="audience-body">RequirementGroups ask mandatory questions at authoring time. Objects cannot be approved until evidence is present.</p>
+        </div>
+        <div class="audience-card" role="listitem">
+          <span class="audience-ordinal">03</span>
+          <div class="audience-label">For architects</div>
+          <div class="audience-headline">A governed catalog, not <em>slideware.</em></div>
+          <p class="audience-body">A versioned, searchable catalog of real deployments — diff-reviewed in pull requests alongside the code.</p>
+        </div>
+      </div>
+
+      <!-- Principles strip -->
+      <div class="principles-strip" role="list">
+        <div class="principle" role="listitem">
+          <div class="principle-label">Git-native</div>
+          <p class="principle-text">Architecture lives in the repository. <strong>Every change is a commit, every review is a PR.</strong></p>
+        </div>
+        <div class="principle" role="listitem">
+          <div class="principle-label">AI-first</div>
+          <p class="principle-text">The Draftsman is an AI acting as a co-author. <strong>It knows the schema; you know the system.</strong></p>
+        </div>
+        <div class="principle" role="listitem">
+          <div class="principle-label">Repo-first</div>
+          <p class="principle-text">No separate app, portal, or service. <strong>The catalog is the repository.</strong></p>
+        </div>
+      </div>
+
+      <!-- Section index -->
+      <div class="section-index" role="list">
+        <a class="index-card" href="#part-1" role="listitem">
+          <div class="index-part-label">Part 1</div>
+          <div class="index-card-title">Why &amp; What</div>
+          <div class="index-card-desc">What DRAFT replaces, what it is, and who benefits.</div>
+        </a>
+        <a class="index-card" href="#part-2" role="listitem">
+          <div class="index-part-label">Part 2</div>
+          <div class="index-card-title">The Draftsman Experience</div>
+          <div class="index-card-desc">Authoring, the review loop, and the AI's role.</div>
+        </a>
+        <a class="index-card" href="#part-3" role="listitem">
+          <div class="index-part-label">Part 3</div>
+          <div class="index-card-title">The Model</div>
+          <div class="index-card-desc">Objects, governance, requirements, and rationale rules.</div>
+        </a>
+        <a class="index-card" href="#part-4" role="listitem">
+          <div class="index-part-label">Part 4</div>
+          <div class="index-card-title">Setup</div>
+          <div class="index-card-desc">Repo layout, commands, validation, and troubleshooting.</div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Page body ──────────────────────────────────────────── -->
+  <div class="page-wrap">
+
+    <!-- ── Sidebar ──────────────────────────────────────────── -->
+    <aside class="sidebar" aria-label="Page navigation">
+      <div class="sidebar-group">
+        <div class="sidebar-group-header">
+          <span class="sidebar-part-badge">P1</span>
+          <span class="sidebar-group-title">Why &amp; What</span>
+        </div>
+        <a class="sidebar-link" href="#what-draft-replaces">What DRAFT replaces</a>
+        <a class="sidebar-link" href="#what-draft-is">What DRAFT actually is</a>
+        <a class="sidebar-link" href="#who-benefits">Who benefits</a>
+      </div>
+      <div class="sidebar-group">
+        <div class="sidebar-group-header">
+          <span class="sidebar-part-badge">P2</span>
+          <span class="sidebar-group-title">Experience</span>
+        </div>
+        <a class="sidebar-link" href="#authoring-feel">What authoring feels like</a>
+        <a class="sidebar-link" href="#authoring-loop">The authoring loop</a>
+        <a class="sidebar-link" href="#review-as-code">Review as code</a>
+        <a class="sidebar-link" href="#role-of-ai">The role of the AI</a>
+      </div>
+      <div class="sidebar-group">
+        <div class="sidebar-group-header">
+          <span class="sidebar-part-badge">P3</span>
+          <span class="sidebar-group-title">The Model</span>
+        </div>
+        <a class="sidebar-link" href="#part-3a">3a · Objects</a>
+        <a class="sidebar-sub-link" href="#object-model">Object model</a>
+        <a class="sidebar-sub-link" href="#engineering-objects">Engineering objects</a>
+        <a class="sidebar-sub-link" href="#shared-services-objects">Shared services objects</a>
+        <a class="sidebar-sub-link" href="#governance-objects">Governance objects</a>
+        <a class="sidebar-sub-link" href="#repo-ownership">Repository ownership</a>
+        <a class="sidebar-sub-link" href="#modeling-technology-components">TechnologyComponents</a>
+        <a class="sidebar-sub-link" href="#modeling-hosts-services">Hosts and Services</a>
+        <a class="sidebar-sub-link" href="#modeling-product-services">ProductComponents</a>
+        <a class="sidebar-sub-link" href="#modeling-sdps">Deployment Patterns</a>
+        <a class="sidebar-link" href="#part-3b">3b · Requirements</a>
+        <a class="sidebar-sub-link" href="#capabilities-requirement-groups">Capabilities &amp; Req Groups</a>
+        <a class="sidebar-sub-link" href="#acceptable-evidence">Acceptable evidence</a>
+        <a class="sidebar-sub-link" href="#dependency-rationale">Dependency rationale</a>
+        <a class="sidebar-sub-link" href="#agent-rule">Agent rule</a>
+      </div>
+      <div class="sidebar-group">
+        <div class="sidebar-group-header">
+          <span class="sidebar-part-badge">P4</span>
+          <span class="sidebar-group-title">Setup</span>
+        </div>
+        <a class="sidebar-link" href="#repo-layout">Repository layout</a>
+        <a class="sidebar-link" href="#setup-mode">Start setup mode</a>
+        <a class="sidebar-link" href="#commands">Commands</a>
+        <a class="sidebar-link" href="#validation">Validation</a>
+        <a class="sidebar-link" href="#regenerate">Regenerate</a>
+        <a class="sidebar-sub-link" href="#map-presets">Map presets</a>
+        <a class="sidebar-link" href="#theme">Theme the browser</a>
+        <a class="sidebar-link" href="#review-checklist">Review checklist</a>
+        <a class="sidebar-link" href="#troubleshooting">Troubleshooting</a>
+      </div>
+    </aside>
+
+    <!-- ── Main ─────────────────────────────────────────────── -->
+    <main>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- PART 1 — Why & What                                   -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <article class="part" id="part-1">
+        <div class="part-header content-col">
+          <div class="part-number-display" aria-hidden="true">1</div>
+          <div class="part-eyebrow">Part 1</div>
+          <h2 class="part-title">Why &amp; What</h2>
+          <p class="part-lede">What DRAFT replaces, what it is, and who benefits.</p>
+        </div>
+
+        <!-- 1.1 -->
+        <div class="chapter content-col" id="what-draft-replaces">
+          <div class="chapter-num">1.1</div>
+          <h3>What DRAFT replaces</h3>
+          <p>
+            DRAFT is the architecture diagram, the deployment manifest, and the audit evidence.
+          </p>
+          <p>
+            Rather than maintaining separate, static documentation artifacts that go stale the
+            moment code changes, live outside the review process, and cannot be programmatically
+            validated, DRAFT embeds the architecture design, operational topology, compliance posture,
+            and deployment boundaries directly into the codebase as structured, queryable YAML.
+          </p>
+        </div>
+
+        <!-- 1.2 -->
+        <div class="chapter content-col" id="what-draft-is">
+          <div class="chapter-num">1.2</div>
+          <h3>What DRAFT actually is</h3>
+          <p>
+            DRAFT is a framework for describing architecture as structured objects that can be
+            validated, reviewed, searched, and eventually used as automation input. It separates
+            four concerns:
+          </p>
+          <div class="block-gap">
+            <table class="draft-table">
+              <thead>
+                <tr>
+                  <th>Concern</th>
+                  <th>Where It Lives</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Framework rules</td>
+                  <td><code>.draft/framework/</code> in company workspaces, <code>framework/</code> upstream</td>
+                  <td>Schemas, base capabilities, RequirementGroups, docs, and tools.</td>
+                </tr>
+                <tr>
+                  <td>Company architecture</td>
+                  <td><code>catalog/</code></td>
+                  <td>Hosts, services, ProductComponents, SoftwareDeploymentPatterns, and other architecture inventory.</td>
+                </tr>
+                <tr>
+                  <td>Company extensions</td>
+                  <td><code>configurations/</code></td>
+                  <td>Capability mappings, object patches, company RequirementGroups, and local domains.</td>
+                </tr>
+                <tr>
+                  <td>Generated views</td>
+                  <td><code>docs/</code></td>
+                  <td>Static HTML, browser assets, and browser data generated from YAML and Markdown source.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Framework files are not normal authoring targets inside a company workspace. Update
+            them only through an explicit framework refresh or framework change. Architecture
+            content belongs in the company workspace.
+          </p>
+          <p>DRAFT object model — engineering objects, shared services objects, governance objects, and their core relationships:</p>
+          <div class="diagram-block block-gap">
+            <div class="diagram-header">
+              <span>DRAFT object model</span>
+              <span class="diagram-sub">UML · framework-generated</span>
+            </div>
+            <div class="diagram-body">
+              <img src="assets/draft-object-model.svg" alt="DRAFT object model UML class diagram showing engineering objects (ProductComponent, DataComponent, SoftwareDeploymentPattern), shared services objects (TechnologyComponent, Host, RuntimeService, DataStoreService, NetworkService, ReferenceArchitecture), and governance objects (Capability, RequirementGroup, Domain, DecisionRecord, DraftingSession, ObjectPatch) and their relationships">
+            </div>
+          </div>
+        </div>
+
+        <!-- 1.3 -->
+        <div class="chapter content-col" id="who-benefits">
+          <div class="chapter-num">1.3</div>
+          <h3>Who benefits</h3>
+          <p>DRAFT is written for three audiences who work together on every PR:</p>
+          <p>
+            <strong>Engineers</strong> connect the AI tool they already use to the repository and
+            describe what they ship. The Draftsman handles schema details. Engineers review YAML
+            diffs, not documentation tickets.
+          </p>
+          <p>
+            <strong>Security and compliance teams</strong> get requirement evidence recorded at
+            authoring time, not assembled after an audit. RequirementGroups ask mandatory
+            questions; objects cannot be marked approved until the evidence is present.
+          </p>
+          <p>
+            <strong>Architects</strong> maintain a governed catalog of real deployments instead of
+            diagrams that diverge from reality. The catalog browser gives a searchable, versioned
+            view of the whole estate.
+          </p>
+        </div>
+      </article>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- PART 2 — The Draftsman Experience                     -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <article class="part" id="part-2">
+        <div class="part-header content-col">
+          <div class="part-number-display" aria-hidden="true">2</div>
+          <div class="part-eyebrow">Part 2</div>
+          <h2 class="part-title">The Draftsman Experience</h2>
+          <p class="part-lede">Authoring, the review loop, and the AI's role.</p>
+        </div>
+
+        <!-- 2.1 -->
+        <div class="chapter content-col" id="authoring-feel">
+          <div class="chapter-num">2.1</div>
+          <h3>What authoring feels like</h3>
+          <p>
+            DRAFT authoring is a conversation. An engineer opens a PR, the AI assistant connected
+            to the repository acts as the Draftsman, and the two of them work through what the
+            product deploys, what it depends on, and what requirements it satisfies. The output
+            is YAML. The review is a normal pull request diff.
+          </p>
+          <p>
+            There is no DRAFT web application to log into. There is no catalog portal to maintain
+            separately. The catalog is the repository.
+          </p>
+        </div>
+
+        <!-- 2.2 -->
+        <div class="chapter content-col" id="authoring-loop">
+          <div class="chapter-num">2.2</div>
+          <h3>The authoring loop</h3>
+          <p>Follow this loop for most changes:</p>
+          <ol>
+            <li>Search the browser and YAML for an existing object.</li>
+            <li>Choose the correct object type before writing fields.</li>
+            <li>Start from the closest template or nearby approved object.</li>
+            <li>Fill in required schema fields.</li>
+            <li>Add relationships to existing objects by UID.</li>
+            <li>Add RequirementGroup evidence or architectural decisions.</li>
+            <li>Run validation.</li>
+            <li>Regenerate the browser and manual.</li>
+            <li>Review source and generated diffs.</li>
+          </ol>
+          <p>
+            Use <code>rg</code> or the browser search before adding new objects. Duplicate objects
+            make requirement validation harder.
+          </p>
+        </div>
+
+        <!-- 2.3 -->
+        <div class="chapter content-col" id="review-as-code">
+          <div class="chapter-num">2.3</div>
+          <h3>Review as code</h3>
+          <p>
+            The YAML diff and the generated browser diff are reviewed together. The browser diff
+            shows whether the catalog view changed in an expected way. The YAML diff shows the
+            authoritative source of truth. Neither replaces the other.
+          </p>
+          <p>
+            Do not hand-edit <code>docs/index.html</code>, <code>docs/assets/</code>, or
+            <code>docs/user-manual.html</code>. They are generated outputs. Regenerate and commit
+            them with the source changes when the repo expects generated docs to be committed.
+          </p>
+        </div>
+
+        <!-- 2.4 -->
+        <div class="chapter content-col" id="role-of-ai">
+          <div class="chapter-num">2.4</div>
+          <h3>The role of the AI</h3>
+          <p>
+            DRAFT is AI-first, but AI behavior depends on the tool being used. An AI assistant
+            can act as the Draftsman only when it has repository access, can read the bootstrap
+            files, and has permission to write changes.
+          </p>
+          <p>The bootstrap chain is:</p>
+          <ol>
+            <li>root <code>AGENTS.md</code></li>
+            <li>framework <code>AGENTS.md</code></li>
+            <li><code>framework/docs/draftsman.md</code></li>
+            <li><code>AI_INDEX.md</code></li>
+            <li>schemas, templates, capabilities, RequirementGroups, and nearby catalog examples</li>
+          </ol>
+          <p>AI assistants should:</p>
+          <ul>
+            <li>read the bootstrap before authoring</li>
+            <li>ask for a company workspace before creating company content when connected only to the upstream framework repo</li>
+            <li>avoid editing vendored <code>.draft/framework/**</code> files during normal company authoring</li>
+            <li>use generated UIDs instead of inventing semantic IDs</li>
+            <li>prefer existing approved capability mappings before proposing new components</li>
+            <li>run validation and regenerate docs when changing source content</li>
+          </ul>
+          <p>
+            If an AI assistant is connected only to the upstream framework repo and the user asks
+            to create company architecture content, the assistant should ask for the
+            company-specific DRAFT workspace before writing content.
+          </p>
+        </div>
+      </article>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- PART 3 — The Model                                    -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <article class="part" id="part-3">
+        <div class="part-header content-col">
+          <div class="part-number-display" aria-hidden="true">3</div>
+          <div class="part-eyebrow">Part 3</div>
+          <h2 class="part-title">The Model</h2>
+          <p class="part-lede">Objects, governance, requirements, and rationale rules.</p>
+        </div>
+
+        <!-- ── Sub-part 3a ────────────────────────────────── -->
+        <div class="subpart-header content-col" id="part-3a">
+          <div class="subpart-number-display" aria-hidden="true">3a</div>
+          <div class="subpart-eyebrow">Objects</div>
+          <div class="subpart-title">Architecture &amp; governance objects</div>
+        </div>
+
+        <!-- 3a.1 -->
+        <div class="chapter content-col" id="object-model">
+          <div class="chapter-num">3a.1</div>
+          <h3>The object model</h3>
+          <p>
+            DRAFT objects are YAML documents with generated opaque UIDs. Do not ask humans to
+            create semantic IDs. Use human-readable <code>name</code>, <code>aliases</code>, and
+            file paths for conversation, and use the repair tool when validation reports missing
+            or malformed UIDs.
+          </p>
+          <div class="code-block block-gap">
+            <div class="code-block-header">
+              <span class="code-lang">Bash</span>
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+            <pre><code>python .draft/framework/tools/repair_uids.py --workspace .</code></pre>
+          </div>
+          <p>
+            Use the object model diagram as the quickest reference for how the major object types
+            relate to each other.
+          </p>
+          <div class="diagram-block">
+            <div class="diagram-header">
+              <span>DRAFT object model</span>
+              <span class="diagram-sub">UML · framework-generated</span>
+            </div>
+            <div class="diagram-body">
+              <img src="assets/draft-object-model.svg" alt="DRAFT object model UML class diagram showing engineering objects (ProductComponent, DataComponent, SoftwareDeploymentPattern), shared services objects (TechnologyComponent, Host, RuntimeService, DataStoreService, NetworkService, ReferenceArchitecture), and governance objects (Capability, RequirementGroup, Domain, DecisionRecord, DraftingSession, ObjectPatch) and their relationships">
+            </div>
+          </div>
+        </div>
+
+        <!-- 3a.2 -->
+        <div class="chapter" id="engineering-objects">
+          <div class="content-col">
+            <div class="chapter-num">3a.2</div>
+            <h3>Engineering objects</h3>
+          </div>
+          <div class="content-col wide">
+            <div class="object-grid">
+              <div class="object-card">
+                <div class="object-card-eyebrow">Engineering Object</div>
+                <h5>ProductComponent</h5>
+                <p>A first-party deployable runtime unit — API, worker, scheduler, or service — that uses <code>runsOn</code> to reference the RuntimeService or Host it is deployed on.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Engineering Object</div>
+                <h5>DataComponent</h5>
+                <p>A first-party data schema, dataset, or storage unit that lives inside a DataStoreService.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Engineering Object</div>
+                <h5>SoftwareDeploymentPattern</h5>
+                <p>The intended assembly of deployable objects for a product or product capability.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3a.3 -->
+        <div class="chapter" id="shared-services-objects">
+          <div class="content-col">
+            <div class="chapter-num">3a.3</div>
+            <h3>Shared services objects</h3>
+          </div>
+          <div class="content-col wide">
+            <div class="object-grid">
+              <div class="object-card">
+                <div class="object-card-eyebrow">Shared Services Object</div>
+                <h5>TechnologyComponent</h5>
+                <p>A governed vendor product, operating system, compute platform, agent, appliance product, software package, or product/version building block.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Shared Services Object</div>
+                <h5>Host</h5>
+                <p>An operational platform that combines compute, operating system, and required host capabilities.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Shared Services Object</div>
+                <h5>RuntimeService</h5>
+                <p>Reusable runtime behavior such as web, app, cache, worker, messaging, or serverless runtime.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Shared Services Object</div>
+                <h5>DataStoreService</h5>
+                <p>Durable data behavior such as database, file, object, search, analytics, or storage.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Shared Services Object</div>
+                <h5>NetworkService</h5>
+                <p>Network or traffic-control behavior such as routing, switching, segmentation, DNS, WAN, load balancing, ingress, WAF, firewalling, proxying, or traffic inspection.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Shared Services Object</div>
+                <h5>ReferenceArchitecture</h5>
+                <p>A reusable deployment approach that SoftwareDeploymentPatterns may follow.</p>
+              </div>
+            </div>
+            <p class="content-col" style="font-size:0.875rem;color:var(--subtle);margin-top:1rem;">
+              TechnologyComponents are governed building blocks. They are deployed as ingredients
+              inside hosts and services, but they are not usually the service boundary you review
+              on their own.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3a.4 -->
+        <div class="chapter" id="governance-objects">
+          <div class="content-col">
+            <div class="chapter-num">3a.4</div>
+            <h3>Governance objects</h3>
+          </div>
+          <div class="content-col wide">
+            <div class="object-grid">
+              <div class="object-card">
+                <div class="object-card-eyebrow">Governance Object</div>
+                <h5>Capability</h5>
+                <p>A reusable architecture need such as authentication, backup strategy, log management, operating system, or patch management.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Governance Object</div>
+                <h5>RequirementGroup</h5>
+                <p>A requirement set that asks questions, defines acceptable evidence, and validates object completeness.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Governance Object</div>
+                <h5>Domain</h5>
+                <p>A strategy grouping for related capabilities.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Governance Object</div>
+                <h5>DecisionRecord</h5>
+                <p>A record of a known risk, accepted decision, mitigation, or follow-up.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Governance Object</div>
+                <h5>DraftingSession</h5>
+                <p>A machine-readable work-in-progress record for partial authoring sessions.</p>
+              </div>
+              <div class="object-card">
+                <div class="object-card-eyebrow">Governance Object</div>
+                <h5>ObjectPatch</h5>
+                <p>A workspace overlay that deep-merges selected company fields into a framework-owned object.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3a.5 -->
+        <div class="chapter content-col" id="repo-ownership">
+          <div class="chapter-num">3a.5</div>
+          <h3>Repository ownership</h3>
+          <p>Use this decision table before editing:</p>
+          <table class="draft-table">
+            <thead>
+              <tr>
+                <th>Need</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Add or update company architecture inventory</td>
+                <td><code>catalog/</code></td>
+              </tr>
+              <tr>
+                <td>Map a framework capability to company-approved TechnologyComponents</td>
+                <td><code>configurations/object-patches/</code> or company-owned <code>configurations/capabilities/</code></td>
+              </tr>
+              <tr>
+                <td>Add a company RequirementGroup</td>
+                <td><code>configurations/requirement-groups/</code></td>
+              </tr>
+              <tr>
+                <td>Adjust selected fields on a framework object without copying it</td>
+                <td><code>configurations/object-patches/</code></td>
+              </tr>
+              <tr>
+                <td>Change schema, validation, tools, or framework documentation</td>
+                <td>upstream framework repo</td>
+              </tr>
+              <tr>
+                <td>Change the static browser output</td>
+                <td>source YAML, Markdown, or generator code, then regenerate</td>
+              </tr>
+              <tr>
+                <td>Change company browser colors or branding</td>
+                <td>company-owned <code>configurations/browser/theme.css</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 3a.6 -->
+        <div class="chapter content-col" id="modeling-technology-components">
+          <div class="chapter-num">3a.6</div>
+          <h3>Modeling TechnologyComponents</h3>
+          <p>
+            Create a TechnologyComponent when you need to govern a specific product, product
+            family, product version, operating system, compute platform, agent, appliance, or
+            software package.
+          </p>
+          <p>A TechnologyComponent should usually include:</p>
+          <ul>
+            <li><code>vendor</code></li>
+            <li><code>productName</code></li>
+            <li><code>productVersion</code></li>
+            <li><code>classification</code></li>
+            <li>lifecycle facts about the vendor product</li>
+            <li>capabilities the component can satisfy</li>
+            <li>named <code>configurations</code> when different approved variants matter</li>
+          </ul>
+          <p>
+            Use top-level <code>capabilities</code> when the product generally satisfies a
+            capability. Use configuration-level capabilities when only a named variant satisfies
+            the capability.
+          </p>
+          <p>
+            <strong>Network Bindings.</strong> TechnologyComponent configurations can include
+            <code>networkBindings</code> for known ports, protocols, and traffic direction. Use
+            this for component-level facts such as a database engine listening on TCP 1433 or a
+            message broker listening on AMQP 5672.
+          </p>
+          <div class="code-block block-gap">
+            <div class="code-block-header">
+              <span class="code-lang">YAML</span>
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+            <pre><code>configurations:
+  - id: default-listener
+    name: Default listener
+    networkBindings:
+      - port: 1433
+        protocol: TCP
+        direction: inbound
+        description: Default SQL Server listener.</code></pre>
+          </div>
+          <p>
+            When a host or service consumes a specific configuration, reference it from the
+            internal component entry:
+          </p>
+          <div class="code-block block-gap">
+            <div class="code-block-header">
+              <span class="code-lang">YAML</span>
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+            <pre><code>internalComponents:
+  - ref: 01ABCDEFGH-1234
+    role: database engine
+    configuration: default-listener</code></pre>
+          </div>
+        </div>
+
+        <!-- 3a.7 -->
+        <div class="chapter content-col" id="modeling-hosts-services">
+          <div class="chapter-num">3a.7</div>
+          <h3>Modeling Hosts and Services</h3>
+          <p>
+            Hosts describe operational platforms. A useful Host normally references operating
+            system and compute TechnologyComponents, then documents required host capabilities
+            such as monitoring, logging, patching, identity integration, backup, and security
+            tooling.
+          </p>
+          <p>
+            RuntimeService, DataStoreService, and NetworkService objects describe
+            reusable behavior delivered through a delivery model:
+          </p>
+          <ul>
+            <li><code>self-managed</code></li>
+            <li><code>paas</code></li>
+            <li><code>saas</code></li>
+            <li><code>appliance</code></li>
+          </ul>
+          <p>
+            For RuntimeService, DataStoreService, and NetworkService objects, the primary TechnologyComponent is the main functional component. Do not add a separate dependency
+            rationale for the primary component when it is the object core.
+          </p>
+          <p>
+            DataStoreServices should document backup strategy, backup platform, RTO, and RPO.
+            Use an external interaction for a separate backup platform, or use
+            <code>architecturalDecisions.backup.platform</code> when the backup capability is
+            provider-managed inside the service.
+          </p>
+        </div>
+
+        <!-- 3a.8 -->
+        <div class="chapter content-col" id="modeling-product-services">
+          <div class="chapter-num">3a.8</div>
+          <h3>Modeling ProductComponents</h3>
+          <p>
+            A ProductComponent represents first-party runtime behavior. It is the place to document
+            company-authored application code or black-box first-party components.
+          </p>
+          <p>At minimum, a ProductComponent needs:</p>
+          <dl class="def-list">
+            <dt>schemaVersion</dt>
+            <dd>Schema version declaration required by all DRAFT objects.</dd>
+            <dt>uid</dt>
+            <dd>Generated opaque unique identifier — use the repair tool if missing.</dd>
+            <dt>type: product_component</dt>
+            <dd>Object type discriminator that determines which schema and validations apply.</dd>
+            <dt>name</dt>
+            <dd>Human-readable name used in the catalog browser and cross-references.</dd>
+            <dt>product</dt>
+            <dd>The product this service is part of — used for grouping and SoftwareDeploymentPattern references.</dd>
+            <dt>runsOn</dt>
+            <dd>Reference to the Host, RuntimeService, or equivalent deployable object this service runs on.</dd>
+            <dt>runtimeSpec</dt>
+            <dd>Optional product-owned runtime metadata, including listener ports and simple runtime dependencies consumed by this component.</dd>
+            <dt>catalogStatus</dt>
+            <dd>The catalog lifecycle state of this object (e.g., draft, active, deprecated).</dd>
+            <dt>lifecycleStatus</dt>
+            <dd>The operational lifecycle state of the deployed product service.</dd>
+          </dl>
+          <p>Use ProductComponent fields to document:</p>
+          <ul>
+            <li>internal processes such as API, worker, scheduler, conductor, or queue processor</li>
+            <li>API or protocol endpoints exposed by those processes</li>
+            <li>component-owned runtime ports and simple runtime dependencies declared in <code>runtimeSpec</code></li>
+            <li>internal components consumed by the product</li>
+            <li>external interactions the product depends on</li>
+            <li>deployment configurations such as single-tenant, multi-tenant, embedded, or standalone variants</li>
+            <li>architectural decisions that explain requirements or non-obvious dependencies</li>
+          </ul>
+          <div class="callout is-warn">
+            <span class="callout-badge" aria-hidden="true">⚑</span>
+            <div class="callout-content">
+              <div class="callout-label">Note</div>
+              <p class="callout-body">Don't elevate static assets, database schemas, build scripts, or simple product configuration to ProductComponent just because they are deployable by CI/CD. The boundary is first-party runtime behavior that a SoftwareDeploymentPattern needs to communicate.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3a.9 -->
+        <div class="chapter content-col" id="modeling-sdps">
+          <div class="chapter-num">3a.9</div>
+          <h3>Modeling SoftwareDeploymentPatterns</h3>
+          <p>
+            A SoftwareDeploymentPattern is the product-level assembly. It answers what a product
+            deploys and how those objects relate.
+          </p>
+          <p>A good SoftwareDeploymentPattern includes:</p>
+          <ul>
+            <li>product or capability name</li>
+            <li>service groups</li>
+            <li>deployment targets</li>
+            <li>deployable object references</li>
+            <li>network zone assignments for presentation, application, data, or utility placement</li>
+            <li>source repository provenance when the pattern is generated from repository discovery</li>
+            <li>decisions or assumptions that explain uncertain boundaries</li>
+          </ul>
+          <div class="callout is-warn">
+            <span class="callout-badge" aria-hidden="true">⚑</span>
+            <div class="callout-content">
+              <div class="callout-label">Note</div>
+              <p class="callout-body">Don't stop when the SoftwareDeploymentPattern validates. Walk the full object graph and make sure every referenced Host, Service, ProductComponent, TechnologyComponent, and dependency is valid enough for review.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Sub-part 3b ────────────────────────────────── -->
+        <div class="subpart-header content-col" id="part-3b">
+          <div class="subpart-number-display" aria-hidden="true">3b</div>
+          <div class="subpart-eyebrow">Requirements</div>
+          <div class="subpart-title">Requirements-based definitions</div>
+        </div>
+
+        <!-- 3b.1 -->
+        <div class="chapter content-col" id="capabilities-requirement-groups">
+          <div class="chapter-num">3b.1</div>
+          <h3>Capabilities and RequirementGroups</h3>
+          <p>
+            Capabilities describe what an architecture must be able to do. RequirementGroups
+            describe which questions must be answered and which mechanisms can satisfy them.
+          </p>
+          <p>RequirementGroups can be:</p>
+          <ul>
+            <li>always-on for matching object types</li>
+            <li>workspace-mode groups activated in <code>.draft/workspace.yaml</code></li>
+            <li>company or compliance groups declared by specific objects in <code>requirementGroups</code></li>
+          </ul>
+          <p>
+            An object that declares a RequirementGroup must provide valid
+            <code>requirementImplementations</code> for the applicable requirements before it can
+            be treated as approved for that group.
+          </p>
+          <p>
+            When validation says a requirement is missing, either add the evidence that directly
+            satisfies it or record an explicit disposition such as <code>not-applicable</code> or
+            <code>not-compliant</code> when the schema and RequirementGroup allow it.
+          </p>
+        </div>
+
+        <!-- 3b.2 -->
+        <div class="chapter content-col" id="acceptable-evidence">
+          <div class="chapter-num">3b.2</div>
+          <h3>Acceptable evidence</h3>
+          <p>Requirements can be satisfied by mechanisms such as:</p>
+          <ul>
+            <li>a TechnologyComponent</li>
+            <li>a named TechnologyComponent configuration</li>
+            <li>an internal component</li>
+            <li>an external interaction</li>
+            <li>a deployment configuration</li>
+            <li>a field value</li>
+            <li>an architectural decision</li>
+          </ul>
+        </div>
+
+        <!-- 3b.3 -->
+        <div class="chapter content-col" id="dependency-rationale">
+          <div class="chapter-num">3b.3</div>
+          <h3>Dependency rationale rule</h3>
+          <p>
+            Every <code>internalComponents</code> entry must either directly satisfy an applicable
+            requirement or have an architectural decision explaining why it is modeled.
+          </p>
+          <p>Use these machine-readable buckets:</p>
+          <ul>
+            <li><code>architecturalDecisions.internalComponentRationales</code></li>
+            <li><code>architecturalDecisions.dependencyRationales</code></li>
+          </ul>
+          <p>
+            Use stable keys such as the component <code>ref</code>, <code>enabledBy</code>,
+            role, or capability ID.
+          </p>
+          <p>
+            External dependencies are modeled as standalone <code>relationship</code> objects
+            in the catalog rather than inline lists on service or host objects.
+          </p>
+          <div class="code-block block-gap">
+            <div class="code-block-header">
+              <span class="code-lang">YAML</span>
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+            <pre><code>architecturalDecisions:
+  internalComponentRationales:
+    01KQS0TF60-STVW: Dynatrace agent is included because the local agent sends telemetry to the APM platform.</code></pre>
+          </div>
+          <div class="callout is-rule">
+            <span class="callout-badge" aria-hidden="true">ℹ</span>
+            <div class="callout-content">
+              <div class="callout-label">Rule</div>
+              <p class="callout-body">If the dependency is intended to satisfy a requirement, add the matching capability or <code>requirementImplementations</code> evidence instead of adding rationale.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3b.4 -->
+        <div class="chapter content-col" id="agent-rule">
+          <div class="chapter-num">3b.4</div>
+          <h3>Agent rule</h3>
+          <div class="callout is-rule">
+            <span class="callout-badge" aria-hidden="true">ℹ</span>
+            <div class="callout-content">
+              <div class="callout-label">Rule</div>
+              <p class="callout-body">Agent TechnologyComponents have an additional rule: any deployable object that includes an agent must have a relationship object where this object is the source, or record an exception under <code>architecturalDecisions.agentInteractionExceptions</code>.</p>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- PART 4 — Setup                                        -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <article class="part" id="part-4">
+        <div class="part-header content-col">
+          <div class="part-number-display" aria-hidden="true">4</div>
+          <div class="part-eyebrow">Part 4</div>
+          <h2 class="part-title">Setup</h2>
+          <p class="part-lede">Repo layout, commands, validation, and troubleshooting.</p>
+        </div>
+
+        <!-- 4.1 -->
+        <div class="chapter content-col" id="repo-layout">
+          <div class="chapter-num">4.1</div>
+          <h3>Repository layout</h3>
+          <table class="draft-table">
+            <thead>
+              <tr>
+                <th>Concern</th>
+                <th>Where It Lives</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Framework rules</td>
+                <td><code>.draft/framework/</code> in company workspaces, <code>framework/</code> upstream</td>
+                <td>Schemas, base capabilities, RequirementGroups, docs, and tools.</td>
+              </tr>
+              <tr>
+                <td>Company architecture</td>
+                <td><code>catalog/</code></td>
+                <td>Hosts, services, ProductComponents, SoftwareDeploymentPatterns, and other architecture inventory.</td>
+              </tr>
+              <tr>
+                <td>Company extensions</td>
+                <td><code>configurations/</code></td>
+                <td>Capability mappings, object patches, company RequirementGroups, and local domains.</td>
+              </tr>
+              <tr>
+                <td>Generated views</td>
+                <td><code>docs/</code></td>
+                <td>Static HTML, browser assets, and browser data generated from YAML and Markdown source.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 4.2 -->
+        <div class="chapter content-col" id="setup-mode">
+          <div class="chapter-num">4.2</div>
+          <h3>Start setup mode</h3>
+          <p>
+            Setup mode is the Draftsman first-run path for making a company workspace useful
+            without overwhelming architects, engineers, or product teams.
+          </p>
+          <p>Start it by asking the AI assistant connected to the company repo:</p>
+          <div class="code-block block-gap">
+            <div class="code-block-header">
+              <span class="code-lang">Text</span>
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+            <pre><code>start setup mode</code></pre>
+          </div>
+          <p>Setup mode keeps the conversation oriented around:</p>
+          <ul>
+            <li>current step</li>
+            <li>next step</li>
+            <li>remaining setup work</li>
+            <li>revisit-later decisions</li>
+            <li>one focused question, or at most three questions when choices are needed</li>
+          </ul>
+          <p>The minimum useful setup is:</p>
+          <ol>
+            <li>private company repo selected and <code>.draft/framework/</code> present</li>
+            <li>business taxonomy defined enough for navigation</li>
+            <li>first company vocabulary lists declared in advisory mode, or queued for later</li>
+            <li>initial active RequirementGroups selected</li>
+            <li>capability owners identified for mapped capabilities</li>
+            <li>acceptable-use TechnologyComponents seeded for common standards</li>
+            <li>baseline deployable standards started</li>
+            <li>one real product, system, repository, diagram, or document selected for the first DraftingSession</li>
+          </ol>
+          <p>
+            The Draftsman should record uncertainty as assumptions, unresolved questions, or
+            DraftingSession next steps instead of forcing complete answers during setup.
+          </p>
+        </div>
+
+        <!-- 4.3 -->
+        <div class="chapter content-col" id="commands">
+          <div class="chapter-num">4.3</div>
+          <h3>Commands</h3>
+          <div class="tabs" data-tabs="commands">
+            <div class="tab-bar" role="tablist">
+              <button class="tab-btn is-active" data-tab="cmd-company" role="tab" aria-selected="true">Company workspace</button>
+              <button class="tab-btn" data-tab="cmd-framework" role="tab" aria-selected="false">Framework repo</button>
+            </div>
+            <div class="tab-panel is-active" data-panel="cmd-company">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <span class="code-lang">Bash</span>
+                  <button class="copy-btn" aria-label="Copy code">Copy</button>
+                </div>
+                <pre><code>python .draft/framework/tools/validate.py --workspace .
+python .draft/framework/tools/generate_browser.py --workspace . --output docs/index.html</code></pre>
+              </div>
+            </div>
+            <div class="tab-panel" data-panel="cmd-framework">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <span class="code-lang">Bash</span>
+                  <button class="copy-btn" aria-label="Copy code">Copy</button>
+                </div>
+                <pre><code>python framework/tools/validate.py
+python framework/tools/generate_browser.py
+python framework/tools/generate_ai_index.py</code></pre>
+              </div>
+            </div>
+          </div>
+          <p>
+            The browser generator writes <code>docs/index.html</code> and, by default, writes
+            this manual to <code>docs/user-manual.html</code>.
+          </p>
+        </div>
+
+        <!-- 4.4 -->
+        <div class="chapter content-col" id="validation">
+          <div class="chapter-num">4.4</div>
+          <h3>Validation</h3>
+          <p>Run validation before treating a change as ready.</p>
+          <div class="tabs" data-tabs="validation">
+            <div class="tab-bar" role="tablist">
+              <button class="tab-btn is-active" data-tab="val-company" role="tab" aria-selected="true">Company workspace</button>
+              <button class="tab-btn" data-tab="val-framework" role="tab" aria-selected="false">Framework repo</button>
+            </div>
+            <div class="tab-panel is-active" data-panel="val-company">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <span class="code-lang">Bash</span>
+                  <button class="copy-btn" aria-label="Copy code">Copy</button>
+                </div>
+                <pre><code>python .draft/framework/tools/validate.py --workspace .</code></pre>
+              </div>
+            </div>
+            <div class="tab-panel" data-panel="val-framework">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <span class="code-lang">Bash</span>
+                  <button class="copy-btn" aria-label="Copy code">Copy</button>
+                </div>
+                <pre><code>python framework/tools/validate.py</code></pre>
+              </div>
+            </div>
+          </div>
+          <p>Common failure categories:</p>
+          <table class="draft-table block-gap">
+            <thead>
+              <tr>
+                <th>Failure</th>
+                <th>Usual Fix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Missing required field</td>
+                <td>Add the field required by the object schema.</td>
+              </tr>
+              <tr>
+                <td>Unknown reference</td>
+                <td>Use an existing UID or add the referenced object.</td>
+              </tr>
+              <tr>
+                <td>Invalid lifecycle or status</td>
+                <td>Use the enum values from the schema.</td>
+              </tr>
+              <tr>
+                <td>Missing requirement evidence</td>
+                <td>Add valid <code>requirementImplementations</code> or a supported disposition.</td>
+              </tr>
+              <tr>
+                <td>Unexplained dependency</td>
+                <td>Add requirement evidence or a dependency rationale.</td>
+              </tr>
+              <tr>
+                <td>Agent without platform interaction</td>
+                <td>Add the external interaction or an agent interaction exception.</td>
+              </tr>
+              <tr>
+                <td>UID issue</td>
+                <td>Run <code>repair_uids.py</code> and review the diff.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Warnings are still useful. A warning usually means the object can be parsed but is
+            incomplete, ambiguous, or not ready for review.
+          </p>
+        </div>
+
+        <!-- 4.5 -->
+        <div class="chapter content-col" id="regenerate">
+          <div class="chapter-num">4.5</div>
+          <h3>Regenerate the browser and manual</h3>
+          <p>
+            The static browser and manual are generated from YAML source and framework metadata.
+          </p>
+          <div class="tabs" data-tabs="regenerate">
+            <div class="tab-bar" role="tablist">
+              <button class="tab-btn is-active" data-tab="regen-company" role="tab" aria-selected="true">Company workspace</button>
+              <button class="tab-btn" data-tab="regen-framework" role="tab" aria-selected="false">Framework repo</button>
+            </div>
+            <div class="tab-panel is-active" data-panel="regen-company">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <span class="code-lang">Bash</span>
+                  <button class="copy-btn" aria-label="Copy code">Copy</button>
+                </div>
+                <pre><code>python .draft/framework/tools/generate_browser.py --workspace . --output docs/index.html</code></pre>
+              </div>
+            </div>
+            <div class="tab-panel" data-panel="regen-framework">
+              <div class="code-block">
+                <div class="code-block-header">
+                  <span class="code-lang">Bash</span>
+                  <button class="copy-btn" aria-label="Copy code">Copy</button>
+                </div>
+                <pre><code>python framework/tools/generate_browser.py</code></pre>
+              </div>
+            </div>
+          </div>
+          <p>
+            The browser shell, CSS, JavaScript, and default theme live in the framework under
+            <code>browser/</code>. Generated catalog data is written separately to
+            <code>docs/assets/browser-data.js</code>, which keeps content diffs separate from
+            display framework changes.
+          </p>
+          <p>
+            Use <code>--refresh-shell</code> to force-overwrite all browser shell assets from the
+            framework source when pulling a framework design update.
+          </p>
+          <p>
+            GitHub Actions workflows typically regenerate derived docs on pushes that change YAML,
+            framework docs, templates, the browser generator, AI bootstrap files, or README
+            content. Check the local <code>.github/workflows/</code> files for the exact path
+            filters in a given repo.
+          </p>
+
+          <!-- Map presets sub-section -->
+          <div class="chapter-num" id="map-presets" style="margin-top:32px;">4.5 · Map presets</div>
+          <h3 style="font-family:'IBM Plex Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:12px;">Map Presets</h3>
+          <p>
+            The Deployment Targets view renders an interactive world map. A workspace can configure
+            which map view opens by default and users can switch between presets with the toggle
+            buttons in the view header.
+          </p>
+          <p>Available presets:</p>
+          <table class="draft-table block-gap">
+            <thead>
+              <tr>
+                <th>Preset ID</th>
+                <th>Label</th>
+                <th>When to use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>world</code></td>
+                <td>&#x1F310; World</td>
+                <td>Organizations with global or multi-continent deployments (default)</td>
+              </tr>
+              <tr>
+                <td><code>north-america</code></td>
+                <td>&#x1F30E; N. America</td>
+                <td>Organizations whose infrastructure is entirely in North America</td>
+              </tr>
+              <tr>
+                <td><code>europe</code></td>
+                <td>&#x1F30D; Europe</td>
+                <td>Organizations whose infrastructure is primarily in Europe</td>
+              </tr>
+              <tr>
+                <td><code>asia</code></td>
+                <td>&#x1F30F; Asia</td>
+                <td>Organizations whose infrastructure is primarily in Asia-Pacific</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>To set the default for a workspace, add a <code>browser</code> section to <code>workspace.yaml</code>:</p>
+          <div class="code-block block-gap">
+            <div class="code-block-header">
+              <span class="code-lang">YAML</span>
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+            <pre><code>browser:
+  defaultMapView: north-america   # or 'world' (the default when this key is absent)</code></pre>
+          </div>
+          <p>
+            The generator validates the value and falls back to <code>world</code> for unrecognized
+            preset IDs. Users can always switch presets at any time using the toggle; the choice
+            resets to the workspace default the next time the view is entered.
+          </p>
+        </div>
+
+        <!-- 4.6 -->
+        <div class="chapter content-col" id="theme">
+          <div class="chapter-num">4.6</div>
+          <h3>Theme the browser</h3>
+          <p>
+            Company workspaces can add <code>configurations/browser/theme.css</code> to override
+            stable CSS variables without editing <code>.draft/framework/**</code>. The generator
+            copies that file to <code>docs/assets/workspace-theme.css</code> after the default
+            browser stylesheet, so company theme values win through normal CSS cascade.
+          </p>
+          <div class="code-block block-gap">
+            <div class="code-block-header">
+              <span class="code-lang">CSS</span>
+              <button class="copy-btn" aria-label="Copy code">Copy</button>
+            </div>
+            <pre><code>:root {
+  --accent: #005eb8;
+  --accent-strong: #003b71;
+  --accent-soft: rgba(0, 94, 184, 0.12);
+  --blue: #0072ce;
+}</code></pre>
+          </div>
+        </div>
+
+        <!-- 4.7 -->
+        <div class="chapter content-col" id="review-checklist">
+          <div class="chapter-num">4.7</div>
+          <h3>Review checklist</h3>
+          <p>Before merging a DRAFT change, check:</p>
+          <ul class="checklist">
+            <li>the object type is correct</li>
+            <li>no duplicate object already exists</li>
+            <li>required schema fields are present</li>
+            <li>references point to real objects</li>
+            <li>TechnologyComponents are specific enough to govern</li>
+            <li>ProductComponents represent first-party runtime behavior</li>
+            <li>RequirementGroups and implementations are coherent</li>
+            <li>internal components and external interactions either satisfy requirements or have rationale</li>
+            <li>generated docs were regenerated from source</li>
+            <li>framework files were changed only when the change is intentionally a framework change</li>
+          </ul>
+        </div>
+
+        <!-- 4.8 -->
+        <div class="chapter content-col" id="troubleshooting">
+          <div class="chapter-num">4.8</div>
+          <h3>Troubleshooting</h3>
+          <p>
+            <strong>Browser does not show a new object.</strong> Verify the file is under a
+            discovered folder such as <code>catalog/hosts/</code>,
+            <code>catalog/runtime-services/</code>, or <code>configurations/capabilities/</code>,
+            and confirm the YAML has a valid <code>uid</code>.
+          </p>
+          <p>
+            <strong>Validation cannot find framework objects in a company workspace.</strong>
+            Confirm the vendored framework exists at <code>.draft/framework/</code> and run
+            validation with <code>--workspace .</code>.
+          </p>
+          <p>
+            <strong>AI assistant starts editing framework files in a company repo.</strong> Stop
+            and redirect it to the company-owned <code>catalog/</code> or
+            <code>configurations/</code> paths unless the task is explicitly a framework refresh.
+          </p>
+          <p>
+            <strong>Generated file looks stale.</strong> Rerun the generator locally and check
+            whether the repo's workflow also stages that generated file.
+          </p>
+          <div class="callout">
+            <span class="callout-badge" aria-hidden="true">ℹ</span>
+            <div class="callout-content">
+              <div class="callout-label">Still stuck?</div>
+              <p class="callout-body">Consult the repo's <code>AGENTS.md</code> for AI assistant bootstrapping instructions and additional context about how the framework is organized.</p>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+    </main>
+  </div>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <span>DRAFT Framework &middot; MIT License</span>
+  </footer>
+
+  <script>
+    // ── Copy buttons ────────────────────────────────────────
+    document.querySelectorAll(".copy-btn").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        var pre = btn.closest(".code-block").querySelector("pre");
+        var text = pre ? pre.innerText : "";
+        var original = btn.textContent;
+        function flash() {
+          btn.textContent = "Copied ✓";
+          setTimeout(function() { btn.textContent = original; }, 1400);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(flash, function() {
+            fallbackCopy(text, flash);
+          });
+        } else {
+          fallbackCopy(text, flash);
+        }
+      });
+    });
+
+    function fallbackCopy(text, cb) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand("copy"); cb(); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+
+    // ── Tabs ────────────────────────────────────────────────
+    document.querySelectorAll(".tabs").forEach(function(tabsEl) {
+      var buttons = tabsEl.querySelectorAll(".tab-btn");
+      var panels = tabsEl.querySelectorAll(".tab-panel");
+      buttons.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          var target = btn.getAttribute("data-tab");
+          buttons.forEach(function(b) {
+            b.classList.remove("is-active");
+            b.setAttribute("aria-selected", "false");
+          });
+          panels.forEach(function(p) { p.classList.remove("is-active"); });
+          btn.classList.add("is-active");
+          btn.setAttribute("aria-selected", "true");
+          tabsEl.querySelectorAll("[data-panel='" + target + "']").forEach(function(p) {
+            p.classList.add("is-active");
+          });
+        });
+      });
+    });
+
+    // ── Scrollspy ───────────────────────────────────────────
+    var sidebarLinks = Array.from(document.querySelectorAll(".sidebar-link, .sidebar-sub-link"));
+    var sectionIds = sidebarLinks.map(function(link) {
+      return link.getAttribute("href").replace("#", "");
+    }).filter(Boolean);
+
+    var sections = sectionIds.map(function(id) {
+      return document.getElementById(id);
+    }).filter(Boolean);
+
+    function updateScrollspy() {
+      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      var offset = 120;
+      var activeId = null;
+
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].getBoundingClientRect().top + scrollY <= scrollY + offset) {
+          activeId = sections[i].id;
+        }
+      }
+
+      sidebarLinks.forEach(function(link) {
+        var href = link.getAttribute("href").replace("#", "");
+        if (href === activeId) {
+          link.classList.add("is-active");
+        } else {
+          link.classList.remove("is-active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", updateScrollspy, { passive: true });
+    updateScrollspy();
+  </script>
+
+</body>
+</html>
