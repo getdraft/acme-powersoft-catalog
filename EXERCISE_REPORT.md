@@ -96,6 +96,7 @@ different ownership assignments.
 | 5 | Derek Owusu | Unclear whether cross-team `primaryTechnologyComponent` reuse by uid (rather than each team cataloging a duplicate record) was the intended pattern | Confirmed by the Admin as intended and correct; no schema gap, just missing documentation/onboarding guidance | N (docs gap) |
 | 5 | Sofia Lindqvist | Unclear whether RequirementGroups should have a lighter activation tier for low-stakes internal tooling, versus answering the same mandatory questions with a deliberately lower bar | Confirmed by the Admin: "mandatory-but-the-bar-can-vary" is the intended v1.0 pattern; flagged as worth reconsidering for v1.1 since it produces identical catalog content to a hypothetical lighter tier but different audit semantics | N (design question, not a hard gap) |
 | 5 | Marcus Webb | No object models the fact that every other product's RuntimeService calls the Vantage Entitlement API at request time, making Core Platform a hard dependency for the entire company | Described narratively in the SDP's `interServiceConnections` field rather than as a structured cross-repo Relationship | **Y** (same root cause as the AKS-Host Relationship gap above) |
+| 6 | Priya Natarajan | `generate_browser.py`'s `WORKSPACE_ROOT` auto-detection only special-cases a vendoredPath literally named `.draft`; our (correct, per `workspace.yaml`) vendoredPath of `.draft/framework` caused the script to silently write `docs/index.html` two directories too deep instead of failing loudly | Re-ran with explicit `--workspace .` and `--output docs/index.html` flags, which the script does support | N (tooling bug, not a catalog schema gap) |
 
 ---
 
@@ -169,6 +170,13 @@ sample, not in a hypothetical edge case.
    explicitly confirm that "same mandatory question, lower documented
    bar" is the permanent intended pattern rather than an interim one.
    Addresses Phase 5 friction (Sofia Lindqvist).
+10. **[Medium]** Fix `generate_browser.py` (and likely the other exporters,
+    `generate_backstage.py`/`generate_c4.py` use a similar pattern) so that
+    `WORKSPACE_ROOT` auto-detection matches the vendoring convention
+    `workspace.yaml` itself documents (`vendoredPath: .draft/framework`),
+    or have it fail loudly instead of silently writing output to the wrong
+    directory. Addresses the Friction Log entry from Phase 6 (Priya
+    Natarajan).
 
 ---
 
