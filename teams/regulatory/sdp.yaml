@@ -1,0 +1,90 @@
+schemaVersion: '1.0'
+uid: NDHCZF14QX-4EVH
+type: software_deployment_pattern
+name: Acme RegTrack Pattern
+description: |
+  Deployment pattern for RegTrack: containerized Cost of Service engine on
+  the shared AKS baseline, Azure SQL Database for rate-case records, and a
+  Power BI Embedded capacity serving the rate-case dashboard to regulators
+  and outside counsel.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: existing-only
+owner:
+  team: regulatory
+  contact: regulatory@acmepowersoft.example.com
+tags:
+- software-deployment-pattern
+- regulatory
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme RegTrack
+architectureNotes:
+  availabilityTarget: 99.5% (engine) / Microsoft SLA, not independently modeled (Power BI Embedded)
+  availabilityRequirement: Active-active AKS pods, zone-redundant SQL Database.
+  dataClassification: Confidential
+  failureDomain:
+    scope: single-region
+    description: Same single-region AKS concentration risk as other Azure-AD-B2C-fronted products.
+  patternDeviations: >-
+    Long-term (10-year) evidentiary record retention and external
+    (outside counsel) read access are both handled by processes with no
+    representation in this catalog's object model. See commit history for
+    the two flagged Schema Completeness gaps.
+  deploymentTargets: Shared AKS baseline (engine), Azure SQL Database, Power BI Embedded A2 capacity.
+  interServiceConnections: Calls the shared Vantage Entitlement API for licensing checks.
+  externalDependencies: Azure AD B2C, Azure Key Vault, Datadog, Power BI Embedded.
+decisionRecords: []
+networkZones:
+- id: app
+  name: Application
+  tier: application
+  description: AKS-hosted Cost of Service engine pods.
+- id: data
+  name: Data
+  tier: data
+  description: Azure SQL Database, private endpoint only.
+- id: reporting
+  name: Reporting
+  tier: presentation
+  description: Power BI Embedded capacity, accessed by internal users, regulators, and outside counsel via scoped reporting role.
+serviceGroups:
+- name: Application
+  deploymentTarget: H1ZTZXV5F6-C1CZ
+  deployableObjects:
+  - ref: Y1C3JYAM8E-J7PG
+    networkZone: app
+    diagramTier: application
+    intent: ha
+    notes: 2-4 replicas.
+  - ref: ZV0QNH8M3D-EYW8
+    networkZone: app
+    diagramTier: application
+    intent: ha
+    notes: Shared Identity & Access service.
+  - ref: 37AJ772M7W-V27N
+    networkZone: app
+    diagramTier: utility
+    intent: ha
+    notes: Shared Secrets Management service.
+  - ref: FH8VD6HQ69-ZMEG
+    networkZone: app
+    diagramTier: utility
+    intent: ha
+    notes: Shared Observability service.
+- name: Data
+  deploymentTarget: azure-sql-database
+  deployableObjects:
+  - ref: W8Y50NQF1Z-4VW7
+    networkZone: data
+    diagramTier: data
+    intent: ha
+    notes: Zone-redundant; 10-year evidentiary retention handled out-of-band.
+- name: Reporting
+  deploymentTarget: power-bi-embedded
+  deployableObjects:
+  - ref: 4MNRK1XQZ7-PB10
+    networkZone: reporting
+    diagramTier: presentation
+    intent: standalone
+    notes: Managed PaaS capacity; no replica/HA concept independently modeled.
