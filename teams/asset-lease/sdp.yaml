@@ -1,0 +1,85 @@
+schemaVersion: '1.0'
+uid: QWD953NT60-B477
+type: software_deployment_pattern
+name: Acme Asset & Lease Manager Pattern
+description: |
+  Deployment pattern for the Asset & Lease Manager: containerized ASP.NET
+  Core API on the shared AKS baseline, Azure SQL Database for lease/ARO
+  records, dedicated Service Bus topic for lease lifecycle events.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: existing-only
+owner:
+  team: asset-lease
+  contact: asset-lease@acmepowersoft.example.com
+tags:
+- software-deployment-pattern
+- asset-lease
+businessContext:
+  pillar: business-pillar.asset-management
+  productFamily: Acme Asset & Lease Manager
+architectureNotes:
+  availabilityTarget: 99.5%
+  availabilityRequirement: Active-active AKS pods, zone-redundant SQL Database.
+  dataClassification: Confidential
+  failureDomain:
+    scope: single-region
+    description: Same single-region AKS concentration risk as Core Platform and Tax Fixed Assets.
+  patternDeviations: none
+  deploymentTargets: Shared AKS baseline, East US 2. Dedicated Azure SQL Database and Service Bus namespace.
+  interServiceConnections: Calls the shared Vantage Entitlement API for licensing checks.
+  externalDependencies: Azure AD B2C, Azure Key Vault, Datadog.
+decisionRecords: []
+networkZones:
+- id: app
+  name: Application
+  tier: application
+  description: AKS-hosted Asset & Lease Manager pods.
+- id: data
+  name: Data
+  tier: data
+  description: Azure SQL Database, private endpoint only.
+- id: messaging
+  name: Messaging
+  tier: utility
+  description: Dedicated Service Bus topic for lease lifecycle events.
+serviceGroups:
+- name: Application
+  deploymentTarget: H1ZTZXV5F6-C1CZ
+  deployableObjects:
+  - ref: KFP31VBNDB-RART
+    networkZone: app
+    diagramTier: application
+    intent: ha
+    notes: 2-4 replicas, HPA on CPU.
+  - ref: ZV0QNH8M3D-EYW8
+    networkZone: app
+    diagramTier: application
+    intent: ha
+    notes: Shared Identity & Access service.
+  - ref: 37AJ772M7W-V27N
+    networkZone: app
+    diagramTier: utility
+    intent: ha
+    notes: Shared Secrets Management service.
+  - ref: FH8VD6HQ69-ZMEG
+    networkZone: app
+    diagramTier: utility
+    intent: ha
+    notes: Shared Observability service.
+- name: Data
+  deploymentTarget: azure-sql-database
+  deployableObjects:
+  - ref: 5Z1DGT5HBX-38TA
+    networkZone: data
+    diagramTier: data
+    intent: ha
+    notes: Zone-redundant Azure SQL Database.
+- name: Messaging
+  deploymentTarget: azure-service-bus
+  deployableObjects:
+  - ref: PV9F22JQ2K-LSE9
+    networkZone: messaging
+    diagramTier: utility
+    intent: standalone
+    notes: Dedicated topic, single-team ownership, not shared.
