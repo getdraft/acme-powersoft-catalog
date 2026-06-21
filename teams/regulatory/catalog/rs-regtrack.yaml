@@ -1,0 +1,47 @@
+schemaVersion: '1.0'
+uid: Y1C3JYAM8E-J7PG
+type: runtime_service
+name: RegTrack Cost of Service Engine
+description: |
+  ASP.NET Core service computing rate-base and revenue-requirement figures
+  for utility rate cases, consumed by the rate-case dashboard.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: existing-only
+primaryTechnologyComponent: 12D3W1HAV5-AA70
+host: H1ZTZXV5F6-C1CZ
+owner:
+  team: regulatory
+  contact: regulatory@acmepowersoft.example.com
+tags:
+- runtime-service
+- regulatory
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme RegTrack
+capabilities:
+- 01KT0XNZEY-Q2TF
+requirementGroups:
+- 01KQQ4Q027-K5DR
+- 8SEDYZHP49-YJHQ
+- P6M8FWV2D8-0RM8
+architecturalDecisions:
+  serviceAuthentication:
+    answer: Azure AD B2C via the shared Identity & Access runtime service.
+    satisfiedBy: relatedObject
+  secretsManagement:
+    answer: Key Vault via the shared Secrets Management runtime service.
+    satisfiedBy: relatedObject
+  serviceLogging:
+    answer: Forwarded to the shared Observability runtime service.
+    satisfiedBy: relatedObject
+  healthWelfareMonitoring:
+    answer: Liveness/readiness probes; alerts via shared Observability.
+  availabilityModel:
+    answer: Active-active, 2-4 replicas. 99.5% target -- rate-case filings are deadline-driven but not real-time.
+  scalabilityModel:
+    answer: Horizontal pod autoscaling on CPU.
+  recoverabilityModel:
+    answer: Stateless; state in the RegTrack SQL database.
+  failureDomain:
+    answer: Single AKS cluster, single region.

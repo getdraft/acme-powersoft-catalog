@@ -1,0 +1,50 @@
+schemaVersion: '1.0'
+uid: W8Y50NQF1Z-4VW7
+type: data_store_service
+name: RegTrack Database
+description: |
+  Azure SQL Database backing rate-case and cost-of-service records for the
+  RegTrack Cost of Service Engine (Y1C3JYAM8E-J7PG).
+version: '2022'
+catalogStatus: complete
+lifecycleStatus: existing-only
+primaryTechnologyComponent: TRAS6KGSAC-RGNM
+host: null
+owner:
+  team: regulatory
+  contact: regulatory@acmepowersoft.example.com
+tags:
+- data-store-service
+- regulatory
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme RegTrack
+capabilities:
+- 01KQQ4Q026-7T2H
+requirementGroups:
+- 01KQQ4Q027-VBF0
+- P6M8FWV2D8-0RM8
+architecturalDecisions:
+  serviceAuthentication:
+    answer: Azure AD-integrated auth via managed identity.
+  secretsManagement:
+    answer: No static credentials; managed identity only.
+  serviceLogging:
+    answer: Auditing enabled, forwarded to shared Observability.
+    satisfiedBy: relatedObject
+  healthWelfareMonitoring:
+    answer: Azure-native metrics via shared Observability.
+  availabilityModel:
+    answer: Zone-redundant.
+  scalabilityModel:
+    answer: Vertical scaling.
+  recoverabilityModel:
+    answer: Automated backups, point-in-time restore. Extended retention (10 years) required for rate-case evidentiary records -- exceeds Azure's default PITR window, so long-term retention is handled by a separate export-to-archive process not yet modeled in this catalog.
+  backup:
+    answer: Azure-managed automated backups plus a manual annual export-to-archive for regulatory retention.
+  ha:
+    answer: Zone-redundant.
+  encryption:
+    answer: Transparent Data Encryption at rest, TLS in transit.
+  accessControl:
+    answer: Azure AD-only; private endpoint. Read access also granted to outside counsel via a scoped reporting role -- modeled as an access pattern note here since DRAFT has no first-class object for external/third-party access grants.
