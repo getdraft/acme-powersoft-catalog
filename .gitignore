@@ -4,3 +4,4 @@ node_modules/
 .venv/
 dist/
 build/
+__pycache__/
