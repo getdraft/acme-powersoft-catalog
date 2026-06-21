@@ -10,7 +10,7 @@ description: >
 version: 1.0.0
 catalogStatus: complete
 owner:
-  team: Security & Compliance
+  team: security-compliance
   contact: security-compliance@acmepowersoft.example.com
 activation: always
 appliesTo:

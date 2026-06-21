@@ -57,6 +57,9 @@ businessTaxonomy:
         contact: data-analytics@acmepowersoft.example.com
 
 vocabulary:
+  deploymentTargets:
+    mode: advisory
+    source: configurations/vocabulary/deployment-targets.yaml
   teams:
     mode: advisory
     values:
@@ -78,3 +81,6 @@ vocabulary:
       - id: infra-devops
         name: Infrastructure & DevOps Engineering
         contact: infra-devops@acmepowersoft.example.com
+      - id: security-compliance
+        name: Security & Compliance
+        contact: security-compliance@acmepowersoft.example.com

@@ -1,0 +1,56 @@
+schemaVersion: "1.0"
+type: vocabulary
+vocabulary: deploymentTargets
+name: Deployment Targets
+values:
+  - id: H1ZTZXV5F6-C1CZ
+    name: Shared AKS Node Pool Baseline
+    type: kubernetes-cluster
+    provider: azure
+    status: approved
+    notes: >-
+      References the shared-services Host object (uid H1ZTZXV5F6-C1CZ) directly
+      rather than a free-text slug, since this is a concrete piece of shared
+      infrastructure most containerized SDPs deploy onto.
+  - id: 8FRABMZWDP-NB72
+    name: On-Premise Atlanta DC VM
+    type: on-premise-datacenter
+    status: approved
+    notes: >-
+      References the tax-compliance Host object (uid 8FRABMZWDP-NB72) for the
+      Property Tax Legacy system's single-instance on-prem deployment.
+  - id: adls-gen2
+    name: Azure Data Lake Storage Gen2
+    type: managed-paas
+    provider: azure
+    status: approved
+  - id: azure-database-for-postgresql
+    name: Azure Database for PostgreSQL
+    type: managed-paas
+    provider: azure
+    status: approved
+  - id: azure-service-bus
+    name: Azure Service Bus
+    type: managed-paas
+    provider: azure
+    status: approved
+  - id: azure-sql-database
+    name: Azure SQL Database
+    type: managed-paas
+    provider: azure
+    status: approved
+  - id: power-bi-embedded
+    name: Power BI Embedded
+    type: managed-paas
+    provider: azure
+    status: approved
+  - id: shared-api-management
+    name: Azure API Management (Shared)
+    type: managed-paas
+    provider: azure
+    status: approved
+  - id: snowflake
+    name: Snowflake
+    type: managed-paas
+    provider: snowflake
+    status: approved
