@@ -1,0 +1,24 @@
+schemaVersion: '1.0'
+uid: C657R8CNHY-FDK6
+type: technology_component
+name: Ubuntu 22.04 LTS
+description: Host operating system image for every AKS node pool across all six product clusters and the shared platform cluster.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Infrastructure & DevOps Engineering
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - technology-component
+  - operating-system
+vendor: Canonical
+productName: Ubuntu Server
+productVersion: "22.04 LTS"
+classification: operating-system
+vendorLifecycle:
+  mainstreamSupportEnd: "2027-04-21"
+  extendedSupportEnd: "2032-04-21"
+  notes: Standard Ubuntu LTS support window; AKS-managed node image patching keeps the kernel current within the LTS line.
+capabilities:
+  - 01KQQ4Q026-QM2X
+configurations: []

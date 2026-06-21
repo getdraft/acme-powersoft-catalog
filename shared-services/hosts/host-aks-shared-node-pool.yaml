@@ -1,0 +1,68 @@
+schemaVersion: '1.0'
+uid: H1ZTZXV5F6-C1CZ
+type: host
+name: Shared AKS Node Pool Baseline
+description: >
+  The common AKS node pool configuration (OS image, VM size, ingress-nginx,
+  cert-manager, Datadog DaemonSet) that Infra & DevOps publishes as a
+  Terraform module and that every product team's own cluster is built from.
+  This Host object models that baseline, not any one product's specific
+  cluster instance.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: active
+owner:
+  team: Infrastructure & DevOps Engineering
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - host
+  - kubernetes
+  - shared-service
+architecturalDecisions:
+  externalInteractionRationales:
+    Authentication Platform: Node-level Azure AD-integrated RBAC; no local Kubernetes users exist.
+    Logging Service: Container and node logs forwarded via the Datadog Agent DaemonSet rather than Azure Monitor directly, to keep one log pipeline of record.
+    Monitoring Service: Datadog Kubernetes integration is the single source of node and pod health for every product cluster.
+    Security Monitoring Service: Datadog Cloud Security Management scans node and container configuration against CIS Kubernetes Benchmark.
+    Patch Management Platform: AKS node image auto-upgrade channel set to NodeImage, applying OS and kubelet patches on a weekly maintenance window.
+  internalComponentRationales:
+    Ubuntu 22.04 LTS: Standard AKS-supported node OS image.
+    Azure Standard_D-series v5 VM: General-purpose compute tier sized for typical product workloads; teams with different profiles (Data & Analytics' Spark workers) override the node pool VM size in their own infra/ but inherit this baseline module otherwise.
+operatingSystemComponent: C657R8CNHY-FDK6
+computePlatformComponent: WBCN4NVAYG-RFC8
+internalComponents:
+  - ref: C657R8CNHY-FDK6
+    role: os
+  - ref: WBCN4NVAYG-RFC8
+    role: hardware
+externalInteractions:
+  - name: Authentication Platform
+    notes: Azure AD-integrated Kubernetes RBAC; no local cluster users.
+    capabilities:
+      - 01KQQ4Q026-MHJM
+  - name: Logging Service
+    notes: Datadog Agent DaemonSet collects and forwards container and node logs.
+    capabilities:
+      - 01KQQ4Q026-D04B
+  - name: Monitoring Service
+    notes: Datadog Kubernetes integration tracks node and pod health.
+    capabilities:
+      - 01KQQ4Q026-98VD
+  - name: Security Monitoring Service
+    notes: Datadog Cloud Security Management benchmarks node and container configuration.
+    capabilities:
+      - 01KQQ4Q026-JW52
+  - name: Patch Management Platform
+    notes: AKS NodeImage auto-upgrade channel on a weekly maintenance window.
+    capabilities:
+      - 01KQQ4Q026-BH6E
+requirementGroups:
+  - 01KQQ4Q027-THYN
+  - 8SEDYZHP49-YJHQ
+  - 2EZZ268XWW-B5TP
+  - P6M8FWV2D8-0RM8
+requirementImplementations:
+  - requirementId: VM-01
+    satisfiedBy:
+      mechanism: decisionRecord
+      key: null

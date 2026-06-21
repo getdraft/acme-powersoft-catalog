@@ -1,0 +1,24 @@
+schemaVersion: '1.0'
+uid: WBCN4NVAYG-RFC8
+type: technology_component
+name: Azure Standard_D-series v5 VM
+description: Compute platform underlying the shared AKS node pools -- general-purpose Azure virtual machines.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Infrastructure & DevOps Engineering
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - technology-component
+  - compute-platform
+vendor: Microsoft
+productName: Azure Virtual Machines (Dsv5 series)
+productVersion: "Dsv5"
+classification: compute-platform
+vendorLifecycle:
+  mainstreamSupportEnd: TBD
+  extendedSupportEnd: TBD
+  notes: Continuously available Azure VM series; no fixed retirement date published.
+capabilities:
+  - 01KQQ4Q026-1HZP
+configurations: []
