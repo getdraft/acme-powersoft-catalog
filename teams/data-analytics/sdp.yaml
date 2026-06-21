@@ -1,0 +1,88 @@
+schemaVersion: '1.0'
+uid: 0G96X3TRJA-2NY5
+type: software_deployment_pattern
+name: Acme Insight Hub Pattern
+description: |
+  Deployment pattern for Insight Hub's ELT and analytics pipeline:
+  Airflow on AKS orchestrates extraction from operational stores, lands
+  raw data in the shared ADLS Gen2 landing zone, loads it into the shared
+  Snowflake warehouse, and periodically retrains the churn-risk model.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: existing-only
+owner:
+  team: data-analytics
+  contact: data-analytics@acmepowersoft.example.com
+tags:
+- software-deployment-pattern
+- data-analytics
+businessContext:
+  pillar: business-pillar.data-analytics
+  productFamily: Acme Insight Hub
+architectureNotes:
+  availabilityTarget: best-effort (batch); DAG SLA-miss alerting, not uptime-based
+  availabilityRequirement: >-
+    Single Airflow scheduler (HA mode not yet enabled, DATA-212),
+    horizontally-scalable KubernetesExecutor worker pods.
+  dataClassification: Internal
+  failureDomain:
+    scope: single-region
+    description: Single AKS cluster, single region. Scheduler is a single point of failure for new DAG triggers.
+  patternDeviations: >-
+    The only batch/scheduled workload pattern in the catalog -- every
+    other SDP models request-driven services.
+  deploymentTargets: Shared AKS baseline, East US 2.
+  interServiceConnections: >-
+    Reads from operational product databases (not yet modeled as explicit
+    Relationship objects), writes to the shared ADLS Gen2 landing zone,
+    loads from there into the shared Snowflake warehouse.
+  externalDependencies: Snowflake, Azure Key Vault, Datadog.
+decisionRecords: []
+networkZones:
+- id: orchestration
+  name: Orchestration
+  tier: application
+  description: AKS-hosted Airflow scheduler and worker pods.
+- id: landing
+  name: Landing Zone
+  tier: data
+  description: Shared ADLS Gen2 landing zone (raw data).
+- id: warehouse
+  name: Warehouse
+  tier: data
+  description: Shared Snowflake warehouse (curated data).
+serviceGroups:
+- name: Orchestration
+  deploymentTarget: H1ZTZXV5F6-C1CZ
+  deployableObjects:
+  - ref: VEWWR9JZAC-P285
+    networkZone: orchestration
+    diagramTier: application
+    intent: standalone
+    notes: Single scheduler + scalable worker pool. intent is 'standalone' for the scheduler, not 'ha' -- see DATA-212.
+  - ref: 37AJ772M7W-V27N
+    networkZone: orchestration
+    diagramTier: utility
+    intent: ha
+    notes: Shared Secrets Management service.
+  - ref: FH8VD6HQ69-ZMEG
+    networkZone: orchestration
+    diagramTier: utility
+    intent: ha
+    notes: Shared Observability service.
+- name: Landing Zone
+  deploymentTarget: adls-gen2
+  deployableObjects:
+  - ref: SP7JGWQ9Z3-DR4F
+    networkZone: landing
+    diagramTier: data
+    intent: ha
+    notes: Shared ADLS Gen2 landing zone, cataloged in Phase 4.
+- name: Warehouse
+  deploymentTarget: snowflake
+  deployableObjects:
+  - ref: Z3CAV76ED8-7XEV
+    networkZone: warehouse
+    diagramTier: data
+    intent: ha
+    notes: Shared Snowflake warehouse, cataloged in Phase 4.
