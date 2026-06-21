@@ -1,0 +1,64 @@
+schemaVersion: '1.0'
+uid: 4FV0S214EX-N14E
+type: software_deployment_pattern
+name: Acme Admin Console Pattern
+description: |
+  Deployment pattern for the internal Acme Admin Console: containerized
+  Next.js app on the shared AKS baseline, no independent data store (reads/
+  writes through the Vantage Entitlement API), internal-staff-only access.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: existing-only
+owner:
+  team: infra-devops
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+- software-deployment-pattern
+- infra-devops
+- internal-tool
+businessContext:
+  pillar: business-pillar.platform
+  productFamily: Acme Admin Console
+architectureNotes:
+  availabilityTarget: 99% (internal tool, business-hours usage)
+  availabilityRequirement: Active-active, fixed 2 replicas.
+  dataClassification: Internal
+  failureDomain:
+    scope: single-region
+    description: Single AKS cluster, single region. Lower-impact blast radius than customer-facing products -- support staff lose tooling, customers are unaffected.
+  patternDeviations: >-
+    Lower availability/scalability bar than every other SDP, by design --
+    see the requirement-group-rigor discussion in ONBOARDING.md.
+  deploymentTargets: Shared AKS baseline, East US 2.
+  interServiceConnections: All data access proxied through the Vantage Entitlement API; no direct database connection of its own.
+  externalDependencies: Azure AD B2C, Azure Key Vault, Datadog.
+decisionRecords: []
+networkZones:
+- id: app
+  name: Application
+  tier: application
+  description: AKS-hosted admin console pods, restricted to internal-staff Azure AD app role.
+serviceGroups:
+- name: Application
+  deploymentTarget: H1ZTZXV5F6-C1CZ
+  deployableObjects:
+  - ref: DDKF51GRXT-9VE9
+    networkZone: app
+    diagramTier: application
+    intent: ha
+    notes: Fixed 2 replicas, no autoscaling.
+  - ref: ZV0QNH8M3D-EYW8
+    networkZone: app
+    diagramTier: application
+    intent: ha
+    notes: Shared Identity & Access service, internal-staff app role.
+  - ref: 37AJ772M7W-V27N
+    networkZone: app
+    diagramTier: utility
+    intent: ha
+    notes: Shared Secrets Management service.
+  - ref: FH8VD6HQ69-ZMEG
+    networkZone: app
+    diagramTier: utility
+    intent: ha
+    notes: Shared Observability service.
