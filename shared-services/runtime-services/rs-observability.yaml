@@ -1,0 +1,46 @@
+schemaVersion: '1.0'
+uid: FH8VD6HQ69-ZMEG
+type: runtime_service
+name: Observability Platform (Datadog)
+description: Company-wide metrics, logs, and APM trace aggregation. Every other shared service's "Service Monitoring" external interaction in this catalog resolves here.
+version: 1.0.0
+deliveryModel: saas
+catalogStatus: complete
+lifecycleStatus: active
+owner:
+  team: Infrastructure & DevOps Engineering
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - runtime
+  - observability
+  - shared-service
+host: null
+primaryTechnologyComponent: 792738MBB6-8XMK
+architecturalDecisions:
+  serviceAuthentication: Datadog org access is federated through Azure AD SSO; per-user API keys are disabled org-wide in favor of scoped service account keys reviewed quarterly.
+  secretsManagement: Datadog API and APP keys are stored in the Infra & DevOps Key Vault and injected into agent DaemonSets via CSI secrets store driver, never baked into images.
+  serviceLogging: Datadog's own platform audit log (who changed which monitor/dashboard) is itself a paid add-on enabled for this account and exported to the AU-01 retention archive.
+  healthWelfareMonitoring: Datadog monitors its own agent fleet health (agent-not-reporting monitor); paged to Infra & DevOps on-call if more than 5% of agents go dark for 15 minutes.
+  availabilityModel: Vendor SaaS, multi-region; Acme PowerSoft has no infrastructure responsibility, tracked against Datadog's published status page SLA.
+  scalabilityModel: Per-host/per-container pricing tier scaled automatically as AKS node pools scale; reviewed monthly against the Infra & DevOps cloud cost budget.
+  recoverabilityModel: Dashboards and monitors are defined as code (this repo's dashboards/ directory, mirrored from each product repo) and can be reapplied via the Datadog Terraform provider if the SaaS account configuration were ever lost.
+  failureDomain: An outage degrades visibility into every other shared service and product, but does not itself take production traffic down -- it is purely an observability dependency, not a request-path dependency.
+  externalInteractionRationales: {}
+  internalComponentRationales: {}
+internalComponents:
+  - ref: 792738MBB6-8XMK
+    role: function
+externalInteractions: []
+requirementGroups:
+  - 01KQQ4Q027-K5DR
+  - P6M8FWV2D8-0RM8
+  - KZM0T9NY43-3H8K
+requirementImplementations:
+  - requirementId: AU-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: serviceLogging
+  - requirementId: SLA-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: availabilityModel

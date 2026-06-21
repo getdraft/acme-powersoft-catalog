@@ -1,0 +1,50 @@
+schemaVersion: '1.0'
+uid: 0XWT91WY2F-2RR4
+type: runtime_service
+name: Messaging Backbone (Azure Service Bus)
+description: Cross-product asynchronous event backbone owned by Infra & DevOps on behalf of all product teams.
+version: 1.0.0
+deliveryModel: paas
+catalogStatus: complete
+lifecycleStatus: active
+owner:
+  team: Infrastructure & DevOps Engineering
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - runtime
+  - messaging
+  - shared-service
+host: null
+primaryTechnologyComponent: VKSQHZCHTK-VJP1
+architecturalDecisions:
+  serviceAuthentication: Producers and consumers authenticate via Azure AD workload identity (managed identity per AKS pod); no shared access signature keys are distributed to application code.
+  secretsManagement: No long-lived secrets exist for this service; managed identity tokens are short-lived and issued by Azure AD.
+  serviceLogging: Operational logs (throttling, dead-letter events) stream to Datadog via the Azure Service Bus diagnostic settings integration.
+  healthWelfareMonitoring: Datadog Azure Service Bus integration tracks queue depth, dead-letter count, and active connection count per topic.
+  availabilityModel: Premium tier with availability zone redundancy in East US 2; tracks Microsoft's 99.9% Service Bus Premium SLA.
+  scalabilityModel: Messaging units scaled manually today based on quarterly throughput review; auto-scale evaluation tracked under DEVOPS-211.
+  recoverabilityModel: Geo-disaster recovery paired namespace in Central US, manual failover initiated by Infra & DevOps on-call per RUNBOOK-SB-02.
+  failureDomain: A regional outage affects all cross-product event delivery; producers buffer locally for up to 5 minutes before failing the originating request.
+  externalInteractionRationales: {}
+  internalComponentRationales: {}
+internalComponents:
+  - ref: VKSQHZCHTK-VJP1
+    role: function
+externalInteractions:
+  - name: Service Monitoring
+    notes: Queue depth and dead-letter alerts routed through the shared Observability runtime service.
+    capabilities:
+      - 01KQQ4Q026-98VD
+requirementGroups:
+  - 01KQQ4Q027-K5DR
+  - 1JGV5Y25KN-73W7
+  - KZM0T9NY43-3H8K
+requirementImplementations:
+  - requirementId: DR-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: recoverabilityModel
+  - requirementId: SLA-01
+    satisfiedBy:
+      mechanism: architecturalDecision
+      key: availabilityModel
