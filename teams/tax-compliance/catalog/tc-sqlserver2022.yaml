@@ -1,0 +1,26 @@
+schemaVersion: '1.0'
+uid: TRAS6KGSAC-RGNM
+type: technology_component
+name: SQL Server 2022 (Azure SQL Managed Instance)
+description: |
+  Managed SQL Server used by the modern Tax Fixed Assets depreciation
+  engine. Reusable across other product teams running SQL Server-based
+  databases on Azure SQL Managed Instance.
+version: '2022'
+catalogStatus: complete
+lifecycleStatus: existing-only
+vendorLifecycle:
+  vendor: Microsoft
+  supportStatus: active
+owner:
+  team: tax-compliance
+  contact: tax-compliance@acmepowersoft.example.com
+tags:
+- technology-component
+- database
+- sqlserver
+- shared
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme Tax Suite
+capabilities: []

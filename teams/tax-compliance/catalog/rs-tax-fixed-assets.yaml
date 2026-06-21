@@ -1,0 +1,48 @@
+schemaVersion: '1.0'
+uid: G4GHBWA8G6-ACY2
+type: runtime_service
+name: Tax Fixed Assets Depreciation Engine
+description: |
+  Modern ASP.NET Core service computing book/tax depreciation schedules
+  for the Fixed Assets module. Containerized, deployed to AKS -- unlike
+  its Property Tax sibling, this one fits the schema cleanly.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: existing-only
+primaryTechnologyComponent: 12D3W1HAV5-AA70
+host: H1ZTZXV5F6-C1CZ
+owner:
+  team: tax-compliance
+  contact: tax-compliance@acmepowersoft.example.com
+tags:
+- runtime-service
+- tax-compliance
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme Tax Suite
+capabilities:
+- 01KT0XNZEY-Q2TF
+requirementGroups:
+- 01KQQ4Q027-K5DR
+- 8SEDYZHP49-YJHQ
+- KKDJGX6P7C-N9AR
+architecturalDecisions:
+  serviceAuthentication:
+    answer: Azure AD B2C via the shared Identity & Access runtime service.
+    satisfiedBy: relatedObject
+  secretsManagement:
+    answer: Connection strings in Key Vault via the shared Secrets Management runtime service.
+    satisfiedBy: relatedObject
+  serviceLogging:
+    answer: Forwarded to the shared Observability runtime service.
+    satisfiedBy: relatedObject
+  healthWelfareMonitoring:
+    answer: Liveness/readiness probes; alerts via the shared Observability runtime service.
+  availabilityModel:
+    answer: Active-active, 2-6 replicas. 99.5% target -- one tier below Vantage since this isn't a hard dependency for other products.
+  scalabilityModel:
+    answer: Horizontal pod autoscaling on CPU.
+  recoverabilityModel:
+    answer: Stateless; state lives in the Tax Fixed Assets SQL database.
+  failureDomain:
+    answer: Single AKS cluster, single region. Same regional concentration risk as Vantage.
