@@ -1,0 +1,33 @@
+schemaVersion: '1.0'
+uid: 5Q5CZMHNTR-71A8
+type: technology_component
+name: Azure Key Vault
+description: >
+  Centralized secrets, key, and certificate store. Every product team's
+  database connection secrets, API keys, and TLS certificates are stored in
+  a Key Vault instance rather than in source control or environment files.
+version: 1.0.0
+catalogStatus: complete
+owner:
+  team: Infrastructure & DevOps Engineering
+  contact: infra-devops@acmepowersoft.example.com
+tags:
+  - technology-component
+  - secrets-management
+  - paas
+vendor: Microsoft
+productName: Azure Key Vault
+productVersion: "Premium (HSM-backed)"
+classification: software
+vendorLifecycle:
+  mainstreamSupportEnd: TBD
+  extendedSupportEnd: TBD
+  notes: Continuously released first-party Azure service.
+capabilities:
+  - 01KQQ4Q026-DTJJ
+configurations:
+  - id: per-product-vault
+    name: One Vault Per Product, RBAC-Scoped
+    description: Each product team owns a dedicated Key Vault instance scoped by Azure RBAC to that team's AKS workload identities; no team can read another team's secrets.
+    capabilities:
+      - 01KQQ4Q026-DTJJ
