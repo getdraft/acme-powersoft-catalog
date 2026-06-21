@@ -1,0 +1,328 @@
+schemaVersion: '1.0'
+type: software_deployment_pattern
+requiredFields:
+- schemaVersion
+- uid
+- type
+- name
+- catalogStatus
+- lifecycleStatus
+defaultOwnerRole: engineering
+optionalFields:
+- aliases
+- description
+- version
+- owner
+- tags
+- businessContext
+- followsReferenceArchitecture
+- architectureNotes
+- scalingUnits
+- networkZones
+- serviceGroups
+- decisionRecords
+- requirementImplementations
+- tierVariants
+enumFields:
+  catalogStatus:
+  - stub
+  - incomplete
+  - complete
+  lifecycleStatus:
+  - candidate
+  - preferred
+  - existing-only
+  - deprecated
+  - retired
+fieldTypes:
+  aliases: list
+  owner: dict
+  tags: list
+  businessContext: dict
+  architectureNotes: dict
+architectureNotes:
+  optionalFields:
+  - availabilityTarget
+  - availabilityRequirement
+  - dataClassification
+  - failureDomain
+  - patternDeviations
+  fieldTypes:
+    failureDomain: dict
+  fieldDescriptions:
+    availabilityTarget: >
+      Structured availability target expressed as a percentage string (e.g. "99.9%",
+      "99.95%", "99.99%"). Use alongside availabilityRequirement for the human-readable
+      narrative if needed.
+    failureDomain: >
+      Structured failure domain describing the blast radius of a component or service
+      failure. Use scope for the controlled-vocabulary tier and description for the
+      human-readable narrative.
+  failureDomain:
+    optionalFields:
+    - scope
+    - description
+    enumFields:
+      scope:
+      - platform-wide
+      - service-group
+      - component
+      - isolated
+    fieldDescriptions:
+      scope: >
+        Controlled-vocabulary blast-radius tier. platform-wide = failure affects all
+        tenants or all services; service-group = failure isolates to one deployment
+        group; component = failure isolates to one service or process; isolated =
+        failure has no impact beyond the component itself (e.g. optional telemetry).
+      description: Human-readable narrative elaborating on the failure domain scope.
+  scalingUnits: list
+  networkZones: list
+  serviceGroups: list
+  decisionRecords: list
+  requirementGroups: list
+  requirementImplementations: list
+  tierVariants: list
+collectionSchemas:
+  scalingUnits: scalingUnit
+  networkZones: networkZone
+  serviceGroups: serviceGroup
+  decisionRecords: decisionRecordRef
+  requirementImplementations: requirementImplementation
+  tierVariants: tierVariant
+dictSubSchemas:
+  businessContext: businessContext
+businessContext:
+  optionalFields:
+  - pillar
+  - additionalPillars
+  - productFamily
+  - ownerNode
+  - notes
+  fieldTypes:
+    pillar: str
+    additionalPillars: list
+    productFamily: str
+    ownerNode: str
+    notes: str
+  fieldDescriptions:
+    pillar: Reference the top-level business pillar ID (e.g. business-pillar.infrastructure).
+    additionalPillars: List of additional business pillar IDs that apply to this pattern.
+    productFamily: Text name of the product family this pattern belongs to.
+    ownerNode: ID of a node in the hierarchical business taxonomy (e.g., team, division, or business_unit).
+    notes: Additional context about the business ownership or context.
+scalingUnit:
+  requiredFields:
+  - name
+  - type
+  optionalFields:
+  - instanceCount
+  - notes
+  enumFields:
+    type:
+    - replicable
+    - shared
+networkZone:
+  requiredFields:
+  - id
+  - name
+  optionalFields:
+  - tier
+  - description
+  enumFields:
+    tier:
+    - frontend
+    - application
+    - data
+  fieldDescriptions:
+    tier: >
+      Optional classification that determines which tier-level requirements apply to
+      all services in this zone. frontend = internet-facing presentation and edge
+      controls; application = internal service and API controls; data = persistence,
+      encryption-at-rest, and backup controls. Omit for operational or management
+      zones that do not map cleanly to a tier requirement set.
+  aiHint: >
+    A network zone is a logical traffic boundary within a deployment — for example
+    a public-facing web zone, private application zone, restricted data zone, or
+    unclassified operations zone. Classify the zone with a tier (frontend /
+    application / data) when it maps cleanly to one of those requirement classes;
+    leave tier unset for management, CI/CD, or mixed-purpose zones. Use workspace
+    vocabulary list networkZones for approved zone IDs.
+serviceGroup:
+  requiredFields:
+  - name
+  - deploymentTarget
+  optionalFields:
+  - substrate
+  - scalingUnit
+  - deployableObjects
+  fieldTypes:
+    substrate: str
+    deployableObjects: list
+  collectionSchemas:
+    deployableObjects: deployableObjectEntry
+  fieldDescriptions:
+    substrate: >
+      UID of the RuntimeService or Host that hosts the
+      ProductComponents in this service group. When set, the hosting runtime is
+      rendered as the deployment container for this group in the browser and does
+      not need to appear as a separate entry in deployableObjects. List only
+      ProductComponents (and any DataComponents) in deployableObjects. Omit
+      substrate when this service group is a data-tier group whose primary object
+      is a DataStoreService — DataStoreServices remain in deployableObjects because
+      they are relationship targets for other groups.
+    deploymentTarget: >
+      Workspace vocabulary value identifying the physical or logical deployment
+      target for this service group (e.g. aws-us-east-1, openstack-controller).
+      Records where this group lands; tier-specific overrides go in
+      tierVariants.serviceGroupVariants.
+  aiHint: >
+    A service group is one deployment unit within an SDP — a set of objects that
+    share a deployment target, network placement, and scaling boundary. Use
+    substrate to declare the hosting runtime (RuntimeService or Host) when this
+    group contains ProductComponents; list only the
+    ProductComponents in deployableObjects rather than repeating the runtime
+    alongside them. For data-tier groups whose primary object is a DataStoreService,
+    leave substrate unset and include the DataStoreService in deployableObjects so
+    other groups can reference it as a relationship target.
+deployableObjectEntry:
+  requiredFields:
+  - ref
+  optionalFields:
+  - networkZone
+  - diagramTier
+  - intent
+  - instance
+  - riskRef
+  - notes
+  enumFields:
+    diagramTier:
+    - presentation
+    - application
+    - data
+    - utility
+    intent:
+    - ha
+    - sa
+  fieldDescriptions:
+    networkZone: >
+      ID of a networkZone declared on this SDP. The zone's tier classification
+      determines which tier requirements apply to this service. Required for
+      topology diagram rendering.
+decisionRecordRef:
+  requiredFields:
+  - ref
+requirementImplementation:
+  requiredFields:
+  - requirementGroup
+  - requirementId
+  - status
+  optionalFields:
+  - mechanism
+  - key
+  - equals
+  - criteria
+  - ref
+  - notes
+  fieldDescriptions:
+    requirementGroup: Reference the requirement_group object that owns this requirement.
+    requirementId: Reference the requirement id within the requirement group.
+    status: Use satisfied, not-applicable, or not-compliant to record the object disposition.
+  enumFields:
+    status:
+    - satisfied
+    - not-applicable
+    - not-compliant
+    mechanism:
+    - technologyComponent
+    - technologyComponentConfiguration
+    - deploymentConfiguration
+    - relationship
+    - internalComponent
+    - decisionRecord
+    - field
+  fieldTypes:
+    criteria: dict
+tierVariant:
+  requiredFields:
+  - tier
+  optionalFields:
+  - deploymentTarget
+  - serviceGroupVariants
+  - notes
+  fieldTypes:
+    deploymentTarget: dict
+    serviceGroupVariants: list
+  collectionSchemas:
+    serviceGroupVariants: serviceGroupVariant
+  deploymentTarget:
+    requiredFields:
+    - provider
+    optionalFields:
+    - region
+    enumFields:
+      provider:
+      - aws
+      - azure
+      - gcp
+      - on-premises
+      - other
+    fieldDescriptions:
+      provider: Cloud or infrastructure provider for this tier's deployment target.
+      region: >
+        Provider region or datacenter identifier (e.g. us-east-1, eastus). Omit when
+        region is pipeline-controlled or not yet decided.
+  fieldDescriptions:
+    tier: UID of the environment_tier object this variant applies to.
+    deploymentTarget: >
+      Provider and optional region where this SDP deploys for this environment tier.
+      Captures the architectural decision (e.g. "we deploy to AWS us-east-1 in prod")
+      without encoding operational values like account IDs — those belong in the
+      parameterSurface of the environment_tier.
+    serviceGroupVariants: >
+      List of per-service-group architectural deltas that apply in this tier. Omit
+      service groups whose architecture is identical across tiers.
+    notes: Free-text notes about architectural choices specific to this tier.
+serviceGroupVariant:
+  requiredFields:
+  - serviceGroup
+  optionalFields:
+  - replicaCount
+  - autoscaling
+  - notes
+  fieldTypes:
+    autoscaling: dict
+  autoscaling:
+    requiredFields:
+    - enabled
+    optionalFields:
+    - min
+    - max
+    fieldDescriptions:
+      enabled: Whether autoscaling is active for this service group in this tier.
+      min: Minimum replica count when autoscaling is enabled.
+      max: Maximum replica count when autoscaling is enabled.
+  fieldDescriptions:
+    serviceGroup: >
+      Name of the serviceGroup declared on this SDP whose replica or scaling behavior
+      differs in this tier from the default.
+    replicaCount: >
+      Static replica count for this service group in this tier. Omit when autoscaling
+      is enabled or when the default (typically 1) applies.
+    autoscaling: Autoscaling configuration for this service group in this tier.
+    notes: Notes on why this service group behaves differently in this tier.
+aiHint: A SoftwareDeploymentPattern describes intended product deployment architecture in terms of deployable objects, topology, decisions, and risks.
+fieldDescriptions:
+  schemaVersion: Use the schema version string supported by this framework release, normally "1.0".
+  type: Use the exact object type declared by the matching schema.
+  name: Use a clear human-readable name for the object.
+  catalogStatus: Use stub, incomplete, or complete to describe catalog maturity, not company adoption disposition.
+  lifecycleStatus: Use candidate, preferred, existing-only, deprecated, or retired where this object still carries a lifecycle signal.
+  businessContext: Use workspace-defined business taxonomy values, especially businessContext.pillar, to identify which company portfolio or pillar owns this deployment pattern.
+  uid: Use the generated opaque UID for object identity. Do not edit it for display-name, product-name, or taxonomy changes.
+  aliases: List prior or alternate human-readable names that should resolve to this object.
+  tierVariants: >
+    Per-environment-tier architectural declarations for this SDP. Each entry references
+    an environment_tier UID and captures where this SDP deploys (provider + region) and
+    how individual service groups differ (replica count, autoscaling) in that tier.
+    Approved SDPs should have a tierVariant for every active environment tier.
+uidPattern: ^[0-9A-HJKMNP-TV-Z]{10}-[0-9A-HJKMNP-TV-Z]{4}$

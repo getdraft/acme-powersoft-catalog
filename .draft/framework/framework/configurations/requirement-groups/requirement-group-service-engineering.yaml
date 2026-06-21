@@ -1,0 +1,81 @@
+schemaVersion: '1.0'
+uid: 01KSF29JTP-SRVE
+type: requirement_group
+name: Service Engineering Practices RequirementGroup
+description: Optional checklist for self-managed Runtime and NetworkServices covering advanced observability and runtime patterns. Activated per workspace; does not fire automatically.
+version: 1.0.0
+catalogStatus: complete
+authority:
+  name: DRAFT Framework
+  shortName: DRAFT
+  source: DRAFT Framework
+activation: workspace
+appliesTo:
+- runtime_service
+- network_service
+requirements:
+- id: application-performance-monitoring
+  description: The service may declare how application performance and tracing data is captured.
+  rationale: APM tracing enables latency profiling, distributed trace correlation, and error root-cause analysis beyond what host-level metrics provide.
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-NB1W
+    example: A relationship object where source is this service and the relationship has the apm capability, pointing to a modeled APM or tracing backend service.
+  - mechanism: internalComponent
+    criteria:
+      capability: 01KQQ4Q026-NB1W
+    example: An APM agent or instrumentation library installed as an internalComponent.
+  - mechanism: decisionRecord
+    key: apm
+    example: 'A committed DecisionRecord, referenced from decisionRecords with key: apm, recording this decision (or why it is not applicable).'
+  minimumSatisfactions: 1
+  relatedCapability: 01KQQ4Q026-NB1W
+  requirementMode: mandatory
+  naAllowed: true
+  validAnswerTypes:
+  - decisionRecord
+  - relationship
+  - internalComponent
+- id: container-orchestration
+  description: The service may declare its container orchestration runtime when running in a containerized environment.
+  rationale: Container orchestration determines scheduling, scaling, and health management behavior for containerized services.
+  canBeSatisfiedBy:
+  - mechanism: internalComponent
+    criteria:
+      capability: 01KQQ4Q026-GW5D
+    example: A container orchestration platform (Kubernetes, ECS, Nomad) declared as an internalComponent.
+  - mechanism: decisionRecord
+    key: containerRuntime
+    example: 'A committed DecisionRecord, referenced from decisionRecords with key: containerRuntime, recording this decision (or why it is not applicable).'
+  minimumSatisfactions: 1
+  relatedCapability: 01KQQ4Q026-GW5D
+  requirementMode: mandatory
+  naAllowed: true
+  validAnswerTypes:
+  - decisionRecord
+  - internalComponent
+- id: serverless-runtime
+  description: The service may declare its serverless execution runtime when using a function-as-a-service delivery model.
+  rationale: The serverless runtime determines cold start behavior, concurrency limits, execution duration, and billing model.
+  canBeSatisfiedBy:
+  - mechanism: internalComponent
+    criteria:
+      capability: 01KQQ4Q026-3ZWJ
+    example: A serverless platform (AWS Lambda, Azure Functions, Google Cloud Run) declared as an internalComponent.
+  - mechanism: decisionRecord
+    key: serverlessRuntime
+    example: 'A committed DecisionRecord, referenced from decisionRecords with key: serverlessRuntime, recording this decision (or why it is not applicable).'
+  minimumSatisfactions: 1
+  relatedCapability: 01KQQ4Q026-3ZWJ
+  requirementMode: mandatory
+  naAllowed: true
+  validAnswerTypes:
+  - decisionRecord
+  - internalComponent
+lifecycleStatus: candidate
+tags:
+- service
+- requirement-group
+- engineering
+- optional

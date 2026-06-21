@@ -1,0 +1,181 @@
+schemaVersion: "1.0"
+description: >
+  Log of /framework-review sessions. Each entry records the framework version,
+  scope, and disposition of every finding explored. Commit this file after each
+  session so the review history is visible in git.
+
+  Valid outcome values: implemented | discussed | dropped | deferred
+
+reviews:
+- date: 2026-05-29
+  frameworkVersion: "0.28.5"
+  scope: full
+  reviewedBy: framework maintainer
+  findingsGenerated: 10
+  findings:
+  - title: Dual connection model
+    severity: High
+    outcome: implemented
+  - title: Object model depth creates population paralysis
+    severity: High
+    outcome: dropped
+    note: Stub/defer model already handles this by design; reuse model makes population cost much lower than initial analysis suggested
+  - title: Three-dimension status taxonomy
+    severity: Medium
+    outcome: dropped
+    note: Each dimension serves a different audience; Draftsman manages catalogStatus automatically; lifecycleStatus and requirementImplementation.status are intentionally separate
+  - title: externalInteraction mechanism orphaned
+    severity: Medium
+    outcome: implemented
+  - title: AI instruction surface fragile and overlapping
+    severity: Medium
+    outcome: implemented
+  - title: Onboarding 9-step barrier
+    severity: High
+    outcome: dropped
+    note: Setup mode is for Draft Admins only, not engineers; 9 steps are appropriate for that audience; framing and audience declaration added instead
+  - title: Schema redundancy across 6 schemas
+    severity: Low
+    outcome: dropped
+    note: Maintenance cost of occasional multi-file edit is lower than complexity cost of consolidation; fix is documentation not code
+  - title: PaaS/SaaS fast-path absent
+    severity: Medium
+    outcome: dropped
+    note: Stub-and-defer model already handles missing infrastructure objects; not a real blocker
+  - title: Capability governance one-directional
+    severity: Low
+    outcome: dropped
+    note: Conditional approvals are intentionally excluded by design; binary governance is a stated principle
+  - title: No value ladder or progressive disclosure story
+    severity: Medium
+    outcome: dropped
+    note: Roles-and-layers document and design principles address this; no separate value ladder needed
+
+- date: 2026-05-30
+  frameworkVersion: "0.31.2"
+  scope: full
+  reviewedBy: framework maintainer
+  findingsGenerated: 4
+  findings:
+  - title: Redundant lifecycleStatus on First-Party Code
+    severity: High
+    outcome: implemented
+  - title: Manual and Fragile Symlink Setup for IDEs
+    severity: Medium
+    outcome: deferred
+  - title: Lack of Directed Graph Cycle Check in runsOn
+    severity: Medium
+    outcome: deferred
+  - title: Unified All-or-Nothing Validation Fatigue
+    severity: Medium
+    outcome: deferred
+
+- date: 2026-05-30
+  frameworkVersion: "0.32.0"
+  scope: [full, docs, onboarding]
+  findingsGenerated: 7
+  findings:
+  - title: Vendored template paths are broken
+    severity: High
+    outcome: implemented
+    note: Shipped 0.30.1; CODEOWNERS and object-patch template paths corrected
+  - title: Catalog folder names differ across sources
+    severity: High
+    outcome: implemented
+    note: network-services routing 0.30.2 plus scaffold taxonomy realignment 0.31.2
+  - title: '"Data-at-Rest Service" vs "DataStoreService" drift'
+    severity: Medium
+    outcome: implemented
+    note: Shipped 0.31.0 as spaced "Data Store Service"; later superseded by finding 7's uniform PascalCase in 0.32.0
+  - title: Conversation-cadence instructions contradict
+    severity: Medium
+    outcome: implemented
+    note: Shipped 0.31.1; record in session, do not display a running backlog
+  - title: Workspace template scaffolds retired concepts
+    severity: Medium
+    outcome: implemented
+    note: Shipped 0.31.2; scaffold catalog/configuration tree realigned to examples
+  - title: draftsman.md is a 939-line monolith (residual)
+    severity: Low
+    outcome: dropped
+    note: Maintainer chose to keep the single canonical role document
+  - title: 'Object-type labels: PascalCase vs spaced (all types)'
+    severity: Medium
+    outcome: implemented
+    note: Spawned from finding 3; shipped 0.32.0 as uniform PascalCase across the entire framework
+
+- date: 2026-06-01
+  frameworkVersion: "0.42.0"
+  scope: [full, schemas, browser, validator]
+  findingsGenerated: 6
+  findings:
+  - title: Capability satisfaction limited to TechnologyComponents
+    severity: High
+    outcome: implemented
+    note: Expanded capability implementations in schema/validator to allow shared operational services (runtime_service, data_store_service, network_service) in addition to technology_component.
+  - title: Missing recursive system boundaries
+    severity: High
+    outcome: implemented
+    note: Enabled system objects to recursively contain other system objects under the system's containers list to support nested subsystems.
+  - title: Empty domains shown on Acceptable Use view
+    severity: Medium
+    outcome: implemented
+    note: Filtered out empty domain cards from the Acceptable Use view to reduce clutter.
+  - title: UID displayed as main label for unresolved components
+    severity: Medium
+    outcome: implemented
+    note: Rendered 'Unresolved Component Reference' as the primary card label for unresolved components, placing the raw UID in the smaller subtitle.
+  - title: Absence of automated lifecycle dates
+    severity: Low
+    outcome: deferred
+    note: Discussed automating lifecycle dates based on status, but deferred to avoid validation complexity and allow explicit manual definitions first.
+  - title: Vocabulary registration double-binding redundancy
+    severity: Low
+    outcome: deferred
+    note: Reviewed vocabulary sources and registration paths; deferred to avoid unnecessary refactoring until more diverse catalog configurations are ingested.
+
+- date: 2026-06-05
+  frameworkVersion: "0.50.0"
+  scope: full
+  reviewedBy: framework maintainer
+  findingsGenerated: 4
+  findings:
+  - title: Flat Business Taxonomy Restricts Enterprise Scaling
+    severity: Medium
+    outcome: deferred
+    note: GitHub issue #113 opened to track design and implementation.
+  - title: Manual Symbolic Link Setup for IDE Configurations
+    severity: Medium
+    outcome: deferred
+    note: GitHub issue #114 opened to automate setup via helper script.
+  - title: High Verbosity of Separated Relationship Files
+    severity: Low
+    outcome: discussed
+    note: Discussion #115 opened on single-instance inline relationships vs reusable objects.
+  - title: Rigid Validation of Deployment Targets Vocabulary
+    severity: Low
+    outcome: dropped
+    note: Strict validation is an intentional design constraint to ensure automation safety since YAML is AI-managed.
+
+- date: 2026-06-12
+  frameworkVersion: "0.57.5"
+  scope: full
+  reviewedBy: framework maintainer
+  findingsGenerated: 4
+  findings:
+  - title: architectureNote in requirementImplementation.mechanism enum
+    severity: High
+    outcome: implemented
+    note: All 9 object schemas listed architectureNote instead of decisionRecord in the mechanism enum. Fixed across host, runtime-service, data-store-service, network-service, software-deployment-pattern, data-component, ai-gateway, reference-architecture, and product-component schemas.
+  - title: diagramTier absent from SDP deployableObjectEntry
+    severity: Medium
+    outcome: implemented
+    note: The RA schema already declared diagramTier; the SDP schema was missing it. Added diagramTier with presentation/application/data/utility enum to SDP deployableObjectEntry.
+  - title: serverless listed as valid deliveryModel in repair procedures
+    severity: Medium
+    outcome: implemented
+    note: draftsman.md Validation Repair Procedures table listed serverless as a valid deliveryModel value; no schema carries that enum value. Removed from the repair guidance.
+  - title: Duplicate Add A RequirementGroup section in how-to-add-objects.md
+    severity: Low
+    outcome: implemented
+    note: Removed the shorter, incomplete first instance. The fuller canonical section covering externalControlId, authority.shortName, and provider-pack paths is retained.

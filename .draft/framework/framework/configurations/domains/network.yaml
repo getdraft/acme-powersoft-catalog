@@ -1,0 +1,9 @@
+schemaVersion: '1.0'
+uid: 01KSWVZSZ5-4WKE
+type: domain
+name: Network
+description: >
+  Strategic domain covering network fabric infrastructure, connectivity, and
+  segmentation. Capabilities in this domain are governed by the network team,
+  who owns the HOW decisions for switching, routing, WAN, and traffic management
+  technology.

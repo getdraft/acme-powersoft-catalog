@@ -1,0 +1,116 @@
+# AI Agent Instructions
+
+This repository is Acme PowerSoft DRAFT Workspace. Any AI assistant connected to this repo
+should use this file as the bootstrap contract before answering architecture
+catalog authoring requests for Acme PowerSoft.
+
+## Immediate Bootstrap
+
+1. Read [.draft/framework/AGENTS.md](.draft/framework/AGENTS.md).
+2. Read [.draft/framework/docs/draftsman.md](.draft/framework/docs/draftsman.md).
+3. Read [.draft/framework/AI_INDEX.md](.draft/framework/AI_INDEX.md) for the
+   approved framework version's schemas, templates, base configurations, and
+   tools.
+4. Read [.draft/workspace.yaml](.draft/workspace.yaml) for Acme PowerSoft
+   workspace metadata, active RequirementGroups, business taxonomy, and
+   company vocabulary lists.
+5. Read [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) as the single
+   source of truth for Acme PowerSoft branching strategy, pull request, and
+   review process.
+6. Read any company-specific AI instruction overlay files in [.draft/instructions/](.draft/instructions/) (if present) for local repository guidelines, custom prompt extensions, and review policies.
+7. Use [.draft/framework/schemas/](.draft/framework/schemas/) as the
+   authoritative schema contract.
+8. Use [.draft/framework/configurations/](.draft/framework/configurations/),
+   optional `.draft/providers/*/configurations/`, local `configurations/`, and
+   local `catalog/` as the effective DRAFT model.
+
+## Draftsman Activation
+
+When the user says "I need a draftsman", "act as draftsman", or asks to build
+or update DRAFT architecture content, immediately assume the Draftsman role
+defined in [.draft/framework/docs/draftsman.md](.draft/framework/docs/draftsman.md).
+When the user asks to set up DRAFT, start onboarding, or make the DRAFT
+workspace useful, enter Draftsman setup mode from
+[.draft/framework/docs/setup-mode.md](.draft/framework/docs/setup-mode.md).
+
+When the user types `/draft <verb>` (for example `/draft guide`,
+`/draft review`, or `/draft validate`), read
+`.draft/framework/commands/draft.md`, resolve the verb to its action file under
+`.draft/framework/draft-actions/`, and follow that file's instructions exactly.
+In Codex and other generic AI tools, `/draft <verb>` is a typed command phrase
+handled through this bootstrap file; it is not a native slash-command
+registration unless the tool explicitly provides that feature.
+
+Do not ask what "draftsman" means. In this repo, it means:
+
+- resolve the user's intent
+- search the effective catalog inventory first
+- read the matching schema and RequirementGroup
+- interview the user only for missing architecture facts, asking at most three
+  focused questions at a time
+- create or update valid YAML in the appropriate Acme PowerSoft workspace path
+- offer declared vocabulary choices and call answers outside approved choices
+  non-standard values that can be revisited or proposed for review
+- preserve unresolved uncertainty in a DraftingSession when needed
+- keep the user aware of the current step, next step, remaining work, and
+  revisit-later items
+
+## Available Commands
+
+If a user asks what commands are available or what they can do here, share this
+table:
+
+| Command | What it does |
+|---|---|
+| `/draft` (or `/draft help`) | List available DRAFT verbs |
+| `/draft guide [intent]` | Start a Draftsman session for authoring, workspace setup, or a guided DraftingSession |
+| `/draft review [PR\|security\|path]` | Review an open PR for catalog correctness, or audit catalog content for quality and security compliance |
+| `/draft update` | Check for framework updates and guide a safe upgrade |
+
+Claude Code users see `/draft` in `/` autocomplete when the command symlink is
+installed. Codex, Gemini, Copilot, Cursor, Windsurf, and other AI tools respond
+to the same `/draft <verb>` phrases when typed in chat or matched by their
+project instruction files. If the tool does not support slash commands, any
+natural-language request to "act as a Draftsman" activates the same role.
+
+## Workspace Boundary
+
+Acme PowerSoft architecture content belongs in:
+
+- `catalog/` for architecture inventory
+- `configurations/` for Acme PowerSoft capabilities, RequirementGroups,
+  domains, vocabulary source files, vocabulary proposals, and object-patch overlays
+- `.draft/workspace.yaml` for workspace metadata when explicitly requested
+
+Do not edit `.draft/framework/**` or `.draft/framework.lock` during normal
+Draftsman authoring. Those files are a vendored framework copy and sync state.
+Framework updates must use an explicit framework refresh/update workflow and be
+reviewed as ordinary Git changes.
+
+If normal drafting reveals a likely DRAFT framework bug, reusable framework
+feature request, validator defect, schema gap, template problem, or unclear
+`/draft` command behavior, do not patch around it in `.draft/framework/**`.
+Explain that it appears framework-owned and recommend submitting an upstream
+report to the public `getdraft/draftsman` repository. Ask for confirmation
+before creating any public issue, use the appropriate DRAFT framework bug or
+feature request template, include framework version/source/ref/commit when
+available, and sanitize Acme PowerSoft details.
+
+Do not write Acme PowerSoft architecture content into the upstream DRAFT framework
+repository. If the selected repository is the upstream `draft-framework` repo
+instead of Acme PowerSoft DRAFT Workspace, ask the user for the company-specific DRAFT repo
+path before making content changes.
+
+## Validation
+
+Before presenting completed changes, run:
+
+```bash
+python3 .draft/framework/tools/validate.py --workspace .
+```
+
+When catalog or configuration content changes, regenerate the browser:
+
+```bash
+python3 .draft/framework/tools/generate_browser.py --workspace . --output docs/index.html
+```

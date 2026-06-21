@@ -1,0 +1,27 @@
+schemaVersion: "1.0"
+uid: <generated-uid>
+type: requirement_group
+name: <RequirementGroup Name>
+aliases: []
+description: <What this group requires and when it applies.>
+version: 1.0.0
+catalogStatus: draft
+owner:
+  team: <owning-team>
+  contact: <team-or-person@example.com>
+activation: <always|workspace>
+appliesTo:
+  - <object_type>
+requirements:
+  - id: <requirement-id>
+    description: <Question or required answer in actionable language.>
+    rationale: <Why this answer is required.>
+    relatedCapability: <capability-uid>
+    requirementMode: mandatory
+    naAllowed: false
+    canBeSatisfiedBy:
+      - mechanism: architecturalDecision
+        key: <architecturalDecisionKey>
+    minimumSatisfactions: 1
+    validAnswerTypes:
+      - architecturalDecision

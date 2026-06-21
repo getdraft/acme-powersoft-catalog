@@ -1,0 +1,67 @@
+# DRAFT Framework
+
+DRAFT is the Deployable Reference Architecture Framework Toolkit. This
+repository is the upstream framework for creating machine-readable,
+deployable architecture catalogs in private company DRAFT repos. Company repos
+vendor a reviewed framework copy under `.draft/framework/`.
+
+## AI Bootstrap
+
+- Canonical AI instructions: AGENTS.md
+- Draftsman role: framework/docs/draftsman.md
+- Draftsman setup mode: framework/docs/setup-mode.md
+- Draftsman AI guidance: framework/docs/draftsman-ai-configuration.md
+- Engineering onboarding tutorial: framework/docs/engineering-onboarding.md
+- Shared Services onboarding tutorial: framework/docs/shared-services-onboarding.md
+- Draft Admins onboarding tutorial: framework/docs/draft-admins-onboarding.md
+- Company vocabulary model: framework/docs/company-vocabulary.md
+- v1.0 roadmap: ROADMAP.md
+- Framework index: AI_INDEX.md
+- Schema reference: framework/docs/yaml-schema-reference.md
+- RequirementGroups: framework/docs/requirement-groups.md
+- Capabilities: framework/docs/capabilities.md
+- Validation command: python3 framework/tools/validate.py
+
+## Core Concepts
+
+- TechnologyComponent: a third-party product, operating system, platform,
+  software, or agent object.
+- Host: an operational platform that combines an operating system, compute
+  platform, and required host capabilities.
+- RuntimeService: reusable runtime behavior such as web, app, cache, worker,
+  messaging, or serverless runtime.
+- DataStoreService: durable data behavior such as database, file, object,
+  search, analytics, or storage.
+- NetworkService: network or traffic-control behavior such as routing,
+  switching, segmentation, DNS, WAN, load balancing, ingress, WAF,
+  firewalling, proxying, or traffic inspection.
+- Delivery Model: self-managed, PaaS, SaaS, and appliance are delivery models
+  for service objects, not separate object types.
+- ReferenceArchitecture: a reusable deployment pattern.
+- SoftwareDeploymentPattern: a product-specific intended deployment shape.
+- RequirementGroup: the unified interview, completeness, and control evidence
+  model.
+- Capability: an architecture capability that resolves to company-approved
+  TechnologyComponent implementations.
+- Company Vocabulary: optional workspace lists for deployment targets, data
+  classifications, team IDs, availability tiers, and failure domains.
+- DecisionRecord: a deployment risk or architecture decision.
+- DraftingSession: resumable state for incomplete authoring work.
+- Effective Model: vendored framework base configurations plus private company
+  configurations plus private company catalog content.
+
+## Important Paths
+
+- README.md
+- AGENTS.md
+- AI_INDEX.md
+- ROADMAP.md
+- framework/docs/
+- framework/schemas/
+- framework/configurations/
+- templates/
+- examples/catalog/
+- docs/index.html
+- framework/tools/validate.py
+- framework/tools/generate_browser.py
+- framework/tools/generate_ai_index.py

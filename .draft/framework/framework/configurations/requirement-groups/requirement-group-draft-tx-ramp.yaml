@@ -1,0 +1,414 @@
+schemaVersion: '1.0'
+uid: 01KQQ4Q027-1GHC
+type: requirement_group
+name: TX-RAMP RequirementGroup
+description: |
+  Starter TX-RAMP requirement group for DRAFT. This file is intended to map TX-RAMP control expectations onto the unified DRAFT requirement model.
+version: 0.1.0
+catalogStatus: incomplete
+activation: workspace
+appliesTo:
+- data_store_service
+- host
+- product_component
+- runtime_service
+- network_service
+- software_deployment_pattern
+provider:
+  id: provider.draft-framework
+  type: framework
+  name: DRAFT Framework
+authority:
+  name: Texas Department of Information Resources
+  shortName: TX-RAMP
+  source: TX-RAMP
+requirements:
+- id: AC-2
+  externalControlId: AC-2
+  name: Account Management and Centralized Authentication
+  description: Account Management and Centralized Authentication
+  rationale: Record how this object satisfies AC-2 for TX-RAMP.
+  appliesTo:
+  - host
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-MHJM
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-MHJM
+  - mechanism: decisionRecord
+    key: authentication
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: authentication, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - relationship
+  - technologyComponentConfiguration
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-MHJM
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+- id: AU-2
+  externalControlId: AU-2
+  name: Auditable Event Logging
+  description: Auditable Event Logging
+  rationale: Record how this object satisfies AU-2 for TX-RAMP.
+  appliesTo:
+  - host
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-D04B
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-D04B
+  - mechanism: decisionRecord
+    key: log_management
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: log_management, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - technologyComponentConfiguration
+  - relationship
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-D04B
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+- id: SI-4
+  externalControlId: SI-4
+  name: Security Monitoring
+  description: Security Monitoring
+  rationale: Record how this object satisfies SI-4 for TX-RAMP.
+  appliesTo:
+  - host
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: technologyComponent
+    criteria:
+      capability: 01KQQ4Q026-JW52
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-JW52
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-JW52
+  - mechanism: decisionRecord
+    key: security_monitoring
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: security_monitoring, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - technologyComponent
+  - technologyComponentConfiguration
+  - relationship
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-JW52
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+- id: CM-3
+  externalControlId: CM-3
+  name: Configuration Change Control and Patching
+  description: Configuration Change Control and Patching
+  rationale: Record how this object satisfies CM-3 for TX-RAMP.
+  appliesTo:
+  - host
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: technologyComponent
+    criteria:
+      capability: 01KQQ4Q026-BH6E
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-BH6E
+  - mechanism: decisionRecord
+    key: patch_management
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: patch_management, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - technologyComponent
+  - relationship
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-BH6E
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+- id: SC-28
+  externalControlId: SC-28
+  name: Data Protection for Database Services
+  description: Data Protection for Database Services
+  rationale: Record how this object satisfies SC-28 for TX-RAMP.
+  appliesTo:
+  - data_store_service
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: decisionRecord
+    key: encryption_at_rest
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: encryption_at_rest, recording
+      this decision (or why it is not applicable).
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-H3B5
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - decisionRecord
+  - technologyComponentConfiguration
+  relatedCapability: 01KQQ4Q026-H3B5
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+- id: AC-6
+  externalControlId: AC-6
+  name: Least Privilege for Database Services
+  description: Least Privilege for Database Services
+  rationale: Record how this object satisfies AC-6 for TX-RAMP.
+  appliesTo:
+  - data_store_service
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-4JR6
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-4JR6
+  - mechanism: decisionRecord
+    key: access_control_model
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: access_control_model, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - relationship
+  - technologyComponentConfiguration
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-4JR6
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+- id: CP-9
+  externalControlId: CP-9
+  name: Backup and Recovery
+  description: Backup and Recovery
+  rationale: Record how this object satisfies CP-9 for TX-RAMP.
+  appliesTo:
+  - data_store_service
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: decisionRecord
+    key: backup_strategy
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: backup_strategy, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-7T2H
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+- id: IA-5
+  externalControlId: IA-5
+  name: Secrets and Authenticator Management
+  description: Secrets and Authenticator Management
+  rationale: Record how this object satisfies IA-5 for TX-RAMP.
+  appliesTo:
+  - runtime_service
+  - network_service
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-DTJJ
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-DTJJ
+  - mechanism: decisionRecord
+    key: secrets_management
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: secrets_management, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - relationship
+  - technologyComponentConfiguration
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-DTJJ
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+- id: IA-5.product_component
+  externalControlId: IA-5
+  name: ProductComponent Secrets and Authenticator Management
+  description: ProductComponent Secrets and Authenticator Management
+  rationale: Record how this object satisfies IA-5 for TX-RAMP.
+  appliesTo:
+  - product_component
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: relationship
+  - mechanism: technologyComponentConfiguration
+  - mechanism: decisionRecord
+    key: product_component
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: product_component, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - relationship
+  - technologyComponentConfiguration
+  - decisionRecord
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+- id: PL-2
+  externalControlId: PL-2
+  name: Data Classification Declaration
+  description: Data Classification Declaration
+  rationale: Record how this object satisfies PL-2 for TX-RAMP.
+  appliesTo:
+  - software_deployment_pattern
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: decisionRecord
+    key: data_classification
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: data_classification, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - decisionRecord
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+- id: CP-2
+  externalControlId: CP-2
+  name: Availability and Recovery Objectives
+  description: Availability and Recovery Objectives
+  rationale: Record how this object satisfies CP-2 for TX-RAMP.
+  appliesTo:
+  - software_deployment_pattern
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: decisionRecord
+    key: availability_requirement
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: availability_requirement,
+      recording this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - decisionRecord
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+- id: CA-2
+  externalControlId: CA-2
+  name: Architecture and Control Conformance
+  description: Architecture and Control Conformance
+  rationale: Record how this object satisfies CA-2 for TX-RAMP.
+  appliesTo:
+  - software_deployment_pattern
+  requirementMode: conditional
+  naAllowed: true
+  canBeSatisfiedBy:
+  - mechanism: decisionRecord
+    key: reference_architecture_conformance
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: reference_architecture_conformance,
+      recording this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - decisionRecord
+  applicability:
+    anyOf:
+    - field: complianceContext.txRampInScope
+      equals: true
+    - field: complianceContext.soldInTexas
+      equals: true
+  externalReference: >-
+    https://dir.texas.gov/information-security/texas-risk-and-authorization-management-program-tx-ramp
+lifecycleStatus: preferred
+tags:
+- compliance
+- tx-ramp
+- starter-pack
+- requirement-group
+notes: |
+  Starter mapping aligned to the public TX-RAMP program information. Replace the shared program link with deeper authoritative links later if stable per-control references become available.

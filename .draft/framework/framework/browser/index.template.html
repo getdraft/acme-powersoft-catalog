@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DRAFT Framework Toolkit</title>
+  <!-- defer lets the browser download all scripts in parallel while HTML renders -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.29.2/cytoscape.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <!-- preload world atlas so it's already in-flight before the JS asks for it -->
+  <link rel="preload" href="assets/world-atlas/countries-110m.json" as="fetch" crossorigin="anonymous">
+  <style>
+    /* IBM Plex — self-hosted for deployment consistency */
+    @font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-style: normal; font-display: swap;
+      src: url("assets/fonts/IBMPlexSans-Regular.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans"; font-weight: 500; font-style: normal; font-display: swap;
+      src: url("assets/fonts/IBMPlexSans-Medium.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans"; font-weight: 600; font-style: normal; font-display: swap;
+      src: url("assets/fonts/IBMPlexSans-SemiBold.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 400; font-style: normal; font-display: swap;
+      src: url("assets/fonts/IBMPlexMono-Regular.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-style: normal; font-display: swap;
+      src: url("assets/fonts/IBMPlexMono-Medium.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Serif"; font-weight: 400; font-style: normal; font-display: swap;
+      src: url("assets/fonts/IBMPlexSerif-Regular.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Serif"; font-weight: 500; font-style: normal; font-display: swap;
+      src: url("assets/fonts/IBMPlexSerif-Medium.woff2") format("woff2"); }
+  </style>
+  <link rel="stylesheet" href="assets/draft-browser.css">
+  <link rel="stylesheet" href="assets/draft-browser-sdp.css">
+  <link rel="stylesheet" href="assets/draft-browser-targets.css">
+  <link rel="stylesheet" href="assets/workspace-theme.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="browser-brand">
+        <img id="draft-logo" class="browser-logo" alt="DRAFT">
+        <div>
+          <h1>DRAFT Catalog</h1>
+          <div class="catalog-name" id="catalog-name"></div>
+          <div class="mode-badge" id="browser-mode"></div>
+        </div>
+      </div>
+      <button id="open-palette" class="sidebar-search-btn">
+        <span>Search catalog…</span>
+        <kbd class="sidebar-search-kbd">⌘K</kbd>
+      </button>
+      <nav id="sidebar-nav" class="sidebar-nav"></nav>
+      <div class="sidebar-stack">
+        <div id="sidebar-content"></div>
+        <div class="legend-block">
+          <div class="legend-title">Lifecycle Legend</div>
+          <div class="legend-list" id="legend"></div>
+        </div>
+      </div>
+    </aside>
+    <main class="main">
+      <div id="page-root">
+        <div class="catalog-loading">
+          <div class="catalog-loading-spinner"></div>
+          <span>Loading catalog…</span>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="editor-overlay" class="editor-overlay"></div>
+  <div id="cmd-overlay" class="cmd-overlay" hidden>
+    <div class="cmd-dialog" role="dialog" aria-modal="true" aria-label="Search catalog">
+      <div class="cmd-input-row">
+        <span class="cmd-search-icon">⌕</span>
+        <input id="cmd-input" class="cmd-input" type="search" autocomplete="off" placeholder="Search objects, go to view…">
+        <span class="cmd-esc-hint">Esc</span>
+      </div>
+      <div id="cmd-results" class="cmd-results"></div>
+      <div class="cmd-footer">
+        <span><kbd>↑↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> open</span>
+        <span><kbd>Esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
+  <script defer src="assets/browser-data.js"></script>
+  <script defer src="assets/draft-browser.js"></script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+schemaVersion: '1.0'
+uid: 01KQQ4Q027-7JN2
+type: requirement_group
+name: SOC 2 RequirementGroup
+description: |
+  Initial SOC 2 requirement group based on the AICPA Trust Services Criteria. These requirements use DRAFT applicability metadata so they can extend the relevant object types without changing always-on RequirementGroups.
+version: 2017.0.0
+catalogStatus: stub
+activation: workspace
+appliesTo:
+- data_store_service
+- host
+- product_component
+- runtime_service
+- network_service
+- software_deployment_pattern
+provider:
+  id: provider.draft-framework
+  type: framework
+  name: DRAFT Framework
+authority:
+  name: AICPA
+  shortName: SOC 2
+  source: SOC 2 Trust Services Criteria
+requirements:
+- id: CC6
+  externalControlId: CC6
+  name: Logical and Physical Access Controls
+  description: Logical and Physical Access Controls
+  rationale: Record how this object satisfies CC6 for SOC 2.
+  appliesTo:
+  - host
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-MHJM
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-MHJM
+  - mechanism: decisionRecord
+    key: authentication
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: authentication, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - relationship
+  - technologyComponentConfiguration
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-MHJM
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: CC7
+  externalControlId: CC7
+  name: System Operations
+  description: System Operations
+  rationale: Record how this object satisfies CC7 for SOC 2.
+  appliesTo:
+  - host
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: technologyComponent
+    criteria:
+      capability: 01KQQ4Q026-D04B
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-D04B
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-D04B
+  - mechanism: decisionRecord
+    key: log_management
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: log_management, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - technologyComponent
+  - technologyComponentConfiguration
+  - relationship
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-D04B
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: CC7.health-welfare-monitoring
+  externalControlId: CC7
+  name: System Operations
+  description: System Operations
+  rationale: Record how this object satisfies CC7 for SOC 2.
+  appliesTo:
+  - host
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: technologyComponent
+    criteria:
+      capability: 01KQQ4Q026-98VD
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-98VD
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-98VD
+  - mechanism: decisionRecord
+    key: health_welfare_monitoring
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: health_welfare_monitoring,
+      recording this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - technologyComponent
+  - technologyComponentConfiguration
+  - relationship
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-98VD
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: CC7.security-monitoring
+  externalControlId: CC7
+  name: System Operations
+  description: System Operations
+  rationale: Record how this object satisfies CC7 for SOC 2.
+  appliesTo:
+  - host
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: technologyComponent
+    criteria:
+      capability: 01KQQ4Q026-JW52
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-JW52
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-JW52
+  - mechanism: decisionRecord
+    key: security_monitoring
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: security_monitoring, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - technologyComponent
+  - technologyComponentConfiguration
+  - relationship
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-JW52
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: CC8
+  externalControlId: CC8
+  name: Change Management
+  description: Change Management
+  rationale: Record how this object satisfies CC8 for SOC 2.
+  appliesTo:
+  - host
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: technologyComponent
+    criteria:
+      capability: 01KQQ4Q026-BH6E
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-BH6E
+  - mechanism: decisionRecord
+    key: patch_management
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: patch_management, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - technologyComponent
+  - relationship
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-BH6E
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: CC6.access-control-model
+  externalControlId: CC6
+  name: Logical and Physical Access Controls
+  description: Logical and Physical Access Controls
+  rationale: Record how this object satisfies CC6 for SOC 2.
+  appliesTo:
+  - data_store_service
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-4JR6
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-4JR6
+  - mechanism: decisionRecord
+    key: access_control_model
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: access_control_model, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - relationship
+  - technologyComponentConfiguration
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-4JR6
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: CC7.backup-strategy
+  externalControlId: CC7
+  name: System Operations
+  description: System Operations
+  rationale: Record how this object satisfies CC7 for SOC 2.
+  appliesTo:
+  - data_store_service
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: decisionRecord
+    key: backup_strategy
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: backup_strategy, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-7T2H
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: C1
+  externalControlId: C1
+  name: Confidentiality
+  description: Confidentiality
+  rationale: Record how this object satisfies C1 for SOC 2.
+  appliesTo:
+  - data_store_service
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: decisionRecord
+    key: encryption_at_rest
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: encryption_at_rest, recording
+      this decision (or why it is not applicable).
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-H3B5
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - decisionRecord
+  - technologyComponentConfiguration
+  relatedCapability: 01KQQ4Q026-H3B5
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: CC6.secrets-management
+  externalControlId: CC6
+  name: Logical and Physical Access Controls
+  description: Logical and Physical Access Controls
+  rationale: Record how this object satisfies CC6 for SOC 2.
+  appliesTo:
+  - runtime_service
+  - network_service
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-DTJJ
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-DTJJ
+  - mechanism: decisionRecord
+    key: secrets_management
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: secrets_management, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - relationship
+  - technologyComponentConfiguration
+  - decisionRecord
+  relatedCapability: 01KQQ4Q026-DTJJ
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: CC6.product_component
+  externalControlId: CC6
+  name: ProductComponent Access and Secrets Controls
+  description: ProductComponent Access and Secrets Controls
+  rationale: Record how this object satisfies CC6 for SOC 2.
+  appliesTo:
+  - product_component
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: relationship
+  - mechanism: technologyComponentConfiguration
+  - mechanism: decisionRecord
+    key: product_component
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: product_component, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - relationship
+  - technologyComponentConfiguration
+  - decisionRecord
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: A1
+  externalControlId: A1
+  name: Availability
+  description: Availability
+  rationale: Record how this object satisfies A1 for SOC 2.
+  appliesTo:
+  - software_deployment_pattern
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: decisionRecord
+    key: availability_requirement
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: availability_requirement,
+      recording this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - decisionRecord
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: C1.data-classification
+  externalControlId: C1
+  name: Confidentiality
+  description: Confidentiality
+  rationale: Record how this object satisfies C1 for SOC 2.
+  appliesTo:
+  - software_deployment_pattern
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: decisionRecord
+    key: data_classification
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: data_classification, recording
+      this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - decisionRecord
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+- id: CC9
+  externalControlId: CC9
+  name: Risk Mitigation
+  description: Risk Mitigation
+  rationale: Record how this object satisfies CC9 for SOC 2.
+  appliesTo:
+  - software_deployment_pattern
+  requirementMode: mandatory
+  naAllowed: false
+  canBeSatisfiedBy:
+  - mechanism: decisionRecord
+    key: reference_architecture_conformance
+    example: >-
+      A committed DecisionRecord, referenced from decisionRecords with key: reference_architecture_conformance,
+      recording this decision (or why it is not applicable).
+  minimumSatisfactions: 1
+  validAnswerTypes:
+  - decisionRecord
+  externalReference: >-
+    https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+lifecycleStatus: preferred
+tags:
+- compliance
+- soc2
+- starter-pack
+- requirement-group
+notes: |
+  These entries are DRAFT applicability mappings for the public AICPA Trust Services Criteria. The authoritative criteria remain in the linked AICPA source material.

@@ -1,0 +1,39 @@
+schemaVersion: '1.0'
+uid: <generated-uid>
+type: runtime_service
+name: <RuntimeService Name>
+aliases: []
+description: <Deployable runtime service description.>
+version: 1.0.0
+deliveryModel: self-managed
+catalogStatus: stub
+lifecycleStatus: candidate
+owner:
+  team: <owning-team>
+  contact: <team-or-person@example.com>
+tags:
+- runtime
+host: <host-uid>
+primaryTechnologyComponent: <software-technology-component-uid>
+architecturalDecisions:
+  serviceAuthentication: <How administrators or service identities authenticate.>
+  secretsManagement: <How secrets, keys, tokens, or certificates are stored and accessed.>
+  serviceLogging: <How service logs are produced and delivered beyond host logs.>
+  healthWelfareMonitoring: <How service health and telemetry are monitored.>
+  availabilityModel: <Availability model.>
+  scalabilityModel: <Capacity growth model.>
+  recoverabilityModel: <Recovery model.>
+  failureDomain: <Scope of impact from service failure.>
+  externalInteractionRationales: {}
+  internalComponentRationales: {}
+internalComponents:
+- ref: <software-technology-component-uid>
+  role: function
+externalInteractions:
+- name: <Service Monitoring>
+  notes: <Service-level monitoring beyond the host baseline.>
+  capabilities:
+  - <health-welfare-monitoring-capability-uid>
+requirementGroups:
+- <service-behavior-requirement-group-uid>
+requirementImplementations: []

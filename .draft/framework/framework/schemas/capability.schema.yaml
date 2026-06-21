@@ -1,0 +1,62 @@
+schemaVersion: '1.0'
+type: capability
+defaultOwnerRole: draft-admins
+aiHint: "A Capability names a technology architecture outcome (e.g., Data Persistence, Container Orchestration, Secrets Management, CI/CD Pipeline) that requirement groups use as a demand signal and resolve to company-approved TechnologyComponent implementations. It is NOT a product name, business process, organizational unit, or business domain label. When generating capabilities — especially in bulk or during a migration — do not create capability objects from product names (ERP, HCM, SIS), product lines, business process labels, or organizational unit names found in source material. Only generate capabilities that represent technology architecture outcomes a requirement group would reference."
+requiredFields:
+- schemaVersion
+- uid
+- type
+- name
+- description
+- catalogStatus
+- definitionOwner
+- domain
+- implementations
+optionalFields:
+- aliases
+- version
+- tags
+- owner
+enumFields:
+  catalogStatus:
+  - stub
+  - incomplete
+  - complete
+fieldTypes:
+  aliases: list
+  definitionOwner: dict
+  owner: dict
+  tags: list
+  implementations: list
+collectionSchemas:
+  implementations: implementation
+fieldDescriptions:
+  schemaVersion: Use the schema version string supported by this framework release, normally "1.0".
+  type: Use capability.
+  name: Use the plain-language capability name.
+  description: Explain what architecture outcome this capability represents.
+  catalogStatus: Use catalog maturity for the capability definition itself.
+  definitionOwner: Identify the framework, provider, or company team accountable for maintaining the capability definition and vocabulary.
+  owner: Identify the company team accountable for lifecycle decisions on this capability; required in the effective workspace when implementations are assigned.
+  domain: Reference the owning domain object UID.
+  implementations: List company-approved TechnologyComponent or shared service implementations; framework base files must leave this empty because the framework does not make company adoption decisions.
+  uid: Use the generated opaque UID for object identity. Do not edit it for display-name, product-name, or taxonomy changes.
+  aliases: List prior or alternate human-readable names that should resolve to this object.
+implementation:
+  requiredFields:
+  - ref
+  - lifecycleStatus
+  optionalFields:
+  - configuration
+  - notes
+  fieldDescriptions:
+    ref: Reference a TechnologyComponent or shared service (runtime_service, data_store_service, network_service) approved to satisfy this capability.
+    lifecycleStatus: 'Record the company disposition for this implementation: candidate, preferred, existing-only, deprecated, or retired.'
+  enumFields:
+    lifecycleStatus:
+    - candidate
+    - preferred
+    - existing-only
+    - deprecated
+    - retired
+uidPattern: ^[0-9A-HJKMNP-TV-Z]{10}-[0-9A-HJKMNP-TV-Z]{4}$

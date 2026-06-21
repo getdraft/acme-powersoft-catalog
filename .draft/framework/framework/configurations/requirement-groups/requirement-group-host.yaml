@@ -1,0 +1,188 @@
+schemaVersion: '1.0'
+uid: 01KQQ4Q027-THYN
+type: requirement_group
+name: Host RequirementGroup
+description: Structured checklist of required questions and answers used to define a complete and correct Host.
+version: 3.0.0
+catalogStatus: complete
+authority:
+  name: DRAFT Framework
+  shortName: DRAFT
+  source: DRAFT Framework
+activation: always
+appliesTo:
+- host
+requirements:
+- id: operating-system
+  description: The host must declare the Operating System TechnologyComponent that defines the operating system baseline.
+  rationale: A host is not complete until the operating system product baseline is explicit.
+  canBeSatisfiedBy:
+  - mechanism: field
+    key: operatingSystemComponent
+    example: 'operatingSystemComponent: technology.os.microsoft-windowsserver-2022'
+  minimumSatisfactions: 1
+  relatedCapability: 01KQQ4Q026-QM2X
+  requirementMode: mandatory
+  naAllowed: false
+  validAnswerTypes:
+  - field
+- id: compute-platform
+  description: The host must declare the Compute Platform TechnologyComponent that defines the physical or virtual compute substrate.
+  rationale: A host is not complete until the compute substrate is explicit.
+  canBeSatisfiedBy:
+  - mechanism: field
+    key: computePlatformComponent
+    example: 'computePlatformComponent: technology.compute.amazon-ec2-standard'
+  minimumSatisfactions: 1
+  relatedCapability: 01KQQ4Q026-1HZP
+  requirementMode: mandatory
+  naAllowed: false
+  validAnswerTypes:
+  - field
+- id: authentication
+  description: The host must address how administrators and services authenticate to the platform.
+  rationale: Identity control is a baseline host requirement because unmanaged access breaks supportability and auditability.
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-MHJM
+    example: Active Directory or another enterprise identity platform.
+  - mechanism: internalComponent
+    criteria:
+      capability: 01KQQ4Q026-MHJM
+    example: A TechnologyComponent installed locally that provides host authentication behavior.
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-MHJM
+    example: An Operating System TechnologyComponent configuration that defines the authentication model.
+  - mechanism: decisionRecord
+    key: authenticationApproach
+    example: 'A committed DecisionRecord, referenced from decisionRecords with key: authenticationApproach, recording this decision (or why it is not applicable).'
+  minimumSatisfactions: 1
+  relatedCapability: 01KQQ4Q026-MHJM
+  requirementMode: mandatory
+  naAllowed: false
+  validAnswerTypes:
+  - decisionRecord
+  - relationship
+  - internalComponent
+  - technologyComponentConfiguration
+- id: log-management
+  description: The host must address how logs leave the host and reach an operationally supported logging destination.
+  rationale: Logging is required for troubleshooting, security response, and evidentiary review.
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-D04B
+    example: A relationship object where source is this host and the relationship has the log-management capability, pointing to a modeled central logging RuntimeService, NetworkService, or PaaS-delivered service.
+  - mechanism: internalComponent
+    criteria:
+      capability: 01KQQ4Q026-D04B
+    example: A locally installed TechnologyComponent that implements host log management.
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-D04B
+    example: An Operating System TechnologyComponent configuration that redirects logs to a dedicated volume or forwarding path.
+  - mechanism: decisionRecord
+    key: loggingApproach
+    example: 'A committed DecisionRecord, referenced from decisionRecords with key: loggingApproach, recording this decision (or why it is not applicable).'
+  minimumSatisfactions: 1
+  relatedCapability: 01KQQ4Q026-D04B
+  requirementMode: mandatory
+  naAllowed: false
+  validAnswerTypes:
+  - decisionRecord
+  - relationship
+  - internalComponent
+  - technologyComponentConfiguration
+- id: health-welfare-monitoring
+  description: The host must address health and welfare monitoring for performance, availability, and operational telemetry.
+  rationale: Hosts must show how operators know whether the platform is healthy and supportable.
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-98VD
+    example: Dynatrace, Nagios, or another host monitoring platform.
+  - mechanism: internalComponent
+    criteria:
+      capability: 01KQQ4Q026-98VD
+    example: A locally installed TechnologyComponent that exports host health telemetry.
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-98VD
+    example: A TechnologyComponent configuration that enables local health telemetry or metrics export.
+  - mechanism: decisionRecord
+    key: healthWelfareMonitoringApproach
+    example: 'A committed DecisionRecord, referenced from decisionRecords with key: healthWelfareMonitoringApproach, recording this decision (or why it is not applicable).'
+  minimumSatisfactions: 1
+  relatedCapability: 01KQQ4Q026-98VD
+  requirementMode: mandatory
+  naAllowed: false
+  validAnswerTypes:
+  - decisionRecord
+  - relationship
+  - internalComponent
+  - technologyComponentConfiguration
+- id: security-monitoring
+  description: The host must address endpoint security or runtime security monitoring.
+  rationale: Hosts must show how they are protected and observed by a security control plane.
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-JW52
+    example: CrowdStrike Falcon Platform or Wiz Cloud Security.
+  - mechanism: internalComponent
+    criteria:
+      capability: 01KQQ4Q026-JW52
+    example: An installed TechnologyComponent that provides endpoint or runtime security monitoring.
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-JW52
+    example: A TechnologyComponent configuration that enables local security telemetry or runtime protection behavior.
+  - mechanism: decisionRecord
+    key: securityMonitoringApproach
+    example: 'A committed DecisionRecord, referenced from decisionRecords with key: securityMonitoringApproach, recording this decision (or why it is not applicable).'
+  minimumSatisfactions: 1
+  relatedCapability: 01KQQ4Q026-JW52
+  requirementMode: mandatory
+  naAllowed: false
+  validAnswerTypes:
+  - decisionRecord
+  - relationship
+  - internalComponent
+  - technologyComponentConfiguration
+- id: patch-management
+  description: The host must address how patching is orchestrated and what operational mechanism applies updates.
+  rationale: Patching is a governance control, not an implementation detail that can be left implicit.
+  canBeSatisfiedBy:
+  - mechanism: relationship
+    criteria:
+      capability: 01KQQ4Q026-BH6E
+    example: Automox Patch Management.
+  - mechanism: internalComponent
+    criteria:
+      capability: 01KQQ4Q026-BH6E
+    example: An installed TechnologyComponent that performs or coordinates patch execution.
+  - mechanism: technologyComponentConfiguration
+    criteria:
+      capability: 01KQQ4Q026-BH6E
+    example: A TechnologyComponent configuration that defines how the platform is patched without a separate external orchestrator.
+  - mechanism: decisionRecord
+    key: patchManagementApproach
+    example: 'A committed DecisionRecord, referenced from decisionRecords with key: patchManagementApproach, recording this decision (or why it is not applicable).'
+  minimumSatisfactions: 1
+  relatedCapability: 01KQQ4Q026-BH6E
+  requirementMode: mandatory
+  naAllowed: false
+  validAnswerTypes:
+  - decisionRecord
+  - relationship
+  - internalComponent
+  - technologyComponentConfiguration
+lifecycleStatus: existing-only
+tags:
+- host
+- requirement-group
+- definition
+appliesToQualifiers:
+  category: host
