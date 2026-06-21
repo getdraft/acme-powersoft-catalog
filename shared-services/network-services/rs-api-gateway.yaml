@@ -1,0 +1,41 @@
+schemaVersion: '1.0'
+uid: G5XV9MK4RH-RG0A
+type: network_service
+name: Platform API Gateway (Azure API Management)
+description: >
+  Single ingress point for every Acme PowerSoft product API. Enforces
+  authentication (delegated to Identity & Access), per-tenant rate limiting,
+  and request/response transformation so product teams do not each
+  implement their own gateway layer.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: active
+owner:
+  team: Core Platform Engineering
+  contact: core-platform@acmepowersoft.example.com
+tags:
+  - network-service
+  - api-gateway
+  - shared-service
+deliveryModel: paas
+host: null
+primaryTechnologyComponent: MH7JS0SPA4-YA23
+vendor: Microsoft
+productName: Azure API Management
+productVersion: "Premium v2"
+networkFunction: API gateway -- inbound request routing, authentication enforcement, per-tenant rate limiting, and response transformation for every product API.
+networkTopology: Sits in the perimeter zone in front of each product's AKS ingress; all inbound product traffic from the public internet and from Acme's customer-facing web apps passes through this gateway before reaching any product runtime service.
+protocols:
+  - HTTPS
+  - WebSocket (Insight Hub streaming endpoints only)
+architectureNotes:
+  placementContext: Perimeter zone -- the only network service in the catalog with direct public internet exposure.
+  requirementContext: Service Level Baseline (SLA-01/SLA-02) and Access Control Baseline (AC-01/AC-02) both apply because this is the shared ingress for every customer-facing product.
+decisionRecords: []
+internalComponents:
+  - ref: MH7JS0SPA4-YA23
+    role: gateway
+requirementGroups:
+  - 01KSWVZSZ5-B146
+  - 8SEDYZHP49-YJHQ
+  - KZM0T9NY43-3H8K
