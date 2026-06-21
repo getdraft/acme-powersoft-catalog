@@ -1,0 +1,28 @@
+schemaVersion: '1.0'
+uid: PV9F22JQ2K-LSE9
+type: technology_component
+name: Asset & Lease Events Topic (Dedicated Service Bus)
+description: |
+  Dedicated Azure Service Bus topic for lease lifecycle events
+  (created/modified/retired). Deliberately kept separate from Sofia's
+  shared messaging backbone per Priya's guidance -- single-team ownership,
+  no shared-schema coordination overhead, route to the shared backbone
+  later only if a real cross-team consumer appears.
+version: '1.0'
+catalogStatus: complete
+lifecycleStatus: existing-only
+vendorLifecycle:
+  vendor: Microsoft
+  supportStatus: active
+owner:
+  team: asset-lease
+  contact: asset-lease@acmepowersoft.example.com
+tags:
+- technology-component
+- messaging
+- asset-lease
+businessContext:
+  pillar: business-pillar.asset-management
+  productFamily: Acme Asset & Lease Manager
+capabilities:
+- 01KT0XNZEY-Q2TF
