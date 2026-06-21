@@ -1,0 +1,34 @@
+# {{workspace_label}}
+
+This repository is the DRAFT architecture workspace for {{company_name}}. It
+vendors the DRAFT framework under `.draft/framework/`; that vendored copy is
+the approved source for schemas, RequirementGroups, base configurations,
+templates, docs, and tools.
+
+## AI Bootstrap
+
+- Canonical AI instructions: AGENTS.md
+- Draftsman role: .draft/framework/docs/draftsman.md
+- Draftsman setup mode: .draft/framework/docs/setup-mode.md
+- Framework index: .draft/framework/AI_INDEX.md
+- Workspace metadata: .draft/workspace.yaml
+- {{company_name}} vocabulary: .draft/workspace.yaml and configurations/vocabulary/
+- Company AI instruction overlays: .draft/instructions/ (if present)
+- Schema reference: .draft/framework/docs/yaml-schema-reference.md
+- Validation command: python .draft/framework/tools/validate.py --workspace .
+
+## Write Boundary
+
+- {{company_name}} architecture content: catalog/
+- {{company_name}} configuration overlays and vocabulary proposals: configurations/
+- Generated browser: docs/index.html
+- Framework-managed, read-only during normal Draftsman work: .draft/framework/**
+- Framework sync state, read-only during normal Draftsman work: .draft/framework.lock
+
+If drafting reveals a likely reusable DRAFT framework bug or feature request,
+recommend a sanitized upstream issue in public `getdraft/draftsman`; ask before
+creating it and use the framework bug or feature template.
+
+If an AI assistant is connected only to the upstream `draft-framework` repo and
+the user asks for {{company_name}} content changes, ask for the company-specific DRAFT
+repo path before editing.

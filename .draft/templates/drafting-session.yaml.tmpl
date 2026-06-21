@@ -1,0 +1,47 @@
+schemaVersion: '1.0'
+uid: <generated-uid>
+type: drafting_session
+name: <Topic> DraftingSession
+aliases: []
+description: <Short description of the drafting work and its source material.>
+version: 1.0.0
+catalogStatus: draft
+lifecycleStatus: candidate
+sessionStatus: open
+owner:
+  team: <owning-team>
+  contact: <team-or-person@example.com>
+tags:
+- drafting-session
+primaryObjectType: <technology_component|host|runtime_service|data_store_service|network_service|product_component|software_deployment_pattern|reference_architecture|capability|requirement_group|decision_record>
+primaryObjectUid: <optional-existing-or-created-object-uid>
+sourceArtifacts:
+- name: <Source name>
+  type: <interview|diagram|document|spreadsheet|repository|other>
+  location: <path-or-url-if-available>
+  notes: <What this source contributed.>
+generatedObjects:
+- name: <Object name>
+  type: <object-type>
+  status: <created|proposed|stubbed|deferred>
+  ref: <object-uid-if-created>
+  proposedUid: <object-uid-if-not-created>
+  notes: <Why this object exists or remains pending.>
+unresolvedQuestions:
+- id: <question-slug>
+  question: <Question that still needs an answer.>
+  status: open
+  reason: <Why this blocks completion or approval.>
+  currentBestGuess: <Current assumption, if any.>
+  impact: <What changes when this is answered.>
+assumptions:
+- id: <assumption-slug>
+  statement: <Explicit assumption made to keep drafting moving.>
+  rationale: <Why the assumption is reasonable.>
+  impact: <What may need revision if this is wrong.>
+nextSteps:
+- id: <next-step-slug>
+  action: <Follow-up action.>
+  status: open
+  owner: <person-or-team>
+  notes: <Additional detail.>

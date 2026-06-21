@@ -1,0 +1,49 @@
+schemaVersion: '1.0'
+uid: <generated-uid>
+type: host
+name: <Host Name>
+aliases: []
+description: <Deployable host platform description.>
+version: 1.0.0
+catalogStatus: stub
+lifecycleStatus: candidate
+owner:
+  team: <owning-team>
+  contact: <team-or-person@example.com>
+tags:
+- host
+notes:
+  externalInteractionRationales: {}
+  internalComponentRationales: {}
+operatingSystemComponent: <operating-system-technology-component-uid>
+computePlatformComponent: <compute-platform-technology-component-uid>
+internalComponents:
+- ref: <operating-system-technology-component-uid>
+  role: os
+- ref: <compute-platform-technology-component-uid>
+  role: hardware
+externalInteractions:
+- name: <Authentication Platform>
+  notes: <How administrators and service identities authenticate.>
+  capabilities:
+  - <authentication-capability-uid>
+- name: <Logging Service>
+  ref: <modeled-logging-service-uid>
+  notes: <How host logs are collected.>
+  capabilities:
+  - <log-management-capability-uid>
+- name: <Monitoring Service>
+  notes: <How host health and welfare are monitored.>
+  capabilities:
+  - <health-welfare-monitoring-capability-uid>
+- name: <Security Monitoring Service>
+  notes: <How security telemetry is collected.>
+  capabilities:
+  - <security-monitoring-capability-uid>
+- name: <Patch Management Platform>
+  notes: <How operating system and host patching is governed.>
+  capabilities:
+  - <patch-management-capability-uid>
+requirementGroups:
+- <host-requirement-group-uid>
+requirementImplementations: []
