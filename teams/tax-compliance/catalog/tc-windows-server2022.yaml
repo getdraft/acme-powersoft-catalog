@@ -1,0 +1,25 @@
+schemaVersion: '1.0'
+uid: 8DD32B2D0H-2PCZ
+type: technology_component
+name: Windows Server 2022
+description: |
+  OS for the on-premise Atlanta data center VM running the legacy Property
+  Tax PowerBuilder application. Not part of the Azure estate.
+version: '2022'
+catalogStatus: complete
+lifecycleStatus: existing-only
+vendorLifecycle:
+  vendor: Microsoft
+  supportStatus: active
+  endOfSupportDate: '2031-10-14'
+owner:
+  team: tax-compliance
+  contact: tax-compliance@acmepowersoft.example.com
+tags:
+- technology-component
+- operating-system
+- on-premise
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme Tax Suite
+capabilities: []

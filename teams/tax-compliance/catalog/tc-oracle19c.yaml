@@ -1,0 +1,27 @@
+schemaVersion: '1.0'
+uid: 2EJA62M0B7-HQXM
+type: technology_component
+name: Oracle Database 19c
+description: |
+  On-premise Oracle instance backing the legacy Property Tax schema
+  (PROPERTY_TAX_PARCEL and related tables). DBA-managed, not provisioned
+  via Terraform or any code in this catalog -- see ticket TAX-1142.
+version: 19c
+catalogStatus: complete
+lifecycleStatus: existing-only
+vendorLifecycle:
+  vendor: Oracle
+  supportStatus: active
+  endOfSupportDate: '2027-04-30'
+owner:
+  team: tax-compliance
+  contact: tax-compliance@acmepowersoft.example.com
+tags:
+- technology-component
+- database
+- legacy
+- on-premise
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme Tax Suite
+capabilities: []

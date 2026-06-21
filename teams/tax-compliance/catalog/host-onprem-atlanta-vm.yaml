@@ -1,0 +1,41 @@
+schemaVersion: '1.0'
+uid: 8FRABMZWDP-NB72
+type: host
+name: On-Premise Atlanta DC VM (Property Tax Legacy)
+description: |
+  Single Windows VM in the Atlanta data center hosting the legacy Property
+  Tax PowerBuilder application and its companion Oracle instance. Patched
+  manually per RUNBOOK-PT-04 on a quarterly cadence; not part of any
+  Infrastructure-as-Code pipeline. The starkest contrast in the whole
+  catalog against the AKS shared baseline (H1ZTZXV5F6-C1CZ).
+version: '1.0'
+catalogStatus: complete
+lifecycleStatus: existing-only
+operatingSystemComponent: 8DD32B2D0H-2PCZ
+computePlatform: on-premise-physical-or-virtual
+owner:
+  team: tax-compliance
+  contact: tax-compliance@acmepowersoft.example.com
+tags:
+- host
+- on-premise
+- legacy
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme Tax Suite
+capabilities: []
+requirementGroups:
+- 01KQQ4Q027-THYN
+- 2EZZ268XWW-B5TP
+architecturalDecisions:
+  patchManagement:
+    answer: Manual quarterly patching per RUNBOOK-PT-04. No automated patch pipeline. Tracked as TAX-1142 for eventual migration off on-premise hardware.
+    satisfiedBy: decisionRecord
+    note: >-
+      No DecisionRecord object has actually been authored for this -- the
+      requirement-group's canBeSatisfiedBy options were decisionRecord or
+      narrative free-text, and authoring a full DecisionRecord object for
+      a single accepted-risk item felt like disproportionate ceremony
+      given this exercise's time constraints. Flagged as a friction point:
+      the schema arguably has no lightweight path for "yes we know, it's
+      logged, here's the ticket."

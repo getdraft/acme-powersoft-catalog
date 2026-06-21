@@ -1,0 +1,28 @@
+schemaVersion: '1.0'
+uid: ZYM7F5ZER1-468B
+type: technology_component
+name: PowerBuilder 2019 Runtime
+description: |
+  Vendor 4GL runtime for the legacy Property Tax thick-client application.
+  No containerization, no horizontal scaling model -- a single Windows
+  service process on a single VM. Modeled here as a TechnologyComponent
+  rather than forced into the runtime_service HA/scalability vocabulary,
+  per the friction note on rs-property-tax-legacy.yaml.
+version: '2019 R3'
+catalogStatus: complete
+lifecycleStatus: existing-only
+vendorLifecycle:
+  vendor: Appeon (formerly Sybase/SAP)
+  supportStatus: active
+  endOfSupportDate: '2027-06-30'
+owner:
+  team: tax-compliance
+  contact: tax-compliance@acmepowersoft.example.com
+tags:
+- technology-component
+- legacy
+- powerbuilder
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme Tax Suite
+capabilities: []
