@@ -1,0 +1,47 @@
+schemaVersion: '1.0'
+uid: FQR8TJFC7G-4MWS
+name: Property Tax Legacy Application
+type: runtime_service
+description: |
+  Legacy PowerBuilder thick-client + batch application calculating parcel-
+  level property tax liability (CALC_PARCEL_TAX_DUE) for utility-regulated
+  jurisdictions. Single Windows process on a single on-prem VM. Modeled as
+  a runtime_service per Priya's guidance, with several fields answered
+  'manual'/'n/a' rather than misrepresented -- see the friction note this
+  generates in EXERCISE_REPORT.md.
+version: '1.0'
+catalogStatus: complete
+lifecycleStatus: existing-only
+primaryTechnologyComponent: ZYM7F5ZER1-468B
+host: 8FRABMZWDP-NB72
+owner:
+  team: tax-compliance
+  contact: tax-compliance@acmepowersoft.example.com
+tags:
+- runtime-service
+- legacy
+- tax-compliance
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme Tax Suite
+capabilities: []
+requirementGroups:
+- 01KQQ4Q027-K5DR
+- KKDJGX6P7C-N9AR
+architecturalDecisions:
+  serviceAuthentication:
+    answer: Windows-integrated authentication (local AD). No OAuth/OIDC -- predates the company's Azure AD B2C adoption.
+  secretsManagement:
+    answer: Oracle connection credentials stored in an encrypted local config file on the VM, not in Key Vault. Migration tracked as TAX-1142.
+  serviceLogging:
+    answer: 'n/a -- writes to local flat-file logs reviewed manually by the Tax operations team. Not forwarded to the shared Observability runtime service.'
+  healthWelfareMonitoring:
+    answer: 'n/a -- no automated health checks. Operations team manually verifies nightly batch completion via a flat-file log review.'
+  availabilityModel:
+    answer: 'n/a -- single instance, no HA. Acceptable risk per business sign-off: batch runs nightly, not customer-facing in real time.'
+  scalabilityModel:
+    answer: 'n/a -- fixed single-instance capacity. Has never needed to scale; parcel volume is bounded by utility service territory.'
+  recoverabilityModel:
+    answer: Nightly VM-level backup via the data center's standard backup service. RTO/RPO not formally defined -- TAX-1143.
+  failureDomain:
+    answer: Single VM, single data center, single point of failure for the entire Property Tax workflow. Known and accepted risk, not yet remediated.
