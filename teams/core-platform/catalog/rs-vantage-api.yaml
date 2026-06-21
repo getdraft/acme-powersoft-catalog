@@ -1,0 +1,54 @@
+schemaVersion: '1.0'
+uid: W1GH4MXRC4-ZGMS
+type: runtime_service
+name: Acme Vantage Entitlement API
+description: |
+  The Acme Vantage product's core ASP.NET Core API: tenant/entitlement
+  resolution, plan management, and the cross-product capability lookup
+  every other Acme PowerSoft product calls into to determine what a given
+  customer is licensed to use. Containerized, deployed to the shared AKS
+  baseline (see host H1ZTZXV5F6-C1CZ). Source: getdraft/acme-powersoft-core-platform-product,
+  src/Acme.Vantage.Api.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: existing-only
+primaryTechnologyComponent: 12D3W1HAV5-AA70
+host: H1ZTZXV5F6-C1CZ
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+- runtime-service
+- core-platform
+- entitlements
+businessContext:
+  pillar: business-pillar.platform
+  productFamily: Acme Vantage
+capabilities:
+- 01KT0XNZEY-Q2TF
+requirementGroups:
+- 01KQQ4Q027-K5DR
+- 8SEDYZHP49-YJHQ
+- 1JGV5Y25KN-73W7
+- KZM0T9NY43-3H8K
+architecturalDecisions:
+  serviceAuthentication:
+    answer: Delegates to Azure AD B2C (M087QNW2D0-6G06) via the shared Identity & Access runtime service (ZV0QNH8M3D-EYW8).
+    satisfiedBy: relatedObject
+  secretsManagement:
+    answer: Connection strings and signing keys pulled from Azure Key Vault (5Q5CZMHNTR-71A8) via the shared Secrets Management runtime service (37AJ772M7W-V27N).
+    satisfiedBy: relatedObject
+  serviceLogging:
+    answer: Structured logs shipped to the shared Observability runtime service (FH8VD6HQ69-ZMEG) via the Datadog agent sidecar.
+    satisfiedBy: relatedObject
+  healthWelfareMonitoring:
+    answer: Liveness/readiness probes on /healthz, scraped by AKS; alert routing handled by the shared Observability runtime service.
+    satisfiedBy: relatedObject
+  availabilityModel:
+    answer: Active-active, minimum 3 pod replicas behind the shared API Gateway (G5XV9MK4RH-RG0A); targets 99.9% availability.
+  scalabilityModel:
+    answer: Horizontal pod autoscaling on CPU and request-queue depth, 3-12 replicas.
+  recoverabilityModel:
+    answer: Stateless service; recovery is pod rescheduling. State lives entirely in the tenancy database (C14NBVQZN9-S0GV).
+  failureDomain:
+    answer: Single AKS cluster, single Azure region (East US 2). No active-active cross-region failover yet -- tracked as ticket VANT-340.

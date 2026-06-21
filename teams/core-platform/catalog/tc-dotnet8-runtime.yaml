@@ -1,0 +1,28 @@
+schemaVersion: '1.0'
+uid: 12D3W1HAV5-AA70
+type: technology_component
+name: .NET 8 ASP.NET Core Runtime
+description: |
+  Managed-runtime application stack used to build and host Acme PowerSoft's
+  containerized C#/.NET services. Compiled to a self-contained Linux
+  container image, run on AKS. Shared across multiple product teams that
+  build on .NET rather than each team cataloging their own runtime stack.
+version: 8.0.x
+catalogStatus: complete
+lifecycleStatus: existing-only
+vendorLifecycle:
+  vendor: Microsoft
+  supportStatus: active
+  endOfSupportDate: '2026-11-10'
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+- technology-component
+- runtime
+- dotnet
+- shared
+businessContext:
+  pillar: business-pillar.platform
+  productFamily: Shared Runtime Stacks
+capabilities: []

@@ -1,0 +1,51 @@
+schemaVersion: '1.0'
+uid: C14NBVQZN9-S0GV
+type: data_store_service
+name: Vantage Tenancy Database
+description: |
+  System-of-record PostgreSQL database for tenant, plan, and entitlement
+  records. Backs the Acme Vantage Entitlement API (W1GH4MXRC4-ZGMS).
+version: '16'
+catalogStatus: complete
+lifecycleStatus: existing-only
+primaryTechnologyComponent: NWFNB1R5TX-N5AC
+host: null
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+- data-store-service
+- core-platform
+businessContext:
+  pillar: business-pillar.platform
+  productFamily: Acme Vantage
+capabilities:
+- 01KQQ4Q026-7T2H
+requirementGroups:
+- 01KQQ4Q027-VBF0
+- 1JGV5Y25KN-73W7
+- P6M8FWV2D8-0RM8
+architecturalDecisions:
+  serviceAuthentication:
+    answer: Azure AD-integrated authentication; no shared passwords. App connects via managed identity.
+  secretsManagement:
+    answer: Connection string template in Key Vault; the password component is unused (managed identity auth).
+  serviceLogging:
+    answer: Query Store and PostgreSQL audit logs forwarded to the shared Observability runtime service.
+    satisfiedBy: relatedObject
+  healthWelfareMonitoring:
+    answer: Azure-native metrics (CPU, storage, connections) alerted via the shared Observability runtime service.
+  availabilityModel:
+    answer: Zone-redundant HA flexible server deployment, automatic failover.
+  scalabilityModel:
+    answer: Vertical scaling (compute tier); read replica planned but not yet provisioned -- ticket VANT-341.
+  recoverabilityModel:
+    answer: Automated daily backups, 35-day retention, point-in-time restore.
+  backup:
+    answer: Azure-managed automated backups, geo-redundant storage.
+  ha:
+    answer: Zone-redundant HA with synchronous standby.
+  encryption:
+    answer: Encryption at rest (platform-managed key) and in transit (TLS 1.2+ enforced).
+  accessControl:
+    answer: Azure AD-only auth; network access restricted to the AKS cluster's VNet via private endpoint.

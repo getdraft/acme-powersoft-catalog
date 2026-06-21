@@ -1,0 +1,24 @@
+schemaVersion: '1.0'
+uid: NWFNB1R5TX-N5AC
+type: technology_component
+name: PostgreSQL 16 (Azure Database for PostgreSQL Flexible Server)
+description: |
+  Managed PostgreSQL used as the system-of-record for the Vantage tenancy
+  and entitlement data model.
+version: '16'
+catalogStatus: complete
+lifecycleStatus: existing-only
+vendorLifecycle:
+  vendor: Microsoft / PostgreSQL Global Development Group
+  supportStatus: active
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+- technology-component
+- database
+- postgresql
+businessContext:
+  pillar: business-pillar.platform
+  productFamily: Acme Vantage
+capabilities: []
