@@ -1,0 +1,89 @@
+schemaVersion: '1.0'
+uid: BF6671X2X0-MH1Y
+type: software_deployment_pattern
+name: Acme Tax Suite Pattern
+description: |
+  Deployment pattern for the Acme Tax Suite, covering two genuinely
+  different systems under one product: the modern, containerized Fixed
+  Assets depreciation engine, and the legacy, on-premise Property Tax
+  PowerBuilder application. Deliberately kept as one SDP rather than split
+  in two, because they ship under one product and one team -- but the
+  internal split is real and visible in networkZones below.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: existing-only
+owner:
+  team: tax-compliance
+  contact: tax-compliance@acmepowersoft.example.com
+tags:
+- software-deployment-pattern
+- tax-compliance
+- legacy
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme Tax Suite
+architectureNotes:
+  availabilityTarget: 99.5% (Fixed Assets) / not formally defined (Property Tax Legacy)
+  availabilityRequirement: >-
+    Fixed Assets: active-active AKS pods, zone-redundant SQL MI. Property
+    Tax Legacy: single VM, no HA, accepted business risk.
+  dataClassification: Confidential
+  failureDomain:
+    scope: mixed
+    description: >-
+      Fixed Assets shares the same single-region AKS concentration risk as
+      Core Platform. Property Tax Legacy is an independent, smaller, but
+      *harder* failure domain: a single VM in a single data center with no
+      automated failover at all.
+  patternDeviations: >-
+    Property Tax Legacy deliberately does not follow the company's
+    cloud-native/containerized norm. This is a known, accepted deviation
+    pending eventual retirement or replatform (TAX-1142), not an oversight.
+  deploymentTargets: >-
+    Fixed Assets: shared AKS baseline, East US 2. Property Tax Legacy:
+    on-premise Windows VM, Atlanta data center.
+  interServiceConnections: Both systems call the shared Vantage Entitlement API for licensing checks.
+  externalDependencies: Azure AD B2C, Azure Key Vault, Datadog (Fixed Assets only -- Property Tax Legacy is not integrated with any of these).
+decisionRecords: []
+networkZones:
+- id: app-modern
+  name: Fixed Assets Application
+  tier: application
+  description: AKS-hosted Fixed Assets pods, private VNet.
+- id: data-modern
+  name: Fixed Assets Data
+  tier: data
+  description: Azure SQL Managed Instance, private endpoint only.
+- id: legacy-onprem
+  name: Property Tax Legacy (On-Premise)
+  tier: application
+  description: >-
+    Single on-prem VM in the Atlanta data center, hosting both the
+    PowerBuilder application and its Oracle database. Not segmented into
+    separate app/data tiers in practice -- both run on the same VM.
+serviceGroups:
+- name: Fixed Assets (Modern)
+  deploymentTarget: H1ZTZXV5F6-C1CZ
+  deployableObjects:
+  - ref: G4GHBWA8G6-ACY2
+    networkZone: app-modern
+    diagramTier: application
+    intent: ha
+    notes: Containerized depreciation engine, 2-6 replicas.
+  - ref: 66ZW6J2AAH-XSHS
+    networkZone: data-modern
+    diagramTier: data
+    intent: ha
+    notes: Zone-redundant Azure SQL Managed Instance.
+- name: Property Tax Legacy (On-Premise)
+  deploymentTarget: 8FRABMZWDP-NB72
+  deployableObjects:
+  - ref: FQR8TJFC7G-4MWS
+    networkZone: legacy-onprem
+    diagramTier: application
+    intent: standalone
+    notes: >-
+      Single-instance PowerBuilder application + co-located Oracle
+      database on one VM. No HA, no autoscaling -- intent is deliberately
+      'standalone', not 'ha', because claiming otherwise would misrepresent
+      the deployment.
