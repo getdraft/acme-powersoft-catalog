@@ -30,6 +30,8 @@ shoehorned into the nearest available type with an honesty-over-conformance
 workaround, and a v1.0 framework being rolled out company-wide will hit
 this on day one, every time, across nearly every org.
 
+**Post-publication correction:** after this report was first compiled, the user reported seeing no Acme content at all when viewing the published catalog browser. Investigation found every Phase 4-5 object had been authored at the repo root instead of under `catalog/` -- the directory our own `workspace.yaml` and the framework's `how-to-add-objects.md` both specify. None of it was ever discoverable by `generate_browser.py` or, by the same logic, by `generate_backstage.py` or `generate_c4.py`. This was a process error by the agents authoring content, not a framework gap -- the convention was documented in two places we'd already read -- and it is now fixed (see Friction Log, Phase 6). It is left in this report rather than quietly corrected because it is itself a relevant v1.0 adoption-risk finding: nothing in the tooling warned that `catalog/` was empty or that authored content was being silently ignored.
+
 ---
 
 ## Assumption Log
@@ -97,6 +99,8 @@ different ownership assignments.
 | 5 | Sofia Lindqvist | Unclear whether RequirementGroups should have a lighter activation tier for low-stakes internal tooling, versus answering the same mandatory questions with a deliberately lower bar | Confirmed by the Admin: "mandatory-but-the-bar-can-vary" is the intended v1.0 pattern; flagged as worth reconsidering for v1.1 since it produces identical catalog content to a hypothetical lighter tier but different audit semantics | N (design question, not a hard gap) |
 | 5 | Marcus Webb | No object models the fact that every other product's RuntimeService calls the Vantage Entitlement API at request time, making Core Platform a hard dependency for the entire company | Described narratively in the SDP's `interServiceConnections` field rather than as a structured cross-repo Relationship | **Y** (same root cause as the AKS-Host Relationship gap above) |
 | 6 | Priya Natarajan | `generate_browser.py`'s `WORKSPACE_ROOT` auto-detection only special-cases a vendoredPath literally named `.draft`; our (correct, per `workspace.yaml`) vendoredPath of `.draft/framework` caused the script to silently write `docs/index.html` two directories too deep instead of failing loudly | Re-ran with explicit `--workspace .` and `--output docs/index.html` flags, which the script does support | N (tooling bug, not a catalog schema gap) |
+| 6 | (process) | Every authored catalog object in Phases 4-5 (`requirement-groups/`, `shared-services/`, all six teams' `catalog/` and `sdp.yaml`) was placed at the repo root instead of under `catalog/`, the directory `workspace.yaml`'s own `paths.catalog: catalog` setting declares and `how-to-add-objects.md` documents explicitly ("generated architecture content belongs under `catalog/`"). `generate_browser.py`'s `load_objects()` only walks `catalog/` + `configurations/` + vendored framework defaults, so none of our ~58 authored objects were ever discoverable -- the 76 objects the browser showed before this fix were exclusively vendored framework reference data (capabilities, domains, requirement-group templates), which is why no business pillars, SDPs, or Acme-specific content ever rendered, in the browser or via GitHub Pages | Caught when the user inspected the published catalog browser and reported seeing no Acme content at all. Moved all authored YAML 1:1 by object type into `catalog/<kind>/<team>/` and `catalog/engineering/software-deployment-patterns/<team>/`; regenerated the browser (76 -> 129 objects) and verified all 6 SDPs, 4 business pillars, and all six products now load correctly | N (process error -- the convention was documented correctly in our own `workspace.yaml` and in the framework's docs; the agents authoring content in Phases 4-5 simply didn't follow it) |
+| 6 | (process) | Re-running `generate_browser.py` twice against an unchanged catalog produced two different `docs/assets/browser-data.js` files (~30,000-line diff, including added/shifted implicit-relationship index entries, not just key reordering) | Treated the most recent run as canonical and committed it; flagged as a real tooling defect rather than chased for byte-for-byte determinism | **Y** (the script appears to rely on hash-randomized iteration somewhere in its implicit-relationship derivation, which is itself worth a DRAFT bug report) |
 
 ---
 
@@ -177,6 +181,18 @@ sample, not in a hypothetical edge case.
     or have it fail loudly instead of silently writing output to the wrong
     directory. Addresses the Friction Log entry from Phase 6 (Priya
     Natarajan).
+11. **[High]** Make `generate_browser.py` (and the other exporters) warn
+    loudly -- not silently render an empty/default-only catalog -- when a
+    workspace's `catalog/` directory is missing, empty, or contains zero
+    company-authored objects. A silent zero-objects-found state is exactly
+    what let an entire phase of authored content go undiscovered without
+    anyone noticing until a human looked at the published output. Addresses
+    the Phase 6 (process) Friction Log entry on misplaced catalog content.
+12. **[Medium]** Investigate and fix the apparent non-determinism in
+    `generate_browser.py`'s output across repeated runs with no catalog
+    changes (observed ~30,000-line diff in `browser-data.js` between two
+    back-to-back runs, including added/shifted implicit-relationship index
+    entries). Addresses the second Phase 6 (process) Friction Log entry.
 
 ---
 
@@ -184,7 +200,7 @@ sample, not in a hypothetical edge case.
 
 | Repository | Contents |
 |---|---|
-| [getdraft/acme-powersoft-catalog](https://github.com/getdraft/acme-powersoft-catalog) | Vendored DRAFT framework, 6 company RequirementGroups, 9 shared-service objects, 6 teams' product-specific catalog objects + ONBOARDING.md + sdp.yaml, this report |
+| [getdraft/acme-powersoft-catalog](https://github.com/getdraft/acme-powersoft-catalog) | Vendored DRAFT framework, `catalog/` (6 RequirementGroups, 18 shared-service objects, 6 teams' product-specific catalog objects, 6 SoftwareDeploymentPatterns), `teams/*/ONBOARDING.md`, generated `docs/` browser, this report |
 | [getdraft/acme-powersoft-core-platform-product](https://github.com/getdraft/acme-powersoft-core-platform-product) | Acme Vantage — entitlement/tenancy API (.NET, AKS, Postgres) |
 | [getdraft/acme-powersoft-tax-compliance-product](https://github.com/getdraft/acme-powersoft-tax-compliance-product) | Acme Tax Suite — Fixed Assets engine (.NET/SQL) + Property Tax Legacy (PowerBuilder/Oracle, on-prem) |
 | [getdraft/acme-powersoft-asset-lease-product](https://github.com/getdraft/acme-powersoft-asset-lease-product) | Acme Asset & Lease Manager — ARO accretion engine (.NET, SQL, Service Bus) |
