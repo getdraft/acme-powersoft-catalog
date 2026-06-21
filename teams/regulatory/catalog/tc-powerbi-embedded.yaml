@@ -1,0 +1,28 @@
+schemaVersion: '1.0'
+uid: 4MNRK1XQZ7-PB10
+type: technology_component
+name: Power BI Embedded Capacity (Rate Case Dashboard)
+description: |
+  Azure Power BI Embedded capacity hosting the rate-case dashboard
+  consumed by regulators and outside counsel. First Power BI Embedded
+  object in this catalog -- no prior example to follow, modeled as a
+  TechnologyComponent rather than a RuntimeService since it's a managed
+  PaaS reporting capacity, not a process we deploy code into.
+version: A2 SKU
+catalogStatus: complete
+lifecycleStatus: existing-only
+vendorLifecycle:
+  vendor: Microsoft
+  supportStatus: active
+owner:
+  team: regulatory
+  contact: regulatory@acmepowersoft.example.com
+tags:
+- technology-component
+- reporting
+- powerbi
+businessContext:
+  pillar: business-pillar.tax-regulatory
+  productFamily: Acme RegTrack
+capabilities:
+- 01KT0XNZEY-Q2TF
