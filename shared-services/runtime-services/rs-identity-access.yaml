@@ -18,7 +18,7 @@ tags:
   - runtime
   - identity
   - shared-service
-# FRICTION NOTE (see EXERCISE_REPORT.md): this template's  field has no
+# FRICTION NOTE (see EXERCISE_REPORT.md): this template's host field has no
 # documented way to express "not applicable, fully vendor-managed PaaS."
 # Set to null rather than omitted so it is visibly answered-and-N/A instead
 # of silently missing.
