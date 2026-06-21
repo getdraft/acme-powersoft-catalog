@@ -1,0 +1,104 @@
+schemaVersion: '1.0'
+uid: 2EH86Y2YDS-3JRD
+type: software_deployment_pattern
+name: Acme Vantage Core Platform Pattern
+description: |
+  Deployment pattern for Acme Vantage: the entitlement/tenancy API that
+  every other Acme PowerSoft product depends on for licensing checks.
+  Containerized ASP.NET Core API on the shared AKS baseline, backed by a
+  zone-redundant PostgreSQL Flexible Server, fronted by the shared Azure
+  API Management gateway, authenticated via Azure AD B2C.
+version: 1.0.0
+catalogStatus: complete
+lifecycleStatus: existing-only
+owner:
+  team: core-platform
+  contact: core-platform@acmepowersoft.example.com
+tags:
+- software-deployment-pattern
+- core-platform
+- acme-vantage
+businessContext:
+  pillar: business-pillar.platform
+  productFamily: Acme Vantage
+architectureNotes:
+  availabilityTarget: 99.9%
+  availabilityRequirement: >-
+    Active-active API pods (3-12 replicas) behind the shared API Gateway;
+    zone-redundant Postgres with synchronous standby.
+  dataClassification: Confidential
+  failureDomain:
+    scope: single-region
+    description: >-
+      Single AKS cluster, single Azure region (East US 2). No cross-region
+      failover yet (VANT-340) -- every other product team's licensing
+      checks fail closed if this region has an outage. Flagged in the
+      EXERCISE_REPORT as the platform's single largest blast-radius risk.
+  patternDeviations: none
+  deploymentTargets: >-
+    Shared AKS baseline node pool (host H1ZTZXV5F6-C1CZ) in
+    East US 2. Database is a dedicated Azure Database for PostgreSQL
+    Flexible Server, not shared with other products.
+  interServiceConnections: >-
+    Every other Acme PowerSoft product's RuntimeService calls the Vantage
+    Entitlement API at request time to resolve plan/feature entitlements.
+    This makes Vantage a hard dependency for all five other products --
+    not yet expressed as Relationship objects in this catalog (see
+    EXERCISE_REPORT Schema Completeness section).
+  externalDependencies: >-
+    Azure AD B2C for end-user and service-to-service auth. Azure Key Vault
+    for secrets. Datadog for observability.
+decisionRecords: []
+networkZones:
+- id: edge
+  name: Edge
+  tier: frontend
+  description: Shared Azure API Management gateway, internet-facing.
+- id: app
+  name: Application
+  tier: application
+  description: AKS-hosted Vantage API pods, private VNet only.
+- id: data
+  name: Data
+  tier: data
+  description: PostgreSQL Flexible Server, private endpoint only, no public access.
+serviceGroups:
+- name: Edge
+  deploymentTarget: shared-api-management
+  deployableObjects:
+  - ref: G5XV9MK4RH-RG0A
+    networkZone: edge
+    diagramTier: presentation
+    intent: ha
+    notes: Shared Azure APIM gateway. Vantage is one of several APIs published through it.
+- name: Application
+  deploymentTarget: H1ZTZXV5F6-C1CZ
+  deployableObjects:
+  - ref: W1GH4MXRC4-ZGMS
+    networkZone: app
+    diagramTier: application
+    intent: ha
+    notes: Core entitlement/tenancy API. 3-12 replicas, HPA on CPU + queue depth.
+  - ref: ZV0QNH8M3D-EYW8
+    networkZone: app
+    diagramTier: application
+    intent: ha
+    notes: Shared Azure AD B2C-backed identity service; Vantage delegates auth here.
+  - ref: 37AJ772M7W-V27N
+    networkZone: app
+    diagramTier: utility
+    intent: ha
+    notes: Shared Key Vault-backed secrets service.
+  - ref: FH8VD6HQ69-ZMEG
+    networkZone: app
+    diagramTier: utility
+    intent: ha
+    notes: Shared Datadog-backed logging/monitoring service.
+- name: Data
+  deploymentTarget: azure-database-for-postgresql
+  deployableObjects:
+  - ref: C14NBVQZN9-S0GV
+    networkZone: data
+    diagramTier: data
+    intent: ha
+    notes: Zone-redundant Postgres Flexible Server, private endpoint only.
