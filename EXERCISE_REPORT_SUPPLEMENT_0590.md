@@ -461,6 +461,46 @@ with the old note-key satisfaction pattern.
 
 ---
 
+## New Finding: `activation: always` RequirementGroups Should Never Appear in `activeRequirementGroups`
+
+Independently inspecting this branch (rather than taking the migration and
+its review at face value) surfaced a finding this supplement did not
+originally account for. `validate.py` flags `.draft/workspace.yaml` for
+listing all 6 of Acme's RequirementGroups in `requirements.activeRequirementGroups`,
+with the message "Remove '<uid>' from requirements.activeRequirementGroups;
+always-on requirement groups do not need workspace activation."
+
+This is not a 0.59.0 regression -- `git show main:.draft/framework/framework/tools/validate.py`
+confirms the exact same check already existed before this migration, and all
+6 RequirementGroup catalog files already had `activation: always` set since
+Phase 4, unchanged by this migration's diff. The actual root cause is a
+mistake from this exercise's own earlier remediation round (the original
+report's Phase 6 entry on activating RequirementGroups): the workspace docs
+describe activation generically without mentioning the `activation: always`
+exception, which only lives in the requirement-group schema's field
+description, so all 6 uids were added to `activeRequirementGroups` when none
+of them needed to be -- a group with `activation: always` applies
+unconditionally and was never something a workspace could opt in or out of.
+This had been sitting in the catalog undetected because an earlier
+`validate.py` run was piped through `tail -80` and never displayed the
+errors section the warning lives above.
+
+Confirmed via diff that removing the redundant listing (leaving
+`activeRequirementGroups: []`) produces a byte-identical
+requirement-satisfaction result to the validator -- the listing has zero
+effect on which requirements are actually checked. The error is catching a
+real but soft problem: a workspace.yaml that lists an unconditional baseline
+control next to what's supposed to be a registry of optional choices makes
+mandatory governance look like something the company elected to turn on,
+which is misleading to a human reading the file as a governance artifact
+(this is exactly the misunderstanding that produced the original mistake).
+Given that, hard-failing validation over it seems miscalibrated -- a warning
+would catch the same documentation drift without treating a no-op as a
+release blocker. Fixed in this catalog by removing all 6 uids from
+`activeRequirementGroups`.
+
+---
+
 ## Summary Scorecard Update
 
 | Dimension | v1.0 Exercise Score | Post-0.59.0 Assessment |
