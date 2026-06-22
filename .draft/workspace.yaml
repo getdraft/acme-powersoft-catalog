@@ -21,13 +21,13 @@ paths:
   configurations: configurations
 
 requirements:
-  activeRequirementGroups:
-    - 8SEDYZHP49-YJHQ  # Access Control Baseline
-    - P6M8FWV2D8-0RM8  # Audit & Compliance Baseline
-    - KKDJGX6P7C-N9AR  # Change Management Baseline
-    - 1JGV5Y25KN-73W7  # Disaster Recovery Baseline
-    - KZM0T9NY43-3H8K  # Service Level Baseline
-    - 2EZZ268XWW-B5TP  # Vulnerability Management Baseline
+  # All 6 of Acme's RequirementGroups declare `activation: always` on the
+  # object itself (set in Phase 4), so they apply automatically and must
+  # NOT also be listed here -- validate.py treats that as a redundant/
+  # contradictory declaration ("always-on requirement groups do not need
+  # workspace activation"). activeRequirementGroups is reserved for groups
+  # authored with `activation: workspace`, which Acme has none of yet.
+  activeRequirementGroups: []
   requireActiveRequirementGroupDisposition: false
 
 contribution:
